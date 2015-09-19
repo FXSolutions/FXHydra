@@ -1,0 +1,39 @@
+PODS:
+  - Alamofire (2.0.0)
+  - HanekeSwift (0.10.0)
+  - Just (0.3)
+  - sqlite3 (3.8.11.1):
+    - sqlite3/common (= 3.8.11.1)
+  - sqlite3/common (3.8.11.1)
+  - XCGLogger (3.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - HanekeSwift (from `https://github.com/meteochu/HanekeSwift.git`)
+  - Just
+  - sqlite3
+  - XCGLogger (from `https://github.com/DaveWoodCom/XCGLogger.git`, branch `swift_2.0`)
+
+EXTERNAL SOURCES:
+  HanekeSwift:
+    :git: https://github.com/meteochu/HanekeSwift.git
+  XCGLogger:
+    :branch: swift_2.0
+    :git: https://github.com/DaveWoodCom/XCGLogger.git
+
+CHECKOUT OPTIONS:
+  HanekeSwift:
+    :commit: b227e3854c6f5d1e83226a3ee9e0dfcc5560618c
+    :git: https://github.com/meteochu/HanekeSwift.git
+  XCGLogger:
+    :commit: ef13e8fb1c5c8b155c8a96af2a397270f2812c9c
+    :git: https://github.com/DaveWoodCom/XCGLogger.git
+
+SPEC CHECKSUMS:
+  Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
+  HanekeSwift: d6f5bdf9dbdbbc09d59623b2c1d533e46463dd4d
+  Just: 92ea3e45a3d22e6f4ef9dd223192111f23096e98
+  sqlite3: 73d6ec33f24f74ceb91df8f1b6e1809251f0f580
+  XCGLogger: 5802533aff8bafc8b3b9776ab8972576f31d0a4e
+
+COCOAPODS: 0.38.2

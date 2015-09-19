@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-Hydra-HanekeSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Hydra-XCGLogger.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Hydra-sqlite3.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Hydra.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>12BA4329D5296652DE8A2EA7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2B2B889F2A3462E07674E7E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E903782746E5CF2AEBE7D12</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A991EEA59E4443DF31CEEFC7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
