@@ -1,12 +1,3 @@
-//
-//  HRAlbumCell.swift
-//  Hydra
-//
-//  Created by Evgeny Abramov on 8/3/15.
-//  Copyright © 2015 Evgeny Abramov. All rights reserved.
-//
-
-
 import UIKit
 
 class HRAlbumCell: UITableViewCell {

@@ -137,7 +137,7 @@ class HRInterfaceManager: NSObject  {
     func openSettings() {
         
         self.musicNav = nil
-        self.settingsNav = HRNavigationController(rootViewController: SettingsController())
+        self.settingsNav = HRNavigationController(rootViewController: HRSettingsController())
         self.albumsNav = nil
         self.downloadsNav = nil
         

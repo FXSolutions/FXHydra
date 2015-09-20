@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1523C6B11BAF56B600272C12 /* HRSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523C6B01BAF56B600272C12 /* HRSettingsController.swift */; settings = {ASSET_TAGS = (); }; };
 		156813161BA6CCF30019C118 /* HRDownloadedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156813151BA6CCF30019C118 /* HRDownloadedCell.swift */; settings = {ASSET_TAGS = (); }; };
 		1577BD5F1BA68453005E14DC /* HRDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577BD5E1BA68453005E14DC /* HRDownloadManager.swift */; settings = {ASSET_TAGS = (); }; };
 		649E73E547A8DD95524F7A01 /* Pods_Hydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE20EA940EC7896FD7A41B8 /* Pods_Hydra.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -85,6 +86,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1523C6B01BAF56B600272C12 /* HRSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRSettingsController.swift; sourceTree = "<group>"; };
 		156813151BA6CCF30019C118 /* HRDownloadedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRDownloadedCell.swift; sourceTree = "<group>"; };
 		1577BD5E1BA68453005E14DC /* HRDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRDownloadManager.swift; sourceTree = "<group>"; };
 		8CE20EA940EC7896FD7A41B8 /* Pods_Hydra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hydra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				D77554951B43A58F008779C1 /* SettingsController.swift */,
+				1523C6B01BAF56B600272C12 /* HRSettingsController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -690,7 +693,7 @@
 				CLASSPREFIX = HR;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = "Evgeny Abramov";
+				ORGANIZATIONNAME = "Evgeny Evgrafov";
 				TargetAttributes = {
 					D7F157E21B437D620023319E = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -834,6 +837,7 @@
 				D7ED33561B52D49E0068FF4E /* SwiftyJSON.swift in Sources */,
 				D775548E1B43A554008779C1 /* MenuController.swift in Sources */,
 				D76E93881B47E99E00F4834D /* HRDatabaseManager.swift in Sources */,
+				1523C6B11BAF56B600272C12 /* HRSettingsController.swift in Sources */,
 				D7F157E91B437D630023319E /* AppDelegate.swift in Sources */,
 				1577BD5F1BA68453005E14DC /* HRDownloadManager.swift in Sources */,
 				D7A64AEC1B6DB920000FE8A8 /* FMTokenizers.m in Sources */,

@@ -1,6 +1,3 @@
-# Uncomment this line to define a global platform for your project
-# platform :ios, '6.0'
-
 platform :ios, '8.0'
 inhibit_all_warnings!
 use_frameworks!
@@ -11,7 +8,6 @@ target 'Hydra' do
     pod 'HanekeSwift', :git=> 'https://github.com/meteochu/HanekeSwift.git'
 	pod 'XCGLogger', :git=> 'https://github.com/DaveWoodCom/XCGLogger.git', :branch=> 'swift_2.0'
 	pod 'Just'
-
 end
 
 target 'HydraTests' do

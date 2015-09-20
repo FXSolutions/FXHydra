@@ -1,10 +1,3 @@
-//
-//  AllMusicController.swift
-//  Hydra
-//
-//  Created by Evgeny Abramov on 7/1/15.
-//  Copyright (c) 2015 Evgeny Abramov. All rights reserved.
-//
 
 import UIKit
 
@@ -130,15 +123,6 @@ class AllMusicController: UITableViewController {
             self.presentViewController(PlayerController(), animated: true, completion: nil)
     
         }
-        
-//        self.presentViewController(PlayerController(), animated: true) { () -> Void in
-//            dispatch.async.main { () -> Void in
-//                var audioLocalModel = self.audiosArray[indexPath.row]
-//                
-//                HRPlayerManager.sharedInstance.playItem(audioLocalModel)
-//                
-//            }
-//        }
         
     }
     

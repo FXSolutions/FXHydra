@@ -1,11 +1,3 @@
-//
-//  HRAlbumsController.swift
-//  Hydra
-//
-//  Created by Evgeny Abramov on 8/2/15.
-//  Copyright © 2015 Evgeny Abramov. All rights reserved.
-//
-
 import UIKit
 
 class HRAlbumsController: UITableViewController {

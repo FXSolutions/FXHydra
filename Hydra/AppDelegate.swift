@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Hydra
-//
-//  Created by Evgeny Abramov on 7/1/15.
-//  Copyright (c) 2015 Evgeny Abramov. All rights reserved.
-//
 
 import UIKit
 import XCGLogger
@@ -72,7 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     override func remoteControlReceivedWithEvent(event: UIEvent?) {
         
-        
         if event?.type == UIEventType.RemoteControl {
             
             switch (event!.subtype) {
@@ -105,41 +97,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
             }
             
-            
-            
         }
         
-//        - (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent {
-//            
-//            if (receivedEvent.type == UIEventTypeRemoteControl) {
-//                
-//                switch (receivedEvent.subtype) {
-//                    
-//                case UIEventSubtypeRemoteControlPlay:
-//                    NSLog(@"pesume");
-//                    [[AFSoundManager sharedManager] resume];
-//                    
-//                case UIEventSubtypeRemoteControlPause:
-//                    NSLog(@"pause");
-//                    [[AFSoundManager sharedManager] pause];
-//                    break;
-//                case UIEventSubtypeRemoteControlPreviousTrack:
-//                    NSLog(@"prev track");
-//                    [[HRPlayerManager sharedManager] prevTrackAction];
-//                    break;
-//                    
-//                case UIEventSubtypeRemoteControlNextTrack:
-//                    NSLog(@"next track");
-//                    [[HRPlayerManager sharedManager] nextTrackAction];
-//                    break;
-//                    
-//                default:
-//                    break;
-//                }
-//            }
-//        }
     }
-
 
 }
 
