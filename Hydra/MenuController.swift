@@ -213,11 +213,10 @@ class MenuController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         
         let cell = HRMenuCell()
         
@@ -231,6 +230,9 @@ class MenuController: UITableViewController {
             cell.iconImage.image = UIImage(named: "albums")
             cell.menuTextLabel.text = "Albums"
         } else if indexPath.row == 3 {
+            cell.iconImage.image = UIImage(named: "friendsIcon")
+            cell.menuTextLabel.text = "Friends"
+        } else if indexPath.row == 4 {
             cell.iconImage.image = UIImage(named: "menuSettings")
             cell.menuTextLabel.text = "Settings"
         }
@@ -256,6 +258,8 @@ class MenuController: UITableViewController {
         } else if indexPath.row == 2 {
             HRInterfaceManager.sharedInstance.openAlbums()
         } else if indexPath.row == 3 {
+            HRInterfaceManager.sharedInstance.openFriends()//openFriends
+        } else if indexPath.row == 4 {
             HRInterfaceManager.sharedInstance.openSettings()
         }
         

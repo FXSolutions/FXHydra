@@ -10,6 +10,11 @@
 		1523C6B11BAF56B600272C12 /* HRSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523C6B01BAF56B600272C12 /* HRSettingsController.swift */; settings = {ASSET_TAGS = (); }; };
 		156813161BA6CCF30019C118 /* HRDownloadedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156813151BA6CCF30019C118 /* HRDownloadedCell.swift */; settings = {ASSET_TAGS = (); }; };
 		1577BD5F1BA68453005E14DC /* HRDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577BD5E1BA68453005E14DC /* HRDownloadManager.swift */; settings = {ASSET_TAGS = (); }; };
+		15AC8D021BB131180050827C /* HRFriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D011BB131180050827C /* HRFriendsController.swift */; settings = {ASSET_TAGS = (); }; };
+		15AC8D051BB1313B0050827C /* HRFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D041BB1313B0050827C /* HRFriendsCell.swift */; settings = {ASSET_TAGS = (); }; };
+		15AC8D071BB132A60050827C /* HRFriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D061BB132A60050827C /* HRFriendModel.swift */; settings = {ASSET_TAGS = (); }; };
+		15AC8D0A1BB13CDF0050827C /* HRFriendAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D091BB13CDF0050827C /* HRFriendAudioController.swift */; settings = {ASSET_TAGS = (); }; };
+		15AC8D0C1BB13D360050827C /* HRFriendAudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D0B1BB13D360050827C /* HRFriendAudioCell.swift */; settings = {ASSET_TAGS = (); }; };
 		649E73E547A8DD95524F7A01 /* Pods_Hydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE20EA940EC7896FD7A41B8 /* Pods_Hydra.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D76E93851B47E7FC00F4834D /* VKSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76E93831B47E7FC00F4834D /* VKSdk.framework */; };
 		D76E93861B47E7FC00F4834D /* VKSdkResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D76E93841B47E7FC00F4834D /* VKSdkResources.bundle */; };
@@ -89,6 +94,11 @@
 		1523C6B01BAF56B600272C12 /* HRSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRSettingsController.swift; sourceTree = "<group>"; };
 		156813151BA6CCF30019C118 /* HRDownloadedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRDownloadedCell.swift; sourceTree = "<group>"; };
 		1577BD5E1BA68453005E14DC /* HRDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRDownloadManager.swift; sourceTree = "<group>"; };
+		15AC8D011BB131180050827C /* HRFriendsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRFriendsController.swift; sourceTree = "<group>"; };
+		15AC8D041BB1313B0050827C /* HRFriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRFriendsCell.swift; sourceTree = "<group>"; };
+		15AC8D061BB132A60050827C /* HRFriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRFriendModel.swift; sourceTree = "<group>"; };
+		15AC8D091BB13CDF0050827C /* HRFriendAudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRFriendAudioController.swift; sourceTree = "<group>"; };
+		15AC8D0B1BB13D360050827C /* HRFriendAudioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRFriendAudioCell.swift; sourceTree = "<group>"; };
 		8CE20EA940EC7896FD7A41B8 /* Pods_Hydra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hydra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		951A50BF9B34515DEDB8EC4C /* Pods-Hydra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydra.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hydra/Pods-Hydra.debug.xcconfig"; sourceTree = "<group>"; };
 		D76E93831B47E7FC00F4834D /* VKSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VKSdk.framework; sourceTree = "<group>"; };
@@ -206,6 +216,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15AC8CFF1BB130F90050827C /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				15AC8D081BB13CC90050827C /* FriendAudio */,
+				15AC8D031BB131200050827C /* Cells */,
+				15AC8D011BB131180050827C /* HRFriendsController.swift */,
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
+		15AC8D001BB131030050827C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		15AC8D031BB131200050827C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				15AC8D041BB1313B0050827C /* HRFriendsCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		15AC8D081BB13CC90050827C /* FriendAudio */ = {
+			isa = PBXGroup;
+			children = (
+				15AC8D091BB13CDF0050827C /* HRFriendAudioController.swift */,
+				15AC8D0B1BB13D360050827C /* HRFriendAudioCell.swift */,
+			);
+			name = FriendAudio;
+			sourceTree = "<group>";
+		};
 		D76E938B1B47F0E000F4834D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +322,7 @@
 				D775547F1B437DF2008779C1 /* Auth */,
 				D77554801B437DF5008779C1 /* Menu */,
 				D7A64B071B6E05E7000FE8A8 /* Albums */,
+				15AC8CFF1BB130F90050827C /* Friends */,
 				D775547C1B437DC0008779C1 /* AllMusic */,
 				D77554851B439BF7008779C1 /* Player */,
 				D775547D1B437DD9008779C1 /* Downloads */,
@@ -301,6 +346,7 @@
 		D775547C1B437DC0008779C1 /* AllMusic */ = {
 			isa = PBXGroup;
 			children = (
+				15AC8D001BB131030050827C /* Search */,
 				D76E938B1B47F0E000F4834D /* Cell */,
 				D775548F1B43A563008779C1 /* AllMusicController.swift */,
 			);
@@ -348,6 +394,7 @@
 				D76E93891B47F0A400F4834D /* HRAudioItemModel.swift */,
 				D7A64B0B1B6EA395000FE8A8 /* HRCurrentUserModel.swift */,
 				D77E8AD21B6ED26A00AD31DF /* HRAlbumModel.swift */,
+				15AC8D061BB132A60050827C /* HRFriendModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -803,6 +850,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7A64AF31B6DB931000FE8A8 /* FMDatabaseVariadic.swift in Sources */,
+				15AC8D071BB132A60050827C /* HRFriendModel.swift in Sources */,
 				D76E93D11B48873E00F4834D /* MGSwipeTableCell.m in Sources */,
 				D77554D81B43A957008779C1 /* HRAPIManager.swift in Sources */,
 				D7A64AFF1B6DB93A000FE8A8 /* FMDatabase.m in Sources */,
@@ -817,6 +865,7 @@
 				D7ED335E1B52D4AD0068FF4E /* DrawerController.swift in Sources */,
 				D76E93C41B4815D300F4834D /* NSTimer+AFSoundManager.m in Sources */,
 				D76E93991B48081A00F4834D /* HRPlayerManager.swift in Sources */,
+				15AC8D0C1BB13D360050827C /* HRFriendAudioCell.swift in Sources */,
 				D7ED33631B52D4BE0068FF4E /* HashMap.swift in Sources */,
 				D76E93D01B48873E00F4834D /* MGSwipeButton.m in Sources */,
 				D76E93C61B48228200F4834D /* HRAllMusicCell.swift in Sources */,
@@ -835,10 +884,12 @@
 				D77554A21B43A6E8008779C1 /* SwiftyUserDefaults.swift in Sources */,
 				D77E8AD31B6ED26A00AD31DF /* HRAlbumModel.swift in Sources */,
 				D7ED33561B52D49E0068FF4E /* SwiftyJSON.swift in Sources */,
+				15AC8D0A1BB13CDF0050827C /* HRFriendAudioController.swift in Sources */,
 				D775548E1B43A554008779C1 /* MenuController.swift in Sources */,
 				D76E93881B47E99E00F4834D /* HRDatabaseManager.swift in Sources */,
 				1523C6B11BAF56B600272C12 /* HRSettingsController.swift in Sources */,
 				D7F157E91B437D630023319E /* AppDelegate.swift in Sources */,
+				15AC8D021BB131180050827C /* HRFriendsController.swift in Sources */,
 				1577BD5F1BA68453005E14DC /* HRDownloadManager.swift in Sources */,
 				D7A64AEC1B6DB920000FE8A8 /* FMTokenizers.m in Sources */,
 				D77554DE1B43AA8F008779C1 /* HRNavigationController.swift in Sources */,
@@ -848,6 +899,7 @@
 				D7A64B021B6DB93A000FE8A8 /* FMDatabaseQueue.m in Sources */,
 				D7ED335D1B52D4AD0068FF4E /* DrawerBarButtonItem.swift in Sources */,
 				D7ED335F1B52D4AD0068FF4E /* DrawerVisualState.swift in Sources */,
+				15AC8D051BB1313B0050827C /* HRFriendsCell.swift in Sources */,
 				D7A64B001B6DB93A000FE8A8 /* FMDatabaseAdditions.m in Sources */,
 				D76E93CA1B48645000F4834D /* ItunesSearch.m in Sources */,
 				D7A64B031B6DB93A000FE8A8 /* FMResultSet.m in Sources */,

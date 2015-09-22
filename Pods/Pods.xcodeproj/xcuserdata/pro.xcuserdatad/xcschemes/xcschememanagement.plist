@@ -19,7 +19,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Nuke.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Hydra.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Toucan.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,12 +47,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0A2730F67F7E04848BBC83761C27321B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>19D92C3BFC7DD6EEE6176941B8DA624B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3D33A3A6EAFF921F0F6925423AABB91D</key>
+		<key>1A80C42E7161A1DFCD28EF77E36997AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1C7A79DA15C8A8CC21437DFD6509D1A8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>43EF105167B35D7E9A338DF0E3BC5965</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6F8030B0417B1FB4347E4D252792BEC1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,17 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CE2FE5EAFF29AF8107C2DDCA1A8932ED</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D3C4C462956DDCC89CE2B05D03C15ED1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FCC321EB61EBFEA2083C068574D40B14</key>
+		<key>E9410879E3D3BE576B7A5C1CB5EB3F60</key>
 		<dict>
 			<key>primary</key>
 			<true/>

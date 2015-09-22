@@ -10,12 +10,33 @@ import UIKit
 
 class HRSettingsController: UIViewController {
     
+    var logOutButton : UIButton!
+    
+    override func loadView() {
+        super.loadView()
+        
+        self.logOutButton = UIButton(type: UIButtonType.System)
+        self.logOutButton.addTarget(self, action: "logOut", forControlEvents: UIControlEvents.TouchUpInside)
+        self.logOutButton.backgroundColor = UIColor.redColor()
+        self.logOutButton.setTitle("LOG OUT", forState: UIControlState.Normal)
+        self.logOutButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        self.view.addSubview(self.logOutButton)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Settings"
+        self.view.backgroundColor = UIColor.whiteColor()
         
         self.addLeftBarButton()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.logOutButton.frame = CGRectMake(screenSizeWidth/2-60, 70, 120, 50)
     }
     
     func addLeftBarButton() {
@@ -28,6 +49,18 @@ class HRSettingsController: UIViewController {
     func openMenu() {
         
         HRInterfaceManager.sharedInstance.openMenu()
+        
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    
+    func logOut() {
+        
+        VKSdk.forceLogout()
+        
         
     }
     

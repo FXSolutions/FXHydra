@@ -34,10 +34,11 @@ class HRInterfaceManager: NSObject  {
     
     var authController = AuthController()
     
-    var musicNav : HRNavigationController!
-    var downloadsNav : HRNavigationController!
-    var settingsNav : HRNavigationController!
-    var albumsNav : HRNavigationController!
+    var musicNav        : HRNavigationController!
+    var downloadsNav    : HRNavigationController!
+    var settingsNav     : HRNavigationController!
+    var albumsNav       : HRNavigationController!
+    var friendsNav      : HRNavigationController!
     
     
     var currentAudioOpenID = 0
@@ -88,10 +89,11 @@ class HRInterfaceManager: NSObject  {
     
     func openMusicList() {
         
-        self.musicNav = HRNavigationController(rootViewController: AllMusicController())
-        self.settingsNav = nil
-        self.albumsNav = nil
-        self.downloadsNav = nil
+        self.musicNav       = HRNavigationController(rootViewController: AllMusicController())
+        self.settingsNav    = nil
+        self.albumsNav      = nil
+        self.downloadsNav   = nil
+        self.friendsNav     = nil
         
         self.drawerController.setCenterViewController(self.musicNav!, withCloseAnimation: false, completion: nil)
         self.drawerController.toggleDrawerSide(DrawerSide.Left, animated: true) { (finish) -> Void in
@@ -104,10 +106,11 @@ class HRInterfaceManager: NSObject  {
     
     func openDownloads() {
         
-        self.musicNav = nil
-        self.settingsNav = nil
-        self.albumsNav = nil
-        self.downloadsNav = HRNavigationController(rootViewController: DownloadsController())
+        self.musicNav       = nil
+        self.settingsNav    = nil
+        self.albumsNav      = nil
+        self.friendsNav     = nil
+        self.downloadsNav   = HRNavigationController(rootViewController: DownloadsController())
         
         self.drawerController.setCenterViewController(self.downloadsNav!, withCloseAnimation: false, completion: nil)
         self.drawerController.toggleDrawerSide(DrawerSide.Left, animated: true) { (finish) -> Void in
@@ -120,10 +123,11 @@ class HRInterfaceManager: NSObject  {
     
     func openAlbums() {
         
-        self.musicNav = nil
-        self.settingsNav = nil
-        self.albumsNav = HRNavigationController(rootViewController: HRAlbumsController())
-        self.downloadsNav = nil
+        self.musicNav       = nil
+        self.settingsNav    = nil
+        self.albumsNav      = HRNavigationController(rootViewController: HRAlbumsController())
+        self.downloadsNav   = nil
+        self.friendsNav     = nil
         
         self.drawerController.setCenterViewController(self.albumsNav!, withCloseAnimation: false, completion: nil)
         self.drawerController.toggleDrawerSide(DrawerSide.Left, animated: true) { (finish) -> Void in
@@ -134,12 +138,31 @@ class HRInterfaceManager: NSObject  {
         
     }
     
+    func openFriends() {
+        
+        self.friendsNav     = HRNavigationController(rootViewController: HRFriendsController())
+        self.musicNav       = nil
+        self.settingsNav    = nil
+        self.albumsNav      = nil
+        self.downloadsNav   = nil
+        
+        
+        self.drawerController.setCenterViewController(self.friendsNav!, withCloseAnimation: false, completion: nil)
+        self.drawerController.toggleDrawerSide(DrawerSide.Left, animated: true) { (finish) -> Void in
+            if finish == true {
+                
+            }
+        }
+        
+    }
+    
     func openSettings() {
         
-        self.musicNav = nil
-        self.settingsNav = HRNavigationController(rootViewController: HRSettingsController())
-        self.albumsNav = nil
-        self.downloadsNav = nil
+        self.musicNav       = nil
+        self.settingsNav    = HRNavigationController(rootViewController: HRSettingsController())
+        self.albumsNav      = nil
+        self.downloadsNav   = nil
+        self.friendsNav     = nil
         
         self.drawerController.setCenterViewController(self.settingsNav!, withCloseAnimation: false, completion: nil)
         self.drawerController.toggleDrawerSide(DrawerSide.Left, animated: true) { (finish) -> Void in

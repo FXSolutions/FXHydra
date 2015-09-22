@@ -55,6 +55,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-Hydra/Alamofire.framework'
   install_framework 'Pods-Hydra/Haneke.framework'
   install_framework 'Pods-Hydra/Just.framework'
+  install_framework 'Pods-Hydra/Nuke.framework'
+  install_framework 'Pods-Hydra/Toucan.framework'
   install_framework 'Pods-Hydra/XCGLogger.framework'
   install_framework 'Pods-Hydra/sqlite3.framework'
 fi
@@ -62,6 +64,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-Hydra/Alamofire.framework'
   install_framework 'Pods-Hydra/Haneke.framework'
   install_framework 'Pods-Hydra/Just.framework'
+  install_framework 'Pods-Hydra/Nuke.framework'
+  install_framework 'Pods-Hydra/Toucan.framework'
   install_framework 'Pods-Hydra/XCGLogger.framework'
   install_framework 'Pods-Hydra/sqlite3.framework'
 fi
