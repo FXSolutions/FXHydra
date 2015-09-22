@@ -3,6 +3,7 @@ import UIKit
 
 class AllMusicController: UITableViewController {
     
+    var searchController : UISearchController!
     var audiosArray = Array<HRAudioItemModel>()
     var loading = false
     
@@ -28,6 +29,19 @@ class AllMusicController: UITableViewController {
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: "refreshAudios", forControlEvents: UIControlEvents.ValueChanged)
+        
+        // add search
+        
+        
+        let searchAudioController = HRSearchAudioController()
+        self.searchController = UISearchController(searchResultsController: searchAudioController)
+        self.searchController.searchResultsUpdater = searchAudioController
+        self.searchController.searchBar.sizeToFit()
+        self.searchController.searchBar.tintColor = UIColor.blackColor()
+        self.searchController.searchBar.placeholder = ""
+        self.tableView.tableHeaderView = self.searchController.searchBar
+        self.definesPresentationContext = true
+        self.extendedLayoutIncludesOpaqueBars = true
         
     }
     

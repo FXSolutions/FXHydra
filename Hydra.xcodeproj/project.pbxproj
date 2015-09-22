@@ -15,6 +15,9 @@
 		15AC8D071BB132A60050827C /* HRFriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D061BB132A60050827C /* HRFriendModel.swift */; settings = {ASSET_TAGS = (); }; };
 		15AC8D0A1BB13CDF0050827C /* HRFriendAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D091BB13CDF0050827C /* HRFriendAudioController.swift */; settings = {ASSET_TAGS = (); }; };
 		15AC8D0C1BB13D360050827C /* HRFriendAudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D0B1BB13D360050827C /* HRFriendAudioCell.swift */; settings = {ASSET_TAGS = (); }; };
+		15AC8D0E1BB18F480050827C /* HRFooterProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D0D1BB18F480050827C /* HRFooterProgress.swift */; settings = {ASSET_TAGS = (); }; };
+		15AC8D101BB18FA80050827C /* HRSearchAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D0F1BB18FA80050827C /* HRSearchAudioController.swift */; settings = {ASSET_TAGS = (); }; };
+		15AC8D121BB1931F0050827C /* HRAudioSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D111BB1931F0050827C /* HRAudioSearchCell.swift */; settings = {ASSET_TAGS = (); }; };
 		649E73E547A8DD95524F7A01 /* Pods_Hydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE20EA940EC7896FD7A41B8 /* Pods_Hydra.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D76E93851B47E7FC00F4834D /* VKSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76E93831B47E7FC00F4834D /* VKSdk.framework */; };
 		D76E93861B47E7FC00F4834D /* VKSdkResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D76E93841B47E7FC00F4834D /* VKSdkResources.bundle */; };
@@ -99,6 +102,9 @@
 		15AC8D061BB132A60050827C /* HRFriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRFriendModel.swift; sourceTree = "<group>"; };
 		15AC8D091BB13CDF0050827C /* HRFriendAudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRFriendAudioController.swift; sourceTree = "<group>"; };
 		15AC8D0B1BB13D360050827C /* HRFriendAudioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRFriendAudioCell.swift; sourceTree = "<group>"; };
+		15AC8D0D1BB18F480050827C /* HRFooterProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRFooterProgress.swift; sourceTree = "<group>"; };
+		15AC8D0F1BB18FA80050827C /* HRSearchAudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRSearchAudioController.swift; sourceTree = "<group>"; };
+		15AC8D111BB1931F0050827C /* HRAudioSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRAudioSearchCell.swift; sourceTree = "<group>"; };
 		8CE20EA940EC7896FD7A41B8 /* Pods_Hydra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hydra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		951A50BF9B34515DEDB8EC4C /* Pods-Hydra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydra.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hydra/Pods-Hydra.debug.xcconfig"; sourceTree = "<group>"; };
 		D76E93831B47E7FC00F4834D /* VKSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VKSdk.framework; sourceTree = "<group>"; };
@@ -229,6 +235,8 @@
 		15AC8D001BB131030050827C /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				15AC8D0F1BB18FA80050827C /* HRSearchAudioController.swift */,
+				15AC8D111BB1931F0050827C /* HRAudioSearchCell.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -451,16 +459,8 @@
 				D77554A31B43A6F0008779C1 /* DrawController */,
 				D77554A01B43A6E0008779C1 /* UserDef */,
 				D77554991B43A6D0008779C1 /* HashMap */,
-				D77554981B43A6C2008779C1 /* Panorama */,
 			);
 			name = Ext;
-			sourceTree = "<group>";
-		};
-		D77554981B43A6C2008779C1 /* Panorama */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Panorama;
 			sourceTree = "<group>";
 		};
 		D77554991B43A6D0008779C1 /* HashMap */ = {
@@ -514,6 +514,7 @@
 			children = (
 				D77E8AD01B6EBFBA00AD31DF /* UIImage+Ext.swift */,
 				D77554DD1B43AA8F008779C1 /* HRNavigationController.swift */,
+				15AC8D0D1BB18F480050827C /* HRFooterProgress.swift */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -860,6 +861,7 @@
 				D77554941B43A581008779C1 /* DownloadsController.swift in Sources */,
 				D7ED33641B52D4BE0068FF4E /* SinglyLinkedList.swift in Sources */,
 				D76E93C31B4815D300F4834D /* AFSoundRecord.m in Sources */,
+				15AC8D121BB1931F0050827C /* HRAudioSearchCell.swift in Sources */,
 				D76E938A1B47F0A400F4834D /* HRAudioItemModel.swift in Sources */,
 				D77E8AD51B6ED2D300AD31DF /* HRAlbumCell.swift in Sources */,
 				D7ED335E1B52D4AD0068FF4E /* DrawerController.swift in Sources */,
@@ -867,6 +869,7 @@
 				D76E93991B48081A00F4834D /* HRPlayerManager.swift in Sources */,
 				15AC8D0C1BB13D360050827C /* HRFriendAudioCell.swift in Sources */,
 				D7ED33631B52D4BE0068FF4E /* HashMap.swift in Sources */,
+				15AC8D0E1BB18F480050827C /* HRFooterProgress.swift in Sources */,
 				D76E93D01B48873E00F4834D /* MGSwipeButton.m in Sources */,
 				D76E93C61B48228200F4834D /* HRAllMusicCell.swift in Sources */,
 				D7A64AEF1B6DB92A000FE8A8 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
@@ -910,6 +913,7 @@
 				156813161BA6CCF30019C118 /* HRDownloadedCell.swift in Sources */,
 				D77554B31B43A721008779C1 /* BufferedNavigationController.m in Sources */,
 				D76E93C11B4815D300F4834D /* AFSoundItem.m in Sources */,
+				15AC8D101BB18FA80050827C /* HRSearchAudioController.swift in Sources */,
 				D7ED335C1B52D4AD0068FF4E /* AnimatedMenuButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
