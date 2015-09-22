@@ -49,4 +49,26 @@ extension UIImage {
         return newImage
     }
     
+    func roundImage() -> UIImage {
+        let nSize = CGSize(width: self.size.width, height: self.size.height)
+        UIGraphicsBeginImageContextWithOptions(nSize,false,UIScreen.mainScreen().scale);
+        let context = UIGraphicsGetCurrentContext();
+        
+        // Background
+        
+        CGContextAddPath(context, CGPathCreateWithEllipseInRect(CGRect(origin: CGPointZero, size: nSize),nil));
+        CGContextClip(context);
+        self.drawInRect(CGRect(origin: CGPointMake(-1, -1), size: CGSize(width: (self.size.width+2), height: (self.size.height+2))));
+        
+        // Border
+        
+        CGContextSetStrokeColorWithColor(context, UIColor(red: 0, green: 0, blue: 0, alpha: 0x19/255.0).CGColor);
+        CGContextAddArc(context,CGFloat(self.size.width)/2, CGFloat(self.size.width)/2, CGFloat(self.size.width)/2, CGFloat(M_PI * 0), CGFloat(M_PI * 2), 0);
+        CGContextDrawPath(context, CGPathDrawingMode.Stroke);
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return image;
+    }
+    
 }

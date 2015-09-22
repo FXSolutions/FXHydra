@@ -51,7 +51,7 @@ class HRFriendsController: UITableViewController {
         if loading == false {
             loading = true
             
-            let getFriends = VKRequest(method: "friends.get", andParameters: ["order":"hints","count":100,"offset":self.friendsArray.count,"fields":"photo_100","name_case":"ins"], andHttpMethod: "GET")
+            let getFriends = VKRequest(method: "friends.get", andParameters: ["order":"hints","count":100,"offset":self.friendsArray.count,"fields":"photo_100,can_see_audio","name_case":"nom"], andHttpMethod: "GET")
             
             
             getFriends.executeWithResultBlock({ (response) -> Void in
@@ -110,8 +110,15 @@ class HRFriendsController: UITableViewController {
         request.contentMode = .AspectFill
         
         Nuke.taskWithRequest(request) {
-            cell.friendAvatar.image = $0.image // Image is resized
+            let imagekek = $0.image // Image is resized
+            cell.friendAvatar.image = imagekek?.roundImage()
+        
             }.resume()
+        
+        
+        if friend.can_see_audio == false {
+            cell.backgroundColor = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.1)
+        }
         
         
         return cell
@@ -123,11 +130,16 @@ class HRFriendsController: UITableViewController {
         
         let friend = self.friendsArray[indexPath.row]
         
-        let friendAudioController = HRFriendAudioController()
-        friendAudioController.friendModel = friend
-        friendAudioController.title = "\(friend.first_name!) \(friend.last_name!)"
+        if friend.can_see_audio == true {
+            
+            let friendAudioController = HRFriendAudioController()
+            friendAudioController.friendModel = friend
+            friendAudioController.title = "\(friend.first_name!) \(friend.last_name!)"
+            
+            self.navigationController?.pushViewController(friendAudioController, animated: true)
+            
+        }
         
-        self.navigationController?.pushViewController(friendAudioController, animated: true)
         
     }
     

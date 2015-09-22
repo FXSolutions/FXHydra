@@ -41,5 +41,11 @@ class HRFriendsCell: UITableViewCell {
         self.friendAvatar.frame = CGRectMake(10, 10, 50, 50)
         
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.backgroundColor = UIColor.whiteColor()
+    }
 
 }
