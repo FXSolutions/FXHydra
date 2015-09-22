@@ -6,6 +6,7 @@ class AllMusicController: UITableViewController {
     var searchController : UISearchController!
     var audiosArray = Array<HRAudioItemModel>()
     var loading = false
+    var hrRefeshControl  = UIRefreshControl()
     
     override func loadView() {
         super.loadView()
@@ -27,8 +28,8 @@ class AllMusicController: UITableViewController {
         
         self.addLeftBarButton()
         
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: "refreshAudios", forControlEvents: UIControlEvents.ValueChanged)
+        self.hrRefeshControl.addTarget(self, action: "refreshAudios", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = self.hrRefeshControl
         
         // add search
         
@@ -94,10 +95,49 @@ class AllMusicController: UITableViewController {
         
     }
     
+    
+    
     func refreshAudios() {
         
-        self.audiosArray = Array<HRAudioItemModel>()
-        self.loadMoreAudios()
+        
+        if loading == false {
+            loading = true
+            
+            let getAudio = VKRequest(method: "audio.get", andParameters: ["count":100,"offset":0], andHttpMethod: "GET")
+            
+            getAudio.executeWithResultBlock({ (response) -> Void in
+                
+                self.audiosArray = Array<HRAudioItemModel>()
+                
+                let json = response.json as! Dictionary<String,AnyObject>
+                let items = json["items"] as! Array<Dictionary<String,AnyObject>>
+                
+                
+                for audioDict in items {
+                    
+                    print(audioDict)
+                    
+                    let jsonAudioItem = JSON(audioDict)
+                    let audioItemModel = HRAudioItemModel(json: jsonAudioItem)
+                    
+                    self.audiosArray.append(audioItemModel)
+                    
+                }
+                
+                dispatch.async.main({ () -> Void in
+                    self.refreshControl?.endRefreshing()
+                    self.tableView.reloadData()
+                    self.loading = false
+                })
+                
+                
+                }, errorBlock: { (error) -> Void in
+                    // error
+                    print(error)
+            })
+        }
+
+        
         
     }
     
