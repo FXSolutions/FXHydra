@@ -11,20 +11,19 @@ import Foundation
 class HRUserModel {
     
         
-    var first_name : String!
-    var last_name  : String!
-    var user_id : Int!
-    var photoURL   : String!
+    var first_name  : String!
+    var last_name   : String!
+    var user_id     : Int!
+    var photoURL    : String!
     
     init(json : JSON) {
         
-        self.user_id = json["id"].intValue
-        self.first_name = json["first_name"].stringValue
-        self.last_name = json["last_name"].stringValue
-        self.photoURL = json["photo_200"].stringValue
+        self.user_id        = json["id"].intValue
+        self.first_name     = json["first_name"].stringValue
+        self.last_name      = json["last_name"].stringValue
+        self.photoURL       = json["photo_200"].stringValue
         
     }
-        
     
     
 }

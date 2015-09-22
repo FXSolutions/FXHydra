@@ -115,7 +115,6 @@ class AllMusicController: UITableViewController {
                 
                 for audioDict in items {
                     
-                    print(audioDict)
                     
                     let jsonAudioItem = JSON(audioDict)
                     let audioItemModel = HRAudioItemModel(json: jsonAudioItem)
@@ -133,7 +132,7 @@ class AllMusicController: UITableViewController {
                 
                 }, errorBlock: { (error) -> Void in
                     // error
-                    print(error)
+                    log.error("\(error)")
             })
         }
 
@@ -178,6 +177,7 @@ class AllMusicController: UITableViewController {
             HRPlayerManager.sharedInstance.items = self.audiosArray
             HRPlayerManager.sharedInstance.currentPlayIndex = indexPath.row
             HRPlayerManager.sharedInstance.playItem(audioLocalModel)
+            
             
             self.presentViewController(PlayerController(), animated: true, completion: nil)
     

@@ -1,7 +1,7 @@
 import Foundation
 
 enum HRDownloadState: Int {
-    case NotDownloaded = 1, Proccess = 2, Complite = 3
+    case NotDownloaded = 1, InProgress = 2, Complete = 3
 }
 
 enum HRGlobalState: Int {
@@ -29,14 +29,14 @@ class HRAudioItemModel {
         [title: Black (Contrvbvnd Edit), id: 378647957, lyrics_id: 261830649, owner_id: 2360042, artist: MAKJ & Thomas Newson, duration: 223, genre_id: 18, url: https://cs1-36v4.vk-cdn.net/p13/07cbb203d71f1a.mp3?extra=wnsZiEr0T7HPx8CtfOHVLhnvNK2iNo1nuJo_uusniukWtC8Z8B6_38sULq-yQeakAyDlznrvx-52Y8QxLk0GWk3Yj4g89g]
         */
         
-        self.title = json["title"].stringValue
-        self.audioID = json["id"].intValue
-        self.lyrics_id = json["lyrics_id"].intValue
-        self.ownerID = json["owner_id"].intValue
-        self.artist = json["artist"].stringValue
-        self.duration = json["duration"].intValue
-        self.genre_id = json["genre_id"].intValue
-        self.audioNetworkURL = json["url"].stringValue
+        self.title              = json["title"].stringValue
+        self.audioID            = json["id"].intValue
+        self.lyrics_id          = json["lyrics_id"].intValue
+        self.ownerID            = json["owner_id"].intValue
+        self.artist             = json["artist"].stringValue
+        self.duration           = json["duration"].intValue
+        self.genre_id           = json["genre_id"].intValue
+        self.audioNetworkURL    = json["url"].stringValue
     
     }
     

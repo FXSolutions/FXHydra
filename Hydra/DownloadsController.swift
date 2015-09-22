@@ -12,12 +12,10 @@ class DownloadsController: UITableViewController {
         
         self.addLeftBarButton()
         
-        
         self.tableView.registerClass(HRDownloadedCell.self, forCellReuseIdentifier: "HRDownloadedCell")
         self.tableView.rowHeight = 70
-        
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
     }
-    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -29,7 +27,6 @@ class DownloadsController: UITableViewController {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
-    
     
     func addLeftBarButton() {
         
@@ -87,13 +84,9 @@ class DownloadsController: UITableViewController {
         
     }
 
-    
-    
     // get all audios 
     
-    
     func getAllDownloads() {
-        
         
         HRDatabaseManager.sharedInstance.getAllDownloads { (audiosArray) -> () in
             
@@ -101,7 +94,6 @@ class DownloadsController: UITableViewController {
             self.tableView.reloadData()
             
         }
-        
         
     }
 }

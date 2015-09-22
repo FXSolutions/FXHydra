@@ -13,6 +13,8 @@ class HRDownloadManager {
     
     static let sharedInstance = HRDownloadManager()
     
+    
+    
     func downloadAudio(model:HRAudioItemModel,progress:(Float) -> () ) {
         
         let destination = Alamofire.Request.suggestedDownloadDestination(directory: .DocumentDirectory, domain: .UserDomainMask)

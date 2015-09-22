@@ -33,14 +33,7 @@ class HRInterfaceManager  {
     var mainNav: HRNavigationController!
     
     var authController = AuthController()
-    
-    var musicNav        : HRNavigationController!
-    var downloadsNav    : HRNavigationController!
-    var settingsNav     : HRNavigationController!
-    var albumsNav       : HRNavigationController!
-    var friendsNav      : HRNavigationController!
-    
-    
+
     var currentAudioOpenID = 0
     
     var menuOppened = false
@@ -68,13 +61,14 @@ class HRInterfaceManager  {
         self.drawerController.shouldStretchDrawer = false
         self.drawerController.maximumLeftDrawerWidth = screenSizeWidth-60
         
-        self.drawerController.drawerVisualStateBlock = { (drawerController, drawerSide, percentVisible) in
-            _ = DrawerVisualState.swingingDoorVisualStateBlock
-        }
+//        self.drawerController.drawerVisualStateBlock = { (drawerController, drawerSide, percentVisible) in
+//            _ = DrawerVisualState.swingingDoorVisualStateBlock
+//        }
         
-        dispatch_async(dispatch_get_main_queue()) {
+        dispatch.async.main { () -> Void in
             self.mainNav.pushViewController(self.drawerController, animated: false)
         }
+        
         
         
     }
@@ -87,13 +81,9 @@ class HRInterfaceManager  {
     
     func openMusicList() {
         
-        self.musicNav       = HRNavigationController(rootViewController: AllMusicController())
-        self.settingsNav    = nil
-        self.albumsNav      = nil
-        self.downloadsNav   = nil
-        self.friendsNav     = nil
+        let musicNav = HRNavigationController(rootViewController: AllMusicController())
         
-        self.drawerController.setCenterViewController(self.musicNav!, withCloseAnimation: false, completion: nil)
+        self.drawerController.setCenterViewController(musicNav, withCloseAnimation: false, completion: nil)
         self.drawerController.toggleDrawerSide(DrawerSide.Left, animated: true) { (finish) -> Void in
             if finish == true {
                 
@@ -104,13 +94,22 @@ class HRInterfaceManager  {
     
     func openDownloads() {
         
-        self.musicNav       = nil
-        self.settingsNav    = nil
-        self.albumsNav      = nil
-        self.friendsNav     = nil
-        self.downloadsNav   = HRNavigationController(rootViewController: DownloadsController())
+        let downloadsNav = HRNavigationController(rootViewController: DownloadsController())
         
-        self.drawerController.setCenterViewController(self.downloadsNav!, withCloseAnimation: false, completion: nil)
+        self.drawerController.setCenterViewController(downloadsNav, withCloseAnimation: false, completion: nil)
+        self.drawerController.toggleDrawerSide(DrawerSide.Left, animated: true) { (finish) -> Void in
+            if finish == true {
+                
+            }
+        }
+        
+    }
+    
+    func openGroups() {
+        
+        let groupsNav  = HRNavigationController(rootViewController: HRGroupsController())
+        
+        self.drawerController.setCenterViewController(groupsNav, withCloseAnimation: false, completion: nil)
         self.drawerController.toggleDrawerSide(DrawerSide.Left, animated: true) { (finish) -> Void in
             if finish == true {
                 
@@ -121,13 +120,9 @@ class HRInterfaceManager  {
     
     func openAlbums() {
         
-        self.musicNav       = nil
-        self.settingsNav    = nil
-        self.albumsNav      = HRNavigationController(rootViewController: HRAlbumsController())
-        self.downloadsNav   = nil
-        self.friendsNav     = nil
+        let albumsNav = HRNavigationController(rootViewController: HRAlbumsController())
         
-        self.drawerController.setCenterViewController(self.albumsNav!, withCloseAnimation: false, completion: nil)
+        self.drawerController.setCenterViewController(albumsNav, withCloseAnimation: false, completion: nil)
         self.drawerController.toggleDrawerSide(DrawerSide.Left, animated: true) { (finish) -> Void in
             if finish == true {
                 
@@ -138,14 +133,9 @@ class HRInterfaceManager  {
     
     func openFriends() {
         
-        self.friendsNav     = HRNavigationController(rootViewController: HRFriendsController())
-        self.musicNav       = nil
-        self.settingsNav    = nil
-        self.albumsNav      = nil
-        self.downloadsNav   = nil
+        let friendsNav = HRNavigationController(rootViewController: HRFriendsController())
         
-        
-        self.drawerController.setCenterViewController(self.friendsNav!, withCloseAnimation: false, completion: nil)
+        self.drawerController.setCenterViewController(friendsNav, withCloseAnimation: false, completion: nil)
         self.drawerController.toggleDrawerSide(DrawerSide.Left, animated: true) { (finish) -> Void in
             if finish == true {
                 
@@ -156,13 +146,9 @@ class HRInterfaceManager  {
     
     func openSettings() {
         
-        self.musicNav       = nil
-        self.settingsNav    = HRNavigationController(rootViewController: HRSettingsController())
-        self.albumsNav      = nil
-        self.downloadsNav   = nil
-        self.friendsNav     = nil
+        let settingsNav = HRNavigationController(rootViewController: HRSettingsController())
         
-        self.drawerController.setCenterViewController(self.settingsNav!, withCloseAnimation: false, completion: nil)
+        self.drawerController.setCenterViewController(settingsNav, withCloseAnimation: false, completion: nil)
         self.drawerController.toggleDrawerSide(DrawerSide.Left, animated: true) { (finish) -> Void in
             if finish == true {
                 
