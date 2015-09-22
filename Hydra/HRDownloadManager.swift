@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class HRDownloadManager: NSObject {
+class HRDownloadManager {
     
     static let sharedInstance = HRDownloadManager()
     

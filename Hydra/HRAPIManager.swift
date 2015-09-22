@@ -1,5 +1,5 @@
 import Foundation
 
-class HRAPIManager: NSObject {
+class HRAPIManager {
 
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HRFriendModel: NSObject {
+class HRFriendModel {
     
     var user_id         : Int!
     var first_name      : String!

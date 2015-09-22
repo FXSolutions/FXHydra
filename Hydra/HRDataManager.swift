@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HRDataManager: NSObject {
+class HRDataManager {
     
     // ##### singleton #####
     static let sharedInstance = HRDataManager()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HRUserModel: NSObject {
+class HRUserModel {
     
         
     var first_name : String!

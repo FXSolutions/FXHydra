@@ -24,7 +24,7 @@ enum HRCurrentOpenNav: Int {
 }
 
 
-class HRInterfaceManager: NSObject  {
+class HRInterfaceManager  {
 
     static let sharedInstance = HRInterfaceManager()
     
@@ -45,12 +45,10 @@ class HRInterfaceManager: NSObject  {
     
     var menuOppened = false
     
-    required override init() {
-        super.init()
-        
+    
+    init() {
         self.mainNav = HRNavigationController()
         self.mainNav.navigationBarHidden = true
-        
     }
     
     

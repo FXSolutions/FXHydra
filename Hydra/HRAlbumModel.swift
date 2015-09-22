@@ -1,6 +1,6 @@
 import Foundation
 
-class HRAlbumModel: NSObject {
+class HRAlbumModel {
     
     var album_id : Int!
     var owner_id  : Int!

@@ -9,7 +9,7 @@ enum HRGlobalState: Int {
 }
 
 
-class HRAudioItemModel: NSObject {
+class HRAudioItemModel {
     
     var artist : String!
     var title  : String!

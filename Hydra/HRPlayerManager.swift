@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import Haneke
 
-class HRCurrentSongPlayedTime: NSObject {
+class HRCurrentSongPlayedTime {
     var duration : Int!
     var timePlayed : Int!
 }
@@ -37,7 +37,7 @@ extension MutableCollectionType where Index == Int {
     }
 }
 
-class HRPlayerManager: NSObject {
+class HRPlayerManager {
     
     static let sharedInstance = HRPlayerManager()
     

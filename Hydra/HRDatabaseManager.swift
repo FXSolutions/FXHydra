@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HRDatabaseManager: NSObject {
+class HRDatabaseManager {
     
     static let sharedInstance = HRDatabaseManager()
 
@@ -18,8 +18,12 @@ class HRDatabaseManager: NSObject {
     var queue: dispatch_queue_t?
     
     
-    required override init() {
-        super.init()
+//    required override init() {
+//        super.init()
+//        self.databaseSetup()
+//    }
+    
+    init() {
         self.databaseSetup()
     }
     
