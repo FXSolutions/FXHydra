@@ -56,8 +56,10 @@ class AllMusicController: UITableViewController {
     
     func loadMoreAudios() {
         
+        
         if loading == false {
             loading = true
+            
             let getAudio = VKRequest(method: "audio.get", andParameters: ["count":100,"offset":self.audiosArray.count], andHttpMethod: "GET")
             
             getAudio.executeWithResultBlock({ (response) -> Void in
@@ -77,9 +79,12 @@ class AllMusicController: UITableViewController {
                     
                 }
                 
-                self.refreshControl?.endRefreshing()
-                self.tableView.reloadData()
-                self.loading = false
+                dispatch.async.main({ () -> Void in
+                    self.refreshControl?.endRefreshing()
+                    self.tableView.reloadData()
+                    self.loading = false
+                })
+                
                 
                 }, errorBlock: { (error) -> Void in
                     // error
@@ -91,7 +96,7 @@ class AllMusicController: UITableViewController {
     
     func refreshAudios() {
         
-        self.audiosArray.removeAll()
+        self.audiosArray = Array<HRAudioItemModel>()
         self.loadMoreAudios()
         
     }
