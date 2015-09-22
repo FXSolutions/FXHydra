@@ -164,5 +164,22 @@ class HRInterfaceManager  {
         }
         
     }
+    
+    func logOut() {
+        
+        self.mainNav.dismissViewControllerAnimated(false) { () -> Void in
+            //
+        
+        }
+        
+    }
+    
+    func openPlayer() {
+        
+        
+        self.drawerController.presentViewController(PlayerController(), animated: true, completion: nil)
+        
+        
+    }
 
 }

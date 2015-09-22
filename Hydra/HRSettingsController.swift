@@ -60,7 +60,7 @@ class HRSettingsController: UIViewController {
     func logOut() {
         
         VKSdk.forceLogout()
-        
+        HRInterfaceManager.sharedInstance.logOut()
         
     }
     

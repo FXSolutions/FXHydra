@@ -65,6 +65,7 @@ class MenuPlayer: UIView {
     var prevButton : UIButton!
     var playButton : UIButton!
     var pauseButton : UIButton!
+    var tapedView : UIView!
     
     
     override init(frame: CGRect) {
@@ -74,6 +75,7 @@ class MenuPlayer: UIView {
         self.blurEffectViewZZ = UIVisualEffectView(effect: blurEffect)
         self.blurEffectViewZZ.frame = CGRectMake(0, 0, screenSizeWidth, 100)
         self.blurEffectViewZZ.alpha = 0.5
+        self.blurEffectViewZZ.userInteractionEnabled = true
         self.addSubview(self.blurEffectViewZZ)
         
         self.songLabel = MarqueeLabel()
@@ -93,6 +95,7 @@ class MenuPlayer: UIView {
         self.albumCoverImage = UIImageView()
         self.albumCoverImage.frame = CGRectMake(7, 7, 36, 36)
         self.albumCoverImage.image = UIImage(named: "placeholder")
+        self.albumCoverImage.userInteractionEnabled = true
         self.addSubview(self.albumCoverImage)
         
         let separator = UIView(frame: CGRectMake(0, 50, screenSizeWidth, 1))
@@ -131,6 +134,22 @@ class MenuPlayer: UIView {
         self.rightSongTimeLabel.text  = "00:00"
         self.addSubview(self.rightSongTimeLabel)
         
+        self.userInteractionEnabled = true
+        let gestureRec = UITapGestureRecognizer(target: self, action: "tapOnView")
+        
+        self.tapedView = UIView(frame: CGRectMake(0, 0, screenSizeWidth, 49))
+        self.tapedView.backgroundColor = UIColor.clearColor()
+        self.tapedView.userInteractionEnabled = true
+        self.addSubview(tapedView)
+        self.tapedView.addGestureRecognizer(gestureRec)
+        
+        
+    }
+    
+    func tapOnView() {
+        if HRPlayerManager.sharedInstance.items.count != 0 {
+           HRInterfaceManager.sharedInstance.openPlayer()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
