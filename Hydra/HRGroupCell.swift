@@ -10,14 +10,15 @@ import UIKit
 
 class HRGroupCell: UITableViewCell {
     
-    var groupName : UILabel
+    var groupName : AttributedLabel
     var groupAvatar : UIImageView
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
-        self.groupName = UILabel()
-        self.groupName.font = UIFont(name: "HelveticaNeue-Light", size: 17)
+        self.groupName = AttributedLabel()
+        self.groupName.font = UIFont(name: "HelveticaNeue-Light", size: 17)!
         self.groupName.textColor = UIColor.blackColor()
+        self.groupName.backgroundColor = UIColor.whiteColor()
         
         self.groupAvatar = UIImageView()
         
@@ -46,6 +47,7 @@ class HRGroupCell: UITableViewCell {
         super.prepareForReuse()
         
         self.backgroundColor = UIColor.whiteColor()
+        self.groupAvatar.image = nil
     }
 
 }

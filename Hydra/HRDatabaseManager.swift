@@ -166,9 +166,26 @@ class HRDatabaseManager {
         })
     }
     
+    
+    func getAllDownloadsIds(completion: ([Int]) -> ()) {
+        dispatch_async(self.queue!, { () -> Void in
+            var array: [Int] = []
+            
+            let sql = "select audio_id from Downloads"
+            if let set: FMResultSet = self.database!.executeQuery(sql, withArgumentsInArray: nil) {
+                while set.next() {
+                    array.append(set.longForColumn("audio_id"))
+                }
+            }
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completion(array)
+            })
+        })
+    }
+    
     func clearAllTables() {
         
-        let deleteAllFromSessions     = "DELETE FROM Downloaded"
+        let deleteAllFromSessions = "DELETE FROM Downloaded"
         
         if self.database!.executeUpdate(deleteAllFromSessions, withArgumentsInArray: nil) {
             log.debug("Sessions table clear")

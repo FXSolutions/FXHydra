@@ -16,6 +16,10 @@ class HRDataManager {
     var currentUserModel : HRUserModel!
     let currentUserInfo = Signal<(HRUserModel!)>()
     
+    // all downloaded ids
+    
+    var arrayWithDownloadedIds = [Int]()
+    
     
     func getCurrentUserInfo() {
         
@@ -33,6 +37,14 @@ class HRDataManager {
                 print(error)
         })
         
+        
+    }
+    
+    func getAllDownloadedIdsFromDb(completion: (Bool) -> ()) {
+        HRDatabaseManager.sharedInstance.getAllDownloadsIds { (idsArray) -> () in
+            self.arrayWithDownloadedIds = idsArray
+            completion(true)
+        }
         
     }
     

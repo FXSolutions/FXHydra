@@ -10,14 +10,15 @@ import UIKit
 
 class HRFriendsCell: UITableViewCell {
     
-    var friendName : UILabel
+    var friendName : AttributedLabel
     var friendAvatar : UIImageView
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
-        self.friendName = UILabel()
-        self.friendName.font = UIFont(name: "HelveticaNeue-Light", size: 17)
+        self.friendName = AttributedLabel()
+        self.friendName.font = UIFont(name: "HelveticaNeue-Light", size: 17)!
         self.friendName.textColor = UIColor.blackColor()
+        self.friendName.backgroundColor = UIColor.whiteColor()
         
         self.friendAvatar = UIImageView()
         
@@ -46,6 +47,7 @@ class HRFriendsCell: UITableViewCell {
         super.prepareForReuse()
         
         self.backgroundColor = UIColor.whiteColor()
+        self.friendAvatar.image = nil
     }
 
 }

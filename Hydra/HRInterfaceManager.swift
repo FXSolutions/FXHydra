@@ -61,15 +61,14 @@ class HRInterfaceManager  {
         self.drawerController.shouldStretchDrawer = false
         self.drawerController.maximumLeftDrawerWidth = screenSizeWidth-60
         
-//        self.drawerController.drawerVisualStateBlock = { (drawerController, drawerSide, percentVisible) in
-//            _ = DrawerVisualState.swingingDoorVisualStateBlock
-//        }
         
-        dispatch.async.main { () -> Void in
-            self.mainNav.pushViewController(self.drawerController, animated: false)
+        HRDataManager.sharedInstance.getAllDownloadedIdsFromDb { (done) -> () in
+            
+            dispatch.async.main { () -> Void in
+                self.mainNav.pushViewController(self.drawerController, animated: false)
+            }
+            
         }
-        
-        
         
     }
     

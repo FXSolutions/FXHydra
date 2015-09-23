@@ -61,102 +61,88 @@ class AllMusicController: UITableViewController {
         if loading == false {
             loading = true
             
-            let getAudio = VKRequest(method: "audio.get", andParameters: ["count":100,"offset":self.audiosArray.count], andHttpMethod: "GET")
-            
-            getAudio.executeWithResultBlock({ (response) -> Void in
+            dispatch.async.global({ () -> Void in
                 
-                let json = response.json as! Dictionary<String,AnyObject>
-                let items = json["items"] as! Array<Dictionary<String,AnyObject>>
+                let getAudio = VKRequest(method: "audio.get", andParameters: ["count":100,"offset":self.audiosArray.count], andHttpMethod: "GET")
                 
-                var countAudios = self.audiosArray.count
-                
-                for audioDict in items {
+                getAudio.executeWithResultBlock({ (response) -> Void in
                     
-                    print(audioDict)
+                    let json = response.json as! Dictionary<String,AnyObject>
+                    let items = json["items"] as! Array<Dictionary<String,AnyObject>>
                     
-                    let jsonAudioItem = JSON(audioDict)
-                    let audioItemModel = HRAudioItemModel(json: jsonAudioItem)
+                    var countAudios = self.audiosArray.count
                     
-                    self.audiosArray.append(audioItemModel)
+                    for audioDict in items {
+                        
+                        print(audioDict)
+                        
+                        let jsonAudioItem = JSON(audioDict)
+                        let audioItemModel = HRAudioItemModel(json: jsonAudioItem)
+                        
+                        if HRDataManager.sharedInstance.arrayWithDownloadedIds.contains(audioItemModel.audioID) {
+                            audioItemModel.downloadState = 3
+                        } else {
+                            audioItemModel.downloadState = 1
+                        }
+                        
+                        self.audiosArray.append(audioItemModel)
+                        
+                    }
                     
-                }
-                
-                var indexPaths = [NSIndexPath]()
-                
-                for countAudios; countAudios < self.audiosArray.count;countAudios++ {
+                    var indexPaths = [NSIndexPath]()
                     
-                    let indexPath = NSIndexPath(forRow: countAudios-1, inSection: 0)
-                    indexPaths.append(indexPath)
+                    for countAudios; countAudios < self.audiosArray.count;countAudios++ {
+                        
+                        let indexPath = NSIndexPath(forRow: countAudios-1, inSection: 0)
+                        indexPaths.append(indexPath)
+                        
+                    }
                     
-                }
-                
-                dispatch.async.main({ () -> Void in
+                    dispatch.async.main({ () -> Void in
+                        
+                        //TODO: !hack! disable animations it's not good soulution for fast add cells, mb. need play with layer.speed in cell :/
+                        UIView.setAnimationsEnabled(false)
+                        
+                        self.tableView.beginUpdates()
+                        
+                        self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.None)
+                        
+                        self.tableView.endUpdates()
+                        
+                        UIView.setAnimationsEnabled(true)
+                        
+                        self.loading = false
+                    })
                     
-                    //TODO: !hack! disable animations it's not good soulution for fast add cells, mb. need play with layer.speed in cell :/
-                    UIView.setAnimationsEnabled(false)
                     
-                    self.tableView.beginUpdates()
-                    
-                    self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.None)
-                    
-                    self.tableView.endUpdates()
-                    
-                    UIView.setAnimationsEnabled(true)
-                    
-                    self.loading = false
+                    }, errorBlock: { (error) -> Void in
+                        // error
+                        print(error)
                 })
-                
-                
-                }, errorBlock: { (error) -> Void in
-                    // error
-                    print(error)
+
             })
+            
         }
         
     }
     
     
-    
     func refreshAudios() {
-        
         
         if loading == false {
             loading = true
             
-            let getAudio = VKRequest(method: "audio.get", andParameters: ["count":100,"offset":0], andHttpMethod: "GET")
-            
-            getAudio.executeWithResultBlock({ (response) -> Void in
+            HRAPIManager.sharedInstance.vk_audioget(100, offset: 0, completion: { (vkAudiosArray) -> () in
                 
-                self.audiosArray = Array<HRAudioItemModel>()
-                
-                let json = response.json as! Dictionary<String,AnyObject>
-                let items = json["items"] as! Array<Dictionary<String,AnyObject>>
-                
-                
-                for audioDict in items {
-                    
-                    
-                    let jsonAudioItem = JSON(audioDict)
-                    let audioItemModel = HRAudioItemModel(json: jsonAudioItem)
-                    
-                    self.audiosArray.append(audioItemModel)
-                    
-                }
+                self.audiosArray = vkAudiosArray
                 
                 dispatch.async.main({ () -> Void in
                     self.refreshControl?.endRefreshing()
                     self.tableView.reloadData()
                     self.loading = false
                 })
-                
-                
-                }, errorBlock: { (error) -> Void in
-                    // error
-                    log.error("\(error)")
             })
         }
-
-        
         
     }
     
@@ -180,6 +166,12 @@ class AllMusicController: UITableViewController {
         cell.audioTitleLabel.text = audio.title
         cell.allMusicController = self
         cell.audioModel = audio
+        
+        if audio.downloadState == 3 {
+            cell.downloadButton.hidden = true
+        } else {
+            cell.downloadButton.hidden = false
+        }
         
         //cell.audioDurationTime.text = self.durationFormater(Double(audio.duration))
         

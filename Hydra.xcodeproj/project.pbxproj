@@ -22,6 +22,7 @@
 		15AC8D1A1BB1F79F0050827C /* HRGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D191BB1F79F0050827C /* HRGroupCell.swift */; settings = {ASSET_TAGS = (); }; };
 		15AC8D1C1BB1F7E50050827C /* HRGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D1B1BB1F7E50050827C /* HRGroupModel.swift */; settings = {ASSET_TAGS = (); }; };
 		15BEC4F71BB2207C00956332 /* Collections+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BEC4F61BB2207C00956332 /* Collections+Ext.swift */; settings = {ASSET_TAGS = (); }; };
+		15BEC4F91BB2EA7900956332 /* AttributedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BEC4F81BB2EA7900956332 /* AttributedLabel.swift */; settings = {ASSET_TAGS = (); }; };
 		649E73E547A8DD95524F7A01 /* Pods_Hydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE20EA940EC7896FD7A41B8 /* Pods_Hydra.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D76E93851B47E7FC00F4834D /* VKSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76E93831B47E7FC00F4834D /* VKSdk.framework */; };
 		D76E93861B47E7FC00F4834D /* VKSdkResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D76E93841B47E7FC00F4834D /* VKSdkResources.bundle */; };
@@ -113,6 +114,7 @@
 		15AC8D191BB1F79F0050827C /* HRGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRGroupCell.swift; sourceTree = "<group>"; };
 		15AC8D1B1BB1F7E50050827C /* HRGroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRGroupModel.swift; sourceTree = "<group>"; };
 		15BEC4F61BB2207C00956332 /* Collections+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collections+Ext.swift"; sourceTree = "<group>"; };
+		15BEC4F81BB2EA7900956332 /* AttributedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedLabel.swift; sourceTree = "<group>"; };
 		8CE20EA940EC7896FD7A41B8 /* Pods_Hydra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hydra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		951A50BF9B34515DEDB8EC4C /* Pods-Hydra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydra.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hydra/Pods-Hydra.debug.xcconfig"; sourceTree = "<group>"; };
 		D76E93831B47E7FC00F4834D /* VKSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VKSdk.framework; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 		D77554861B43A28C008779C1 /* Ext */ = {
 			isa = PBXGroup;
 			children = (
+				15BEC4F81BB2EA7900956332 /* AttributedLabel.swift */,
 				D7A64B041B6E00FB000FE8A8 /* MarqueeLabel.h */,
 				D7A64B051B6E00FB000FE8A8 /* MarqueeLabel.m */,
 				D7A64AE21B6DB8DB000FE8A8 /* FMDB */,
@@ -938,6 +941,7 @@
 				15AC8D151BB1E53F0050827C /* HRGroupsController.swift in Sources */,
 				D7A64B031B6DB93A000FE8A8 /* FMResultSet.m in Sources */,
 				15BEC4F71BB2207C00956332 /* Collections+Ext.swift in Sources */,
+				15BEC4F91BB2EA7900956332 /* AttributedLabel.swift in Sources */,
 				D7A64B061B6E00FB000FE8A8 /* MarqueeLabel.m in Sources */,
 				D77554D61B43A92A008779C1 /* HRConstants.swift in Sources */,
 				D7A64B0F1B6EA983000FE8A8 /* HRDataManager.swift in Sources */,

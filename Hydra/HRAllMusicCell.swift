@@ -2,9 +2,9 @@ import UIKit
 
 class HRAllMusicCell: UITableViewCell {
     
-    var audioAristLabel         : UILabel
-    var audioTitleLabel         : UILabel
-    var audioDurationTime       : UILabel!
+    var audioAristLabel         : AttributedLabel
+    var audioTitleLabel         : AttributedLabel
+    var audioDurationTime       : AttributedLabel!
     var progressView            : UIProgressView!
     var downloadButton          : UIButton!
     var allMusicController      : AllMusicController!
@@ -12,13 +12,15 @@ class HRAllMusicCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     
-        self.audioTitleLabel = UILabel()
-        self.audioTitleLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 15)
+        self.audioTitleLabel = AttributedLabel()
+        self.audioTitleLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 15)!
         self.audioTitleLabel.textColor = UIColor.blackColor()
+        self.audioTitleLabel.backgroundColor = UIColor.whiteColor()
         
-        self.audioAristLabel = UILabel()
-        self.audioAristLabel.font = UIFont(name: "HelveticaNeue-Light", size: 13)
+        self.audioAristLabel = AttributedLabel()
+        self.audioAristLabel.font = UIFont(name: "HelveticaNeue-Light", size: 13)!
         self.audioAristLabel.textColor = UIColor.grayColor()
+        self.audioAristLabel.backgroundColor = UIColor.whiteColor()
         
         self.progressView = UIProgressView(progressViewStyle: UIProgressViewStyle.Default)
         self.progressView.tintColor = UIColor.blackColor()
