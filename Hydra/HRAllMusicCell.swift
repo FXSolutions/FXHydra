@@ -38,6 +38,7 @@ class HRAllMusicCell: UITableViewCell {
         self.contentView.addSubview(self.progressView)
         self.contentView.addSubview(self.downloadButton)
         
+        
     }
     
     required init(coder aDecoder: NSCoder) {

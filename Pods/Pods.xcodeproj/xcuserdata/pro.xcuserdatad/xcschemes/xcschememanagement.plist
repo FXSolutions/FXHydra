@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SnapKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Toucan.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,22 +52,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0A2730F67F7E04848BBC83761C27321B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>19D92C3BFC7DD6EEE6176941B8DA624B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1A80C42E7161A1DFCD28EF77E36997AD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1C7A79DA15C8A8CC21437DFD6509D1A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6F8030B0417B1FB4347E4D252792BEC1</key>
+		<key>4EDA452517A913B556C7860F490D5FD3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5518B55DF066062198991D3BC4C8DF6E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7657B11456556D1FA7D1040EECC14BAE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E9410879E3D3BE576B7A5C1CB5EB3F60</key>
+		<key>9885F0F9E9AA6840E2A488EAE09C11BE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A2DEF0C47F765E01B13E2047AD0D2F5A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DEDB5FB982294E257350A911AE20D8E2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

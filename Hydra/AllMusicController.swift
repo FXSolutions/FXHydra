@@ -21,7 +21,7 @@ class AllMusicController: UITableViewController {
         self.tableView.rowHeight = 70
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
-        self.loadMoreAudios()
+        self.refreshAudios()
         
         self.tableView.registerClass(HRAllMusicCell.self, forCellReuseIdentifier: "HRAllMusicCell")
         self.tableView.allowsMultipleSelectionDuringEditing = false
@@ -68,6 +68,7 @@ class AllMusicController: UITableViewController {
                 let json = response.json as! Dictionary<String,AnyObject>
                 let items = json["items"] as! Array<Dictionary<String,AnyObject>>
                 
+                var countAudios = self.audiosArray.count
                 
                 for audioDict in items {
                     
@@ -80,9 +81,28 @@ class AllMusicController: UITableViewController {
                     
                 }
                 
+                var indexPaths = [NSIndexPath]()
+                
+                for countAudios; countAudios < self.audiosArray.count;countAudios++ {
+                    
+                    let indexPath = NSIndexPath(forRow: countAudios-1, inSection: 0)
+                    indexPaths.append(indexPath)
+                    
+                }
+                
                 dispatch.async.main({ () -> Void in
-                    self.refreshControl?.endRefreshing()
-                    self.tableView.reloadData()
+                    
+                    //TODO: !hack! disable animations it's not good soulution for fast add cells, mb. need play with layer.speed in cell :/
+                    UIView.setAnimationsEnabled(false)
+                    
+                    self.tableView.beginUpdates()
+                    
+                    self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.None)
+                    
+                    self.tableView.endUpdates()
+                    
+                    UIView.setAnimationsEnabled(true)
+                    
                     self.loading = false
                 })
                 

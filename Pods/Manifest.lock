@@ -8,6 +8,7 @@ PODS:
   - Nuke/Core (0.3.0)
   - Nuke/UI (0.3.0):
     - Nuke/Core
+  - SnapKit (0.15.0)
   - sqlite3 (3.8.11.1):
     - sqlite3/common (= 3.8.11.1)
   - sqlite3/common (3.8.11.1)
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - HanekeSwift (from `https://github.com/meteochu/HanekeSwift.git`)
   - Just
   - Nuke
+  - SnapKit
   - sqlite3
   - Toucan
   - XCGLogger (from `https://github.com/DaveWoodCom/XCGLogger.git`, branch `swift_2.0`)
@@ -43,6 +45,7 @@ SPEC CHECKSUMS:
   HanekeSwift: d6f5bdf9dbdbbc09d59623b2c1d533e46463dd4d
   Just: 92ea3e45a3d22e6f4ef9dd223192111f23096e98
   Nuke: 2ead90818f751b9d7b796ce134fc047bbb94167e
+  SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   sqlite3: 73d6ec33f24f74ceb91df8f1b6e1809251f0f580
   Toucan: 3e2319c8fb9c7a2fb9c30f6d4ecdc6b8a2f1c92b
   XCGLogger: 5802533aff8bafc8b3b9776ab8972576f31d0a4e
