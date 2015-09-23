@@ -50,7 +50,7 @@ class HRGroupsController: UITableViewController {
         if loading == false {
             loading = true
             
-            let getGroups = VKRequest(method: "groups.get", andParameters: ["extended":1,"fields":"counters,photo_100","offset":self.groupsArray.count], andHttpMethod: "GET")
+            let getGroups = VKRequest(method: "groups.get", andParameters: ["extended":1,"fields":"counters,photo_100,photo_200","offset":self.groupsArray.count], andHttpMethod: "GET")
             
             getGroups.executeWithResultBlock({ (response) -> Void in
                 
@@ -101,8 +101,8 @@ class HRGroupsController: UITableViewController {
         
         cell.groupName.text = group.name
         
-        var request = ImageRequest(URL: NSURL(string: group.photo_100)!)
-        request.targetSize = CGSizeMake(cell.groupAvatar.frame.width, cell.groupAvatar.frame.height)
+        var request = ImageRequest(URL: NSURL(string: group.photo_200)!)
+        request.targetSize = CGSizeMake(cell.groupAvatar.frame.width*screenScaleFactor, cell.groupAvatar.frame.height*screenScaleFactor)
         request.contentMode = .AspectFill
 
         Nuke.taskWithRequest(request) {

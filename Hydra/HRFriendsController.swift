@@ -106,7 +106,7 @@ class HRFriendsController: UITableViewController {
         cell.friendName.text = "\(friend.first_name!) \(friend.last_name!)"
         
         var request = ImageRequest(URL: NSURL(string: friend.photo_100)!)
-        request.targetSize = CGSizeMake(cell.friendAvatar.frame.width, cell.friendAvatar.frame.height)
+        request.targetSize = CGSizeMake(cell.friendAvatar.frame.width*screenScaleFactor, cell.friendAvatar.frame.height*screenScaleFactor)
         request.contentMode = .AspectFill
         
         Nuke.taskWithRequest(request) {

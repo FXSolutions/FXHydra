@@ -17,15 +17,17 @@ class HRGroupModel {
     var photo_100   : String!
     var screen_name : String!
     var type        : String!
+    var photo_200   : String!
     
     init(json : JSON) {
         
         self.id             = json["id"].intValue
         self.is_closed      = json["is_closed"].boolValue
         self.name           = json["name"].stringValue
-        self.photo_100      = json["photo_100"].stringValue
         self.screen_name    = json["screen_name"].stringValue
         self.type           = json["type"].stringValue
+        self.photo_100      = json["photo_100"].stringValue
+        self.photo_200      = json["photo_200"].stringValue
         
     }
     
