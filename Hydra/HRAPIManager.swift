@@ -8,9 +8,15 @@ class HRAPIManager {
     
     
     // audio.get
-    func vk_audioget(count:Int,offset:Int,completion: ([HRAudioItemModel]) -> ()) {
+    func vk_audioget(ownerId:Int, count:Int,offset:Int,completion: ([HRAudioItemModel]) -> ()) {
         
-        let getAudio = VKRequest(method: "audio.get", andParameters: ["count":count,"offset":offset], andHttpMethod: "GET")
+        let getAudio : VKRequest!
+        
+        if ownerId == 0 {
+            getAudio = VKRequest(method: "audio.get", andParameters: ["count":count,"offset":offset], andHttpMethod: "GET")
+        } else {
+            getAudio = VKRequest(method: "audio.get", andParameters: ["owner_id":ownerId,"count":count,"offset":offset], andHttpMethod: "GET")
+        }
         
         getAudio.executeWithResultBlock({ (response) -> Void in
             
@@ -18,10 +24,8 @@ class HRAPIManager {
                 
                 let json = response.json as! Dictionary<String,AnyObject>
                 let items = json["items"] as! Array<Dictionary<String,AnyObject>>
-                
-                
+            
                 for audioDict in items {
-                    
                     
                     let jsonAudioItem = JSON(audioDict)
                     let audioItemModel:HRAudioItemModel = HRAudioItemModel(json: jsonAudioItem)
@@ -38,7 +42,6 @@ class HRAPIManager {
             
                 completion(audiosArray)
                 
-            
             }, errorBlock: { (error) -> Void in
                 
                 log.error("audio.get #### \(error)")
@@ -47,6 +50,8 @@ class HRAPIManager {
         
         
     }
+    
+    
     
     
 

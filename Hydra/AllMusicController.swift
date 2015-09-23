@@ -57,37 +57,22 @@ class AllMusicController: UITableViewController {
     
     func loadMoreAudios() {
         
-        
         if loading == false {
             loading = true
             
             dispatch.async.global({ () -> Void in
                 
-                let getAudio = VKRequest(method: "audio.get", andParameters: ["count":100,"offset":self.audiosArray.count], andHttpMethod: "GET")
-                
-                getAudio.executeWithResultBlock({ (response) -> Void in
-                    
-                    let json = response.json as! Dictionary<String,AnyObject>
-                    let items = json["items"] as! Array<Dictionary<String,AnyObject>>
+                HRAPIManager.sharedInstance.vk_audioget(0, count: 100, offset: self.audiosArray.count, completion: { (vkAudiosArray) -> () in
                     
                     var countAudios = self.audiosArray.count
                     
-                    for audioDict in items {
-                        
-                        print(audioDict)
-                        
-                        let jsonAudioItem = JSON(audioDict)
-                        let audioItemModel = HRAudioItemModel(json: jsonAudioItem)
-                        
-                        if HRDataManager.sharedInstance.arrayWithDownloadedIds.contains(audioItemModel.audioID) {
-                            audioItemModel.downloadState = 3
-                        } else {
-                            audioItemModel.downloadState = 1
-                        }
-                        
-                        self.audiosArray.append(audioItemModel)
-                        
-                    }
+                    self.audiosArray.appendContentsOf(vkAudiosArray)
+                    
+                    dispatch.async.main({ () -> Void in
+                        self.refreshControl?.endRefreshing()
+                        self.tableView.reloadData()
+                        self.loading = false
+                    })
                     
                     var indexPaths = [NSIndexPath]()
                     
@@ -101,7 +86,7 @@ class AllMusicController: UITableViewController {
                     dispatch.async.main({ () -> Void in
                         
                         //TODO: !hack! disable animations it's not good soulution for fast add cells, mb. need play with layer.speed in cell :/
-                        UIView.setAnimationsEnabled(false)
+                        //UIView.setAnimationsEnabled(false)
                         
                         self.tableView.beginUpdates()
                         
@@ -109,15 +94,12 @@ class AllMusicController: UITableViewController {
                         
                         self.tableView.endUpdates()
                         
-                        UIView.setAnimationsEnabled(true)
+                        //UIView.setAnimationsEnabled(true)
                         
                         self.loading = false
+                        
                     })
                     
-                    
-                    }, errorBlock: { (error) -> Void in
-                        // error
-                        print(error)
                 })
 
             })
@@ -131,8 +113,7 @@ class AllMusicController: UITableViewController {
         
         if loading == false {
             loading = true
-            
-            HRAPIManager.sharedInstance.vk_audioget(100, offset: 0, completion: { (vkAudiosArray) -> () in
+            HRAPIManager.sharedInstance.vk_audioget(0, count: 100, offset: 0, completion: { (vkAudiosArray) -> () in
                 
                 self.audiosArray = vkAudiosArray
                 
