@@ -18,7 +18,7 @@ class HRFriendsCell: UITableViewCell {
         self.friendName = AttributedLabel()
         self.friendName.font = UIFont(name: "HelveticaNeue-Light", size: 17)!
         self.friendName.textColor = UIColor.blackColor()
-        self.friendName.backgroundColor = UIColor.whiteColor()
+        self.friendName.backgroundColor = UIColor.clearColor()
         
         self.friendAvatar = UIImageView()
         

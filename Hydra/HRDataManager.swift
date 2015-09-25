@@ -19,8 +19,7 @@ class HRDataManager {
     // all downloaded ids
     
     var arrayWithDownloadedIds = [Int]()
-    
-    
+
     func getCurrentUserInfo() {
         
         let getUserInfo = VKRequest(method: "users.get", andParameters: ["fields":"photo_200","name_case":"Nom"], andHttpMethod: "GET")

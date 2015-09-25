@@ -174,6 +174,7 @@ class MenuController: UITableViewController {
         self.menuHeader = MenuHeader(frame: CGRectMake(0, 0, screenSizeWidth, 120))
         self.addSubscribes()
         
+        
         self.tableView.backgroundColor = UIColor.clearColor()
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         self.tableView.tableHeaderView = self.menuHeader
@@ -189,7 +190,6 @@ class MenuController: UITableViewController {
         
         self.tableView.backgroundView = self.blurEffectView
         
-        HRDataManager.sharedInstance.getCurrentUserInfo()
         
         self.footerPlayer = MenuPlayer(frame: CGRectMake(0, screenSizeHeight-100, screenSizeWidth, 100))
         
@@ -205,6 +205,8 @@ class MenuController: UITableViewController {
         // actions
         
         self.footerPlayer.songSlider.addTarget(self, action: "seekToSliderValue", forControlEvents: UIControlEvents.ValueChanged)
+        
+        HRDataManager.sharedInstance.getCurrentUserInfo()
         
     }
     
