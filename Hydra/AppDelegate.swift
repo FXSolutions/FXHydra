@@ -37,7 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         YMMYandexMetrica.activateWithApiKey("47597ab5-08d4-403f-b027-cf0d10b3c54d")
         YMMYandexMetrica.setReportCrashesEnabled(true)
-        YMMYandexMetrica.setVersion(<#T##aVersion: Int##Int#>)
         
 
         return true
