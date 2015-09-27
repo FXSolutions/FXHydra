@@ -9,12 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>HanekeSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Just.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>KSCrash.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -44,6 +54,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>protobuf-c.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>sqlite3.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,17 +77,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>48D0D95FF5E476DE826F6C30D5199F6F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4909549898486941321D98DAF1318F88</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4EDA452517A913B556C7860F490D5FD3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5518B55DF066062198991D3BC4C8DF6E</key>
+		<key>5B812A379A0A9008D08B53670E94C76B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7657B11456556D1FA7D1040EECC14BAE</key>
+		<key>7DEE6FF32E15164D51A86349CC66EBC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,17 +107,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9885F0F9E9AA6840E2A488EAE09C11BE</key>
+		<key>9499683B662ADDE9459579DB6F7AC6DE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A2DEF0C47F765E01B13E2047AD0D2F5A</key>
+		<key>96416B13BEC7B92F841B7D515429F48B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DEDB5FB982294E257350A911AE20D8E2</key>
+		<key>B7FEA6ECFF6029A9934F0980572E33C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D5B27DD167CB5B2CD58C96E21E882A4C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

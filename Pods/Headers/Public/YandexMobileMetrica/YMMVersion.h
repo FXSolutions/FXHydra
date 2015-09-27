@@ -1,0 +1,1 @@
+../../../YandexMobileMetrica/YandexMobileMetrica/YMMVersion.h

@@ -1,0 +1,2 @@
+KSCRASH_GCC_ENABLE_CPP_EXCEPTIONS = YES
+KSCRASH_OTHER_LDFLAGS = -l"c++" -l"z" -framework "Foundation"

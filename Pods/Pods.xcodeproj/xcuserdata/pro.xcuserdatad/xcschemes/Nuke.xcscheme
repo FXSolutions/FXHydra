@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9F4318BCE497E6AC9E221208"
+               BlueprintIdentifier = "1D7F6E5F63870B6D8693565B"
                BuildableName = "Nuke.framework"
                BlueprintName = "Nuke"
                ReferencedContainer = "container:Pods.xcodeproj">

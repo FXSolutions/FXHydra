@@ -1,7 +1,11 @@
+GCC_ENABLE_CPP_EXCEPTIONS = YES
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+GCC_WARN_64_TO_32_BIT_CONVERSION = NO
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/YandexMobileMetrica"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -DHAVE_USLEEP=1 -DSQLITE_ENABLE_LOCKING_STYLE=0 $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Alamofire.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Haneke.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Just.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Nuke.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/SnapKit.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Toucan.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/XCGLogger.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/sqlite3.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "Haneke" -framework "Just" -framework "Nuke" -framework "SnapKit" -framework "Toucan" -framework "XCGLogger" -framework "sqlite3"
+LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/YandexMobileMetrica"
+OTHER_CFLAGS = $(inherited) -DHAVE_USLEEP=1 -DSQLITE_ENABLE_LOCKING_STYLE=0 $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Alamofire.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/FMDB.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Haneke.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Just.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/KSCrash.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Nuke.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/SnapKit.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Toucan.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/XCGLogger.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/protobuf_c.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/sqlite3.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/YandexMobileMetrica"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"YandexMobileMetrica" -l"sqlite3" -l"z" -framework "AdSupport" -framework "Alamofire" -framework "CoreGraphics" -framework "CoreLocation" -framework "CoreTelephony" -framework "FMDB" -framework "Foundation" -framework "Haneke" -framework "Just" -framework "KSCrash" -framework "Nuke" -framework "SnapKit" -framework "SystemConfiguration" -framework "Toucan" -framework "UIKit" -framework "XCGLogger" -framework "protobuf_c" -framework "sqlite3"
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-Hydra
 PODS_ROOT = ${SRCROOT}/Pods

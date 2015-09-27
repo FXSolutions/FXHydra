@@ -31,6 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let logPath : NSURL = self.cacheDirectory.URLByAppendingPathComponent("XCGLogger_Log.txt")
         log.setup(.Debug, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: logPath, fileLogLevel: .Debug)
+        
+        
+        // yandex.metrica
+        
+        YMMYandexMetrica.activateWithApiKey("47597ab5-08d4-403f-b027-cf0d10b3c54d")
+        YMMYandexMetrica.setReportCrashesEnabled(true)
+        YMMYandexMetrica.setVersion(<#T##aVersion: Int##Int#>)
+        
 
         return true
     }

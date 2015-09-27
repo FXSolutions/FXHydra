@@ -1,0 +1,6 @@
+framework module protobuf_c {
+  umbrella header "protobuf-c-umbrella.h"
+
+  export *
+  module * { export * }
+}

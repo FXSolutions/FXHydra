@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CCBE972B8EC45779ACCCCEE0"
+               BlueprintIdentifier = "FC14FCEBBC47FE3516291252"
                BuildableName = "Pods_Hydra.framework"
                BlueprintName = "Pods-Hydra"
                ReferencedContainer = "container:Pods.xcodeproj">
