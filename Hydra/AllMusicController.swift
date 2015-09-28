@@ -68,11 +68,6 @@ class AllMusicController: UITableViewController {
                     
                     self.audiosArray.appendContentsOf(vkAudiosArray)
                     
-                    dispatch.async.main({ () -> Void in
-                        self.refreshControl?.endRefreshing()
-                        self.tableView.reloadData()
-                        self.loading = false
-                    })
                     
                     var indexPaths = [NSIndexPath]()
                     

@@ -42,10 +42,7 @@ class HRFriendAudioController: UITableViewController {
         return UIStatusBarStyle.LightContent
     }
     
-    
-    
     // MARK: - load all audio
-    
     
     func loadMoreAudios() {
         
@@ -78,9 +75,6 @@ class HRFriendAudioController: UITableViewController {
                     // error
                     log.debug("ERRORRR BLYAT \(error)")
                     
-                    
-                    
-                    //print(error)
             })
         }
         

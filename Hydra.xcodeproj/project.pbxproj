@@ -10,6 +10,8 @@
 		1523C6B11BAF56B600272C12 /* HRSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523C6B01BAF56B600272C12 /* HRSettingsController.swift */; settings = {ASSET_TAGS = (); }; };
 		156813161BA6CCF30019C118 /* HRDownloadedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156813151BA6CCF30019C118 /* HRDownloadedCell.swift */; settings = {ASSET_TAGS = (); }; };
 		1577BD5F1BA68453005E14DC /* HRDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577BD5E1BA68453005E14DC /* HRDownloadManager.swift */; settings = {ASSET_TAGS = (); }; };
+		15A93BB31BB8AB2500455D54 /* HRGroupAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A93BB21BB8AB2500455D54 /* HRGroupAudioController.swift */; settings = {ASSET_TAGS = (); }; };
+		15A93BB51BB8AB5D00455D54 /* HRGroupAudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A93BB41BB8AB5D00455D54 /* HRGroupAudioCell.swift */; settings = {ASSET_TAGS = (); }; };
 		15AC8D021BB131180050827C /* HRFriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D011BB131180050827C /* HRFriendsController.swift */; settings = {ASSET_TAGS = (); }; };
 		15AC8D051BB1313B0050827C /* HRFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D041BB1313B0050827C /* HRFriendsCell.swift */; settings = {ASSET_TAGS = (); }; };
 		15AC8D071BB132A60050827C /* HRFriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D061BB132A60050827C /* HRFriendModel.swift */; settings = {ASSET_TAGS = (); }; };
@@ -102,6 +104,8 @@
 		1523C6B01BAF56B600272C12 /* HRSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRSettingsController.swift; sourceTree = "<group>"; };
 		156813151BA6CCF30019C118 /* HRDownloadedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRDownloadedCell.swift; sourceTree = "<group>"; };
 		1577BD5E1BA68453005E14DC /* HRDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRDownloadManager.swift; sourceTree = "<group>"; };
+		15A93BB21BB8AB2500455D54 /* HRGroupAudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRGroupAudioController.swift; sourceTree = "<group>"; };
+		15A93BB41BB8AB5D00455D54 /* HRGroupAudioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRGroupAudioCell.swift; sourceTree = "<group>"; };
 		15AC8D011BB131180050827C /* HRFriendsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRFriendsController.swift; sourceTree = "<group>"; };
 		15AC8D041BB1313B0050827C /* HRFriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRFriendsCell.swift; sourceTree = "<group>"; };
 		15AC8D061BB132A60050827C /* HRFriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRFriendModel.swift; sourceTree = "<group>"; };
@@ -232,6 +236,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15A93BAE1BB8AAEF00455D54 /* GroupsAudio */ = {
+			isa = PBXGroup;
+			children = (
+				15A93BB41BB8AB5D00455D54 /* HRGroupAudioCell.swift */,
+				15A93BB21BB8AB2500455D54 /* HRGroupAudioController.swift */,
+			);
+			name = GroupsAudio;
+			sourceTree = "<group>";
+		};
 		15AC8CFF1BB130F90050827C /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +284,7 @@
 		15AC8D131BB1E1F60050827C /* Groups */ = {
 			isa = PBXGroup;
 			children = (
+				15A93BAE1BB8AAEF00455D54 /* GroupsAudio */,
 				15AC8D181BB1F78B0050827C /* Cells */,
 				15AC8D141BB1E53F0050827C /* HRGroupsController.swift */,
 			);
@@ -919,8 +933,10 @@
 				D77E8AD31B6ED26A00AD31DF /* HRAlbumModel.swift in Sources */,
 				D7ED33561B52D49E0068FF4E /* SwiftyJSON.swift in Sources */,
 				15AC8D0A1BB13CDF0050827C /* HRFriendAudioController.swift in Sources */,
+				15A93BB31BB8AB2500455D54 /* HRGroupAudioController.swift in Sources */,
 				D775548E1B43A554008779C1 /* MenuController.swift in Sources */,
 				D76E93881B47E99E00F4834D /* HRDatabaseManager.swift in Sources */,
+				15A93BB51BB8AB5D00455D54 /* HRGroupAudioCell.swift in Sources */,
 				1523C6B11BAF56B600272C12 /* HRSettingsController.swift in Sources */,
 				D7F157E91B437D630023319E /* AppDelegate.swift in Sources */,
 				15AC8D021BB131180050827C /* HRFriendsController.swift in Sources */,
