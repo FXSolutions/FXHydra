@@ -97,29 +97,8 @@ class HRFriendsController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let friend = self.friendsArray[indexPath.row]
-        
+    
         let cell:HRFriendsCell = self.tableView.dequeueReusableCellWithIdentifier("HRFriendsCell", forIndexPath: indexPath) as! HRFriendsCell
-        
-        
-        cell.friendName.text = "\(friend.first_name!) \(friend.last_name!)"
-        
-        var request = ImageRequest(URL: NSURL(string: friend.photo_100)!)
-        request.targetSize = CGSizeMake(cell.friendAvatar.frame.width*screenScaleFactor, cell.friendAvatar.frame.height*screenScaleFactor)
-        request.contentMode = .AspectFill
-        
-        Nuke.taskWithRequest(request) {
-            let imagekek = $0.image // Image is resized
-            cell.friendAvatar.image = imagekek?.roundImage()
-        
-            }.resume()
-        
-        
-        if friend.can_see_audio == false {
-            cell.backgroundColor = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.1)
-        }
-        
         
         return cell
         
@@ -138,6 +117,8 @@ class HRFriendsController: UITableViewController {
             
             self.navigationController?.pushViewController(friendAudioController, animated: true)
             
+        } else {
+            self.showAccessDeniedAlert()
         }
         
         
@@ -156,6 +137,31 @@ class HRFriendsController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let friend = self.friendsArray[indexPath.row]
+        
+        let friendCell = cell as! HRFriendsCell
+        
+        friendCell.friendName.text = "\(friend.first_name!) \(friend.last_name!)"
+        
+        dispatch.async.global { () -> Void in
+            var request = ImageRequest(URL: NSURL(string: friend.photo_100)!)
+            request.targetSize = CGSizeMake(friendCell.friendAvatar.frame.width*screenScaleFactor, friendCell.friendAvatar.frame.height*screenScaleFactor)
+            request.contentMode = .AspectFill
+            
+            Nuke.taskWithRequest(request) {
+                let imagekek = $0.image // Image is resized
+                dispatch.async.main({ () -> Void in
+                    friendCell.friendAvatar.image = imagekek?.roundImage()
+                })
+                
+                }.resume()
+        }
+        
+        if friend.can_see_audio == false {
+            friendCell.backgroundColor = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.1)
+            friendCell.accessImage.image = UIImage(named: "access_denied")
+        }
         
         if indexPath.row == self.friendsArray.count - 7 {
             self.loadFriends()
@@ -177,6 +183,20 @@ class HRFriendsController: UITableViewController {
     func openMenu() {
         
         HRInterfaceManager.sharedInstance.openMenu()
+        
+    }
+    
+    func showAccessDeniedAlert() {
+        
+        let alertController = UIAlertController(title: "Access denied", message: "User blocked audio", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action) -> Void in
+            //
+        }
+        
+        alertController.addAction(okAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
         
     }
 

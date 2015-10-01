@@ -8,3 +8,8 @@ let screenScaleFactor   = UIScreen.mainScreen().scale
 class HRConstants {
 
 }
+
+/*
+*
+*
+*/

@@ -59,7 +59,8 @@ class AuthController: UIViewController,VKSdkDelegate {
     func authButtonAction() {
         log.debug("auth button action")
         
-        VKSdk.authorize(["audio","status"], revokeAccess: true, forceOAuth: true, inApp: true)
+        
+        VKSdk.authorize(["audio","status","groups"], revokeAccess: true)
     }
     
     func startWorking() {

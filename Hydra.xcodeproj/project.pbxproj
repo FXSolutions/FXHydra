@@ -58,8 +58,8 @@
 		D77554DE1B43AA8F008779C1 /* HRNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77554DD1B43AA8F008779C1 /* HRNavigationController.swift */; };
 		D77E8AD11B6EBFBA00AD31DF /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77E8AD01B6EBFBA00AD31DF /* UIImage+Ext.swift */; };
 		D77E8AD31B6ED26A00AD31DF /* HRAlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77E8AD21B6ED26A00AD31DF /* HRAlbumModel.swift */; };
-		D77E8AD51B6ED2D300AD31DF /* HRAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77E8AD41B6ED2D300AD31DF /* HRAlbumCell.swift */; };
-		D77E8AD71B6ED67C00AD31DF /* HRInAlbumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77E8AD61B6ED67C00AD31DF /* HRInAlbumController.swift */; };
+		D77E8AD51B6ED2D300AD31DF /* HRPlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77E8AD41B6ED2D300AD31DF /* HRPlaylistCell.swift */; };
+		D77E8AD71B6ED67C00AD31DF /* HRInPlaylistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77E8AD61B6ED67C00AD31DF /* HRInPlaylistController.swift */; };
 		D7A64AEB1B6DB920000FE8A8 /* FMDatabase+FTS3.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A64AE71B6DB920000FE8A8 /* FMDatabase+FTS3.m */; };
 		D7A64AEC1B6DB920000FE8A8 /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A64AE91B6DB920000FE8A8 /* FMTokenizers.m */; };
 		D7A64AEF1B6DB92A000FE8A8 /* FMDatabase+InMemoryOnDiskIO.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A64AEE1B6DB92A000FE8A8 /* FMDatabase+InMemoryOnDiskIO.m */; };
@@ -71,7 +71,7 @@
 		D7A64B021B6DB93A000FE8A8 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A64AFB1B6DB93A000FE8A8 /* FMDatabaseQueue.m */; };
 		D7A64B031B6DB93A000FE8A8 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A64AFE1B6DB93A000FE8A8 /* FMResultSet.m */; };
 		D7A64B061B6E00FB000FE8A8 /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A64B051B6E00FB000FE8A8 /* MarqueeLabel.m */; };
-		D7A64B091B6E0637000FE8A8 /* HRAlbumsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A64B081B6E0637000FE8A8 /* HRAlbumsController.swift */; };
+		D7A64B091B6E0637000FE8A8 /* HRPlaylistsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A64B081B6E0637000FE8A8 /* HRPlaylistsController.swift */; };
 		D7A64B0C1B6EA395000FE8A8 /* HRCurrentUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A64B0B1B6EA395000FE8A8 /* HRCurrentUserModel.swift */; };
 		D7A64B0F1B6EA983000FE8A8 /* HRDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A64B0E1B6EA983000FE8A8 /* HRDataManager.swift */; };
 		D7ED33561B52D49E0068FF4E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ED33551B52D49E0068FF4E /* SwiftyJSON.swift */; };
@@ -165,8 +165,8 @@
 		D77554DF1B43ABBE008779C1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		D77E8AD01B6EBFBA00AD31DF /* UIImage+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		D77E8AD21B6ED26A00AD31DF /* HRAlbumModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRAlbumModel.swift; sourceTree = "<group>"; };
-		D77E8AD41B6ED2D300AD31DF /* HRAlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRAlbumCell.swift; sourceTree = "<group>"; };
-		D77E8AD61B6ED67C00AD31DF /* HRInAlbumController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRInAlbumController.swift; sourceTree = "<group>"; };
+		D77E8AD41B6ED2D300AD31DF /* HRPlaylistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRPlaylistCell.swift; sourceTree = "<group>"; };
+		D77E8AD61B6ED67C00AD31DF /* HRInPlaylistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRInPlaylistController.swift; sourceTree = "<group>"; };
 		D7A64AE61B6DB91F000FE8A8 /* FMDatabase+FTS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+FTS3.h"; sourceTree = "<group>"; };
 		D7A64AE71B6DB920000FE8A8 /* FMDatabase+FTS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+FTS3.m"; sourceTree = "<group>"; };
 		D7A64AE81B6DB920000FE8A8 /* FMTokenizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMTokenizers.h; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 		D7A64AFE1B6DB93A000FE8A8 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		D7A64B041B6E00FB000FE8A8 /* MarqueeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarqueeLabel.h; sourceTree = "<group>"; };
 		D7A64B051B6E00FB000FE8A8 /* MarqueeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeLabel.m; sourceTree = "<group>"; };
-		D7A64B081B6E0637000FE8A8 /* HRAlbumsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRAlbumsController.swift; sourceTree = "<group>"; };
+		D7A64B081B6E0637000FE8A8 /* HRPlaylistsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRPlaylistsController.swift; sourceTree = "<group>"; };
 		D7A64B0B1B6EA395000FE8A8 /* HRCurrentUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRCurrentUserModel.swift; sourceTree = "<group>"; };
 		D7A64B0E1B6EA983000FE8A8 /* HRDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRDataManager.swift; sourceTree = "<group>"; };
 		D7ED33551B52D49E0068FF4E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -370,7 +370,7 @@
 			children = (
 				D775547F1B437DF2008779C1 /* Auth */,
 				D77554801B437DF5008779C1 /* Menu */,
-				D7A64B071B6E05E7000FE8A8 /* Albums */,
+				D7A64B071B6E05E7000FE8A8 /* Playlists */,
 				15AC8CFF1BB130F90050827C /* Friends */,
 				D775547C1B437DC0008779C1 /* AllMusic */,
 				D77554851B439BF7008779C1 /* Player */,
@@ -615,20 +615,20 @@
 			name = InMemoryOnDiskIO;
 			sourceTree = "<group>";
 		};
-		D7A64B071B6E05E7000FE8A8 /* Albums */ = {
+		D7A64B071B6E05E7000FE8A8 /* Playlists */ = {
 			isa = PBXGroup;
 			children = (
 				D7A64B0A1B6E0642000FE8A8 /* Cells */,
-				D7A64B081B6E0637000FE8A8 /* HRAlbumsController.swift */,
-				D77E8AD61B6ED67C00AD31DF /* HRInAlbumController.swift */,
+				D7A64B081B6E0637000FE8A8 /* HRPlaylistsController.swift */,
+				D77E8AD61B6ED67C00AD31DF /* HRInPlaylistController.swift */,
 			);
-			name = Albums;
+			name = Playlists;
 			sourceTree = "<group>";
 		};
 		D7A64B0A1B6E0642000FE8A8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				D77E8AD41B6ED2D300AD31DF /* HRAlbumCell.swift */,
+				D77E8AD41B6ED2D300AD31DF /* HRPlaylistCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -907,7 +907,7 @@
 				D76E93C31B4815D300F4834D /* AFSoundRecord.m in Sources */,
 				15AC8D121BB1931F0050827C /* HRAudioSearchCell.swift in Sources */,
 				D76E938A1B47F0A400F4834D /* HRAudioItemModel.swift in Sources */,
-				D77E8AD51B6ED2D300AD31DF /* HRAlbumCell.swift in Sources */,
+				D77E8AD51B6ED2D300AD31DF /* HRPlaylistCell.swift in Sources */,
 				D7ED335E1B52D4AD0068FF4E /* DrawerController.swift in Sources */,
 				15AC8D1A1BB1F79F0050827C /* HRGroupCell.swift in Sources */,
 				D76E93C41B4815D300F4834D /* NSTimer+AFSoundManager.m in Sources */,
@@ -922,12 +922,12 @@
 				D775548C1B43A546008779C1 /* AuthController.swift in Sources */,
 				D76E93901B47FF1200F4834D /* dispatch.swift in Sources */,
 				D77554901B43A563008779C1 /* AllMusicController.swift in Sources */,
-				D7A64B091B6E0637000FE8A8 /* HRAlbumsController.swift in Sources */,
+				D7A64B091B6E0637000FE8A8 /* HRPlaylistsController.swift in Sources */,
 				D7A64AF21B6DB931000FE8A8 /* FMDatabaseAdditionsVariadic.swift in Sources */,
 				D76E93C01B4815D300F4834D /* AFSoundPlayback.m in Sources */,
 				D7ED33651B52D4BE0068FF4E /* SinglyNode.swift in Sources */,
 				D77554961B43A58F008779C1 /* SettingsController.swift in Sources */,
-				D77E8AD71B6ED67C00AD31DF /* HRInAlbumController.swift in Sources */,
+				D77E8AD71B6ED67C00AD31DF /* HRInPlaylistController.swift in Sources */,
 				D7ED336C1B531DAC0068FF4E /* COXSignal.swift in Sources */,
 				D77554A21B43A6E8008779C1 /* SwiftyUserDefaults.swift in Sources */,
 				D77E8AD31B6ED26A00AD31DF /* HRAlbumModel.swift in Sources */,
@@ -1096,7 +1096,7 @@
 				INFOPLIST_FILE = Hydra/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cox.COX.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KR.Hydra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hydra/Hydra-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1118,7 +1118,7 @@
 				INFOPLIST_FILE = Hydra/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cox.COX.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KR.Hydra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hydra/Hydra-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

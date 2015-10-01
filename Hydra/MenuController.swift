@@ -18,27 +18,26 @@ class MenuHeader: UIView {
         super.init(frame: frame)
         
         self.avatarImage = UIImageView()
-        self.avatarImage.frame = CGRectMake(15, 20, 60, 60)
+        self.avatarImage.frame = CGRectMake(15, 5, 60, 60)
         self.avatarImage.layer.masksToBounds = true
         self.avatarImage.layer.cornerRadius = 30.0
         self.addSubview(self.avatarImage)
         
         self.firstNameLabel = UILabel()
-        self.firstNameLabel.frame = CGRectMake(90, 30, screenSizeWidth-100, 20)
+        self.firstNameLabel.frame = CGRectMake(90, 15, screenSizeWidth-100, 20)
         self.firstNameLabel.textColor = UIColor.whiteColor()
         self.firstNameLabel.textAlignment = NSTextAlignment.Left
         self.firstNameLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 17)
         self.addSubview(self.firstNameLabel)
         
-        
         self.lastNameLabel = UILabel()
-        self.lastNameLabel.frame = CGRectMake(90, 50, screenSizeWidth-100, 20)
+        self.lastNameLabel.frame = CGRectMake(90, 35, screenSizeWidth-100, 20)
         self.lastNameLabel.textColor = UIColor.whiteColor()
         self.lastNameLabel.textAlignment = NSTextAlignment.Left
         self.lastNameLabel.font = UIFont(name: "HelveticaNeue-Light", size: 17)
         self.addSubview(self.lastNameLabel)
         
-        let separator = UIView(frame: CGRectMake(0, 105, screenSizeWidth, 1))
+        let separator = UIView(frame: CGRectMake(0, 74, screenSizeWidth, 0.5))
         separator.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
         self.addSubview(separator)
         
@@ -171,7 +170,7 @@ class MenuController: UITableViewController {
         
         super.viewDidLoad()
         
-        self.menuHeader = MenuHeader(frame: CGRectMake(0, 0, screenSizeWidth, 120))
+        self.menuHeader = MenuHeader(frame: CGRectMake(0, 0, screenSizeWidth, 75))
         self.addSubscribes()
         
         
@@ -249,7 +248,7 @@ class MenuController: UITableViewController {
             cell.menuTextLabel.text = "Downloads"
         } else if indexPath.row == 2 {
             cell.iconImage.image = UIImage(named: "albums")
-            cell.menuTextLabel.text = "Albums"
+            cell.menuTextLabel.text = "Playlists"
         } else if indexPath.row == 3 {
             cell.iconImage.image = UIImage(named: "friendsIcon")
             cell.menuTextLabel.text = "Friends"
@@ -293,7 +292,7 @@ class MenuController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60
+        return 46
     }
     
     func addSubscribes() {

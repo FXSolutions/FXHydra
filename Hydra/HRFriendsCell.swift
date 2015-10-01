@@ -12,6 +12,7 @@ class HRFriendsCell: UITableViewCell {
     
     var friendName : AttributedLabel
     var friendAvatar : UIImageView
+    var accessImage : UIImageView
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
@@ -21,11 +22,13 @@ class HRFriendsCell: UITableViewCell {
         self.friendName.backgroundColor = UIColor.clearColor()
         
         self.friendAvatar = UIImageView()
+        self.accessImage = UIImageView()
         
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
         
         self.contentView.addSubview(self.friendName)
         self.contentView.addSubview(self.friendAvatar)
+        self.contentView.addSubview(self.accessImage)
         
         self.separatorInset = UIEdgeInsetsMake(0, 70, 0, 0)
         
@@ -40,6 +43,7 @@ class HRFriendsCell: UITableViewCell {
         
         self.friendName.frame = CGRectMake(70, 20, screenSizeWidth-70, 30)
         self.friendAvatar.frame = CGRectMake(10, 10, 50, 50)
+        self.accessImage.frame = CGRectMake(screenSizeWidth-55, 15, 40, 40)
         
     }
     
@@ -48,6 +52,8 @@ class HRFriendsCell: UITableViewCell {
         
         self.backgroundColor = UIColor.whiteColor()
         self.friendAvatar.image = nil
+        self.accessImage.image = nil
+        self.accessImage.backgroundColor = UIColor.clearColor()
     }
 
 }

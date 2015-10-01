@@ -1,6 +1,6 @@
 import UIKit
 
-class HRAlbumsController: UITableViewController {
+class HRPlaylistsController: UITableViewController {
 
     var albumsArray = Array<HRAlbumModel>()
     var loading = false
@@ -13,14 +13,14 @@ class HRAlbumsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Albums"
+        self.title = "Playlists"
         
         self.tableView.rowHeight = 70
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
         self.loadAlbums()
         
-        self.tableView.registerClass(HRAlbumCell.self, forCellReuseIdentifier: "HRAlbumCell")
+        self.tableView.registerClass(HRPlaylistCell.self, forCellReuseIdentifier: "HRPlaylistCell")
         self.tableView.allowsMultipleSelectionDuringEditing = false
         
         self.addLeftBarButton()
@@ -84,7 +84,7 @@ class HRAlbumsController: UITableViewController {
         
         let album = self.albumsArray[indexPath.row]
         
-        let cell:HRAlbumCell = self.tableView.dequeueReusableCellWithIdentifier("HRAlbumCell", forIndexPath: indexPath) as! HRAlbumCell
+        let cell:HRPlaylistCell = self.tableView.dequeueReusableCellWithIdentifier("HRPlaylistCell", forIndexPath: indexPath) as! HRPlaylistCell
         
         cell.albumTitle.text = album.title
         cell.iconImage.image = UIImage(named: "albumsIcon")?.imageWithColor(UIColor.grayColor())
@@ -98,7 +98,7 @@ class HRAlbumsController: UITableViewController {
         
         let album = self.albumsArray[indexPath.row]
         
-        let playAlbumController = HRInAlbumController()
+        let playAlbumController = HRInPlaylistController()
         playAlbumController.album_id = album.album_id
         playAlbumController.title = album.title
         

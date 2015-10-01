@@ -119,7 +119,7 @@ class HRInterfaceManager  {
     
     func openAlbums() {
         
-        let albumsNav = HRNavigationController(rootViewController: HRAlbumsController())
+        let albumsNav = HRNavigationController(rootViewController: HRPlaylistsController())
         
         self.drawerController.setCenterViewController(albumsNav, withCloseAnimation: false, completion: nil)
         self.drawerController.toggleDrawerSide(DrawerSide.Left, animated: true) { (finish) -> Void in

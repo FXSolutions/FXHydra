@@ -1,6 +1,6 @@
 import UIKit
 
-class HRAlbumCell: UITableViewCell {
+class HRPlaylistCell: UITableViewCell {
     
     var albumTitle : UILabel
     var iconImage : UIImageView

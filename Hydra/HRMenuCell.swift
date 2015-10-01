@@ -16,7 +16,7 @@ class HRMenuCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
         self.menuTextLabel = UILabel()
-        self.menuTextLabel.font = UIFont(name: "HelveticaNeue-Light", size: 17)
+        self.menuTextLabel.font = UIFont(name: "HelveticaNeue-Light", size: 14)
         self.menuTextLabel.textColor = UIColor.whiteColor()
         
         self.iconImage = UIImageView()
@@ -39,8 +39,8 @@ class HRMenuCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        self.menuTextLabel.frame = CGRectMake(70, 15, 200, 30)
-        self.iconImage.frame = CGRectMake(15, 15, 30, 30)
+        self.menuTextLabel.frame = CGRectMake(70, 8, 200, 30)
+        self.iconImage.frame = CGRectMake(15, 8, 30, 30)
         
     }
     

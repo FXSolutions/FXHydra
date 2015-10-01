@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HRInAlbumController: UITableViewController {
+class HRInPlaylistController: UITableViewController {
 
     var audiosArray = Array<HRAudioItemModel>()
     var loading = false

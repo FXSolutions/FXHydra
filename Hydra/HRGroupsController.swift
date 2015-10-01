@@ -119,18 +119,14 @@ class HRGroupsController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-//        let friend = self.friendsArray[indexPath.row]
-//        
-//        if friend.can_see_audio == true {
-//            
-//            let friendAudioController = HRFriendAudioController()
-//            friendAudioController.friendModel = friend
-//            friendAudioController.title = "\(friend.first_name!) \(friend.last_name!)"
-//            
-//            self.navigationController?.pushViewController(friendAudioController, animated: true)
-//            
-//        }
+        let group = self.groupsArray[indexPath.row]
         
+        let groupAudioController = HRGroupAudioController()
+        groupAudioController.groupModel = group
+        groupAudioController.title = "\(group.name)"
+        
+        
+        self.navigationController?.pushViewController(groupAudioController, animated: true)
         
     }
     
