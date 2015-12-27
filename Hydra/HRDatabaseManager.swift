@@ -28,14 +28,13 @@ class HRDatabaseManager {
     }
     
     func databaseSetup () {
+        
         log.debug("Database setup starting")
         if let docDir: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first {
             let path = docDir.stringByAppendingPathComponent(databaseName)
             self.database = FMDatabase(path: path)
             self.queue = dispatch_queue_create("Database queue", DISPATCH_QUEUE_SERIAL)
         }
-        
-        
         
         self.database!.open()
         log.debug("Database opened : SUCCESS")
@@ -44,6 +43,7 @@ class HRDatabaseManager {
     }
     
     func deleteDB() {
+        
         if let docDir: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first {
             
             let path = docDir.stringByAppendingPathComponent(databaseName)
@@ -53,7 +53,6 @@ class HRDatabaseManager {
                 do {
                     try! NSFileManager.defaultManager().removeItemAtPath(path)
                 }
-                
                 
                 log.debug("Database deleted : SUCCESS")
             } else {
@@ -124,13 +123,9 @@ class HRDatabaseManager {
             log.error("'downloadsIndexSQL' index created error")
         }
         
-        
-        
         //////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////
-        
-        
         
         log.debug("Database Tables created")
     }
@@ -149,8 +144,8 @@ class HRDatabaseManager {
     
     ////
     
-    
     func getAllDownloads(completion: ([HRAudioItemModel]) -> ()) {
+
         dispatch_async(self.queue!, { () -> Void in
             var array: [HRAudioItemModel] = []
             
@@ -160,13 +155,13 @@ class HRDatabaseManager {
                     array.append(HRAudioItemModel(set: set))
                 }
             }
+            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 completion(array)
             })
         })
     }
-    
-    
+
     func getAllDownloadsIds(completion: ([Int]) -> ()) {
         dispatch_async(self.queue!, { () -> Void in
             var array: [Int] = []

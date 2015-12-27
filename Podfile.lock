@@ -25,6 +25,7 @@ PODS:
     - sqlite3/common (= 3.8.11.1)
   - sqlite3/common (3.8.11.1)
   - Toucan (0.4.3)
+  - VK-ios-sdk (1.2.2)
   - XCGLogger (3.0)
   - YandexMobileMetrica (2.0.0):
     - FMDB (~> 2.2)
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - SnapKit
   - sqlite3
   - Toucan
+  - VK-ios-sdk
   - XCGLogger (from `https://github.com/DaveWoodCom/XCGLogger.git`, branch `swift_2.0`)
   - YandexMobileMetrica
 
@@ -69,7 +71,8 @@ SPEC CHECKSUMS:
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   sqlite3: 73d6ec33f24f74ceb91df8f1b6e1809251f0f580
   Toucan: 3e2319c8fb9c7a2fb9c30f6d4ecdc6b8a2f1c92b
+  VK-ios-sdk: f4b7df0d4e277e06d60fef6dc472be4260eeda6d
   XCGLogger: 5802533aff8bafc8b3b9776ab8972576f31d0a4e
   YandexMobileMetrica: 09b508688e95cd16ee472c6afdd01f3c78f05365
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0.beta.4

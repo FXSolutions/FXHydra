@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import VK_ios_sdk
 
 class HRDataManager {
     
@@ -17,7 +18,6 @@ class HRDataManager {
     let currentUserInfo = Signal<(HRUserModel!)>()
     
     // all downloaded ids
-    
     var arrayWithDownloadedIds = [Int]()
 
     func getCurrentUserInfo() {
@@ -35,7 +35,6 @@ class HRDataManager {
                 // error
                 print(error)
         })
-        
         
     }
     

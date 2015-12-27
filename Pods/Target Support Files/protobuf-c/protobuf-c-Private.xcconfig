@@ -1,6 +1,0 @@
-#include "protobuf-c.xcconfig"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-GCC_WARN_64_TO_32_BIT_CONVERSION = ${PROTOBUF_C_GCC_WARN_64_TO_32_BIT_CONVERSION}
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/protobuf-c" "${PODS_ROOT}/Headers/Private/protobuf-c/protobuf-c" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/YandexMobileMetrica"
-PODS_ROOT = ${SRCROOT}
-SKIP_INSTALL = YES

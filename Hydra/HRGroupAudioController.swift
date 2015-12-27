@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VK_ios_sdk
 
 class HRGroupAudioController: UITableViewController {
 
@@ -21,7 +22,6 @@ class HRGroupAudioController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         self.tableView.rowHeight = 70
         self.tableView.tableFooterView = UIView(frame: CGRectZero)

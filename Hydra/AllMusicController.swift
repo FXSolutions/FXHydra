@@ -33,7 +33,6 @@ class AllMusicController: UITableViewController {
         
         // add search
         
-        
         let searchAudioController = HRSearchAudioController()
         self.searchController = UISearchController(searchResultsController: searchAudioController)
         self.searchController.searchResultsUpdater = searchAudioController
@@ -64,16 +63,16 @@ class AllMusicController: UITableViewController {
                 
                 HRAPIManager.sharedInstance.vk_audioget(0, count: 100, offset: self.audiosArray.count, completion: { (vkAudiosArray) -> () in
                     
-                    var countAudios = self.audiosArray.count
+                    let countAudios = self.audiosArray.count
+                    var counter = countAudios;
                     
                     self.audiosArray.appendContentsOf(vkAudiosArray)
                     
-                    
                     var indexPaths = [NSIndexPath]()
                     
-                    for countAudios; countAudios < self.audiosArray.count;countAudios++ {
+                    for (countAudios; counter < self.audiosArray.count;counter++) {
                         
-                        let indexPath = NSIndexPath(forRow: countAudios-1, inSection: 0)
+                        let indexPath = NSIndexPath(forRow: counter-1, inSection: 0)
                         indexPaths.append(indexPath)
                         
                     }

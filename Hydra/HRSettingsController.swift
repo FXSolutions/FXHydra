@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VK_ios_sdk
 
 class HRSettingsController: UIViewController {
     

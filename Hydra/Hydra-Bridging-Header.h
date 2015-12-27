@@ -6,7 +6,6 @@
 #import "BufferedNavigationController.h"
 #import "AFSoundManager.h"
 
-#import <VKSdk/VKSdk.h>
 #import "FMDB.h"
 #import "ItunesSearch.h"
 #import "MarqueeLabel.h"

@@ -1,5 +1,6 @@
 import UIKit
 import XCGLogger
+import VK_ios_sdk
 
 let log = XCGLogger.defaultInstance()
 

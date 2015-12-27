@@ -1,4 +1,5 @@
 import Foundation
+import VK_ios_sdk
 
 class HRAPIManager {
     

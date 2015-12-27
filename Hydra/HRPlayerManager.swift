@@ -9,42 +9,12 @@
 import UIKit
 import AVFoundation
 import Haneke
+import VK_ios_sdk
 
 class HRCurrentSongPlayedTime {
     var duration : Int!
     var timePlayed : Int!
 }
-
-//func shuffle<C: MutableCollectionType where C.Index == Int>(inout list: C) {
-//    let c = list.count
-//    for i in 0..<(c - 1) {
-//        let j = Int(arc4random_uniform(UInt32(c - i))) + i
-//        swap(&list[i], &list[j])
-//    }
-//}
-//
-///// Return a collection containing the shuffled elements of `list`.
-//func shuffled<C: MutableCollectionType where C.Index == Int>(var list: C) -> C {
-//    shuffle(&list)
-//    return list
-//}
-//
-//extension Array {
-//    /// Shuffle the elements of `self` in-place.
-//    mutating func shuffle() {
-//        for i in 0..<(count - 1) {
-//            let j = Int(arc4random_uniform(UInt32(count - i))) + i
-//            swap(&self[i], &self[j])
-//        }
-//    }
-//    
-//    /// Return a copy of `self` with its elements shuffled
-//    func shuffled() -> [Element] {
-//        var list = self
-//        list.shuffle()
-//        return list
-//    }
-//}
 
 class HRPlayerManager {
     
@@ -253,31 +223,16 @@ class HRPlayerManager {
             if resultArray.count > 0 {
                 let song = resultArray[0]
                 let artworkURL:String = song["artworkUrl100"] as! String
-                let bigArtworkURL = artworkURL.stringByReplacingOccurrencesOfString("100x100bb-85", withString: "600x600bb-85")
+                let bigArtworkURL = artworkURL.stringByReplacingOccurrencesOfString("100x100bb", withString: "600x600bb")
                 
                 log.debug("ARTWORK!! = \(bigArtworkURL)")
                 
                 let imageURL = NSURL(string: bigArtworkURL)
                 
-//                let cache = Shared.imageCache
-//                let fetcher = NetworkFetcher<UIImage>(URL:imageURL!)
-//                cache.fetch(fetcher: fetcher).onSuccess { image in
-//                    
-//                    dispatch.async.main({ () -> Void in
-//                        self.coverImage = image
-//                        self.coverChanged.fire(image)
-//                        self.backgroundImage = image
-//                        self.backgroundChanged.fire(image)
-//                        self.setSongInfoWithImage(image,artistInB: artistIn, titleInB: titleIn)
-//                        
-//                    })
-//                    
-//                }
-                
                 dispatch.async.main({ () -> Void in
                 
-                let cache = Shared.imageCache
-                let fetcher = NetworkFetcher<UIImage>(URL:imageURL!)
+                    let cache = Shared.imageCache
+                    let fetcher = NetworkFetcher<UIImage>(URL:imageURL!)
                     cache.fetch(fetcher: fetcher).onSuccess { image in
                         
                         dispatch.async.main({ () -> Void in
@@ -291,8 +246,6 @@ class HRPlayerManager {
                         
                     }
                 })
-                
-                
                 
             } else {
                 dispatch.async.main({ () -> Void in
@@ -316,6 +269,8 @@ class HRPlayerManager {
         var songInfo = Dictionary<String,AnyObject>()
         songInfo[MPMediaItemPropertyTitle] = titleInB
         songInfo[MPMediaItemPropertyArtist] = artistInB
+        
+        // artwork image
         let artwork = MPMediaItemArtwork(image: image)
         songInfo[MPMediaItemPropertyArtwork] = artwork
         

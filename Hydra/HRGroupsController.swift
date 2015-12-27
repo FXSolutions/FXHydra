@@ -8,6 +8,7 @@
 
 import UIKit
 import Nuke
+import VK_ios_sdk
 
 class HRGroupsController: UITableViewController {
 
