@@ -37,8 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // yandex.metrica
         
-        YMMYandexMetrica.activateWithApiKey("47597ab5-08d4-403f-b027-cf0d10b3c54d")
-        YMMYandexMetrica.setReportCrashesEnabled(true)
+//        YMMYandexMetrica.activateWithApiKey("47597ab5-08d4-403f-b027-cf0d10b3c54d")
+//        YMMYandexMetrica.setReportCrashesEnabled(true)
         
         /*
         [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"a67c733e88694833a7ebcfb91a4a72ff"];

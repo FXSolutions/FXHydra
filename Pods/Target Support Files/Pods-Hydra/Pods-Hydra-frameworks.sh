@@ -85,29 +85,23 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Hydra/Alamofire.framework"
-  install_framework "Pods-Hydra/FMDB.framework"
   install_framework "Pods-Hydra/Haneke.framework"
   install_framework "Pods-Hydra/Just.framework"
-  install_framework "Pods-Hydra/KSCrash.framework"
   install_framework "Pods-Hydra/Nuke.framework"
   install_framework "Pods-Hydra/SnapKit.framework"
   install_framework "Pods-Hydra/Toucan.framework"
   install_framework "Pods-Hydra/VK_ios_sdk.framework"
   install_framework "Pods-Hydra/XCGLogger.framework"
-  install_framework "Pods-Hydra/protobuf_c.framework"
   install_framework "Pods-Hydra/sqlite3.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Hydra/Alamofire.framework"
-  install_framework "Pods-Hydra/FMDB.framework"
   install_framework "Pods-Hydra/Haneke.framework"
   install_framework "Pods-Hydra/Just.framework"
-  install_framework "Pods-Hydra/KSCrash.framework"
   install_framework "Pods-Hydra/Nuke.framework"
   install_framework "Pods-Hydra/SnapKit.framework"
   install_framework "Pods-Hydra/Toucan.framework"
   install_framework "Pods-Hydra/VK_ios_sdk.framework"
   install_framework "Pods-Hydra/XCGLogger.framework"
-  install_framework "Pods-Hydra/protobuf_c.framework"
   install_framework "Pods-Hydra/sqlite3.framework"
 fi

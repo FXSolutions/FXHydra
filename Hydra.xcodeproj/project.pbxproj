@@ -7,15 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15133DD51C38652A00311DE4 /* CALayer+PKDownloadButtonAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DC31C38652A00311DE4 /* CALayer+PKDownloadButtonAnimations.m */; };
-		15133DD61C38652A00311DE4 /* NSLayoutConstraint+PKDownloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DC51C38652A00311DE4 /* NSLayoutConstraint+PKDownloadButton.m */; };
-		15133DD71C38652A00311DE4 /* PKCircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DC71C38652A00311DE4 /* PKCircleProgressView.m */; };
-		15133DD81C38652A00311DE4 /* PKCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DC91C38652A00311DE4 /* PKCircleView.m */; };
-		15133DD91C38652A00311DE4 /* PKDownloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DCB1C38652A00311DE4 /* PKDownloadButton.m */; };
-		15133DDA1C38652A00311DE4 /* PKPendingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DCE1C38652A00311DE4 /* PKPendingView.m */; };
-		15133DDB1C38652A00311DE4 /* PKStopDownloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DD01C38652A00311DE4 /* PKStopDownloadButton.m */; };
-		15133DDC1C38652A00311DE4 /* UIButton+PKDownloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DD21C38652A00311DE4 /* UIButton+PKDownloadButton.m */; };
-		15133DDD1C38652A00311DE4 /* UIImage+PKDownloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DD41C38652A00311DE4 /* UIImage+PKDownloadButton.m */; };
+		15133DE31C38E41800311DE4 /* BWSwipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15133DE11C38E41800311DE4 /* BWSwipeCell.swift */; };
+		15133DE41C38E41800311DE4 /* BWSwipeRevealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15133DE21C38E41800311DE4 /* BWSwipeRevealCell.swift */; };
 		1514B64F1BC410D20085272C /* Neon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1514B64A1BC410D20085272C /* Neon.swift */; };
 		1514B6501BC410D20085272C /* NeonFrameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1514B64B1BC410D20085272C /* NeonFrameable.swift */; };
 		1514B6511BC410D20085272C /* NeonAnchorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1514B64C1BC410D20085272C /* NeonAnchorable.swift */; };
@@ -39,7 +32,8 @@
 		15AC8D1C1BB1F7E50050827C /* HRGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D1B1BB1F7E50050827C /* HRGroupModel.swift */; };
 		15BEC4F71BB2207C00956332 /* Collections+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BEC4F61BB2207C00956332 /* Collections+Ext.swift */; };
 		15BEC4F91BB2EA7900956332 /* AttributedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BEC4F81BB2EA7900956332 /* AttributedLabel.swift */; };
-		649E73E547A8DD95524F7A01 /* Pods_Hydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE20EA940EC7896FD7A41B8 /* Pods_Hydra.framework */; };
+		9595A6FB777CD6D9EFF6F915 /* Pods_HydraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801AE97000EFDCEBF74F9C53 /* Pods_HydraTests.framework */; };
+		B46C9AD0EAA7EB705D207544 /* Pods_Hydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44C639014B05170C96EA550 /* Pods_Hydra.framework */; };
 		D76E93881B47E99E00F4834D /* HRDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E93871B47E99E00F4834D /* HRDatabaseManager.swift */; };
 		D76E938A1B47F0A400F4834D /* HRAudioItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E93891B47F0A400F4834D /* HRAudioItemModel.swift */; };
 		D76E93901B47FF1200F4834D /* dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E938F1B47FF1200F4834D /* dispatch.swift */; };
@@ -113,25 +107,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		15133DC21C38652A00311DE4 /* CALayer+PKDownloadButtonAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+PKDownloadButtonAnimations.h"; sourceTree = "<group>"; };
-		15133DC31C38652A00311DE4 /* CALayer+PKDownloadButtonAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+PKDownloadButtonAnimations.m"; sourceTree = "<group>"; };
-		15133DC41C38652A00311DE4 /* NSLayoutConstraint+PKDownloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+PKDownloadButton.h"; sourceTree = "<group>"; };
-		15133DC51C38652A00311DE4 /* NSLayoutConstraint+PKDownloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+PKDownloadButton.m"; sourceTree = "<group>"; };
-		15133DC61C38652A00311DE4 /* PKCircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCircleProgressView.h; sourceTree = "<group>"; };
-		15133DC71C38652A00311DE4 /* PKCircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKCircleProgressView.m; sourceTree = "<group>"; };
-		15133DC81C38652A00311DE4 /* PKCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCircleView.h; sourceTree = "<group>"; };
-		15133DC91C38652A00311DE4 /* PKCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKCircleView.m; sourceTree = "<group>"; };
-		15133DCA1C38652A00311DE4 /* PKDownloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKDownloadButton.h; sourceTree = "<group>"; };
-		15133DCB1C38652A00311DE4 /* PKDownloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKDownloadButton.m; sourceTree = "<group>"; };
-		15133DCC1C38652A00311DE4 /* PKMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKMacros.h; sourceTree = "<group>"; };
-		15133DCD1C38652A00311DE4 /* PKPendingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKPendingView.h; sourceTree = "<group>"; };
-		15133DCE1C38652A00311DE4 /* PKPendingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKPendingView.m; sourceTree = "<group>"; };
-		15133DCF1C38652A00311DE4 /* PKStopDownloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKStopDownloadButton.h; sourceTree = "<group>"; };
-		15133DD01C38652A00311DE4 /* PKStopDownloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKStopDownloadButton.m; sourceTree = "<group>"; };
-		15133DD11C38652A00311DE4 /* UIButton+PKDownloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+PKDownloadButton.h"; sourceTree = "<group>"; };
-		15133DD21C38652A00311DE4 /* UIButton+PKDownloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+PKDownloadButton.m"; sourceTree = "<group>"; };
-		15133DD31C38652A00311DE4 /* UIImage+PKDownloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PKDownloadButton.h"; sourceTree = "<group>"; };
-		15133DD41C38652A00311DE4 /* UIImage+PKDownloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PKDownloadButton.m"; sourceTree = "<group>"; };
+		15133DE11C38E41800311DE4 /* BWSwipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWSwipeCell.swift; sourceTree = "<group>"; };
+		15133DE21C38E41800311DE4 /* BWSwipeRevealCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWSwipeRevealCell.swift; sourceTree = "<group>"; };
 		1514B64A1BC410D20085272C /* Neon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neon.swift; sourceTree = "<group>"; };
 		1514B64B1BC410D20085272C /* NeonFrameable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeonFrameable.swift; sourceTree = "<group>"; };
 		1514B64C1BC410D20085272C /* NeonAnchorable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeonAnchorable.swift; sourceTree = "<group>"; };
@@ -155,8 +132,11 @@
 		15AC8D1B1BB1F7E50050827C /* HRGroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRGroupModel.swift; sourceTree = "<group>"; };
 		15BEC4F61BB2207C00956332 /* Collections+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collections+Ext.swift"; sourceTree = "<group>"; };
 		15BEC4F81BB2EA7900956332 /* AttributedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedLabel.swift; sourceTree = "<group>"; };
-		8CE20EA940EC7896FD7A41B8 /* Pods_Hydra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hydra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		951A50BF9B34515DEDB8EC4C /* Pods-Hydra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydra.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hydra/Pods-Hydra.debug.xcconfig"; sourceTree = "<group>"; };
+		448C4BD42721571F885F44EA /* Pods-Hydra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydra.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hydra/Pods-Hydra.debug.xcconfig"; sourceTree = "<group>"; };
+		716226CF6279ECAC9245DFE6 /* Pods-Hydra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydra.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hydra/Pods-Hydra.release.xcconfig"; sourceTree = "<group>"; };
+		7A81FC22AC3295C72E37B4D3 /* Pods-HydraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydraTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HydraTests/Pods-HydraTests.debug.xcconfig"; sourceTree = "<group>"; };
+		801AE97000EFDCEBF74F9C53 /* Pods_HydraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HydraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A410EE40CAE3BE49C53181E4 /* Pods-HydraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydraTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HydraTests/Pods-HydraTests.release.xcconfig"; sourceTree = "<group>"; };
 		D76E93871B47E99E00F4834D /* HRDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRDatabaseManager.swift; sourceTree = "<group>"; };
 		D76E93891B47F0A400F4834D /* HRAudioItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRAudioItemModel.swift; sourceTree = "<group>"; };
 		D76E938F1B47FF1200F4834D /* dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dispatch.swift; sourceTree = "<group>"; };
@@ -244,7 +224,7 @@
 		D7F157F81B437D630023319E /* HydraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HydraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F157FD1B437D630023319E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7F157FE1B437D630023319E /* HydraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydraTests.swift; sourceTree = "<group>"; };
-		DBC898785660C79A7B0DD455 /* Pods-Hydra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydra.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hydra/Pods-Hydra.release.xcconfig"; sourceTree = "<group>"; };
+		E44C639014B05170C96EA550 /* Pods_Hydra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hydra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,7 +235,7 @@
 				D76E93B41B480FF900F4834D /* AVFoundation.framework in Frameworks */,
 				D76E93B21B480FF100F4834D /* AudioToolbox.framework in Frameworks */,
 				D76E93B01B480FEB00F4834D /* MediaPlayer.framework in Frameworks */,
-				649E73E547A8DD95524F7A01 /* Pods_Hydra.framework in Frameworks */,
+				B46C9AD0EAA7EB705D207544 /* Pods_Hydra.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,34 +243,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9595A6FB777CD6D9EFF6F915 /* Pods_HydraTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		15133DC11C38652200311DE4 /* DownloadButton */ = {
+		0865D46A91F35BE65F654144 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				15133DC21C38652A00311DE4 /* CALayer+PKDownloadButtonAnimations.h */,
-				15133DC31C38652A00311DE4 /* CALayer+PKDownloadButtonAnimations.m */,
-				15133DC41C38652A00311DE4 /* NSLayoutConstraint+PKDownloadButton.h */,
-				15133DC51C38652A00311DE4 /* NSLayoutConstraint+PKDownloadButton.m */,
-				15133DC61C38652A00311DE4 /* PKCircleProgressView.h */,
-				15133DC71C38652A00311DE4 /* PKCircleProgressView.m */,
-				15133DC81C38652A00311DE4 /* PKCircleView.h */,
-				15133DC91C38652A00311DE4 /* PKCircleView.m */,
-				15133DCA1C38652A00311DE4 /* PKDownloadButton.h */,
-				15133DCB1C38652A00311DE4 /* PKDownloadButton.m */,
-				15133DCC1C38652A00311DE4 /* PKMacros.h */,
-				15133DCD1C38652A00311DE4 /* PKPendingView.h */,
-				15133DCE1C38652A00311DE4 /* PKPendingView.m */,
-				15133DCF1C38652A00311DE4 /* PKStopDownloadButton.h */,
-				15133DD01C38652A00311DE4 /* PKStopDownloadButton.m */,
-				15133DD11C38652A00311DE4 /* UIButton+PKDownloadButton.h */,
-				15133DD21C38652A00311DE4 /* UIButton+PKDownloadButton.m */,
-				15133DD31C38652A00311DE4 /* UIImage+PKDownloadButton.h */,
-				15133DD41C38652A00311DE4 /* UIImage+PKDownloadButton.m */,
+				448C4BD42721571F885F44EA /* Pods-Hydra.debug.xcconfig */,
+				716226CF6279ECAC9245DFE6 /* Pods-Hydra.release.xcconfig */,
+				7A81FC22AC3295C72E37B4D3 /* Pods-HydraTests.debug.xcconfig */,
+				A410EE40CAE3BE49C53181E4 /* Pods-HydraTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		15133DDE1C38E17700311DE4 /* DownloadButton */ = {
+			isa = PBXGroup;
+			children = (
+				15133DE11C38E41800311DE4 /* BWSwipeCell.swift */,
+				15133DE21C38E41800311DE4 /* BWSwipeRevealCell.swift */,
 			);
 			name = DownloadButton;
 			sourceTree = "<group>";
@@ -558,7 +533,7 @@
 		D77554861B43A28C008779C1 /* Ext */ = {
 			isa = PBXGroup;
 			children = (
-				15133DC11C38652200311DE4 /* DownloadButton */,
+				15133DDE1C38E17700311DE4 /* DownloadButton */,
 				1514B6491BC410C60085272C /* Neon */,
 				15BEC4F81BB2EA7900956332 /* AttributedLabel.swift */,
 				D7A64B041B6E00FB000FE8A8 /* MarqueeLabel.h */,
@@ -734,8 +709,8 @@
 				D7F157E51B437D630023319E /* Hydra */,
 				D7F157FB1B437D630023319E /* HydraTests */,
 				D7F157E41B437D630023319E /* Products */,
-				E69FF39EBAAA5858A88F476E /* Pods */,
 				F1742499CA16E73F3944338D /* Frameworks */,
+				0865D46A91F35BE65F654144 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -786,15 +761,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E69FF39EBAAA5858A88F476E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				951A50BF9B34515DEDB8EC4C /* Pods-Hydra.debug.xcconfig */,
-				DBC898785660C79A7B0DD455 /* Pods-Hydra.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		F1742499CA16E73F3944338D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -802,7 +768,8 @@
 				D76E93B11B480FF100F4834D /* AudioToolbox.framework */,
 				D76E93AF1B480FEB00F4834D /* MediaPlayer.framework */,
 				D77554DF1B43ABBE008779C1 /* libsqlite3.dylib */,
-				8CE20EA940EC7896FD7A41B8 /* Pods_Hydra.framework */,
+				E44C639014B05170C96EA550 /* Pods_Hydra.framework */,
+				801AE97000EFDCEBF74F9C53 /* Pods_HydraTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -814,13 +781,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7F158021B437D630023319E /* Build configuration list for PBXNativeTarget "Hydra" */;
 			buildPhases = (
-				77EB06B60138878DF9544213 /* Check Pods Manifest.lock */,
+				0511DF7565780018D1FD9D3B /* Check Pods Manifest.lock */,
 				D7F157DF1B437D620023319E /* Sources */,
 				D7F157E01B437D620023319E /* Frameworks */,
 				D7F157E11B437D620023319E /* Resources */,
-				7139D03AF1E15C94E315E923 /* Embed Pods Frameworks */,
-				EF8887AEA20D52274BFE3EC1 /* Copy Pods Resources */,
 				15CB835C1C324FF80053C0BD /* HockeyApp */,
+				09AF4ADFA1FCBF4B3C7443A1 /* Embed Pods Frameworks */,
+				42B4703F6D91A4A457E0060F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -835,9 +802,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D7F158051B437D630023319E /* Build configuration list for PBXNativeTarget "HydraTests" */;
 			buildPhases = (
+				43F66A7050BE20A55B16C985 /* Check Pods Manifest.lock */,
 				D7F157F41B437D630023319E /* Sources */,
 				D7F157F51B437D630023319E /* Frameworks */,
 				D7F157F61B437D630023319E /* Resources */,
+				52D2F9B54C48037D24739A91 /* Embed Pods Frameworks */,
+				69BC632FD5F8424584DD608C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -858,7 +828,7 @@
 				CLASSPREFIX = HR;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = "Evgeny Evgrafov";
+				ORGANIZATIONNAME = kioshimafx;
 				TargetAttributes = {
 					D7F157E21B437D620023319E = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -914,36 +884,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		15CB835C1C324FF80053C0BD /* HockeyApp */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = HockeyApp;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "FILE=\"${SRCROOT}/HockeySDK-iOS/BuildAgent\"\nif [ -f \"$FILE\" ]; then\n\"$FILE\"\nfi";
-		};
-		7139D03AF1E15C94E315E923 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hydra/Pods-Hydra-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		77EB06B60138878DF9544213 /* Check Pods Manifest.lock */ = {
+		0511DF7565780018D1FD9D3B /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -958,7 +899,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		EF8887AEA20D52274BFE3EC1 /* Copy Pods Resources */ = {
+		09AF4ADFA1FCBF4B3C7443A1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hydra/Pods-Hydra-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		15CB835C1C324FF80053C0BD /* HockeyApp */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = HockeyApp;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FILE=\"${SRCROOT}/HockeySDK-iOS/BuildAgent\"\nif [ -f \"$FILE\" ]; then\n\"$FILE\"\nfi";
+		};
+		42B4703F6D91A4A457E0060F /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -973,6 +943,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hydra/Pods-Hydra-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		43F66A7050BE20A55B16C985 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		52D2F9B54C48037D24739A91 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HydraTests/Pods-HydraTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69BC632FD5F8424584DD608C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HydraTests/Pods-HydraTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -981,7 +996,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1514B6531BC410D20085272C /* NeonGroupable.swift in Sources */,
-				15133DD61C38652A00311DE4 /* NSLayoutConstraint+PKDownloadButton.m in Sources */,
 				D7A64AF31B6DB931000FE8A8 /* FMDatabaseVariadic.swift in Sources */,
 				1514B6521BC410D20085272C /* NeonAlignable.swift in Sources */,
 				15AC8D071BB132A60050827C /* HRFriendModel.swift in Sources */,
@@ -994,11 +1008,11 @@
 				D77554941B43A581008779C1 /* DownloadsController.swift in Sources */,
 				D7ED33641B52D4BE0068FF4E /* SinglyLinkedList.swift in Sources */,
 				D76E93C31B4815D300F4834D /* AFSoundRecord.m in Sources */,
+				15133DE31C38E41800311DE4 /* BWSwipeCell.swift in Sources */,
 				15AC8D121BB1931F0050827C /* HRAudioSearchCell.swift in Sources */,
 				D76E938A1B47F0A400F4834D /* HRAudioItemModel.swift in Sources */,
 				D77E8AD51B6ED2D300AD31DF /* HRPlaylistCell.swift in Sources */,
 				D7ED335E1B52D4AD0068FF4E /* DrawerController.swift in Sources */,
-				15133DDD1C38652A00311DE4 /* UIImage+PKDownloadButton.m in Sources */,
 				15AC8D1A1BB1F79F0050827C /* HRGroupCell.swift in Sources */,
 				D76E93C41B4815D300F4834D /* NSTimer+AFSoundManager.m in Sources */,
 				D76E93991B48081A00F4834D /* HRPlayerManager.swift in Sources */,
@@ -1006,13 +1020,11 @@
 				D7ED33631B52D4BE0068FF4E /* HashMap.swift in Sources */,
 				15AC8D0E1BB18F480050827C /* HRFooterProgress.swift in Sources */,
 				D76E93D01B48873E00F4834D /* MGSwipeButton.m in Sources */,
-				15133DDC1C38652A00311DE4 /* UIButton+PKDownloadButton.m in Sources */,
 				D76E93C61B48228200F4834D /* HRAllMusicCell.swift in Sources */,
 				D7A64AEF1B6DB92A000FE8A8 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				D7A64B0C1B6EA395000FE8A8 /* HRCurrentUserModel.swift in Sources */,
 				D775548C1B43A546008779C1 /* AuthController.swift in Sources */,
 				D76E93901B47FF1200F4834D /* dispatch.swift in Sources */,
-				15133DD71C38652A00311DE4 /* PKCircleProgressView.m in Sources */,
 				D77554901B43A563008779C1 /* AllMusicController.swift in Sources */,
 				D7A64B091B6E0637000FE8A8 /* HRPlaylistsController.swift in Sources */,
 				D7A64AF21B6DB931000FE8A8 /* FMDatabaseAdditionsVariadic.swift in Sources */,
@@ -1042,25 +1054,21 @@
 				D77E8AD11B6EBFBA00AD31DF /* UIImage+Ext.swift in Sources */,
 				D7ED33691B52F5860068FF4E /* HRMenuCell.swift in Sources */,
 				D7A64B021B6DB93A000FE8A8 /* FMDatabaseQueue.m in Sources */,
+				15133DE41C38E41800311DE4 /* BWSwipeRevealCell.swift in Sources */,
 				D7ED335D1B52D4AD0068FF4E /* DrawerBarButtonItem.swift in Sources */,
-				15133DD51C38652A00311DE4 /* CALayer+PKDownloadButtonAnimations.m in Sources */,
 				D7ED335F1B52D4AD0068FF4E /* DrawerVisualState.swift in Sources */,
 				15AC8D1C1BB1F7E50050827C /* HRGroupModel.swift in Sources */,
 				15AC8D051BB1313B0050827C /* HRFriendsCell.swift in Sources */,
-				15133DDA1C38652A00311DE4 /* PKPendingView.m in Sources */,
 				D7A64B001B6DB93A000FE8A8 /* FMDatabaseAdditions.m in Sources */,
 				D76E93CA1B48645000F4834D /* ItunesSearch.m in Sources */,
 				15AC8D151BB1E53F0050827C /* HRGroupsController.swift in Sources */,
 				D7A64B031B6DB93A000FE8A8 /* FMResultSet.m in Sources */,
-				15133DDB1C38652A00311DE4 /* PKStopDownloadButton.m in Sources */,
 				15BEC4F71BB2207C00956332 /* Collections+Ext.swift in Sources */,
 				15BEC4F91BB2EA7900956332 /* AttributedLabel.swift in Sources */,
 				D7A64B061B6E00FB000FE8A8 /* MarqueeLabel.m in Sources */,
 				D77554D61B43A92A008779C1 /* HRConstants.swift in Sources */,
 				D7A64B0F1B6EA983000FE8A8 /* HRDataManager.swift in Sources */,
 				D7A64AEB1B6DB920000FE8A8 /* FMDatabase+FTS3.m in Sources */,
-				15133DD81C38652A00311DE4 /* PKCircleView.m in Sources */,
-				15133DD91C38652A00311DE4 /* PKDownloadButton.m in Sources */,
 				156813161BA6CCF30019C118 /* HRDownloadedCell.swift in Sources */,
 				D77554B31B43A721008779C1 /* BufferedNavigationController.m in Sources */,
 				D76E93C11B4815D300F4834D /* AFSoundItem.m in Sources */,
@@ -1183,7 +1191,7 @@
 		};
 		D7F158031B437D630023319E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 951A50BF9B34515DEDB8EC4C /* Pods-Hydra.debug.xcconfig */;
+			baseConfigurationReference = 448C4BD42721571F885F44EA /* Pods-Hydra.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1196,7 +1204,7 @@
 				INFOPLIST_FILE = Hydra/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.KR.Hydra;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kioshimafx.Hydra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hydra/Hydra-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1205,7 +1213,7 @@
 		};
 		D7F158041B437D630023319E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DBC898785660C79A7B0DD455 /* Pods-Hydra.release.xcconfig */;
+			baseConfigurationReference = 716226CF6279ECAC9245DFE6 /* Pods-Hydra.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1218,7 +1226,7 @@
 				INFOPLIST_FILE = Hydra/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.KR.Hydra;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kioshimafx.Hydra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hydra/Hydra-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1227,6 +1235,7 @@
 		};
 		D7F158061B437D630023319E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A81FC22AC3295C72E37B4D3 /* Pods-HydraTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1244,6 +1253,7 @@
 		};
 		D7F158071B437D630023319E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A410EE40CAE3BE49C53181E4 /* Pods-HydraTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";

@@ -14,7 +14,6 @@ target 'Hydra' do
 	pod 'Just'
     pod 'Toucan'
     pod 'Nuke'
-	pod 'YandexMobileMetrica'
 	
 end
 

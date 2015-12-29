@@ -1,7 +1,7 @@
 
 import UIKit
 
-class AllMusicController: UITableViewController {
+class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BWSwipeCellDelegate {
     
     var searchController : UISearchController!
     var audiosArray = Array<HRAudioItemModel>()
@@ -141,12 +141,18 @@ class AllMusicController: UITableViewController {
         cell.audioTitleLabel.text = audio.title
         cell.allMusicController = self
         cell.audioModel = audio
+        cell.revealDirection = .Right
         
         if audio.downloadState == 3 {
-            cell.downloadButton.hidden = true
+            cell.downloadedImage.hidden = false
+            cell.downloadedImage.image = UIImage(named: "donebutton")
         } else {
-            cell.downloadButton.hidden = false
+            cell.downloadedImage.hidden = true
         }
+        
+        cell.bgViewRightImage = UIImage(named:"download_image")!.imageWithRenderingMode(.AlwaysTemplate)
+        cell.bgViewRightColor = UIColor.blackColor()
+        cell.delegate = self
         
         //cell.audioDurationTime.text = self.durationFormater(Double(audio.duration))
         
@@ -232,6 +238,20 @@ class AllMusicController: UITableViewController {
         
         HRInterfaceManager.sharedInstance.openMenu()
         
+    }
+    // cell action
+    
+    func swipeCellActivatedAction(cell: BWSwipeCell, isActionLeft: Bool) {
+        //
+        
+        log.debug("swipeCellActivatedAction")
+        
+    }
+    
+    func swipeCellDidCompleteRelease(cell: BWSwipeCell) {
+        //
+        
+         log.debug("swipeCellDidCompleteRelease")
     }
     
 }

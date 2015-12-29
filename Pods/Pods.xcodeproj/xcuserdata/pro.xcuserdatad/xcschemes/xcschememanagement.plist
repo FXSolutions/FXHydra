@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FMDB.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>HanekeSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,17 +24,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>KSCrash.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Nuke.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-Hydra.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-HydraTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -64,11 +59,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>protobuf-c.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>sqlite3.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,27 +67,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1781781D529ED27341BC4E45E3CBE842</key>
+		<key>0C37148A530DAF0B69878E41CA5E3263</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>23CF27B2BA6AC7125EFFEDA8C5AA819F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2584DAFBD22EF9B6D822B4D77811CC40</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3C014F737BF0E4D82F49D1E8DBB98C79</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>47D00BF6565E070F8D79D62D6FA5A27B</key>
+		<key>2972DCF5DC8C5489747B296C850881F2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,17 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4CE502637DAA483542EC6D36E3850990</key>
+		<key>63CA2EB54CA6EE876232F49C7EE6086E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B661DAD4B6D501DEEE9659B810B2DA3</key>
+		<key>70F6D9E846D217BC6813175A304E936A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7405E57C40B05AC7795DF02327E4CBD4</key>
+		<key>78F310D7B732773F5068175497CFEF61</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,17 +102,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>94470020DABE05B629A664BCC02FCA75</key>
+		<key>8392721C15D4816E3011C0822846DD99</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ACC7EEFAA2246712563E1ADB33F9CEC8</key>
+		<key>A12FAB6606527FB51ADE53E65A06A292</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B075D88BC0D32EE394F40A824F9D44EC</key>
+		<key>A4FF348293B753C96C8C372AD2EB296E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D8C1E73675533D3258BAF88D29D76C92</key>
 		<dict>
 			<key>primary</key>
 			<true/>

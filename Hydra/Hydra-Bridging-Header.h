@@ -9,4 +9,3 @@
 #import "FMDB.h"
 #import "ItunesSearch.h"
 #import "MarqueeLabel.h"
-#import <YandexMobileMetrica/YandexMobileMetrica.h>
