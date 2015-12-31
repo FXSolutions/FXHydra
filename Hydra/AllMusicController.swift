@@ -208,9 +208,18 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
          HRDownloadManager.sharedInstance.downloadAudio(model) { (progress) -> () in
             
             dispatch.async.main({ () -> Void in
-                log.debug("download progress = \(progress)")
-                progressView.hidden = false
-                progressView.setProgress(Float(progress), animated: true)
+                
+                if (Int(fabs(progress*100))) % 10 == 0 {
+                    log.debug("download progress = \(progress)")
+                    progressView.hidden = false
+                    progressView.setProgress(Float(progress), animated: true)
+                    
+                    if progress*100 == 100 {
+                        progressView.hidden = true
+                        model.downloadState = 3
+                    }
+                }
+                
             })
             
         }
@@ -250,8 +259,16 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
     
     func swipeCellDidCompleteRelease(cell: BWSwipeCell) {
         //
+        if cell.state == BWSwipeCellState.PastThresholdRight {
+            log.debug("swipeCellDidCompleteRelease \(cell.state)")
+            
+            let musicCell = cell as! HRAllMusicCell
+            
+            self.downloadAudio(musicCell.audioModel, progressView: musicCell.progressView)
+            
+            
+        }
         
-         log.debug("swipeCellDidCompleteRelease")
     }
     
 }

@@ -26,11 +26,6 @@ class HRAllMusicCell: BWSwipeRevealCell {
         self.progressView.tintColor = UIColor.blackColor()
         self.progressView.hidden = true
         
-        //self.downloadButton = UIButton(type: UIButtonType.System)
-        //self.downloadButton.setImage(UIImage(named: "downloadButton"), forState: UIControlState.Normal)
-        //self.downloadButton.tintColor = UIColor.blackColor()
-
-        
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
         
         //self.downloadButton.addTarget(self, action: "startDownload", forControlEvents: UIControlEvents.TouchUpInside)
@@ -56,7 +51,7 @@ class HRAllMusicCell: BWSwipeRevealCell {
         self.audioAristLabel.frame = CGRectMake(self.separatorInset.left, 40, screenSizeWidth-70, 20)
         self.progressView.frame = CGRectMake(0, self.contentView.frame.height-2, self.contentView.frame.width, 2)
         //self.downloadButton.frame = CGRectMake(self.contentView.frame.width-65, 5, 60, 60)
-        self.downloadedImage.frame = CGRectMake(self.contentView.frame.width-50, 15, 40, 40)
+        self.downloadedImage.frame = CGRectMake(self.contentView.frame.width-35, 25, 20, 20)
         
     }
     
@@ -66,6 +61,7 @@ class HRAllMusicCell: BWSwipeRevealCell {
         self.progressView.hidden = true
         
         //self.avatar.image = nil
+        
     }
     
     func startDownload() {
