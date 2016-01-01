@@ -123,28 +123,32 @@ class HRPlayerManager {
     
     func playNext() {
         
-        if self.items.count != self.currentPlayIndex + 1 {
-            let song = self.items[self.currentPlayIndex+1]
-            self.currentPlayIndex = self.currentPlayIndex + 1
-            self.playItem(song)
-        } else {
-            self.currentPlayIndex = 0
-            let song = self.items[0]
-            self.playItem(song)
+        if self.items.count > 0 {
+            if self.items.count != self.currentPlayIndex + 1 {
+                let song = self.items[self.currentPlayIndex+1]
+                self.currentPlayIndex = self.currentPlayIndex + 1
+                self.playItem(song)
+            } else {
+                self.currentPlayIndex = 0
+                let song = self.items[0]
+                self.playItem(song)
+            }
         }
         
     }
     
     func playPrev() {
         
-        if self.currentPlayIndex-1 > -1 {
-            let song = self.items[self.currentPlayIndex-1]
-            self.currentPlayIndex = self.currentPlayIndex - 1
-            self.playItem(song)
-        } else {
-            self.currentPlayIndex = 0
-            let song = self.items[0]
-            self.playItem(song)
+        if self.items.count > 0 {
+            if self.currentPlayIndex - 1 == -1 {
+                self.currentPlayIndex = self.items.count - 1
+                let song = self.items[self.items.count-1]
+                self.playItem(song)
+            } else if self.currentPlayIndex-1 > -1 {
+                let song = self.items[self.currentPlayIndex-1]
+                self.currentPlayIndex = self.currentPlayIndex - 1
+                self.playItem(song)
+            }
         }
         
     }

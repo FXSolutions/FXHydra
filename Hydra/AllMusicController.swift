@@ -146,8 +146,17 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
         if audio.downloadState == 3 {
             cell.downloadedImage.hidden = false
             cell.downloadedImage.image = UIImage(named: "donebutton")
+            
+            cell.bgViewRightImage = UIImage(named:"download_image")!.imageWithRenderingMode(.AlwaysTemplate)
+            cell.bgViewRightColor = UIColor.blackColor()
+            
         } else {
+            
             cell.downloadedImage.hidden = true
+            
+            cell.bgViewRightImage = UIImage(named:"download_image")!.imageWithRenderingMode(.AlwaysTemplate)
+            cell.bgViewRightColor = UIColor.blackColor()
+            
         }
         
         cell.bgViewRightImage = UIImage(named:"download_image")!.imageWithRenderingMode(.AlwaysTemplate)
