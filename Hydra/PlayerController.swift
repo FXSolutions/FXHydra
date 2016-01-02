@@ -289,6 +289,17 @@ class PlayerController: UIViewController {
         swipeGestureOnAudioRight.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeGestureOnAudioRight)
         
+        
+        let swipeForDissmis = UISwipeGestureRecognizer(target: self, action: "handePan:")
+        swipeForDissmis.direction = UISwipeGestureRecognizerDirection.Down
+        
+        self.view.addGestureRecognizer(swipeForDissmis)
+        
+    }
+    
+
+    func handePan(recognizer:UIPanGestureRecognizer) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
