@@ -6,6 +6,9 @@ PODS:
   - FMDB/standard (2.5):
     - FMDB/common
   - HanekeSwift (0.10.0)
+  - HockeySDK (3.8.5):
+    - HockeySDK/AllFeaturesLib (= 3.8.5)
+  - HockeySDK/AllFeaturesLib (3.8.5)
   - Just (0.3)
   - KSCrash/Recording (0.0.5)
   - KSCrash/Reporting/Filters/AppleFmt (0.0.5):
@@ -36,6 +39,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - HanekeSwift (from `https://github.com/meteochu/HanekeSwift.git`)
+  - HockeySDK
   - Just
   - Nuke
   - SnapKit
@@ -64,6 +68,7 @@ SPEC CHECKSUMS:
   Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   HanekeSwift: d6f5bdf9dbdbbc09d59623b2c1d533e46463dd4d
+  HockeySDK: dd11a2b9da3372fd025643bee5bc10c8c613d169
   Just: 92ea3e45a3d22e6f4ef9dd223192111f23096e98
   KSCrash: 18820e0eedbe54404ddc54e6d022c247932d9323
   Nuke: 2ead90818f751b9d7b796ce134fc047bbb94167e
@@ -75,4 +80,4 @@ SPEC CHECKSUMS:
   XCGLogger: 5802533aff8bafc8b3b9776ab8972576f31d0a4e
   YandexMobileMetrica: 09b508688e95cd16ee472c6afdd01f3c78f05365
 
-COCOAPODS: 0.39.0.beta.4
+COCOAPODS: 0.39.0

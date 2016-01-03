@@ -1,6 +1,7 @@
 import UIKit
 import XCGLogger
 import VK_ios_sdk
+import HockeySDK
 
 let log = XCGLogger.defaultInstance()
 
@@ -38,6 +39,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         YMMYandexMetrica.activateWithApiKey("47597ab5-08d4-403f-b027-cf0d10b3c54d")
         YMMYandexMetrica.setReportCrashesEnabled(true)
+        
+        /*
+        [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"a67c733e88694833a7ebcfb91a4a72ff"];
+        // Do some additional configuration if needed here
+        [[BITHockeyManager sharedHockeyManager] startManager];
+        [[BITHockeyManager sharedHockeyManager].authenticator
+        authenticateInstallation];
+
+    */
+        
+        BITHockeyManager.sharedHockeyManager().configureWithIdentifier("a67c733e88694833a7ebcfb91a4a72ff")
+        BITHockeyManager.sharedHockeyManager().startManager()
+        BITHockeyManager.sharedHockeyManager().authenticator.authenticateInstallation()
         
 
         return true

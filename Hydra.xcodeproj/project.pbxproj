@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15133DD51C38652A00311DE4 /* CALayer+PKDownloadButtonAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DC31C38652A00311DE4 /* CALayer+PKDownloadButtonAnimations.m */; };
+		15133DD61C38652A00311DE4 /* NSLayoutConstraint+PKDownloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DC51C38652A00311DE4 /* NSLayoutConstraint+PKDownloadButton.m */; };
+		15133DD71C38652A00311DE4 /* PKCircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DC71C38652A00311DE4 /* PKCircleProgressView.m */; };
+		15133DD81C38652A00311DE4 /* PKCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DC91C38652A00311DE4 /* PKCircleView.m */; };
+		15133DD91C38652A00311DE4 /* PKDownloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DCB1C38652A00311DE4 /* PKDownloadButton.m */; };
+		15133DDA1C38652A00311DE4 /* PKPendingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DCE1C38652A00311DE4 /* PKPendingView.m */; };
+		15133DDB1C38652A00311DE4 /* PKStopDownloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DD01C38652A00311DE4 /* PKStopDownloadButton.m */; };
+		15133DDC1C38652A00311DE4 /* UIButton+PKDownloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DD21C38652A00311DE4 /* UIButton+PKDownloadButton.m */; };
+		15133DDD1C38652A00311DE4 /* UIImage+PKDownloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15133DD41C38652A00311DE4 /* UIImage+PKDownloadButton.m */; };
 		1514B64F1BC410D20085272C /* Neon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1514B64A1BC410D20085272C /* Neon.swift */; };
 		1514B6501BC410D20085272C /* NeonFrameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1514B64B1BC410D20085272C /* NeonFrameable.swift */; };
 		1514B6511BC410D20085272C /* NeonAnchorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1514B64C1BC410D20085272C /* NeonAnchorable.swift */; };
@@ -30,7 +39,7 @@
 		15AC8D1C1BB1F7E50050827C /* HRGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AC8D1B1BB1F7E50050827C /* HRGroupModel.swift */; };
 		15BEC4F71BB2207C00956332 /* Collections+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BEC4F61BB2207C00956332 /* Collections+Ext.swift */; };
 		15BEC4F91BB2EA7900956332 /* AttributedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BEC4F81BB2EA7900956332 /* AttributedLabel.swift */; };
-		649E73E547A8DD95524F7A01 /* Pods_Hydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE20EA940EC7896FD7A41B8 /* Pods_Hydra.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		649E73E547A8DD95524F7A01 /* Pods_Hydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE20EA940EC7896FD7A41B8 /* Pods_Hydra.framework */; };
 		D76E93881B47E99E00F4834D /* HRDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E93871B47E99E00F4834D /* HRDatabaseManager.swift */; };
 		D76E938A1B47F0A400F4834D /* HRAudioItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E93891B47F0A400F4834D /* HRAudioItemModel.swift */; };
 		D76E93901B47FF1200F4834D /* dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E938F1B47FF1200F4834D /* dispatch.swift */; };
@@ -104,6 +113,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15133DC21C38652A00311DE4 /* CALayer+PKDownloadButtonAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+PKDownloadButtonAnimations.h"; sourceTree = "<group>"; };
+		15133DC31C38652A00311DE4 /* CALayer+PKDownloadButtonAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+PKDownloadButtonAnimations.m"; sourceTree = "<group>"; };
+		15133DC41C38652A00311DE4 /* NSLayoutConstraint+PKDownloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+PKDownloadButton.h"; sourceTree = "<group>"; };
+		15133DC51C38652A00311DE4 /* NSLayoutConstraint+PKDownloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+PKDownloadButton.m"; sourceTree = "<group>"; };
+		15133DC61C38652A00311DE4 /* PKCircleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCircleProgressView.h; sourceTree = "<group>"; };
+		15133DC71C38652A00311DE4 /* PKCircleProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKCircleProgressView.m; sourceTree = "<group>"; };
+		15133DC81C38652A00311DE4 /* PKCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKCircleView.h; sourceTree = "<group>"; };
+		15133DC91C38652A00311DE4 /* PKCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKCircleView.m; sourceTree = "<group>"; };
+		15133DCA1C38652A00311DE4 /* PKDownloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKDownloadButton.h; sourceTree = "<group>"; };
+		15133DCB1C38652A00311DE4 /* PKDownloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKDownloadButton.m; sourceTree = "<group>"; };
+		15133DCC1C38652A00311DE4 /* PKMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKMacros.h; sourceTree = "<group>"; };
+		15133DCD1C38652A00311DE4 /* PKPendingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKPendingView.h; sourceTree = "<group>"; };
+		15133DCE1C38652A00311DE4 /* PKPendingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKPendingView.m; sourceTree = "<group>"; };
+		15133DCF1C38652A00311DE4 /* PKStopDownloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKStopDownloadButton.h; sourceTree = "<group>"; };
+		15133DD01C38652A00311DE4 /* PKStopDownloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PKStopDownloadButton.m; sourceTree = "<group>"; };
+		15133DD11C38652A00311DE4 /* UIButton+PKDownloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+PKDownloadButton.h"; sourceTree = "<group>"; };
+		15133DD21C38652A00311DE4 /* UIButton+PKDownloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+PKDownloadButton.m"; sourceTree = "<group>"; };
+		15133DD31C38652A00311DE4 /* UIImage+PKDownloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+PKDownloadButton.h"; sourceTree = "<group>"; };
+		15133DD41C38652A00311DE4 /* UIImage+PKDownloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+PKDownloadButton.m"; sourceTree = "<group>"; };
 		1514B64A1BC410D20085272C /* Neon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neon.swift; sourceTree = "<group>"; };
 		1514B64B1BC410D20085272C /* NeonFrameable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeonFrameable.swift; sourceTree = "<group>"; };
 		1514B64C1BC410D20085272C /* NeonAnchorable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeonAnchorable.swift; sourceTree = "<group>"; };
@@ -241,6 +269,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15133DC11C38652200311DE4 /* DownloadButton */ = {
+			isa = PBXGroup;
+			children = (
+				15133DC21C38652A00311DE4 /* CALayer+PKDownloadButtonAnimations.h */,
+				15133DC31C38652A00311DE4 /* CALayer+PKDownloadButtonAnimations.m */,
+				15133DC41C38652A00311DE4 /* NSLayoutConstraint+PKDownloadButton.h */,
+				15133DC51C38652A00311DE4 /* NSLayoutConstraint+PKDownloadButton.m */,
+				15133DC61C38652A00311DE4 /* PKCircleProgressView.h */,
+				15133DC71C38652A00311DE4 /* PKCircleProgressView.m */,
+				15133DC81C38652A00311DE4 /* PKCircleView.h */,
+				15133DC91C38652A00311DE4 /* PKCircleView.m */,
+				15133DCA1C38652A00311DE4 /* PKDownloadButton.h */,
+				15133DCB1C38652A00311DE4 /* PKDownloadButton.m */,
+				15133DCC1C38652A00311DE4 /* PKMacros.h */,
+				15133DCD1C38652A00311DE4 /* PKPendingView.h */,
+				15133DCE1C38652A00311DE4 /* PKPendingView.m */,
+				15133DCF1C38652A00311DE4 /* PKStopDownloadButton.h */,
+				15133DD01C38652A00311DE4 /* PKStopDownloadButton.m */,
+				15133DD11C38652A00311DE4 /* UIButton+PKDownloadButton.h */,
+				15133DD21C38652A00311DE4 /* UIButton+PKDownloadButton.m */,
+				15133DD31C38652A00311DE4 /* UIImage+PKDownloadButton.h */,
+				15133DD41C38652A00311DE4 /* UIImage+PKDownloadButton.m */,
+			);
+			name = DownloadButton;
+			sourceTree = "<group>";
+		};
 		1514B6491BC410C60085272C /* Neon */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +558,7 @@
 		D77554861B43A28C008779C1 /* Ext */ = {
 			isa = PBXGroup;
 			children = (
+				15133DC11C38652200311DE4 /* DownloadButton */,
 				1514B6491BC410C60085272C /* Neon */,
 				15BEC4F81BB2EA7900956332 /* AttributedLabel.swift */,
 				D7A64B041B6E00FB000FE8A8 /* MarqueeLabel.h */,
@@ -765,6 +820,7 @@
 				D7F157E11B437D620023319E /* Resources */,
 				7139D03AF1E15C94E315E923 /* Embed Pods Frameworks */,
 				EF8887AEA20D52274BFE3EC1 /* Copy Pods Resources */,
+				15CB835C1C324FF80053C0BD /* HockeyApp */,
 			);
 			buildRules = (
 			);
@@ -806,6 +862,7 @@
 				TargetAttributes = {
 					D7F157E21B437D620023319E = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = PR6635TQQ3;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -857,6 +914,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		15CB835C1C324FF80053C0BD /* HockeyApp */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = HockeyApp;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FILE=\"${SRCROOT}/HockeySDK-iOS/BuildAgent\"\nif [ -f \"$FILE\" ]; then\n\"$FILE\"\nfi";
+		};
 		7139D03AF1E15C94E315E923 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -910,6 +981,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1514B6531BC410D20085272C /* NeonGroupable.swift in Sources */,
+				15133DD61C38652A00311DE4 /* NSLayoutConstraint+PKDownloadButton.m in Sources */,
 				D7A64AF31B6DB931000FE8A8 /* FMDatabaseVariadic.swift in Sources */,
 				1514B6521BC410D20085272C /* NeonAlignable.swift in Sources */,
 				15AC8D071BB132A60050827C /* HRFriendModel.swift in Sources */,
@@ -926,6 +998,7 @@
 				D76E938A1B47F0A400F4834D /* HRAudioItemModel.swift in Sources */,
 				D77E8AD51B6ED2D300AD31DF /* HRPlaylistCell.swift in Sources */,
 				D7ED335E1B52D4AD0068FF4E /* DrawerController.swift in Sources */,
+				15133DDD1C38652A00311DE4 /* UIImage+PKDownloadButton.m in Sources */,
 				15AC8D1A1BB1F79F0050827C /* HRGroupCell.swift in Sources */,
 				D76E93C41B4815D300F4834D /* NSTimer+AFSoundManager.m in Sources */,
 				D76E93991B48081A00F4834D /* HRPlayerManager.swift in Sources */,
@@ -933,11 +1006,13 @@
 				D7ED33631B52D4BE0068FF4E /* HashMap.swift in Sources */,
 				15AC8D0E1BB18F480050827C /* HRFooterProgress.swift in Sources */,
 				D76E93D01B48873E00F4834D /* MGSwipeButton.m in Sources */,
+				15133DDC1C38652A00311DE4 /* UIButton+PKDownloadButton.m in Sources */,
 				D76E93C61B48228200F4834D /* HRAllMusicCell.swift in Sources */,
 				D7A64AEF1B6DB92A000FE8A8 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				D7A64B0C1B6EA395000FE8A8 /* HRCurrentUserModel.swift in Sources */,
 				D775548C1B43A546008779C1 /* AuthController.swift in Sources */,
 				D76E93901B47FF1200F4834D /* dispatch.swift in Sources */,
+				15133DD71C38652A00311DE4 /* PKCircleProgressView.m in Sources */,
 				D77554901B43A563008779C1 /* AllMusicController.swift in Sources */,
 				D7A64B091B6E0637000FE8A8 /* HRPlaylistsController.swift in Sources */,
 				D7A64AF21B6DB931000FE8A8 /* FMDatabaseAdditionsVariadic.swift in Sources */,
@@ -968,19 +1043,24 @@
 				D7ED33691B52F5860068FF4E /* HRMenuCell.swift in Sources */,
 				D7A64B021B6DB93A000FE8A8 /* FMDatabaseQueue.m in Sources */,
 				D7ED335D1B52D4AD0068FF4E /* DrawerBarButtonItem.swift in Sources */,
+				15133DD51C38652A00311DE4 /* CALayer+PKDownloadButtonAnimations.m in Sources */,
 				D7ED335F1B52D4AD0068FF4E /* DrawerVisualState.swift in Sources */,
 				15AC8D1C1BB1F7E50050827C /* HRGroupModel.swift in Sources */,
 				15AC8D051BB1313B0050827C /* HRFriendsCell.swift in Sources */,
+				15133DDA1C38652A00311DE4 /* PKPendingView.m in Sources */,
 				D7A64B001B6DB93A000FE8A8 /* FMDatabaseAdditions.m in Sources */,
 				D76E93CA1B48645000F4834D /* ItunesSearch.m in Sources */,
 				15AC8D151BB1E53F0050827C /* HRGroupsController.swift in Sources */,
 				D7A64B031B6DB93A000FE8A8 /* FMResultSet.m in Sources */,
+				15133DDB1C38652A00311DE4 /* PKStopDownloadButton.m in Sources */,
 				15BEC4F71BB2207C00956332 /* Collections+Ext.swift in Sources */,
 				15BEC4F91BB2EA7900956332 /* AttributedLabel.swift in Sources */,
 				D7A64B061B6E00FB000FE8A8 /* MarqueeLabel.m in Sources */,
 				D77554D61B43A92A008779C1 /* HRConstants.swift in Sources */,
 				D7A64B0F1B6EA983000FE8A8 /* HRDataManager.swift in Sources */,
 				D7A64AEB1B6DB920000FE8A8 /* FMDatabase+FTS3.m in Sources */,
+				15133DD81C38652A00311DE4 /* PKCircleView.m in Sources */,
+				15133DD91C38652A00311DE4 /* PKDownloadButton.m in Sources */,
 				156813161BA6CCF30019C118 /* HRDownloadedCell.swift in Sources */,
 				D77554B31B43A721008779C1 /* BufferedNavigationController.m in Sources */,
 				D76E93C11B4815D300F4834D /* AFSoundItem.m in Sources */,
