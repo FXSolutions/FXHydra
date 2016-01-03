@@ -67,7 +67,10 @@ public final class HTTPResult : NSObject {
     public final var content:NSData?
     public var response:NSURLResponse?
     public var error:NSError?
-    public var request:NSURLRequest?
+    public var request:NSURLRequest? {
+        return task?.originalRequest
+    }
+    public var task:NSURLSessionTask?
     public var encoding = NSUTF8StringEncoding
     public var JSONReadingOptions = NSJSONReadingOptions(rawValue: 0)
 
@@ -104,11 +107,11 @@ public final class HTTPResult : NSObject {
         }
     }
 
-    public init(data:NSData?, response:NSURLResponse?, error:NSError?, request:NSURLRequest?) {
+    public init(data:NSData?, response:NSURLResponse?, error:NSError?, task:NSURLSessionTask?) {
         self.content = data
         self.response = response
         self.error = error
-        self.request = request
+        self.task = task
     }
 
     public var json:AnyObject? {
@@ -148,7 +151,7 @@ public final class HTTPResult : NSObject {
             result[cookie.name] = cookie
         }
         return result
-        }()
+    }()
 
     public var ok:Bool {
         return statusCode != nil && !(statusCode! >= 400 && statusCode! < 600)
@@ -157,6 +160,7 @@ public final class HTTPResult : NSObject {
     public var url:NSURL? {
         return response?.URL
     }
+
     public lazy var links: [String:[String:String]] = {
         var result = [String:[String:String]]()
         if let content = self.headers["link"] {
@@ -186,6 +190,10 @@ public final class HTTPResult : NSObject {
         }
         return result
     }()
+
+    public func cancel() {
+        task?.cancel()
+    }
 }
 
 
@@ -276,11 +284,27 @@ struct TaskConfiguration {
 }
 
 public struct JustSessionDefaults {
-    public var JSONReadingOptions = NSJSONReadingOptions(rawValue: 0)
-    public var JSONWritingOptions = NSJSONWritingOptions(rawValue: 0)
-    public var headers:[String:String] = [:]
-    public var multipartBoundary = "Ju5tH77P15Aw350m3"
-    public var encoding = NSUTF8StringEncoding
+    public var JSONReadingOptions: NSJSONReadingOptions
+    public var JSONWritingOptions: NSJSONWritingOptions
+    public var headers:[String:String]
+    public var multipartBoundary: String
+    public var credentialPersistence: NSURLCredentialPersistence
+    public var encoding: UInt
+    public init(
+        JSONReadingOptions: NSJSONReadingOptions = NSJSONReadingOptions(rawValue: 0),
+        JSONWritingOptions: NSJSONWritingOptions = NSJSONWritingOptions(rawValue: 0),
+        headers: [String: String] = [:],
+        multipartBoundary: String = "Ju5tH77P15Aw350m3",
+        credentialPersistence: NSURLCredentialPersistence = .ForSession,
+        encoding: UInt = NSUTF8StringEncoding
+    ) {
+        self.JSONReadingOptions = JSONReadingOptions
+        self.JSONWritingOptions = JSONWritingOptions
+        self.headers = headers
+        self.multipartBoundary = multipartBoundary
+        self.encoding = encoding
+        self.credentialPersistence = credentialPersistence
+    }
 }
 
 
@@ -307,7 +331,7 @@ public protocol JustAdaptor {
         URLString:String,
         params:[String:AnyObject],
         data:[String:AnyObject],
-        json:[String:AnyObject]?,
+        json:AnyObject?,
         headers:[String:String],
         files:[String:HTTPFile],
         auth:Credentials?,
@@ -329,11 +353,47 @@ public struct JustOf<Adaptor: JustAdaptor> {
 }
 
 extension JustOf {
+    public func request(
+        method:HTTPMethod,
+        URLString:String,
+        params:[String:AnyObject] = [:],
+        data:[String:AnyObject] = [:],
+        json:AnyObject? = nil,
+        headers:[String:String] = [:],
+        files:[String:HTTPFile] = [:],
+        auth:(String,String)? = nil,
+        cookies:[String:String] = [:],
+        allowRedirects:Bool = true,
+        timeout:Double? = nil,
+        URLQuery:String? = nil,
+        requestBody:NSData? = nil,
+        asyncProgressHandler:((HTTPProgress!) -> Void)? = nil,
+        asyncCompletionHandler:((HTTPResult!) -> Void)? = nil
+        ) -> HTTPResult {
+        return adaptor.request(
+            method,
+            URLString: URLString,
+            params: params,
+            data: data,
+            json: json,
+            headers: headers,
+            files:files,
+            auth: auth,
+            cookies: cookies,
+            redirects: allowRedirects,
+            timeout:timeout,
+            URLQuery: URLQuery,
+            requestBody: requestBody,
+            asyncProgressHandler: asyncProgressHandler,
+            asyncCompletionHandler: asyncCompletionHandler
+        )
+
+    }
     public func delete(
         URLString:String,
         params:[String:AnyObject] = [:],
         data:[String:AnyObject] = [:],
-        json:[String:AnyObject]? = nil,
+        json:AnyObject? = nil,
         headers:[String:String] = [:],
         files:[String:HTTPFile] = [:],
         auth:(String,String)? = nil,
@@ -370,7 +430,7 @@ extension JustOf {
         URLString:String,
         params:[String:AnyObject] = [:],
         data:[String:AnyObject] = [:],
-        json:[String:AnyObject]? = nil,
+        json:AnyObject? = nil,
         headers:[String:String] = [:],
         files:[String:HTTPFile] = [:],
         auth:(String,String)? = nil,
@@ -407,7 +467,7 @@ extension JustOf {
         URLString:String,
         params:[String:AnyObject] = [:],
         data:[String:AnyObject] = [:],
-        json:[String:AnyObject]? = nil,
+        json:AnyObject? = nil,
         headers:[String:String] = [:],
         files:[String:HTTPFile] = [:],
         auth:(String,String)? = nil,
@@ -444,7 +504,7 @@ extension JustOf {
         URLString:String,
         params:[String:AnyObject] = [:],
         data:[String:AnyObject] = [:],
-        json:[String:AnyObject]? = nil,
+        json:AnyObject? = nil,
         headers:[String:String] = [:],
         files:[String:HTTPFile] = [:],
         auth:(String,String)? = nil,
@@ -481,7 +541,7 @@ extension JustOf {
         URLString:String,
         params:[String:AnyObject] = [:],
         data:[String:AnyObject] = [:],
-        json:[String:AnyObject]? = nil,
+        json:AnyObject? = nil,
         headers:[String:String] = [:],
         files:[String:HTTPFile] = [:],
         auth:(String,String)? = nil,
@@ -518,7 +578,7 @@ extension JustOf {
         URLString:String,
         params:[String:AnyObject] = [:],
         data:[String:AnyObject] = [:],
-        json:[String:AnyObject]? = nil,
+        json:AnyObject? = nil,
         headers:[String:String] = [:],
         files:[String:HTTPFile] = [:],
         auth:(String,String)? = nil,
@@ -555,7 +615,7 @@ extension JustOf {
         URLString:String,
         params:[String:AnyObject] = [:],
         data:[String:AnyObject] = [:],
-        json:[String:AnyObject]? = nil,
+        json:AnyObject? = nil,
         headers:[String:String] = [:],
         files:[String:HTTPFile] = [:],
         auth:(String,String)? = nil,
@@ -719,7 +779,7 @@ public final class HTTP: NSObject, NSURLSessionDelegate, JustAdaptor {
         URLString:String,
         params:[String:AnyObject],
         data:[String:AnyObject],
-        json:[String:AnyObject]?,
+        json:AnyObject?,
         headers:CaseInsensitiveDictionary<String,String>,
         files:[String:HTTPFile],
         timeout:Double?,
@@ -791,7 +851,7 @@ public final class HTTP: NSObject, NSURLSessionDelegate, JustAdaptor {
         URLString:String,
         params:[String:AnyObject],
         data:[String:AnyObject],
-        json:[String:AnyObject]?,
+        json:AnyObject?,
         headers:[String:String],
         files:[String:HTTPFile],
         auth:Credentials?,
@@ -805,7 +865,7 @@ public final class HTTP: NSObject, NSURLSessionDelegate, JustAdaptor {
 
             let isSync = asyncCompletionHandler == nil
             let semaphore = dispatch_semaphore_create(0)
-            var requestResult:HTTPResult = HTTPResult(data: nil, response: nil, error: syncResultAccessError, request: nil)
+            var requestResult:HTTPResult = HTTPResult(data: nil, response: nil, error: syncResultAccessError, task: nil)
 
             let caseInsensitiveHeaders = CaseInsensitiveDictionary<String,String>(dictionary:headers)
             if let request = synthesizeRequest(
@@ -827,7 +887,7 @@ public final class HTTP: NSObject, NSURLSessionDelegate, JustAdaptor {
                         originalRequest:request,
                         data:NSMutableData(),
                         progressHandler: asyncProgressHandler
-                        ) { (result) in
+                        ) { result in
                             if let handler = asyncCompletionHandler {
                                 handler(result)
                             }
@@ -845,7 +905,7 @@ public final class HTTP: NSObject, NSURLSessionDelegate, JustAdaptor {
                         return requestResult
                     }
             } else {
-                let erronousResult = HTTPResult(data: nil, response: nil, error: invalidURLError, request: nil)
+                let erronousResult = HTTPResult(data: nil, response: nil, error: invalidURLError, task: nil)
                 if let handler = asyncCompletionHandler {
                     handler(erronousResult)
                 } else {
@@ -878,9 +938,13 @@ extension HTTP: NSURLSessionTaskDelegate, NSURLSessionDataDelegate {
         ) {
             var endCredential:NSURLCredential? = nil
 
-            if let credential = taskConfigs[task.taskIdentifier]?.credential {
+            if let taskConfig = taskConfigs[task.taskIdentifier], let credential = taskConfig.credential {
                 if !(challenge.previousFailureCount > 0) {
-                    endCredential = NSURLCredential(user: credential.0, password: credential.1, persistence: .ForSession)
+                    endCredential = NSURLCredential(
+                        user: credential.0,
+                        password: credential.1,
+                        persistence: self.defaults.credentialPersistence
+                    )
                 }
             }
 
@@ -943,7 +1007,7 @@ extension HTTP: NSURLSessionTaskDelegate, NSURLSessionDataDelegate {
                 data: config.data,
                 response: task.response,
                 error: error,
-                request: config.originalRequest ?? task.originalRequest
+                task: task
             )
             result.JSONReadingOptions = self.defaults.JSONReadingOptions
             result.encoding = self.defaults.encoding

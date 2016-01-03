@@ -52,7 +52,7 @@ class HRFriendsController: UITableViewController {
         if loading == false {
             loading = true
             
-            let getFriends = VKRequest(method: "friends.get", andParameters: ["order":"hints","count":100,"offset":self.friendsArray.count,"fields":"photo_100,can_see_audio","name_case":"nom"], andHttpMethod: "GET")
+            let getFriends = VKRequest(method: "friends.get", andParameters: ["order":"hints","count":100,"offset":self.friendsArray.count,"fields":"photo_100,can_see_audio","name_case":"nom"])
             
             
             getFriends.executeWithResultBlock({ (response) -> Void in

@@ -49,6 +49,7 @@
 #import "VKShareDialogController.h"
 #import "VKSharedTransitioningObject.h"
 #import "VKAccessToken.h"
+#import "VKAuthorizationResult.h"
 #import "VKBatchRequest.h"
 #import "VKBundle.h"
 #import "VKPermissions.h"

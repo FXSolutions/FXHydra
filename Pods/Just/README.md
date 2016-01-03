@@ -1,16 +1,19 @@
-#   Just: Swift HTTP for Humans [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Cocoapods](https://img.shields.io/cocoapods/v/Just.svg)](https://cocoapods.org/pods/Just)
+[![Build Status](https://travis-ci.org/JustHTTP/Just.svg?branch=swift-2.0)](https://travis-ci.org/JustHTTP/Just)
+![MIT License](https://img.shields.io/cocoapods/l/Just.svg)
+![Supported Flatform](https://img.shields.io/cocoapods/p/Just.svg)
 
 <img src="https://raw.githubusercontent.com/JustHTTP/Just/master/Docs/IconMasked.png" width="280" height="280">
 
 Just is a client-side HTTP library inspired by [python-requests][] - HTTP for Humans.
 
-Swift 1.2 support can be found on *[master][]* branch.
+Just requires Swift 2.
 
 *Follow [@JustHTTP][twitter] for updates, if you are into that kind of things* 😉
 
 [python-requests]: http://python-requests.org "python-requests"
 [twitter]: https://twitter.com/JustHTTP
-[master]: https://github.com/JustHTTP/Just/tree/master "Just support for Swift 1.2"
 #   Features
 
 Just lets you to the following effortlessly:
@@ -64,11 +67,10 @@ Just.post(
 
 ```
 
-Just can do much, much more.
 Read *Getting Started* [on the web][starting link] or
 [in this playground][starting playground] to learn more!
 
-[starting playground]: https://github.com/JustHTTP/Just/raw/swift-2.0/Docs/QuickStart.zip
+[starting playground]: https://github.com/JustHTTP/Just/raw/master/Docs/QuickStart.zip
 [starting link]: http://docs.justhttp.net/QuickStart.html
 
 #  Install

@@ -28,12 +28,16 @@
 NSString *const VKActivityTypePost = @"VKActivityTypePost";
 
 @interface VKActivity ()
-@property (nonatomic, strong) VKShareDialogController *shareDialog;
+@property(nonatomic, strong) VKShareDialogController *shareDialog;
 @end
 
 @implementation VKActivity
 + (UIActivityCategory)activityCategory {
     return UIActivityCategoryShare;
+}
+
++ (BOOL)vkShareExtensionEnabled {
+    return NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1 && [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"vk-share://extension"]];
 }
 
 - (NSString *)activityType {
@@ -76,7 +80,7 @@ NSString *const VKActivityTypePost = @"VKActivityTypePost";
     }
     self.shareDialog.uploadImages = uploadImages;
     __weak __typeof(self) wself = self;
-    [self.shareDialog setCompletionHandler:^(VKShareDialogControllerResult result) {
+    [self.shareDialog setCompletionHandler:^(VKShareDialogController *dialog, VKShareDialogControllerResult result) {
         __strong __typeof(wself) sself = wself;
         [sself activityDidFinish:result == VKShareDialogControllerResultDone];
         sself.shareDialog = nil;

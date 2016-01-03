@@ -51,7 +51,7 @@ class HRGroupsController: UITableViewController {
         if loading == false {
             loading = true
             
-            let getGroups = VKRequest(method: "groups.get", andParameters: ["extended":1,"fields":"counters,photo_100,photo_200","offset":self.groupsArray.count], andHttpMethod: "GET")
+            let getGroups = VKRequest(method: "groups.get", andParameters: ["extended":1,"fields":"counters,photo_100,photo_200","offset":self.groupsArray.count])
             
             getGroups.executeWithResultBlock({ (response) -> Void in
                 

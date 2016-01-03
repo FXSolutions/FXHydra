@@ -11,8 +11,12 @@ class AuthController: UIViewController,VKSdkDelegate {
     override func loadView() {
         super.loadView()
         
-        VKSdk.initializeWithDelegate(self, andAppId: "4689635")
-        if VKSdk.wakeUpSession() == true {
+       // VKSdk.initializeWithDelegate(self, andAppId: "4689635")
+        let vkInstanse = VKSdk.initializeWithAppId("4689635")
+        
+        vkInstanse.registerDelegate(self)
+        
+        if VKSdk.isLoggedIn() == true {
             self.startWorking()
         }
         
@@ -58,10 +62,11 @@ class AuthController: UIViewController,VKSdkDelegate {
     }
     
     func authButtonAction() {
+        
         log.debug("auth button action")
         
+        VKSdk.authorize(["audio","status","groups"])
         
-        VKSdk.authorize(["audio","status","groups"], revokeAccess: true)
     }
     
     func startWorking() {
@@ -79,11 +84,29 @@ class AuthController: UIViewController,VKSdkDelegate {
         //
     }
     
+    func vkSdkAccessAuthorizationFinishedWithResult(result: VKAuthorizationResult!) {
+        //
+        log.debug("vkSdkAccessAuthorizationFinishedWithResult : \(result)")
+    }
+    
+    func vkSdkAccessTokenUpdated(newToken: VKAccessToken!, oldToken: VKAccessToken!) {
+        //
+        self.startWorking()
+    }
+    
+    func vkSdkUserAuthorizationFailed() {
+        //
+        log.debug("vkSdkUserAuthorizationFailed")
+    }
+    
     func vkSdkTokenHasExpired(expiredToken: VKAccessToken!) {
         //
+        
+        log.debug("vkSdkTokenHasExpired: \(expiredToken)")
     }
     
     func vkSdkReceivedNewToken(newToken: VKAccessToken!) {
+        log.debug("vkSdkReceivedNewToken: \(newToken)")
         self.startWorking()
     }
     
@@ -99,6 +122,7 @@ class AuthController: UIViewController,VKSdkDelegate {
     
     func vkSdkUserDeniedAccess(authorizationError: VKError!) {
         //
+        log.debug("vkSdkUserDeniedAccess: \(authorizationError.description)")
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

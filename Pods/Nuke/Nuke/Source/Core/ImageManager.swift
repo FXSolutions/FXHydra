@@ -2,7 +2,7 @@
 //
 // Copyright (c) 2015 Alexander Grebenyuk (github.com/kean).
 
-import UIKit
+import Foundation
 
 public let ImageManagerErrorDomain = "Nuke.ImageManagerErrorDomain"
 public let ImageManagerErrorCancelled = -1
@@ -11,57 +11,106 @@ public let ImageManagerErrorUnknown = -2
 // MARK: - ImageManagerConfiguration
 
 public struct ImageManagerConfiguration {
-    public var dataLoader: ImageDataLoading
-    public var decoder: ImageDecoding
+    public var loader: ImageLoading
     public var cache: ImageMemoryCaching?
-    public var maxConcurrentTaskCount = 8
+    
+    /** Default value is 2.
+     */
     public var maxConcurrentPreheatingTaskCount = 2
     
-    public init(dataLoader: ImageDataLoading, decoder: ImageDecoding = ImageDecoder(), cache: ImageMemoryCaching? = ImageMemoryCache()) {
-        self.dataLoader = dataLoader
-        self.decoder = decoder
+    /**
+     Initializes configuration with an image loader and memory cache.
+     
+     - parameter loader: Image loader.
+     - parameter cache: Memory cache. Default `ImageMemoryCache` instance is created if the parameter is omitted.
+     */
+    public init(loader: ImageLoading, cache: ImageMemoryCaching? = ImageMemoryCache()) {
+        self.loader = loader
         self.cache = cache
+    }
+    
+    /**
+     Convenience initializer that creates instance of `ImageLoader` class with a given `dataLoader` and `decoder`, then calls the default initializer.
+     
+     - parameter dataLoader: Image data loader.
+     - parameter decoder: Image decoder. Default `ImageDecoder` instance is created if the parameter is omitted.
+     - parameter cache: Memory cache. Default `ImageMemoryCache` instance is created if the parameter is omitted.
+     */
+    public init(dataLoader: ImageDataLoading, decoder: ImageDecoding = ImageDecoder(), cache: ImageMemoryCaching? = ImageMemoryCache()) {
+        let loader = ImageLoader(configuration: ImageLoaderConfiguration(dataLoader: dataLoader, decoder: decoder))
+        self.init(loader: loader, cache: cache)
     }
 }
 
 // MARK: - ImageManager
 
-public class ImageManager: ImageManaging, ImagePreheating, ImageManagerLoaderDelegate, ImageTaskManaging {
+/**
+The `ImageManager` class and related classes provide methods for loading, processing, caching and preheating images.
+
+`ImageManager` is also a pipeline that loads images using injectable dependencies, which makes it highly customizable. See https://github.com/kean/Nuke#design for more info.
+*/
+public class ImageManager {
     public let configuration: ImageManagerConfiguration
     
-    private let imageLoader: ImageManagerLoader
     private var executingTasks = Set<ImageTaskInternal>()
     private var preheatingTasks = [ImageRequestKey: ImageTaskInternal]()
     private let lock = NSRecursiveLock()
-    private var preheatingTaskCounter = 0
     private var invalidated = false
     private var needsToExecutePreheatingTasks = false
+    private var taskIdentifier: Int32 = 0
+    private var nextTaskIdentifier: Int {
+        return Int(OSAtomicIncrement32(&taskIdentifier))
+    }
+    private var loader: ImageLoading {
+        return self.configuration.loader
+    }
+    private var cache: ImageMemoryCaching? {
+        return self.configuration.cache
+    }
     
     public init(configuration: ImageManagerConfiguration) {
         self.configuration = configuration
-        self.imageLoader = ImageManagerLoader(configuration: configuration)
-        self.imageLoader.delegate = self
+        self.loader.manager = self
     }
     
-    // MARK: ImageManaging
-    
+    /**
+     Creates a task with a given request. After you create a task, you start it by calling its resume method.
+     
+     The manager holds a strong reference to the task until it is either completes or get cancelled.
+     */
     public func taskWithRequest(request: ImageRequest) -> ImageTask {
-        return ImageTaskInternal(manager: self, request: request)
+        return ImageTaskInternal(manager: self, request: request, identifier: self.nextTaskIdentifier)
     }
     
+    /** Cancels all outstanding tasks and then invalidates the manager. New image tasks may not be resumed.
+     */
     public func invalidateAndCancel() {
-        self.performBlock {
-            self.imageLoader.delegate = nil
-            self.cancelTasks(Array(self.executingTasks))
+        self.perform {
+            self.loader.manager = nil
+            self.cancelTasks(self.executingTasks)
             self.preheatingTasks.removeAll()
-            self.configuration.dataLoader.invalidate()
+            self.loader.invalidate()
             self.invalidated = true
         }
     }
     
+    /** Removes all cached images by calling corresponding methods on memory cache and image loader.
+     */
     public func removeAllCachedImages() {
-        self.configuration.cache?.removeAllCachedImages()
-        self.configuration.dataLoader.removeAllCachedImages()
+        self.cache?.removeAllCachedImages()
+        self.loader.removeAllCachedImages()
+    }
+    
+    /** Asynchronously calls a completion closure on the main thread with all executing tasks and all preheating tasks. Set with executing tasks might contain currently executing preheating tasks.
+     */
+    public func getTasksWithCompletion(completion: (executingTasks: Set<ImageTask>, preheatingTasks: Set<ImageTask>) -> Void) {
+        self.perform {
+            let executingTasks = self.executingTasks
+            let preheatingTasks = Set(self.preheatingTasks.values)
+            dispatch_async(dispatch_get_main_queue()) {
+                completion(executingTasks: executingTasks, preheatingTasks: preheatingTasks)
+            }
+        }
     }
     
     // MARK: FSM (ImageTaskState)
@@ -75,80 +124,82 @@ public class ImageManager: ImageManaging, ImagePreheating, ImageManagerLoaderDel
     }
     
     private func transitionStateAction(fromState: ImageTaskState, toState: ImageTaskState, task: ImageTaskInternal) {
-        if fromState == .Running && toState == .Cancelled {
-            self.imageLoader.stopLoadingForTask(task)
+        if fromState == .Running && toState == .Suspended {
+            self.loader.suspendLoadingForTask(task)
         }
     }
     
     private func enterStateAction(state: ImageTaskState, task: ImageTaskInternal) {
-        if state == .Running {
-            if let response = self.imageLoader.cachedResponseForRequest(task.request) {
-                task.response = ImageResponse.Success(response.image, ImageResponseInfo(fastResponse: true, userInfo: response.userInfo))
-                self.setState(.Completed, forTask: task)
-            } else {
-                self.executingTasks.insert(task)
-                self.imageLoader.startLoadingForTask(task)
+        switch state {
+        case .Running:
+            if task.request.allowsCaching {
+                if let response = self.cachedResponseForRequest(task.request) {
+                    task.response = ImageResponse.Success(response.image, ImageResponseInfo(fastResponse: true, userInfo: response.userInfo))
+                    self.setState(.Completed, forTask: task)
+                    return
+                }
             }
-        }
-        if state == .Cancelled {
+            self.executingTasks.insert(task)
+            self.loader.resumeLoadingForTask(task)
+        case .Cancelled:
+            self.loader.cancelLoadingForTask(task)
             task.response = ImageResponse.Failure(NSError(domain: ImageManagerErrorDomain, code: ImageManagerErrorCancelled, userInfo: nil))
-        }
-        if state == .Completed || state == .Cancelled {
+            fallthrough
+        case .Completed:
             self.executingTasks.remove(task)
             self.setNeedsExecutePreheatingTasks()
             
             let completions = task.completions
-            self.dispatchBlock {
+            dispathOnMainThread {
                 assert(task.response != nil)
-                for completion in completions {
-                    completion(task.response!)
-                }
+                completions.forEach { $0(task.response!) }
             }
+        default: break
         }
     }
     
-    private func dispatchBlock(block: (Void) -> Void) {
-        NSThread.isMainThread() ? block() : dispatch_async(dispatch_get_main_queue(), block)
-    }
+    // MARK: Preheating
     
-    // MARK: ImagePreheating
+    /**
+    Prepares images for the given requests for later use.
     
+    When you call this method, ImageManager starts to load and cache images for the given requests. ImageManager caches images with the exact target size, content mode, and filters. At any time afterward, you can create tasks with equivalent requests.
+    */
     public func startPreheatingImages(requests: [ImageRequest]) {
-        self.performBlock {
+        self.perform {
             for request in requests {
-                let key = self.imageLoader.preheatingKeyForRequest(request)
+                let key = ImageRequestKey(request, owner: self)
                 if self.preheatingTasks[key] == nil {
-                    let task = ImageTaskInternal(manager: self, request: request)
-                    task.tag = self.preheatingTaskCounter++
-                    task.completion { [weak self] _ in
+                    self.preheatingTasks[key] = ImageTaskInternal(manager: self, request: request, identifier: self.nextTaskIdentifier).completion { [weak self] _ in
                         self?.preheatingTasks[key] = nil
                     }
-                    self.preheatingTasks[key] = task
                 }
             }
             self.setNeedsExecutePreheatingTasks()
         }
     }
     
+    /** Stop preheating for the given requests. The request parameters should match the parameters used in startPreheatingImages method.
+     */
     public func stopPreheatingImages(requests: [ImageRequest]) {
-        self.performBlock {
+        self.perform {
             self.cancelTasks(requests.flatMap {
-                return self.preheatingTasks[self.imageLoader.preheatingKeyForRequest($0)]
+                return self.preheatingTasks[ImageRequestKey($0, owner: self)]
                 })
         }
     }
     
+    /** Stops all preheating tasks.
+     */
     public func stopPreheatingImages() {
-        self.performBlock {
-            self.cancelTasks(Array(self.preheatingTasks.values))
-        }
+        self.perform { self.cancelTasks(self.preheatingTasks.values) }
     }
     
     private func setNeedsExecutePreheatingTasks() {
         if !self.needsToExecutePreheatingTasks && !self.invalidated {
             self.needsToExecutePreheatingTasks = true
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64((0.15 * Double(NSEC_PER_SEC)))), dispatch_get_main_queue()) {
-                [weak self] in self?.performBlock {
+                [weak self] in self?.perform {
                     self?.executePreheatingTasksIfNeeded()
                 }
             }
@@ -158,8 +209,7 @@ public class ImageManager: ImageManaging, ImagePreheating, ImageManagerLoaderDel
     private func executePreheatingTasksIfNeeded() {
         self.needsToExecutePreheatingTasks = false
         var executingTaskCount = self.executingTasks.count
-        let sortedPreheatingTasks = self.preheatingTasks.values.sort { $0.tag < $1.tag }
-        for task in sortedPreheatingTasks {
+        for task in (self.preheatingTasks.values.sort { $0.identifier < $1.identifier }) {
             if executingTaskCount > self.configuration.maxConcurrentPreheatingTaskCount {
                 break
             }
@@ -170,89 +220,91 @@ public class ImageManager: ImageManaging, ImagePreheating, ImageManagerLoaderDel
         }
     }
     
-    // MARK: ImageManagerLoaderDelegate
+    // MARK: Memory Caching
     
-    internal func imageLoader(imageLoader: ImageManagerLoader, imageTask: ImageTask, didUpdateProgressWithCompletedUnitCount completedUnitCount: Int64, totalUnitCount: Int64) {
-        dispatch_async(dispatch_get_main_queue()) {
-            imageTask.progress.totalUnitCount = totalUnitCount
-            imageTask.progress.completedUnitCount = completedUnitCount
-        }
+    /** Returns image response from the memory cache. Ignores NSURLRequestCachePolicy.
+    */
+    public func cachedResponseForRequest(request: ImageRequest) -> ImageCachedResponse? {
+        return self.cache?.cachedResponseForKey(ImageRequestKey(request, owner: self))
     }
     
-    internal func imageLoader(imageLoader: ImageManagerLoader, imageTask: ImageTask, didCompleteWithImage image: UIImage?, error: ErrorType?) {
-        let imageTaskInterval = imageTask as! ImageTaskInternal
-        if image != nil {
-            imageTaskInterval.response = ImageResponse.Success(image!, ImageResponseInfo(fastResponse: false))
-        } else {
-            imageTaskInterval.response = ImageResponse.Failure(error ?? NSError(domain: ImageManagerErrorDomain, code: ImageManagerErrorUnknown, userInfo: nil))
-        }
-        self.performBlock {
-            self.setState(.Completed, forTask: imageTaskInterval)
-        }
-    }
-    
-    // MARK: ImageTaskManaging
-    
-    private func resumeManagedTask(task: ImageTaskInternal) {
-        self.performBlock {
-            self.setState(.Running, forTask: task)
-        }
-    }
-    
-    private func cancelManagedTask(task: ImageTaskInternal) {
-        self.performBlock {
-            self.setState(.Cancelled, forTask: task)
-        }
-    }
-    
-    private func addCompletion(completion: ImageTaskCompletion, forTask task: ImageTaskInternal) {
-        self.performBlock {
-            if task.state == .Completed || task.state == .Cancelled {
-                dispatchBlock {
-                    assert(task.response != nil)
-                    completion(task.response!)
-                }
-            } else {
-                task.completions.append(completion)
-            }
-        }
+    /** Stores image response into the memory cache.
+     */
+    public func storeResponse(response: ImageCachedResponse, forRequest request: ImageRequest) {
+        self.cache?.storeResponse(response, forKey: ImageRequestKey(request, owner: self))
     }
     
     // MARK: Misc
     
-    private func performBlock(@noescape block: Void -> Void) {
+    private func perform(@noescape closure: Void -> Void) {
         self.lock.lock()
-        if !self.invalidated {
-            block()
-        }
+        if !self.invalidated { closure() }
         self.lock.unlock()
     }
     
-    private func cancelTasks(tasks: [ImageTaskInternal]) {
+    private func cancelTasks<T: SequenceType where T.Generator.Element == ImageTaskInternal>(tasks: T) {
         tasks.forEach { self.setState(.Cancelled, forTask: $0) }
     }
 }
 
-// MARK: - ImageManager (Shared)
+// MARK: ImageManager: ImageLoadingManager
 
-public extension ImageManager {
-    private static var sharedManagerIvar: ImageManager = ImageManager(configuration: ImageManagerConfiguration(dataLoader: ImageDataLoader()))
-    private static var lock = OS_SPINLOCK_INIT
-    private static var token: dispatch_once_t = 0
+extension ImageManager: ImageLoadingManager {
+    public func imageLoader(imageLoader: ImageLoading, task: ImageTask, didUpdateProgressWithCompletedUnitCount completedUnitCount: Int64, totalUnitCount: Int64) {
+        dispatch_async(dispatch_get_main_queue()) {
+            task.totalUnitCount = totalUnitCount
+            task.completedUnitCount = completedUnitCount
+            task.progress?(completedUnitCount: completedUnitCount, totalUnitCount: totalUnitCount)
+        }
+    }
     
-    public class var shared: ImageManager {
-        set {
-        OSSpinLockLock(&lock)
-        sharedManagerIvar = newValue
-        OSSpinLockUnlock(&lock)
+    public func imageLoader(imageLoader: ImageLoading, task: ImageTask, didCompleteWithImage image: Image?, error: ErrorType?, userInfo: Any?) {
+        let task = task as! ImageTaskInternal
+        if let image = image {
+            self.storeResponse(ImageCachedResponse(image: image, userInfo: userInfo), forRequest: task.request)
+            task.response = ImageResponse.Success(image, ImageResponseInfo(fastResponse: false, userInfo: userInfo))
+        } else {
+            task.response = ImageResponse.Failure(error ?? NSError(domain: ImageManagerErrorDomain, code: ImageManagerErrorUnknown, userInfo: nil))
         }
-        get {
-            var manager: ImageManager
-            OSSpinLockLock(&lock)
-            manager = sharedManagerIvar
-            OSSpinLockUnlock(&lock)
-            return manager
+        self.perform { self.setState(.Completed, forTask: task) }
+    }
+}
+
+// MARK: ImageManager: ImageTaskManaging
+
+extension ImageManager: ImageTaskManaging {
+    private func resumeManagedTask(task: ImageTaskInternal) {
+        self.perform { self.setState(.Running, forTask: task) }
+    }
+    
+    private func suspendManagedTask(task: ImageTaskInternal) {
+        self.perform { self.setState(.Suspended, forTask: task) }
+    }
+    
+    private func cancelManagedTask(task: ImageTaskInternal) {
+        self.perform { self.setState(.Cancelled, forTask: task) }
+    }
+    
+    private func addCompletion(completion: ImageTaskCompletion, forTask task: ImageTaskInternal) {
+        self.perform {
+            switch task.state {
+            case .Completed, .Cancelled:
+                dispathOnMainThread {
+                    assert(task.response != nil)
+                    completion(task.response!)
+                }
+            default:
+                task.completions.append(completion)
+            }
         }
+    }
+}
+
+// MARK: ImageManager: ImageRequestKeyOwner
+
+extension ImageManager: ImageRequestKeyOwner {
+    public func isImageRequestKey(lhs: ImageRequestKey, equalToKey rhs: ImageRequestKey) -> Bool {
+        return self.loader.isRequestCacheEquivalent(lhs.request, toRequest: rhs.request)
     }
 }
 
@@ -260,22 +312,27 @@ public extension ImageManager {
 
 private protocol ImageTaskManaging {
     func resumeManagedTask(task: ImageTaskInternal)
+    func suspendManagedTask(task: ImageTaskInternal)
     func cancelManagedTask(task: ImageTaskInternal)
     func addCompletion(completion: ImageTaskCompletion, forTask task: ImageTaskInternal)
 }
 
 private class ImageTaskInternal: ImageTask {
     let manager: ImageTaskManaging
-    var tag = 0
     var completions = [ImageTaskCompletion]()
     
-    init(manager: ImageTaskManaging, request: ImageRequest) {
+    init(manager: ImageTaskManaging, request: ImageRequest, identifier: Int) {
         self.manager = manager
-        super.init(request: request)
+        super.init(request: request, identifier: identifier)
     }
     
     override func resume() -> Self {
         self.manager.resumeManagedTask(self)
+        return self
+    }
+    
+    override func suspend() -> Self {
+        self.manager.suspendManagedTask(self)
         return self
     }
     
@@ -289,10 +346,13 @@ private class ImageTaskInternal: ImageTask {
         return self
     }
     
+    // Suspended -> [Running, Cancelled, Completed]
+    // Running -> [Suspended, Cancelled, Completed]
+    // Cancelled -> []
+    // Completed -> []
     func isValidNextState(state: ImageTaskState) -> Bool {
         switch (self.state) {
-        case .Suspended: return (state == .Running || state == .Cancelled)
-        case .Running: return (state == .Completed || state == .Cancelled)
+        case .Suspended, .Running: return true
         default: return false
         }
     }

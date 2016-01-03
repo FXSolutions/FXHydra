@@ -214,24 +214,41 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
     
     func downloadAudio(model:HRAudioItemModel,progressView:UIProgressView) {
         
+         progressView.hidden = false
+        
          HRDownloadManager.sharedInstance.downloadAudio(model) { (progress) -> () in
             
             dispatch.async.main({ () -> Void in
                 
                 if (Int(fabs(progress*100))) % 10 == 0 {
                     log.debug("download progress = \(progress)")
-                    progressView.hidden = false
                     progressView.setProgress(Float(progress), animated: true)
                     
                     if progress*100 == 100 {
                         progressView.hidden = true
+
+                        let objectIndex = self.audiosArray.indexOf({ (objModel) -> Bool in
+                            
+                            if objModel.audioID == model.audioID {
+                                return true
+                            } else {
+                                return false
+                            }
+                        })
+                        
                         model.downloadState = 3
+                        
+                        let indexPath = NSIndexPath(forRow: objectIndex!, inSection: 0)
+                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+                        
+                        
                     }
                 }
                 
             })
             
         }
+        
         
     }
     

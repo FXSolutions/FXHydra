@@ -1,7 +1,6 @@
 import UIKit
 import XCGLogger
 import VK_ios_sdk
-import HockeySDK
 
 let log = XCGLogger.defaultInstance()
 

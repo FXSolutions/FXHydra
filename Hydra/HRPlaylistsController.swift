@@ -41,7 +41,7 @@ class HRPlaylistsController: UITableViewController {
         
         if loading == false {
             loading = true
-            let getAudio = VKRequest(method: "audio.getAlbums", andParameters: ["count":100,"offset":self.albumsArray.count], andHttpMethod: "GET")
+            let getAudio = VKRequest(method: "audio.getAlbums", andParameters: ["count":100,"offset":self.albumsArray.count])
             
             getAudio.executeWithResultBlock({ (response) -> Void in
                 
