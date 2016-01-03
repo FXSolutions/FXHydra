@@ -1,8 +1,6 @@
 
 <h1 align="center"> Hydra </h1>
-<p align="center">#################################</p>
 <p align="center"> VK Player with downloads audio </p>
-<p align="center">#################################</p>
 
 </br>
 
