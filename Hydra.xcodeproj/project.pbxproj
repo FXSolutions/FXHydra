@@ -784,6 +784,8 @@
 				0511DF7565780018D1FD9D3B /* Check Pods Manifest.lock */,
 				D7F157DF1B437D620023319E /* Sources */,
 				D7F157E01B437D620023319E /* Frameworks */,
+				15133DE51C3916BD00311DE4 /* Build build auto-increment  */,
+				15133DE61C39177900311DE4 /* Build version auto-increment  */,
 				D7F157E11B437D620023319E /* Resources */,
 				15CB835C1C324FF80053C0BD /* HockeyApp */,
 				09AF4ADFA1FCBF4B3C7443A1 /* Embed Pods Frameworks */,
@@ -913,6 +915,34 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hydra/Pods-Hydra-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		15133DE51C3916BD00311DE4 /* Build build auto-increment  */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build build auto-increment ";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+		15133DE61C39177900311DE4 /* Build version auto-increment  */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build version auto-increment ";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "VERSIONNUM=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nNEWSUBVERSION=`echo $VERSIONNUM | awk -F \".\" '{print $3}'`\nNEWSUBVERSION=$(($NEWSUBVERSION + 1))\nNEWVERSIONSTRING=`echo $VERSIONNUM | awk -F \".\" '{print $1 \".\" $2 \".'$NEWSUBVERSION'\" }'`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $NEWVERSIONSTRING\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
 		};
 		15CB835C1C324FF80053C0BD /* HockeyApp */ = {
 			isa = PBXShellScriptBuildPhase;

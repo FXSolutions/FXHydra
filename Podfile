@@ -3,8 +3,7 @@ inhibit_all_warnings!
 use_frameworks!
 
 target 'Hydra' do
-
-	pod 'HockeySDK'
+    
 	pod 'VK-ios-sdk'
 	pod 'SnapKit'
 	pod 'Alamofire'
