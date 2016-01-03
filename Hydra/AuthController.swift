@@ -16,9 +16,16 @@ class AuthController: UIViewController,VKSdkDelegate {
         
         vkInstanse.registerDelegate(self)
         
-        if VKSdk.isLoggedIn() == true {
-            self.startWorking()
+        
+        VKSdk.wakeUpSession(["audio","status","groups"]) { (state, error) -> Void in
+            
+            if state == VKAuthorizationState.Authorized {
+                self.startWorking()
+            }
+            
         }
+        
+        
         
     }
     
@@ -91,7 +98,7 @@ class AuthController: UIViewController,VKSdkDelegate {
     
     func vkSdkAccessTokenUpdated(newToken: VKAccessToken!, oldToken: VKAccessToken!) {
         //
-        self.startWorking()
+        //self.startWorking()
     }
     
     func vkSdkUserAuthorizationFailed() {
