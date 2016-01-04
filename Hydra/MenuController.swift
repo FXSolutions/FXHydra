@@ -73,7 +73,6 @@ class MenuPlayer: UIView {
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
         self.blurEffectViewZZ = UIVisualEffectView(effect: blurEffect)
         self.blurEffectViewZZ.frame = CGRectMake(0, 0, screenSizeWidth, 100)
-        self.blurEffectViewZZ.alpha = 0.5
         self.blurEffectViewZZ.userInteractionEnabled = true
         self.addSubview(self.blurEffectViewZZ)
         

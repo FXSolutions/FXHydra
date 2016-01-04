@@ -25,8 +25,6 @@ class AuthController: UIViewController,VKSdkDelegate {
             
         }
         
-        
-        
     }
     
     override func viewDidLoad() {
@@ -78,11 +76,13 @@ class AuthController: UIViewController,VKSdkDelegate {
     
     func startWorking() {
         
+        log.debug("startWorking")
+        
         dispatch.async.main { () -> Void in
             
             HRInterfaceManager.sharedInstance.openDrawer()
-            
             self.presentViewController(HRInterfaceManager.sharedInstance.mainNav, animated: false, completion: nil)
+            
         }
         
     }
@@ -99,6 +99,7 @@ class AuthController: UIViewController,VKSdkDelegate {
     func vkSdkAccessTokenUpdated(newToken: VKAccessToken!, oldToken: VKAccessToken!) {
         //
         //self.startWorking()
+        log.debug("vkSdkAccessTokenUpdated: \(newToken))")
     }
     
     func vkSdkUserAuthorizationFailed() {
@@ -118,12 +119,15 @@ class AuthController: UIViewController,VKSdkDelegate {
     }
     
     func vkSdkShouldPresentViewController(controller: UIViewController!) {
+        log.debug("vkSdkShouldPresentViewController")
         
         self.presentViewController(controller, animated: true, completion: nil)
         
     }
     
     func vkSdkAcceptedUserToken(token: VKAccessToken!) {
+        log.debug("vkSdkAcceptedUserToken")
+        
         self.startWorking()
     }
     

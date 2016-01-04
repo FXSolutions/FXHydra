@@ -14,7 +14,7 @@ class HRFriendAudioCell: UITableViewCell {
     var audioTitleLabel         : UILabel
     var audioDurationTime       : UILabel!
     var progressView            : UIProgressView!
-    var downloadButton          : UIButton!
+    var downloadedImage         : UIImageView!
     var allMusicController      : HRFriendAudioController!
     var audioModel              : HRAudioItemModel!
     
@@ -32,19 +32,14 @@ class HRFriendAudioCell: UITableViewCell {
         self.progressView.tintColor = UIColor.blackColor()
         self.progressView.hidden = true
         
-        self.downloadButton = UIButton(type: UIButtonType.System)
-        self.downloadButton.setImage(UIImage(named: "downloadButton"), forState: UIControlState.Normal)
-        self.downloadButton.tintColor = UIColor.blackColor()
-        
+        self.downloadedImage = UIImageView()
         
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
-        
-        self.downloadButton.addTarget(self, action: "startDownload", forControlEvents: UIControlEvents.TouchUpInside)
         
         self.contentView.addSubview(self.audioAristLabel)
         self.contentView.addSubview(self.audioTitleLabel)
         self.contentView.addSubview(self.progressView)
-        self.contentView.addSubview(self.downloadButton)
+        self.contentView.addSubview(self.downloadedImage)
         
     }
     
@@ -58,7 +53,7 @@ class HRFriendAudioCell: UITableViewCell {
         self.audioTitleLabel.frame = CGRectMake(self.separatorInset.left, 10, screenSizeWidth-70, 20)
         self.audioAristLabel.frame = CGRectMake(self.separatorInset.left, 40, screenSizeWidth-70, 20)
         self.progressView.frame = CGRectMake(0, self.contentView.frame.height-2, self.contentView.frame.width, 2)
-        self.downloadButton.frame = CGRectMake(self.contentView.frame.width-65, 5, 60, 60)
+        self.downloadedImage.frame = CGRectMake(self.contentView.frame.width-35, 25, 20, 20)
         
     }
     
@@ -72,7 +67,6 @@ class HRFriendAudioCell: UITableViewCell {
     
     func startDownload() {
         
-        self.downloadButton.hidden = true
         self.allMusicController.downloadAudio(self.audioModel, progressView: self.progressView)
         
     }

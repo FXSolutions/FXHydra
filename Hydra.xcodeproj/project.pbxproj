@@ -345,6 +345,13 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		BE980F1E1C3967490012F752 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		D76E938B1B47F0E000F4834D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +468,7 @@
 		D775547E1B437DE0008779C1 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				BE980F1E1C3967490012F752 /* Cells */,
 				D77554951B43A58F008779C1 /* SettingsController.swift */,
 				1523C6B01BAF56B600272C12 /* HRSettingsController.swift */,
 			);
