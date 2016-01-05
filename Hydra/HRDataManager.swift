@@ -22,7 +22,7 @@ class HRDataManager {
 
     func getCurrentUserInfo() {
         
-        let getUserInfo = VKRequest(method: "users.get", andParameters: ["fields":"photo_200","name_case":"Nom"], andHttpMethod: "GET")
+        let getUserInfo = VKRequest(method: "users.get", andParameters: ["fields":"photo_200","name_case":"Nom"])
         
         getUserInfo.executeWithResultBlock({ (response) -> Void in
             
