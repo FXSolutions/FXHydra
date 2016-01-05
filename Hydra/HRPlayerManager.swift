@@ -162,7 +162,7 @@ class HRPlayerManager {
             audioBoadcastFormat = ""
         }
         
-        let broadcast = VKRequest(method: "audio.setBroadcast", andParameters: ["audio":audioBoadcastFormat], andHttpMethod: "GET")
+        let broadcast = VKRequest(method: "audio.setBroadcast", andParameters: ["audio":audioBoadcastFormat])
         
         broadcast.executeWithResultBlock({ (response) -> Void in
             
@@ -175,7 +175,7 @@ class HRPlayerManager {
     }
     
     func addAudio(audio:HRAudioItemModel) {
-        let audioAdd = VKRequest(method: "audio.add", andParameters: ["audio_id":audio.audioID,"owner_id":audio.ownerID], andHttpMethod: "GET")
+        let audioAdd = VKRequest(method: "audio.add", andParameters: ["audio_id":audio.audioID,"owner_id":audio.ownerID])
         
         audioAdd.executeWithResultBlock({ (response) -> Void in
             log.debug("\(response.json)")

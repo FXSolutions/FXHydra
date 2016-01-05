@@ -14,9 +14,9 @@ class HRAPIManager {
         let getAudio : VKRequest!
         
         if ownerId == 0 {
-            getAudio = VKRequest(method: "audio.get", andParameters: ["count":count,"offset":offset], andHttpMethod: "GET")
+            getAudio = VKRequest(method: "audio.get", andParameters: ["count":count,"offset":offset])
         } else {
-            getAudio = VKRequest(method: "audio.get", andParameters: ["owner_id":ownerId,"count":count,"offset":offset], andHttpMethod: "GET")
+            getAudio = VKRequest(method: "audio.get", andParameters: ["owner_id":ownerId,"count":count,"offset":offset])
         }
         
         getAudio.executeWithResultBlock({ (response) -> Void in
