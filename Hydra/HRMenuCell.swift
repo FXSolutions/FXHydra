@@ -13,6 +13,8 @@ class HRMenuCell: UITableViewCell {
     var iconImage : UIImageView
     var menuTextLabel : UILabel
     
+    //
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
         self.menuTextLabel = UILabel()
