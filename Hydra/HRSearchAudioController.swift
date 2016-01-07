@@ -116,7 +116,7 @@ class HRSearchAudioController: UITableViewController,UISearchResultsUpdating, UI
         self.footer.startProgress()
         self.audios = Array<HRAudioItemModel>()
         
-        let audioSearch = VKRequest(method: "audio.search", andParameters: ["q":query,"auto_complete":1,"sort":2,"offset":self.audios.count])
+        let audioSearch = VKRequest(method: "audio.search", andParameters: ["q":query,"auto_complete":1,"sort":2,"offset":self.audios.count,"count":100])
         
         audioSearch.executeWithResultBlock({ (response) -> Void in
             
