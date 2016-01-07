@@ -42,6 +42,8 @@ class HRPlayerManager {
     var coverChanged = Signal<(UIImage!)>()
     var backgroundImage = UIImage(named: "placeholderBackground")
     var backgroundChanged = Signal<(UIImage!)>()
+    var lyricsText = "Загрузка..";
+    var lyricsLoaded = Signal<(String!)>()
     
     func playItem(song: HRAudioItemModel) {
         
@@ -295,5 +297,32 @@ class HRPlayerManager {
         }
         
     }
+    
+    func lyricsAction(audio:HRAudioItemModel) {
+        
+        let getAudioLyrics = VKRequest(method: "audio.getLyrics", andParameters: ["lyrics_id":audio.lyrics_id])
+        
+        getAudioLyrics.executeWithResultBlock({ (response) -> Void in
+            let json = response.json as! Dictionary<String,AnyObject>
+            let text = json["text"] as! String
+            self.lyricsLoaded.fire(text)
+            
+            log.debug("\(response.json)")
+            }, errorBlock: { (error) -> Void in
+                // error
+                print(error)
+        })
+        
+    }
+    
+    func actionShowSongLyrics() {
+        if self.currentItem != nil && self.currentItem.lyrics_id != 0 {
+            self.lyricsAction(self.currentItem)
+        } else {
+            self.lyricsLoaded.fire("Нет текста для данного трека")
+        }
+    }
+
+    
 
 }

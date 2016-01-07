@@ -18,6 +18,11 @@ class PlayerController: UIViewController {
     var songTitleLabel: MarqueeLabel!
     var songArtistLabel: UILabel!
     
+    // song cover
+    var coverView : UIView!
+    var lyricsText : UITextView!
+    var showingLyrics : Bool!
+    
     // background
     var backgroundImage : UIImageView!
     var songImage : UIImageView!
@@ -64,6 +69,30 @@ class PlayerController: UIViewController {
         self.view.addSubview(self.songImage)
         
         self.backgroundImage.image = UIImage(named: "placeholderBackground")
+        
+        self.coverView = UIView()
+        
+        let doubleTap = UITapGestureRecognizer(target: self, action: "lyricsAction")
+        doubleTap.numberOfTapsRequired = 2
+        
+        self.coverView.addGestureRecognizer(doubleTap)
+        self.coverView.frame = CGRectMake(screenSizeWidth/2-145, 100, 290, 290)
+        self.songImage = UIImageView()
+        self.songImage.frame = CGRectMake(0, 0, 290, 290)
+        
+        self.coverView.addSubview(self.songImage)
+        self.songImage.image = UIImage(named: "placeholder")
+        self.view.addSubview(self.coverView)
+        
+        self.showingLyrics = false
+        self.lyricsText = UITextView()
+        self.lyricsText.text = "Загрузка.."
+        self.lyricsText.textColor = UIColor.whiteColor()
+        self.lyricsText.textAlignment = NSTextAlignment.Center
+        self.lyricsText.editable = false
+        self.lyricsText.backgroundColor = UIColor.clearColor()
+        self.lyricsText.frame = CGRectMake(0, 0, 290, 290)
+        self.lyricsText.selectable = false
         
         self.songImage.image = UIImage(named: "placeholder")
         
@@ -326,6 +355,12 @@ class PlayerController: UIViewController {
                 dispatch.async.main({ () -> Void in
                     self!.songArtistLabel.text = audioItem.artist
                     self!.songTitleLabel.text = audioItem.title
+                    
+                    if self!.showingLyrics == true {
+                        self!.lyricsAction()
+                    }
+                    self!.lyricsText.text = "Загрузка..";
+                    
                     self?.songsCountLabel.text = "\(HRPlayerManager.sharedInstance.currentPlayIndex+1) из \(HRPlayerManager.sharedInstance.items.count)"
                     
                     self?.addButton.enabled = true
@@ -345,6 +380,13 @@ class PlayerController: UIViewController {
             HRPlayerManager.sharedInstance.coverChanged.listen(self!, callback: { (image) -> Void in
                 dispatch.async.main({ () -> Void in
                     self!.songImage.image = image
+                })
+            })
+            
+            HRPlayerManager.sharedInstance.lyricsLoaded.listen(self!, callback: { (text) -> Void in
+                dispatch.async.main({ () -> Void in
+                    print(text)
+                    self!.lyricsText.text = text
                 })
             })
             
@@ -447,6 +489,19 @@ class PlayerController: UIViewController {
     
     func closeAction() {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func lyricsAction() {
+        
+        if self.showingLyrics == false {
+            HRPlayerManager.sharedInstance.actionShowSongLyrics()
+            UIView.transitionFromView(self.songImage, toView: self.lyricsText, duration: 1, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
+            self.showingLyrics = true
+        } else {
+            UIView.transitionFromView(self.lyricsText, toView: self.songImage, duration: 1, options: UIViewAnimationOptions.TransitionFlipFromLeft, completion: nil)
+            self.showingLyrics = false
+        }
+        
     }
 
 }

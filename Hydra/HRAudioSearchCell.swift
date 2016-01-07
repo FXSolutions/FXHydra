@@ -32,6 +32,8 @@ class HRAudioSearchCell: UITableViewCell {
         self.progressView.tintColor = UIColor.blackColor()
         self.progressView.hidden = true
         
+        self.downloadedImage = UIImageView()
+        
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
         
         self.contentView.addSubview(self.audioAristLabel)
