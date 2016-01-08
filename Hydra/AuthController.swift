@@ -2,7 +2,7 @@
 import UIKit
 import VK_ios_sdk
 
-class AuthController: UIViewController,VKSdkDelegate {
+class AuthController: UIViewController,VKSdkDelegate,VKSdkUIDelegate {
 
     var motionView:UIImageView!
     var authButton: UIButton!
@@ -12,9 +12,8 @@ class AuthController: UIViewController,VKSdkDelegate {
         super.loadView()
         
        // VKSdk.initializeWithDelegate(self, andAppId: "4689635")
-        let vkInstanse = VKSdk.initializeWithAppId("4689635")
-        
-        vkInstanse.registerDelegate(self)
+        VKSdk.initializeWithAppId("4689635").registerDelegate(self)
+        VKSdk.instance().uiDelegate = self
         
         
         VKSdk.wakeUpSession(["audio","status","groups"]) { (state, error) -> Void in

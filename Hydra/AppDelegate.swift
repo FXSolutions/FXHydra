@@ -64,6 +64,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        if #available(iOS 9.0, *) {
+            VKSdk.processOpenURL(url, fromApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as! String)
+        } else {
+            // Fallback on earlier versions
+        }
+        return true
+    }
+    
     override func remoteControlReceivedWithEvent(event: UIEvent?) {
         
         if event?.type == UIEventType.RemoteControl {

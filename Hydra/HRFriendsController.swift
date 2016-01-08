@@ -54,9 +54,7 @@ class HRFriendsController: UITableViewController {
             
             let getFriends = VKRequest(method: "friends.get", andParameters: ["order":"hints","count":100,"offset":self.friendsArray.count,"fields":"photo_100,can_see_audio","name_case":"nom"])
             
-            
             getFriends.executeWithResultBlock({ (response) -> Void in
-                
                 
                 let json = response.json as! Dictionary<String,AnyObject>
                 let items = json["items"] as! Array<Dictionary<String,AnyObject>>
