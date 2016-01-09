@@ -141,27 +141,27 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
         cell.audioTitleLabel.text = audio.title
         cell.allMusicController = self
         cell.audioModel = audio
-        cell.revealDirection = .Right
         
         if audio.downloadState == 3 {
             cell.downloadedImage.hidden = false
             cell.downloadedImage.image = UIImage(named: "donebutton")
             
-            cell.bgViewRightImage = UIImage(named:"download_image")!.imageWithRenderingMode(.AlwaysTemplate)
-            cell.bgViewRightColor = UIColor.blackColor()
+            // complete
+            
+            cell.delegate = nil
+            cell.revealDirection = .None
             
         } else {
             
             cell.downloadedImage.hidden = true
+            cell.revealDirection = .Right
+            cell.delegate = self
             
             cell.bgViewRightImage = UIImage(named:"download_image")!.imageWithRenderingMode(.AlwaysTemplate)
             cell.bgViewRightColor = UIColor.blackColor()
-            
+
         }
         
-        cell.bgViewRightImage = UIImage(named:"download_image")!.imageWithRenderingMode(.AlwaysTemplate)
-        cell.bgViewRightColor = UIColor.blackColor()
-        cell.delegate = self
         
         //cell.audioDurationTime.text = self.durationFormater(Double(audio.duration))
         
