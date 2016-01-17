@@ -104,9 +104,7 @@ class HRDatabaseManager {
         
         */
         
-        let downloadsSQL = "create table IF NOT EXISTS Downloads (audio_id integer primary key, title text, lyrics_id integer, owner_id integer, artist text, duration integer, genre_id integer, local_url string);"
-        
-        //avatar text, chat_description text, email integer, grouptype integer, last_action integer, last_updated integer, owner integer, participants text, participants_count integer, private integer, rights text, roomname text, time_created integer, topic text, last_message integer,unreadtotoal integer,type0uid integer,type0user_status integer, last_message_body text
+        let downloadsSQL = "create table IF NOT EXISTS Downloads (audio_id integer primary key, title text, lyrics_id integer, owner_id integer, artist text, duration integer, genre_id integer, local_url string,downloaded_time integer);"
         
         if self.database!.executeUpdate(downloadsSQL, withArgumentsInArray: nil) {
             log.debug("'Downloads' table created")
@@ -136,7 +134,7 @@ class HRDatabaseManager {
     
     func saveInDB(model:HRAudioItemModel) {
         dispatch_async(self.queue!, { () -> Void in
-            let sql = "insert or replace into Downloads (audio_id, title, lyrics_id, owner_id, artist, duration, genre_id, local_url) values \(model.sqlValue());"
+            let sql = "insert or replace into Downloads (audio_id, title, lyrics_id, owner_id, artist, duration, genre_id, local_url,downloaded_time) values \(model.sqlValue());"
             
             self.database!.executeUpdate(sql, withArgumentsInArray: nil)
         })
@@ -149,7 +147,7 @@ class HRDatabaseManager {
         dispatch_async(self.queue!, { () -> Void in
             var array: [HRAudioItemModel] = []
             
-            let sql = "select * from Downloads"
+            let sql = "select * from Downloads ORDER BY downloaded_time DESC"
             if let set: FMResultSet = self.database!.executeQuery(sql, withArgumentsInArray: nil) {
                 while set.next() {
                     array.append(HRAudioItemModel(set: set))

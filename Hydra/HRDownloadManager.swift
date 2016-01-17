@@ -31,6 +31,7 @@ class HRDownloadManager {
             let currentFileName = NSURL(string:model.audioNetworkURL)?.lastPathComponent
 
             model.audioLocalURL = currentFileName
+            model.downloadedTime = Int(NSDate().timeIntervalSince1970)
             HRDatabaseManager.sharedInstance.saveInDB(model)
         }
         
