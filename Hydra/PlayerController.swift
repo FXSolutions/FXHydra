@@ -65,7 +65,7 @@ class PlayerController: UIViewController {
         
         
         self.songImage = UIImageView()
-        self.songImage.frame = CGRectMake(screenSizeWidth/2-145, 100, 290, 290)
+        self.songImage.frame = CGRectMake(screenSizeWidth/2-125, 70, 250, 250)
         self.view.addSubview(self.songImage)
         
         self.backgroundImage.image = UIImage(named: "placeholderBackground")
@@ -75,10 +75,12 @@ class PlayerController: UIViewController {
         let doubleTap = UITapGestureRecognizer(target: self, action: "lyricsAction")
         doubleTap.numberOfTapsRequired = 2
         
+        let coverSize = screenSizeWidth-40
+        
         self.coverView.addGestureRecognizer(doubleTap)
-        self.coverView.frame = CGRectMake(screenSizeWidth/2-145, 100, 290, 290)
+        self.coverView.frame = CGRectMake(screenSizeWidth/2-coverSize/2, 70, coverSize, coverSize)
         self.songImage = UIImageView()
-        self.songImage.frame = CGRectMake(0, 0, 290, 290)
+        self.songImage.frame = CGRectMake(0, 0, coverSize, coverSize)
         
         self.coverView.addSubview(self.songImage)
         self.songImage.image = UIImage(named: "placeholder")
@@ -91,7 +93,7 @@ class PlayerController: UIViewController {
         self.lyricsText.textAlignment = NSTextAlignment.Center
         self.lyricsText.editable = false
         self.lyricsText.backgroundColor = UIColor.clearColor()
-        self.lyricsText.frame = CGRectMake(0, 0, 290, 290)
+        self.lyricsText.frame = CGRectMake(0, 0, coverSize, coverSize)
         self.lyricsText.selectable = false
         
         self.songImage.image = UIImage(named: "placeholder")
@@ -113,14 +115,14 @@ class PlayerController: UIViewController {
         self.view.addSubview(self.songsCountLabel)
         
         self.songTitleLabel = MarqueeLabel()
-        self.songTitleLabel.frame = CGRectMake(screenSizeWidth/2-125, screenSizeHeight-180, 250, 20)
+        self.songTitleLabel.frame = CGRectMake(screenSizeWidth/2-125, screenSizeHeight-135, 250, 20)
         self.songTitleLabel.textColor = UIColor.whiteColor()
         self.songTitleLabel.font = UIFont(name: "Helvetica Neue Medium", size: 17)
         self.songTitleLabel.textAlignment = NSTextAlignment.Center
         self.view.addSubview(self.songTitleLabel)
         
         self.songArtistLabel = UILabel()
-        self.songArtistLabel.frame = CGRectMake(screenSizeWidth/2-125, screenSizeHeight-160, 250, 20)
+        self.songArtistLabel.frame = CGRectMake(screenSizeWidth/2-125, screenSizeHeight-115, 250, 20)
         self.songArtistLabel.font = UIFont(name: "HelveticaNeue-Light", size: 14)
         self.songArtistLabel.textColor = UIColor.grayColor()
         self.songArtistLabel.textAlignment = NSTextAlignment.Center
@@ -133,50 +135,50 @@ class PlayerController: UIViewController {
         self.view.addSubview(self.songsCountLabel)
         
         self.playButton = UIButton()
-        self.playButton.frame = CGRectMake(screenSizeWidth/2-22.5, screenSizeHeight-125, 45, 45)
+        self.playButton.frame = CGRectMake(screenSizeWidth/2-15, screenSizeHeight-90, 30, 30)
         self.playButton.setImage(UIImage(named: "play"), forState: UIControlState.Normal)
         self.playButton.addTarget(self, action: "playAction", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(self.playButton)
         
         self.pauseButton  = UIButton()
-        self.pauseButton.frame = CGRectMake(screenSizeWidth/2-22.5, screenSizeHeight-125, 45, 45)
+        self.pauseButton.frame = CGRectMake(screenSizeWidth/2-15, screenSizeHeight-90, 30, 30)
         self.pauseButton.setImage(UIImage(named: "pause"), forState: UIControlState.Normal)
         self.pauseButton.addTarget(self, action: "pauseAction", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(self.pauseButton)
         
         self.nextSondButton = UIButton()
-        self.nextSondButton.frame = CGRectMake(screenSizeWidth/2+80-22.5, screenSizeHeight-125, 45, 45)
+        self.nextSondButton.frame = CGRectMake(screenSizeWidth/2+80-15, screenSizeHeight-90, 30, 30)
         self.nextSondButton.setImage(UIImage(named: "moveNext"), forState: UIControlState.Normal)
         self.nextSondButton.addTarget(self, action: "nextAction", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(self.nextSondButton)
         
         self.prevSoundButton = UIButton()
-        self.prevSoundButton.frame = CGRectMake(screenSizeWidth/2-80-22.5, screenSizeHeight-125, 45, 45)
+        self.prevSoundButton.frame = CGRectMake(screenSizeWidth/2-80-15, screenSizeHeight-90, 30, 30)
         self.prevSoundButton.setImage(UIImage(named: "movePrev"), forState: UIControlState.Normal)
         self.prevSoundButton.addTarget(self, action: "prevAction", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(self.prevSoundButton)
         
         
         self.repeatButton = UIButton()
-        self.repeatButton.frame = CGRectMake(screenSizeWidth/2-145, 410, 30, 30)
+        self.repeatButton.frame = CGRectMake(screenSizeWidth/2-145, screenSizeHeight-200, 20, 20)
         self.repeatButton.setImage(UIImage(named: "refresh"), forState: UIControlState.Normal)
         self.repeatButton.addTarget(self, action: "actionRepeat", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(self.repeatButton)
         
         self.addButton = UIButton()
-        self.addButton.frame = CGRectMake(screenSizeWidth/2-50, 410, 30, 30)
+        self.addButton.frame = CGRectMake(screenSizeWidth/2-50, screenSizeHeight-200, 20, 20)
         self.addButton.setImage(UIImage(named: "add_big"), forState: UIControlState.Normal)
         self.addButton.addTarget(self, action: "actionAdd", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(self.addButton)
         
         self.broadcastButton = UIButton()
-        self.broadcastButton.frame = CGRectMake(screenSizeWidth/2+30, 410, 30, 30)
+        self.broadcastButton.frame = CGRectMake(screenSizeWidth/2+30, screenSizeHeight-200, 20, 20)
         self.broadcastButton.setImage(UIImage(named: "stream"), forState: UIControlState.Normal)
         self.broadcastButton.addTarget(self, action: "actionBroadcast", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(self.broadcastButton)
         
         self.shuffleButton = UIButton()
-        self.shuffleButton.frame = CGRectMake(screenSizeWidth/2+125, 410, 30, 30)
+        self.shuffleButton.frame = CGRectMake(screenSizeWidth/2+125, screenSizeHeight-200, 20, 20)
         self.shuffleButton.setImage(UIImage(named: "shuffle"), forState: UIControlState.Normal)
         self.shuffleButton.addTarget(self, action: "adtionShuffle", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(self.shuffleButton)
@@ -184,7 +186,7 @@ class PlayerController: UIViewController {
         let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         self.songSlider = UISlider()
-        self.songSlider.frame = CGRectMake(screenSizeWidth/2-125, 445 , 250, 30)
+        self.songSlider.frame = CGRectMake(screenSizeWidth/2-125, screenSizeHeight-175 , 240, 30)
         let trackLeftImage1 = UIImage(named: "minTrack")!
         let trackLeftResizable1 = trackLeftImage1.resizableImageWithCapInsets(insets)
         self.songSlider.setMinimumTrackImage(trackLeftResizable1, forState: UIControlState.Normal)
@@ -199,21 +201,21 @@ class PlayerController: UIViewController {
         self.view.addSubview(self.songSlider)
         
         self.songTimeLeftLabel = UILabel()
-        self.songTimeLeftLabel.frame = CGRectMake(screenSizeWidth/2-160, 445, 35, 30)
+        self.songTimeLeftLabel.frame = CGRectMake(screenSizeWidth/2-155, screenSizeHeight-175, 35, 30)
         self.songTimeLeftLabel.font = UIFont(name: "HelveticaNeue-Light", size: 12)
         self.songTimeLeftLabel.textColor = UIColor.grayColor()
         self.songTimeLeftLabel.textAlignment = NSTextAlignment.Left
         self.view.addSubview(self.songTimeLeftLabel)
         
         self.songTimeRightLabel = UILabel()
-        self.songTimeRightLabel.frame = CGRectMake(screenSizeWidth/2+130, 445, 35, 30)
+        self.songTimeRightLabel.frame = CGRectMake(screenSizeWidth/2+125, screenSizeHeight-175, 35, 30)
         self.songTimeRightLabel.font = UIFont(name: "HelveticaNeue-Light", size: 12)
         self.songTimeRightLabel.textColor = UIColor.grayColor()
         self.songTimeRightLabel.textAlignment = NSTextAlignment.Left
         self.view.addSubview(self.songTimeRightLabel)
 
         self.volumeView = MPVolumeView()
-        self.volumeView.frame = CGRectMake(screenSizeWidth/2-125, screenSizeHeight-45, 250, 30)
+        self.volumeView.frame = CGRectMake(screenSizeWidth/2-120, screenSizeHeight-30, 240, 30)
         
         volumeView.backgroundColor = UIColor.clearColor()
         volumeView.showsVolumeSlider = true
@@ -233,12 +235,12 @@ class PlayerController: UIViewController {
         self.view.addSubview(self.volumeView)
         
         self.volumeLeftImage = UIImageView()
-        self.volumeLeftImage.frame = CGRectMake(screenSizeWidth/2-125-20, screenSizeHeight-45, 20, 20)
+        self.volumeLeftImage.frame = CGRectMake(screenSizeWidth/2-125-20, screenSizeHeight-30, 20, 20)
         self.volumeLeftImage.image = UIImage(named: "less")
         self.view.addSubview(self.volumeLeftImage)
         
         self.volumeRightImage = UIImageView()
-        self.volumeRightImage.frame = CGRectMake(screenSizeWidth/2+125+5, screenSizeHeight-46, 20, 20)
+        self.volumeRightImage.frame = CGRectMake(screenSizeWidth/2+125+5, screenSizeHeight-30, 20, 20)
         self.volumeRightImage.image = UIImage(named: "more")
         self.view.addSubview(self.volumeRightImage)
     
