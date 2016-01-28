@@ -53,7 +53,6 @@ class HRPlayerManager {
         
         if (song.audioLocalURL != nil) {
             
-            //let songURL = NSURL(string: song.audioLocalURL!)
             var dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
             let docsDir: AnyObject = dirPaths[0]
             let soundFilePath = docsDir.stringByAppendingPathComponent(song.audioLocalURL!)

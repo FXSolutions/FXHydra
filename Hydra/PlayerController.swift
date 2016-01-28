@@ -71,6 +71,10 @@ class PlayerController: UIViewController {
         self.backgroundImage.image = UIImage(named: "placeholderBackground")
         
         self.coverView = UIView()
+        self.coverView.layer.masksToBounds = false;
+        self.coverView.layer.shadowOffset = CGSizeMake(0, 0);
+        self.coverView.layer.shadowRadius = 7;
+        self.coverView.layer.shadowOpacity = 0.7;
         
         let doubleTap = UITapGestureRecognizer(target: self, action: "lyricsAction")
         doubleTap.numberOfTapsRequired = 2

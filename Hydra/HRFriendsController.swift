@@ -12,7 +12,6 @@ import VK_ios_sdk
 
 class HRFriendsController: UITableViewController {
     
-    
     var friendsArray = Array<HRFriendModel>()
     var loading = false
     

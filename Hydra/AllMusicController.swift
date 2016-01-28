@@ -1,9 +1,8 @@
-
 import UIKit
 
 class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BWSwipeCellDelegate {
     
-    var searchController : UISearchController!
+    var searchController : UISearchController?
     var audiosArray = Array<HRAudioItemModel>()
     var loading = false
     var hrRefeshControl  = UIRefreshControl()
@@ -35,11 +34,11 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
         
         let searchAudioController = HRSearchAudioController()
         self.searchController = UISearchController(searchResultsController: searchAudioController)
-        self.searchController.searchResultsUpdater = searchAudioController
-        self.searchController.searchBar.sizeToFit()
-        self.searchController.searchBar.tintColor = UIColor.blackColor()
-        self.searchController.searchBar.placeholder = ""
-        self.tableView.tableHeaderView = self.searchController.searchBar
+        self.searchController?.searchResultsUpdater = searchAudioController
+        self.searchController?.searchBar.sizeToFit()
+        self.searchController?.searchBar.tintColor = UIColor.blackColor()
+        self.searchController?.searchBar.placeholder = ""
+        self.tableView.tableHeaderView = self.searchController?.searchBar
         self.definesPresentationContext = true
         self.extendedLayoutIncludesOpaqueBars = true
         
@@ -48,11 +47,7 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
-    
-    
-    
     // MARK: - load all audio
-    
     
     func loadMoreAudios() {
         
@@ -288,9 +283,9 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
         if cell.state == BWSwipeCellState.PastThresholdRight {
             log.debug("swipeCellDidCompleteRelease \(cell.state)")
             
-            let musicCell = cell as! HRAllMusicCell
+            let musicCell = cell as? HRAllMusicCell
             
-            self.downloadAudio(musicCell.audioModel, progressView: musicCell.progressView)
+            self.downloadAudio(musicCell!.audioModel, progressView: musicCell!.progressView)
             
             
         }
