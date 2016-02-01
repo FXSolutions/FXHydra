@@ -30,7 +30,7 @@ extension UIImage {
         return newImage
     }
     
-    func imageWithColor(color1: UIColor) -> UIImage {
+    func imageWithColor2(color1: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         
         let context  = UIGraphicsGetCurrentContext()

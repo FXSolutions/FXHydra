@@ -163,7 +163,7 @@ class HRPlayerManager {
             audioBoadcastFormat = ""
         }
         
-        let broadcast = VKRequest(method: "audio.setBroadcast", andParameters: ["audio":audioBoadcastFormat])
+        let broadcast = VKRequest(method: "audio.setBroadcast", parameters: ["audio":audioBoadcastFormat])
         
         broadcast.executeWithResultBlock({ (response) -> Void in
             
@@ -176,7 +176,7 @@ class HRPlayerManager {
     }
     
     func addAudio(audio:HRAudioItemModel) {
-        let audioAdd = VKRequest(method: "audio.add", andParameters: ["audio_id":audio.audioID,"owner_id":audio.ownerID])
+        let audioAdd = VKRequest(method: "audio.add", parameters: ["audio_id":audio.audioID,"owner_id":audio.ownerID])
         
         audioAdd.executeWithResultBlock({ (response) -> Void in
             log.debug("\(response.json)")
@@ -299,11 +299,13 @@ class HRPlayerManager {
     
     func lyricsAction(audio:HRAudioItemModel) {
         
-        let getAudioLyrics = VKRequest(method: "audio.getLyrics", andParameters: ["lyrics_id":audio.lyrics_id])
+        let getAudioLyrics = VKRequest(method: "audio.getLyrics", parameters: ["lyrics_id":audio.lyrics_id])
         
         getAudioLyrics.executeWithResultBlock({ (response) -> Void in
+            
             let json = response.json as! Dictionary<String,AnyObject>
             let text = json["text"] as! String
+            
             self.lyricsLoaded.fire(text)
             
             log.debug("\(response.json)")

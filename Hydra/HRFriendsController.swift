@@ -9,6 +9,7 @@
 import UIKit
 import Nuke
 import VK_ios_sdk
+import YYKit
 
 class HRFriendsController: UITableViewController {
     
@@ -51,7 +52,7 @@ class HRFriendsController: UITableViewController {
         if loading == false {
             loading = true
             
-            let getFriends = VKRequest(method: "friends.get", andParameters: ["order":"hints","count":100,"offset":self.friendsArray.count,"fields":"photo_100,can_see_audio","name_case":"nom"])
+            let getFriends = VKRequest(method: "friends.get", parameters: ["order":"hints","count":100,"offset":self.friendsArray.count,"fields":"photo_100,can_see_audio","name_case":"nom"])
             
             getFriends.executeWithResultBlock({ (response) -> Void in
                 
@@ -142,19 +143,23 @@ class HRFriendsController: UITableViewController {
         
         friendCell.friendName.text = "\(friend.first_name!) \(friend.last_name!)"
         
-        dispatch.async.global { () -> Void in
-            var request = ImageRequest(URL: NSURL(string: friend.photo_100)!)
-            request.targetSize = CGSizeMake(friendCell.friendAvatar.frame.width*screenScaleFactor, friendCell.friendAvatar.frame.height*screenScaleFactor)
-            request.contentMode = .AspectFill
-            
-            Nuke.taskWithRequest(request) {
-                let imagekek = $0.image // Image is resized
-                dispatch.async.main({ () -> Void in
-                    friendCell.friendAvatar.image = imagekek?.roundImage()
-                })
-                
-                }.resume()
-        }
+        
+        //friendCell.friendAvatar.yy_imageURL
+        
+//        
+//        dispatch.async.global { () -> Void in
+//            var request = ImageRequest(URL: NSURL(string: friend.photo_100)!)
+//            request.targetSize = CGSizeMake(friendCell.friendAvatar.frame.width*screenScaleFactor, friendCell.friendAvatar.frame.height*screenScaleFactor)
+//            request.contentMode = .AspectFill
+//            
+//            Nuke.taskWithRequest(request) {
+//                let imagekek = $0.image // Image is resized
+//                dispatch.async.main({ () -> Void in
+//                    friendCell.friendAvatar.image = imagekek?.roundImage()
+//                })
+//                
+//                }.resume()
+//        }
         
         if friend.can_see_audio == false {
             friendCell.backgroundColor = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.1)

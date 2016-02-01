@@ -41,7 +41,7 @@ class HRPlaylistsController: UITableViewController {
         
         if loading == false {
             loading = true
-            let getAudio = VKRequest(method: "audio.getAlbums", andParameters: ["count":100,"offset":self.albumsArray.count])
+            let getAudio = VKRequest(method: "audio.getAlbums", parameters: ["count":100,"offset":self.albumsArray.count])
             
             getAudio.executeWithResultBlock({ (response) -> Void in
                 
@@ -88,7 +88,7 @@ class HRPlaylistsController: UITableViewController {
         let cell:HRPlaylistCell = self.tableView.dequeueReusableCellWithIdentifier("HRPlaylistCell", forIndexPath: indexPath) as! HRPlaylistCell
         
         cell.albumTitle.text = album.title
-        cell.iconImage.image = UIImage(named: "albumsIcon")?.imageWithColor(UIColor.grayColor())
+        cell.iconImage.image = UIImage(named: "albumsIcon")?.imageWithColor2(UIColor.grayColor())
         
         return cell
         

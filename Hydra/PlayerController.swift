@@ -252,21 +252,21 @@ class PlayerController: UIViewController {
         
         
         if HRPlayerManager.sharedInstance.broadcastState == true {
-            self.broadcastButton.setImage(UIImage(named: "stream")?.imageWithColor(UIColor.redColor()), forState: UIControlState.Normal)
+            self.broadcastButton.setImage(UIImage(named: "stream")?.imageWithColor2(UIColor.redColor()), forState: UIControlState.Normal)
         } else {
-            self.broadcastButton.setImage(UIImage(named: "stream")?.imageWithColor(UIColor.whiteColor()), forState: UIControlState.Normal)
+            self.broadcastButton.setImage(UIImage(named: "stream")?.imageWithColor2(UIColor.whiteColor()), forState: UIControlState.Normal)
         }
     
         if HRPlayerManager.sharedInstance.shuffleState == true {
-            self.shuffleButton.setImage(UIImage(named: "shuffle")?.imageWithColor(UIColor.redColor()), forState: UIControlState.Normal)
+            self.shuffleButton.setImage(UIImage(named: "shuffle")?.imageWithColor2(UIColor.redColor()), forState: UIControlState.Normal)
         } else {
-            self.shuffleButton.setImage(UIImage(named: "shuffle")?.imageWithColor(UIColor.whiteColor()), forState: UIControlState.Normal)
+            self.shuffleButton.setImage(UIImage(named: "shuffle")?.imageWithColor2(UIColor.whiteColor()), forState: UIControlState.Normal)
         }
 
         if HRPlayerManager.sharedInstance.repeatState == true {
-            self.repeatButton.setImage(UIImage(named: "repeatOne")?.imageWithColor(UIColor.redColor()), forState: UIControlState.Normal)
+            self.repeatButton.setImage(UIImage(named: "repeatOne")?.imageWithColor2(UIColor.redColor()), forState: UIControlState.Normal)
         } else {
-            self.repeatButton.setImage(UIImage(named: "refresh")?.imageWithColor(UIColor.whiteColor()), forState: UIControlState.Normal)
+            self.repeatButton.setImage(UIImage(named: "refresh")?.imageWithColor2(UIColor.whiteColor()), forState: UIControlState.Normal)
         }
         
     }
@@ -464,9 +464,9 @@ class PlayerController: UIViewController {
     func actionBroadcast() {
         HRPlayerManager.sharedInstance.actionBroadcast()
         if HRPlayerManager.sharedInstance.broadcastState == true {
-            self.broadcastButton.setImage(UIImage(named: "stream")?.imageWithColor(UIColor.redColor()), forState: UIControlState.Normal)
+            self.broadcastButton.setImage(UIImage(named: "stream")?.imageWithColor2(UIColor.redColor()), forState: UIControlState.Normal)
         } else {
-            self.broadcastButton.setImage(UIImage(named: "stream")?.imageWithColor(UIColor.whiteColor()), forState: UIControlState.Normal)
+            self.broadcastButton.setImage(UIImage(named: "stream")?.imageWithColor2(UIColor.whiteColor()), forState: UIControlState.Normal)
         }
     }
     
@@ -478,18 +478,18 @@ class PlayerController: UIViewController {
     func adtionShuffle() {
         HRPlayerManager.sharedInstance.actionShuffle()
         if HRPlayerManager.sharedInstance.shuffleState == true {
-            self.shuffleButton.setImage(UIImage(named: "shuffle")?.imageWithColor(UIColor.redColor()), forState: UIControlState.Normal)
+            self.shuffleButton.setImage(UIImage(named: "shuffle")?.imageWithColor2(UIColor.redColor()), forState: UIControlState.Normal)
         } else {
-            self.shuffleButton.setImage(UIImage(named: "shuffle")?.imageWithColor(UIColor.whiteColor()), forState: UIControlState.Normal)
+            self.shuffleButton.setImage(UIImage(named: "shuffle")?.imageWithColor2(UIColor.whiteColor()), forState: UIControlState.Normal)
         }
     }
     
     func actionRepeat() {
         HRPlayerManager.sharedInstance.actionRepeat()
         if HRPlayerManager.sharedInstance.repeatState == true {
-            self.repeatButton.setImage(UIImage(named: "repeatOne")?.imageWithColor(UIColor.redColor()), forState: UIControlState.Normal)
+            self.repeatButton.setImage(UIImage(named: "repeatOne")?.imageWithColor2(UIColor.redColor()), forState: UIControlState.Normal)
         } else {
-            self.repeatButton.setImage(UIImage(named: "refresh")?.imageWithColor(UIColor.whiteColor()), forState: UIControlState.Normal)
+            self.repeatButton.setImage(UIImage(named: "refresh")?.imageWithColor2(UIColor.whiteColor()), forState: UIControlState.Normal)
         }
     }
     

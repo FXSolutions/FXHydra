@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import YYKit
 
 class HRFriendsCell: UITableViewCell {
     
     var friendName : AttributedLabel
-    var friendAvatar : UIImageView
+    var friendAvatar : YYAnimatedImageView
     var accessImage : UIImageView
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -21,7 +22,7 @@ class HRFriendsCell: UITableViewCell {
         self.friendName.textColor = UIColor.blackColor()
         self.friendName.backgroundColor = UIColor.clearColor()
         
-        self.friendAvatar = UIImageView()
+        self.friendAvatar = YYAnimatedImageView()
         self.accessImage = UIImageView()
         
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)

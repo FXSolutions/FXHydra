@@ -48,7 +48,7 @@ class HRInPlaylistController: UITableViewController {
         
         if loading == false {
             loading = true
-            let getAudio = VKRequest(method: "audio.get", andParameters: ["count":100,"offset":self.audiosArray.count,"album_id":self.album_id])
+            let getAudio = VKRequest(method: "audio.get", parameters: ["count":100,"offset":self.audiosArray.count,"album_id":self.album_id])
             
             getAudio.executeWithResultBlock({ (response) -> Void in
                 
@@ -165,7 +165,7 @@ class HRInPlaylistController: UITableViewController {
     
     func addLeftBarButton() {
         
-        let button = UIBarButtonItem(image: UIImage(named: "backButton")?.imageWithColor(UIColor.whiteColor()), style: UIBarButtonItemStyle.Plain, target: self, action: "backButtonAction")
+        let button = UIBarButtonItem(image: UIImage(named: "backButton")?.imageWithColor2(UIColor.whiteColor()), style: UIBarButtonItemStyle.Plain, target: self, action: "backButtonAction")
         self.navigationItem.leftBarButtonItem = button
         
     }

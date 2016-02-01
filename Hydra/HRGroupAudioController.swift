@@ -48,7 +48,7 @@ class HRGroupAudioController: UITableViewController {
         
         if loading == false {
             loading = true
-            let getAudio = VKRequest(method: "audio.get", andParameters: ["owner_id":"-\(self.groupModel.id)","count":100,"offset":self.audiosArray.count])
+            let getAudio = VKRequest(method: "audio.get", parameters: ["owner_id":"-\(self.groupModel.id)","count":100,"offset":self.audiosArray.count])
             
             getAudio.executeWithResultBlock({ (response) -> Void in
                 

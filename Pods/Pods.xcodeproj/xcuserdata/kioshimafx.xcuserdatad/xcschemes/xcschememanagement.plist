@@ -6,58 +6,93 @@
 	<dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>HanekeSwift.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Just.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Neon.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Nimble.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Nuke.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-Hydra.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-HydraTests.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Quick.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RxSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TinySQLite-TinySQLite.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TinySQLite.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Toucan.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>VK-ios-sdk.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>10</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>XCGLogger.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>11</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YYKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>sqlite3.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -67,12 +102,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3B6B032788840D88C4F788BFFB59CEFF</key>
+		<key>028ACC607CD4D350A188781E0BA18C28</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>41989F579EB26E4448DD3B9442E40FDC</key>
+		<key>1208F9BAD1BAC007777F62BBC3517A1A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2584DAFBD22EF9B6D822B4D77811CC40</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2620F12C1176436B3B3784520F311BC7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2FEE6C88680FDAAF6E842E732B8524B9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,37 +132,57 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>497C4DC4533FAECF27D2E93F4A5D492E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4DF42E73BE56153E373A10022230CB96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>63A7EE31284DCA3089665BC17626FBF5</key>
+		<key>4FE61C7BBACE2D82747EB4F3D4E2FE47</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7719C1F8F2D32970BB26409C8FE36A0F</key>
+		<key>52400B485AC6E0B2BDC0FA8742EBB3DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>89114403DEE7FD0215508CEA0B313F82</key>
+		<key>52B6509433441294BC7F682FE8089167</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A12FAB6606527FB51ADE53E65A06A292</key>
+		<key>7A7B31B6B2FC586141B023B95FB895FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A4FF348293B753C96C8C372AD2EB296E</key>
+		<key>7D80F307D3FD8A473CD2B268FD0F14D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DBD14BAFFAD3EEF56756FC2E3127E787</key>
+		<key>8D8235958A976CCB57E6F7C86BCB001E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8DF1E8CEBBAF23ADC276BCD9B8E16549</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>94AA55561D4089A9F645CDE5F0EFDD3C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C14A6A4F2149896AAA520C8C55769492</key>
 		<dict>
 			<key>primary</key>
 			<true/>

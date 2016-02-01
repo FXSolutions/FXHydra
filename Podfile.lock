@@ -1,26 +1,40 @@
 PODS:
-  - Alamofire (3.1.4)
+  - Alamofire (3.1.5)
   - HanekeSwift (0.10.0)
   - Just (0.4.4)
-  - Nuke (1.3.0)
-  - SnapKit (0.18.0)
-  - sqlite3 (3.9.2.0):
-    - sqlite3/common (= 3.9.2.0)
-  - sqlite3/common (3.9.2.0)
-  - Toucan (0.4.3)
-  - VK-ios-sdk (1.3.8)
+  - Neon (0.0.3)
+  - Nimble (3.1.0)
+  - Nuke (1.4.0)
+  - Quick (0.9.0)
+  - RxSwift (2.1.0)
+  - SnapKit (0.19.1)
+  - sqlite3 (3.10.2):
+    - sqlite3/common (= 3.10.2)
+  - sqlite3/common (3.10.2)
+  - TinySQLite (0.3.1):
+    - sqlite3
+  - Toucan (0.5.0)
+  - VK-ios-sdk (1.3.12)
   - XCGLogger (3.0)
+  - YYKit (0.9.11):
+    - YYKit/no-arc (= 0.9.11)
+  - YYKit/no-arc (0.9.11)
 
 DEPENDENCIES:
   - Alamofire
   - HanekeSwift (from `https://github.com/meteochu/HanekeSwift.git`)
   - Just
+  - Neon
+  - Nimble
   - Nuke
+  - Quick
+  - RxSwift
   - SnapKit
-  - sqlite3
+  - TinySQLite
   - Toucan
   - VK-ios-sdk
   - XCGLogger (from `https://github.com/DaveWoodCom/XCGLogger.git`, branch `swift_2.0`)
+  - YYKit
 
 EXTERNAL SOURCES:
   HanekeSwift:
@@ -38,16 +52,20 @@ CHECKOUT OPTIONS:
     :git: https://github.com/DaveWoodCom/XCGLogger.git
 
 SPEC CHECKSUMS:
-  Alamofire: fbc829692f351fa1d8a31dd75fd7f7f56fea31fb
+  Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
   HanekeSwift: d6f5bdf9dbdbbc09d59623b2c1d533e46463dd4d
   Just: 138df59892ea185fbc191986cc733bfd09d62cc0
-  Nuke: 933474d77df4e63ad1139edb280954be687454d4
-  SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
-  sqlite3: 5e6238a0a38f7356c0b672290be9ea95e8ceee9f
-  Toucan: 3e2319c8fb9c7a2fb9c30f6d4ecdc6b8a2f1c92b
-  VK-ios-sdk: 63b3e084eecb1ed2c11ab3ac53f9309164973f9b
+  Neon: 589d3d217d326abe09726bf81add106cff685bf2
+  Nimble: 79d40f4d69d47314229bbabacaa02b8838c779b9
+  Nuke: 4b2b4961b0feab88c6fa169409f0e30134dbd8e4
+  Quick: 332eb1da73125a2106dd637424c803f2ae97e4a9
+  RxSwift: 110fb07f81c17c2c3b3254d168363057b1880d18
+  SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
+  sqlite3: a31d98a32bba89e40938e11a05fe1b5bdb6c4622
+  TinySQLite: b27a26c4676a41f045f56e0d94ccc4bce9a1a87f
+  Toucan: 0519c341148252ae114c5a657d2a85bb9ada9e40
+  VK-ios-sdk: be18cc4a2b99aa6d5a6ad1a8249fb007942f7765
   XCGLogger: 5802533aff8bafc8b3b9776ab8972576f31d0a4e
+  YYKit: 76c3f2cee1a72d3c5b1d7fd8d170ee507fe5df68
 
-PODFILE CHECKSUM: 8a93abfd354c8f5185004b39dc7e3f10f3fa86fc
-
-COCOAPODS: 1.0.0.beta.1
+COCOAPODS: 0.39.0

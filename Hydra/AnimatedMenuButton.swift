@@ -24,9 +24,9 @@ import UIKit
 
 public class AnimatedMenuButton : UIButton {
     
-    let top: CAShapeLayer = CAShapeLayer()
-    let middle: CAShapeLayer = CAShapeLayer()
-    let bottom: CAShapeLayer = CAShapeLayer()
+    let menuTop: CAShapeLayer = CAShapeLayer()
+    let menuMiddle: CAShapeLayer = CAShapeLayer()
+    let menuBottom: CAShapeLayer = CAShapeLayer()
     
     // MARK: - Constants
     
@@ -48,11 +48,11 @@ public class AnimatedMenuButton : UIButton {
     override init(frame: CGRect) {
         super.init(frame:frame)
                 
-        self.top.path = shortStroke;
-        self.middle.path = shortStroke;
-        self.bottom.path = shortStroke;
+        self.menuTop.path = shortStroke;
+        self.menuMiddle.path = shortStroke;
+        self.menuBottom.path = shortStroke;
         
-        for layer in [ self.top, self.middle, self.bottom ] {
+        for layer in [ self.menuTop, self.menuMiddle, self.menuBottom ] {
             layer.fillColor = nil
             layer.strokeColor = UIColor.grayColor().CGColor
             layer.lineWidth = 4
@@ -72,12 +72,12 @@ public class AnimatedMenuButton : UIButton {
             self.layer.addSublayer(layer)
         }
         
-        self.top.anchorPoint = CGPoint(x: 1, y: 0.5)
-        self.top.position = CGPoint(x: 30 - 1, y: 5)
-        self.middle.position = CGPoint(x: 15, y: 15)
+        self.menuTop.anchorPoint = CGPoint(x: 1, y: 0.5)
+        self.menuTop.position = CGPoint(x: 30 - 1, y: 5)
+        self.menuMiddle.position = CGPoint(x: 15, y: 15)
         
-        self.bottom.anchorPoint = CGPoint(x: 1, y: 0.5)
-        self.bottom.position = CGPoint(x: 30 - 1, y: 25)
+        self.menuBottom.anchorPoint = CGPoint(x: 1, y: 0.5)
+        self.menuBottom.position = CGPoint(x: 30 - 1, y: 25)
     }
     
     // MARK: - Animations
@@ -85,19 +85,19 @@ public class AnimatedMenuButton : UIButton {
     public func animateWithPercentVisible(percentVisible:CGFloat, drawerSide: DrawerSide) {
         
         if drawerSide == DrawerSide.Left {
-            self.top.anchorPoint = CGPoint(x: 1, y: 0.5)
-            self.top.position = CGPoint(x: 30 - 1, y: 5)
-            self.middle.position = CGPoint(x: 15, y: 15)
+            self.menuTop.anchorPoint = CGPoint(x: 1, y: 0.5)
+            self.menuTop.position = CGPoint(x: 30 - 1, y: 5)
+            self.menuMiddle.position = CGPoint(x: 15, y: 15)
             
-            self.bottom.anchorPoint = CGPoint(x: 1, y: 0.5)
-            self.bottom.position = CGPoint(x: 30 - 1, y: 25)
+            self.menuBottom.anchorPoint = CGPoint(x: 1, y: 0.5)
+            self.menuBottom.position = CGPoint(x: 30 - 1, y: 25)
         } else if drawerSide == DrawerSide.Right {
-            self.top.anchorPoint = CGPoint(x: 0, y: 0.5)
-            self.top.position = CGPoint(x: 1, y: 5)
-            self.middle.position = CGPoint(x: 15, y: 15)
+            self.menuTop.anchorPoint = CGPoint(x: 0, y: 0.5)
+            self.menuTop.position = CGPoint(x: 1, y: 5)
+            self.menuMiddle.position = CGPoint(x: 15, y: 15)
             
-            self.bottom.anchorPoint = CGPoint(x: 0, y: 0.5)
-            self.bottom.position = CGPoint(x: 1, y: 25)
+            self.menuBottom.anchorPoint = CGPoint(x: 0, y: 0.5)
+            self.menuBottom.position = CGPoint(x: 1, y: 25)
         }
         
         let middleTransform = CABasicAnimation(keyPath: "opacity")
@@ -121,12 +121,12 @@ public class AnimatedMenuButton : UIButton {
         topTransform.beginTime = CACurrentMediaTime()
         bottomTransform.beginTime = CACurrentMediaTime()
         
-        self.top.addAnimation(topTransform, forKey: topTransform.keyPath)
-        self.middle.addAnimation(middleTransform, forKey: middleTransform.keyPath)
-        self.bottom.addAnimation(bottomTransform, forKey: bottomTransform.keyPath)
+        self.menuTop.addAnimation(topTransform, forKey: topTransform.keyPath)
+        self.menuMiddle.addAnimation(middleTransform, forKey: middleTransform.keyPath)
+        self.menuBottom.addAnimation(bottomTransform, forKey: bottomTransform.keyPath)
         
-        self.top.setValue(topTransform.toValue, forKey: topTransform.keyPath!)
-        self.middle.setValue(middleTransform.toValue, forKey: middleTransform.keyPath!)
-        self.bottom.setValue(bottomTransform.toValue, forKey: bottomTransform.keyPath!)
+        self.menuTop.setValue(topTransform.toValue, forKey: topTransform.keyPath!)
+        self.menuMiddle.setValue(middleTransform.toValue, forKey: middleTransform.keyPath!)
+        self.menuBottom.setValue(bottomTransform.toValue, forKey: bottomTransform.keyPath!)
     }
 }
