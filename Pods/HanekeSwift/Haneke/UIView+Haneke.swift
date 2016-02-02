@@ -28,18 +28,19 @@ public extension HanekeGlobals {
                     return resizer.resizeImage($0)
             }
             format.convertToData = {(image : UIImage) -> NSData in
-                image.hnk_data(HanekeGlobals.UIKit.DefaultFormat.CompressionQuality)
+                image.hnk_data(compressionQuality: HanekeGlobals.UIKit.DefaultFormat.CompressionQuality)
             }
             return format
         }
         
         public struct DefaultFormat {
             
-            public static let DiskCapacity : UInt64 = 10 * 1024 * 1024
+            public static let DiskCapacity : UInt64 = 50 * 1024 * 1024
             public static let CompressionQuality : Float = 0.75
             
         }
         
+        static var SetImageAnimationDuration = 0.1
         static var SetImageFetcherKey = 0
         static var SetBackgroundImageFetcherKey = 1
     }

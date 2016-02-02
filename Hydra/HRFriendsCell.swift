@@ -52,7 +52,7 @@ class HRFriendsCell: UITableViewCell {
         super.prepareForReuse()
         
         self.backgroundColor = UIColor.whiteColor()
-        self.friendAvatar.image = nil
+        //self.friendAvatar.image = nil
         self.accessImage.image = nil
         self.accessImage.backgroundColor = UIColor.clearColor()
     }

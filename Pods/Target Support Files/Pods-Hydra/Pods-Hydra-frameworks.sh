@@ -85,10 +85,12 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Hydra/Alamofire.framework"
+  install_framework "Pods-Hydra/FreeStreamer.framework"
   install_framework "Pods-Hydra/Haneke.framework"
   install_framework "Pods-Hydra/Just.framework"
   install_framework "Pods-Hydra/Neon.framework"
   install_framework "Pods-Hydra/Nuke.framework"
+  install_framework "Pods-Hydra/Reachability.framework"
   install_framework "Pods-Hydra/RxSwift.framework"
   install_framework "Pods-Hydra/SnapKit.framework"
   install_framework "Pods-Hydra/TinySQLite.framework"
@@ -100,10 +102,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Hydra/Alamofire.framework"
+  install_framework "Pods-Hydra/FreeStreamer.framework"
   install_framework "Pods-Hydra/Haneke.framework"
   install_framework "Pods-Hydra/Just.framework"
   install_framework "Pods-Hydra/Neon.framework"
   install_framework "Pods-Hydra/Nuke.framework"
+  install_framework "Pods-Hydra/Reachability.framework"
   install_framework "Pods-Hydra/RxSwift.framework"
   install_framework "Pods-Hydra/SnapKit.framework"
   install_framework "Pods-Hydra/TinySQLite.framework"

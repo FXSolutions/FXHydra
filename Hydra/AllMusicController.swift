@@ -157,10 +157,69 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
 
         }
         
+        dispatch.async.global { () -> Void in
+            
+            self.getBitrate(audio, completition: { (bitrate) -> () in
+                dispatch.async.main({ () -> Void in
+                    cell.audioBitrate.text = bitrate
+                })
+            })
+        
+        }
+        
+        //            let request = NSURLRequest(URL: NSURL(string: "\(audio.audioNetworkURL)")!)
+        //            //var response : NSURLResponse?
+        //            //try! NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+        //
+        //            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response, data, error) -> Void in
+        //                if let httpResponse = response as? NSHTTPURLResponse {
+        //
+        //                    dispatch.async.main({ () -> Void in
+        //                        print(httpResponse.expectedContentLength)
+        //                    })
+        //                    
+        //                }
+        //            })
+
+        
+        
         
         //cell.audioDurationTime.text = self.durationFormater(Double(audio.duration))
         
         return cell
+        
+    }
+    
+    
+    private func getBitrate(audio:HRAudioItemModel,completition:(String) -> ()) {
+        
+        let audioURL = NSURL(string: "\(audio.audioNetworkURL)")!
+        
+        let request1: NSMutableURLRequest = NSMutableURLRequest(URL: audioURL)
+        request1.HTTPMethod = "HEAD"
+        
+        var response : NSURLResponse?
+        
+        do {
+            
+            try NSURLConnection.sendSynchronousRequest(request1, returningResponse: &response)
+            
+            if let httpResponse = response as? NSHTTPURLResponse {
+                
+                let size = httpResponse.expectedContentLength
+                let kbit = size/128;//calculate bytes to kbit
+                let kbps = ceil(round(Double(kbit)/Double(audio.duration))/16)*16
+                
+                print("kbps === \(kbps)")
+                
+                
+                completition("\(Int(kbps)) kbps")
+            }
+            
+        } catch (let e) {
+            print(e)
+        }
+    
         
     }
     

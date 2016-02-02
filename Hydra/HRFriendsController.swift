@@ -36,6 +36,25 @@ class HRFriendsController: UITableViewController {
         
         self.addLeftBarButton()
         
+        
+//        YYImageCache *cache = [YYWebImageManager sharedManager].cache;
+//        
+//        // get cache capacity
+//        cache.memoryCache.totalCost;
+//        cache.memoryCache.totalCount;
+//        cache.diskCache.totalCost;
+//        cache.diskCache.totalCount;
+//        
+//        // clear cache
+//        [cache.memoryCache removeAllObjects];
+//        [cache.diskCache removeAllObjects];
+        
+        let cache = YYWebImageManager.sharedManager().cache
+        
+        cache.memoryCache.removeAllObjects()
+        cache.diskCache.removeAllObjects()
+
+        
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -99,6 +118,29 @@ class HRFriendsController: UITableViewController {
     
         let cell:HRFriendsCell = self.tableView.dequeueReusableCellWithIdentifier("HRFriendsCell", forIndexPath: indexPath) as! HRFriendsCell
         
+        
+        let friend = self.friendsArray[indexPath.row]
+        
+        cell.friendName.text = "\(friend.first_name!) \(friend.last_name!)"
+        
+        cell.friendAvatar.setImageWithURL(NSURL(string: friend.photo_100), options: YYWebImageOptions.Progressive.union(YYWebImageOptions.SetImageWithFadeAnimation).union(YYWebImageOptions.IgnoreDiskCache).union(YYWebImageOptions.RefreshImageCache))
+        
+        //RefreshImageCache
+        
+        cell.friendAvatar.setImageWithURL(NSURL(string: friend.photo_100), placeholder: nil, options: YYWebImageOptions.Progressive.union(YYWebImageOptions.SetImageWithFadeAnimation), progress: { (_, _) -> Void in
+            // progress
+            }, transform: { (image, nsurl) -> UIImage! in
+                return image.imageByRoundCornerRadius(image.size.height)
+            }) { (image, url, fromType, ImageStage, error) -> Void in
+                // complite
+        }
+        
+        
+        if friend.can_see_audio == false {
+            cell.backgroundColor = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.1)
+            cell.accessImage.image = UIImage(named: "access_denied")
+        }
+        
         return cell
         
     }
@@ -137,34 +179,6 @@ class HRFriendsController: UITableViewController {
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        let friend = self.friendsArray[indexPath.row]
-        
-        let friendCell = cell as! HRFriendsCell
-        
-        friendCell.friendName.text = "\(friend.first_name!) \(friend.last_name!)"
-        
-        
-        //friendCell.friendAvatar.yy_imageURL
-        
-//        
-//        dispatch.async.global { () -> Void in
-//            var request = ImageRequest(URL: NSURL(string: friend.photo_100)!)
-//            request.targetSize = CGSizeMake(friendCell.friendAvatar.frame.width*screenScaleFactor, friendCell.friendAvatar.frame.height*screenScaleFactor)
-//            request.contentMode = .AspectFill
-//            
-//            Nuke.taskWithRequest(request) {
-//                let imagekek = $0.image // Image is resized
-//                dispatch.async.main({ () -> Void in
-//                    friendCell.friendAvatar.image = imagekek?.roundImage()
-//                })
-//                
-//                }.resume()
-//        }
-        
-        if friend.can_see_audio == false {
-            friendCell.backgroundColor = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.1)
-            friendCell.accessImage.image = UIImage(named: "access_denied")
-        }
         
         if indexPath.row == self.friendsArray.count - 7 {
             self.loadFriends()

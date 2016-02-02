@@ -5,6 +5,7 @@ class HRAllMusicCell: BWSwipeRevealCell {
     var audioAristLabel         : AttributedLabel
     var audioTitleLabel         : AttributedLabel
     var audioDurationTime       : AttributedLabel!
+    var audioBitrate            : AttributedLabel!
     var progressView            : UIProgressView!
     var allMusicController      : AllMusicController!
     var audioModel              : HRAudioItemModel!
@@ -22,6 +23,12 @@ class HRAllMusicCell: BWSwipeRevealCell {
         self.audioAristLabel.textColor = UIColor.grayColor()
         self.audioAristLabel.backgroundColor = UIColor.whiteColor()
         
+        self.audioBitrate = AttributedLabel()
+        self.audioBitrate.font = UIFont(name: "HelveticaNeue-Light", size: 12)!
+        self.audioBitrate.textColor = UIColor.blackColor()
+        self.audioBitrate.backgroundColor = UIColor.clearColor()
+        self.audioBitrate.contentAlignment = .Right
+        
         self.progressView = UIProgressView(progressViewStyle: UIProgressViewStyle.Default)
         self.progressView.tintColor = UIColor.blackColor()
         self.progressView.hidden = true
@@ -36,6 +43,8 @@ class HRAllMusicCell: BWSwipeRevealCell {
         self.contentView.addSubview(self.audioAristLabel)
         self.contentView.addSubview(self.audioTitleLabel)
         self.contentView.addSubview(self.progressView)
+        self.contentView.addSubview(self.audioBitrate)
+        
         
         
     }
@@ -51,7 +60,8 @@ class HRAllMusicCell: BWSwipeRevealCell {
         self.audioAristLabel.frame = CGRectMake(self.separatorInset.left, 40, screenSizeWidth-70, 20)
         self.progressView.frame = CGRectMake(0, self.contentView.frame.height-2, self.contentView.frame.width, 2)
         //self.downloadButton.frame = CGRectMake(self.contentView.frame.width-65, 5, 60, 60)
-        self.downloadedImage.frame = CGRectMake(self.contentView.frame.width-35, 25, 20, 20)
+        self.downloadedImage.frame = CGRectMake(self.contentView.frame.width-35, 10, 20, 20)
+        self.audioBitrate.frame = CGRectMake(self.contentView.frame.width-65, 35, 60, 20)
         
     }
     

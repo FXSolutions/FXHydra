@@ -1,0 +1,5 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/FreeStreamer" "${PODS_ROOT}/Headers/Public" $(SDKROOT)/usr/include/libxml2
+OTHER_LDFLAGS = -l"stdc++" -l"xml2" -framework "AVFoundation" -framework "AudioToolbox" -framework "CFNetwork" -framework "MediaPlayer"
+PODS_ROOT = ${SRCROOT}
+SKIP_INSTALL = YES
