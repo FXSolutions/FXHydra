@@ -137,7 +137,7 @@ class HRFriendsController: UITableViewController {
         
         
         if friend.can_see_audio == false {
-            cell.backgroundColor = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.1)
+            cell.backgroundColor = UIColor(red: 237.4/255.0, green: 238.8/255.0, blue: 236.7/255.0, alpha: 1.0)
             cell.accessImage.image = UIImage(named: "access_denied")
         }
         

@@ -44,7 +44,7 @@ class HRFriendsCell: UITableViewCell {
         
         self.friendName.frame = CGRectMake(70, 20, screenSizeWidth-70, 30)
         self.friendAvatar.frame = CGRectMake(10, 10, 50, 50)
-        self.accessImage.frame = CGRectMake(screenSizeWidth-55, 15, 40, 40)
+        self.accessImage.frame = CGRectMake(screenSizeWidth-35, 25, 20, 20)
         
     }
     

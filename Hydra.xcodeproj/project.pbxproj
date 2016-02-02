@@ -345,6 +345,13 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		BE2252371C6056250028B3E9 /* FTP */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FTP;
+			sourceTree = "<group>";
+		};
 		BE980F1E1C3967490012F752 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +523,7 @@
 		D77554831B437E06008779C1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				BE2252371C6056250028B3E9 /* FTP */,
 				D77554D71B43A957008779C1 /* HRAPIManager.swift */,
 				D77554811B437DFD008779C1 /* Models */,
 			);

@@ -39,6 +39,10 @@ class HRSearchAudioController: UITableViewController,UISearchResultsUpdating, UI
         self.tableView.tableFooterView = self.footer
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

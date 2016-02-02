@@ -1,6 +1,6 @@
 import UIKit
 
-class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BWSwipeCellDelegate {
+class AllMusicController: UITableViewController {
     
     var searchController : UISearchController?
     var audiosArray = Array<HRAudioItemModel>()
@@ -28,6 +28,9 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
         self.addLeftBarButton()
         
         self.hrRefeshControl.addTarget(self, action: "refreshAudios", forControlEvents: UIControlEvents.ValueChanged)
+        self.hrRefeshControl.backgroundColor = UIColor ( red: 0.0732, green: 0.0728, blue: 0.0735, alpha: 1.0 )
+        self.hrRefeshControl.tintColor = UIColor ( red: 0.8845, green: 0.8845, blue: 0.8845, alpha: 1.0 )
+        
         self.refreshControl = self.hrRefeshControl
         
         // add search
@@ -36,11 +39,24 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
         self.searchController = UISearchController(searchResultsController: searchAudioController)
         self.searchController?.searchResultsUpdater = searchAudioController
         self.searchController?.searchBar.sizeToFit()
-        self.searchController?.searchBar.tintColor = UIColor.blackColor()
+        self.searchController?.searchBar.tintColor = UIColor ( red: 0.882, green: 0.8778, blue: 0.8863, alpha: 1.0 )
+        self.searchController?.searchBar.backgroundColor = UIColor ( red: 0.2228, green: 0.2228, blue: 0.2228, alpha: 1.0 )
+        self.searchController?.searchBar.barTintColor = UIColor ( red: 0.1223, green: 0.1217, blue: 0.1229, alpha: 1.0 )
         self.searchController?.searchBar.placeholder = ""
+        self.searchController?.searchBar.inputAccessoryView?.backgroundColor = UIColor ( red: 0.4628, green: 0.4628, blue: 0.4628, alpha: 1.0 )
+        self.searchController?.searchBar.keyboardAppearance = .Dark
+        
+        let txfSearchField = self.searchController?.searchBar.valueForKey("_searchField") as! UITextField
+        txfSearchField.backgroundColor = UIColor ( red: 0.0732, green: 0.0728, blue: 0.0735, alpha: 1.0 )
+        
         self.tableView.tableHeaderView = self.searchController?.searchBar
         self.definesPresentationContext = true
         self.extendedLayoutIncludesOpaqueBars = true
+        
+        self.tableView.backgroundColor = UIColor ( red: 0.2228, green: 0.2228, blue: 0.2228, alpha: 1.0 )
+        self.tableView.separatorColor = UIColor ( red: 0.1425, green: 0.1397, blue: 0.1452, alpha: 1.0 )
+        
+        self.view.backgroundColor = UIColor ( red: 0.1221, green: 0.1215, blue: 0.1227, alpha: 1.0 )
         
     }
     
@@ -136,24 +152,20 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
         cell.audioTitleLabel.text = audio.title
         cell.allMusicController = self
         cell.audioModel = audio
+        cell.audioTimeLabel.text = self.durationFormater(Double(audio.duration))
+        
+        cell.bitRateBackgroundImage.image = UIImage(named: "bitrate_background")?.imageWithColor2(UIColor ( red: 0.3735, green: 0.3735, blue: 0.3735, alpha: 1.0 ))
         
         if audio.downloadState == 3 {
+            
             cell.downloadedImage.hidden = false
-            cell.downloadedImage.image = UIImage(named: "donebutton")
+            cell.downloadedImage.image = UIImage(named: "donebutton")?.imageWithColor2(UIColor.whiteColor())
             
             // complete
-            
-            cell.delegate = nil
-            cell.revealDirection = .None
             
         } else {
             
             cell.downloadedImage.hidden = true
-            cell.revealDirection = .Right
-            cell.delegate = self
-            
-            cell.bgViewRightImage = UIImage(named:"download_image")!.imageWithRenderingMode(.AlwaysTemplate)
-            cell.bgViewRightColor = UIColor.blackColor()
 
         }
         
@@ -166,25 +178,6 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
             })
         
         }
-        
-        //            let request = NSURLRequest(URL: NSURL(string: "\(audio.audioNetworkURL)")!)
-        //            //var response : NSURLResponse?
-        //            //try! NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
-        //
-        //            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response, data, error) -> Void in
-        //                if let httpResponse = response as? NSHTTPURLResponse {
-        //
-        //                    dispatch.async.main({ () -> Void in
-        //                        print(httpResponse.expectedContentLength)
-        //                    })
-        //                    
-        //                }
-        //            })
-
-        
-        
-        
-        //cell.audioDurationTime.text = self.durationFormater(Double(audio.duration))
         
         return cell
         
@@ -213,7 +206,7 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
                 print("kbps === \(kbps)")
                 
                 
-                completition("\(Int(kbps)) kbps")
+                completition("\(Int(kbps))")
             }
             
         } catch (let e) {
@@ -257,6 +250,8 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
     
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        cell.backgroundColor = UIColor.clearColor()
         
         if indexPath.row == self.audiosArray.count - 7 {
             self.loadMoreAudios()
@@ -311,7 +306,11 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
         let min = Int(floor(duration / 60))
         let sec = Int(floor(duration % 60))
         
-        return "\(min):\(sec)"
+        if (sec < 10) {
+            return "\(min):0\(sec)"
+        } else {
+            return "\(min):\(sec)"
+        }
         
     }
     
@@ -330,25 +329,25 @@ class AllMusicController: UITableViewController , BWSwipeRevealCellDelegate , BW
     }
     // cell action
     
-    func swipeCellActivatedAction(cell: BWSwipeCell, isActionLeft: Bool) {
-        //
-        
-        log.debug("swipeCellActivatedAction")
-        
-    }
-    
-    func swipeCellDidCompleteRelease(cell: BWSwipeCell) {
-        //
-        if cell.state == BWSwipeCellState.PastThresholdRight {
-            log.debug("swipeCellDidCompleteRelease \(cell.state)")
-            
-            let musicCell = cell as? HRAllMusicCell
-            
-            self.downloadAudio(musicCell!.audioModel, progressView: musicCell!.progressView)
-            
-            
-        }
-        
-    }
+//    func swipeCellActivatedAction(cell: BWSwipeCell, isActionLeft: Bool) {
+//        //
+//        
+//        log.debug("swipeCellActivatedAction")
+//        
+//    }
+//    
+//    func swipeCellDidCompleteRelease(cell: BWSwipeCell) {
+//        //
+//        if cell.state == BWSwipeCellState.PastThresholdRight {
+//            log.debug("swipeCellDidCompleteRelease \(cell.state)")
+//            
+//            let musicCell = cell as? HRAllMusicCell
+//            
+//            self.downloadAudio(musicCell!.audioModel, progressView: musicCell!.progressView)
+//            
+//            
+//        }
+//        
+//    }
     
 }
