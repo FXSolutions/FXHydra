@@ -4,6 +4,7 @@ PODS:
     - Reachability (~> 3.0)
   - HanekeSwift (0.10.1)
   - Just (0.4.4)
+  - M13ProgressSuite (1.2.7)
   - Neon (0.0.3)
   - Nimble (3.1.0)
   - Nuke (1.4.0)
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - FreeStreamer
   - HanekeSwift
   - Just
+  - M13ProgressSuite
   - Neon
   - Nimble
   - Nuke
@@ -45,6 +47,7 @@ SPEC CHECKSUMS:
   FreeStreamer: 19071533508c214f2201840458265a3d1b7ac146
   HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
   Just: 138df59892ea185fbc191986cc733bfd09d62cc0
+  M13ProgressSuite: 03d194af6359da440641ba758aed5a18b0386a86
   Neon: 589d3d217d326abe09726bf81add106cff685bf2
   Nimble: 79d40f4d69d47314229bbabacaa02b8838c779b9
   Nuke: 4b2b4961b0feab88c6fa169409f0e30134dbd8e4

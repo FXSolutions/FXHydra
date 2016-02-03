@@ -17,6 +17,7 @@ target 'Hydra' do
 	pod 'RxSwift'
 	pod 'Neon'
 	pod 'YYKit'
+	pod 'M13ProgressSuite'
  
 end
 
