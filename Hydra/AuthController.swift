@@ -92,7 +92,7 @@ class AuthController: UIViewController,VKSdkDelegate,VKSdkUIDelegate {
     
     func vkSdkAccessAuthorizationFinishedWithResult(result: VKAuthorizationResult!) {
         //
-        self.startWorking()
+        //self.startWorking()
         
         
         log.debug("vkSdkAccessAuthorizationFinishedWithResult : \(result)")

@@ -24,6 +24,7 @@ class AllMusicController: UITableViewController {
         
         self.tableView.registerClass(HRAllMusicCell.self, forCellReuseIdentifier: "HRAllMusicCell")
         self.tableView.allowsMultipleSelectionDuringEditing = false
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 50, 0, 0)
         
         self.addLeftBarButton()
         
@@ -41,10 +42,12 @@ class AllMusicController: UITableViewController {
         self.searchController?.searchBar.sizeToFit()
         self.searchController?.searchBar.tintColor = UIColor ( red: 0.882, green: 0.8778, blue: 0.8863, alpha: 1.0 )
         self.searchController?.searchBar.backgroundColor = UIColor ( red: 0.2228, green: 0.2228, blue: 0.2228, alpha: 1.0 )
-        self.searchController?.searchBar.barTintColor = UIColor ( red: 0.1223, green: 0.1217, blue: 0.1229, alpha: 1.0 )
+        self.searchController?.searchBar.barTintColor = UIColor ( red: 0.1221, green: 0.1215, blue: 0.1227, alpha: 1.0 )
+        self.searchController?.searchBar.backgroundImage = UIImage()
         self.searchController?.searchBar.placeholder = ""
-        self.searchController?.searchBar.inputAccessoryView?.backgroundColor = UIColor ( red: 0.4628, green: 0.4628, blue: 0.4628, alpha: 1.0 )
+        self.searchController?.searchBar.inputAccessoryView?.backgroundColor = UIColor ( red: 0.3025, green: 0.301, blue: 0.3039, alpha: 1.0 )
         self.searchController?.searchBar.keyboardAppearance = .Dark
+        self.searchController?.searchBar.translucent = false
         
         let txfSearchField = self.searchController?.searchBar.valueForKey("_searchField") as! UITextField
         txfSearchField.backgroundColor = UIColor ( red: 0.0732, green: 0.0728, blue: 0.0735, alpha: 1.0 )
@@ -54,7 +57,7 @@ class AllMusicController: UITableViewController {
         self.extendedLayoutIncludesOpaqueBars = true
         
         self.tableView.backgroundColor = UIColor ( red: 0.2228, green: 0.2228, blue: 0.2228, alpha: 1.0 )
-        self.tableView.separatorColor = UIColor ( red: 0.1425, green: 0.1397, blue: 0.1452, alpha: 1.0 )
+        self.tableView.separatorColor = UIColor ( red: 0.2055, green: 0.2015, blue: 0.2096, alpha: 1.0 )
         
         self.view.backgroundColor = UIColor ( red: 0.1221, green: 0.1215, blue: 0.1227, alpha: 1.0 )
         
@@ -169,22 +172,41 @@ class AllMusicController: UITableViewController {
 
         }
         
-        dispatch.async.global { () -> Void in
+        if (audio.bitrate == 0) {
             
-            self.getBitrate(audio, completition: { (bitrate) -> () in
-                dispatch.async.main({ () -> Void in
-                    cell.audioBitrate.text = bitrate
+            dispatch.async.global { () -> Void in
+                
+                self.getBitrate(audio, completition: { (bitrate) -> () in
+                    dispatch.async.main({ () -> Void in
+                        cell.audioBitrate.text = "\(bitrate)"
+                        
+                        if (bitrate > 256) {
+                            cell.bitRateBackgroundImage.image = UIImage(named: "bitrate_background")?.imageWithColor2(UIColor ( red: 0.0657, green: 0.5188, blue: 0.7167, alpha: 1.0 ))
+                        }
+                        
+                    })
                 })
-            })
-        
+                
+            }
+            
+        } else {
+            
+            cell.audioBitrate.text = "\(audio.bitrate)"
+            
+            if (audio.bitrate > 256) {
+                cell.bitRateBackgroundImage.image = UIImage(named: "bitrate_background")?.imageWithColor2(UIColor ( red: 0.0657, green: 0.5188, blue: 0.7167, alpha: 1.0 ))
+            }
+            
+            
         }
+
         
         return cell
         
     }
     
     
-    private func getBitrate(audio:HRAudioItemModel,completition:(String) -> ()) {
+    private func getBitrate(audio:HRAudioItemModel,completition:(Int) -> ()) {
         
         let audioURL = NSURL(string: "\(audio.audioNetworkURL)")!
         
@@ -205,8 +227,9 @@ class AllMusicController: UITableViewController {
                 
                 print("kbps === \(kbps)")
                 
+                audio.bitrate = Int(kbps)
                 
-                completition("\(Int(kbps))")
+                completition(Int(kbps))
             }
             
         } catch (let e) {

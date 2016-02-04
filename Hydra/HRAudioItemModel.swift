@@ -23,6 +23,7 @@ class HRAudioItemModel {
     var lyrics_id : Int!
     var genre_id : Int!
     var downloadedTime : Int!
+    var bitrate : Int = 0
     
     
     init(json : JSON) {

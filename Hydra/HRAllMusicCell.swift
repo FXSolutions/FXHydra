@@ -26,13 +26,13 @@ class HRAllMusicCell: UITableViewCell {
         self.audioAristLabel.backgroundColor = UIColor.clearColor()
         
         self.audioBitrate = AttributedLabel()
-        self.audioBitrate.font = UIFont(name: "HelveticaNeue-Light", size: 12)!
+        self.audioBitrate.font = UIFont(name: "Avenir-Medium", size: 12)!
         self.audioBitrate.textColor = UIColor.whiteColor()
         self.audioBitrate.backgroundColor = UIColor.clearColor()
         self.audioBitrate.contentAlignment = .Center
         
         self.audioTimeLabel = AttributedLabel()
-        self.audioTimeLabel.font = UIFont(name: "Avenir-Heavy", size: 14)!
+        self.audioTimeLabel.font = UIFont(name: "Avenir-Heavy", size: 13)!
         self.audioTimeLabel.textColor = UIColor.whiteColor()
         self.audioTimeLabel.backgroundColor = UIColor.clearColor()
         self.audioTimeLabel.contentAlignment = .Center
@@ -65,6 +65,12 @@ class HRAllMusicCell: UITableViewCell {
         self.backgroundColor = UIColor.clearColor()
         
         
+        let colorView = UIView()
+        colorView.backgroundColor = UIColor ( red: 0.6037, green: 0.6037, blue: 0.6037, alpha: 0.195258620689655 )
+        
+        self.selectedBackgroundView = colorView
+        
+        
         
     }
     
@@ -75,17 +81,17 @@ class HRAllMusicCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         //audioTitleLabel
-        self.audioTitleLabel.frame = CGRectMake(self.separatorInset.left+40, 10, screenSizeWidth-70, 20)
-        self.audioAristLabel.frame = CGRectMake(self.separatorInset.left+40, 40, screenSizeWidth-70, 20)
+        self.audioTitleLabel.frame = CGRectMake(self.separatorInset.left, 10, screenSizeWidth-70, 20)
+        self.audioAristLabel.frame = CGRectMake(self.separatorInset.left, 40, screenSizeWidth-70, 20)
         self.progressView.frame = CGRectMake(0, self.contentView.frame.height-2, self.contentView.frame.width, 2)
         //self.downloadButton.frame = CGRectMake(self.contentView.frame.width-65, 5, 60, 60)
         
         
         self.downloadedImage.frame = CGRectMake(self.contentView.frame.width-35, 25, 20, 20)
         
-        self.audioTimeLabel.frame = CGRectMake(self.separatorInset.left+2, 10, 30, 20)
-        self.bitRateBackgroundImage.frame = CGRectMake(self.separatorInset.left+2, 40, 30, 20)
-        self.audioBitrate.frame = CGRectMake(self.separatorInset.left+2, 40, 30, 20)
+        self.audioTimeLabel.frame = CGRectMake(5, 10, 40, 20)
+        self.bitRateBackgroundImage.frame = CGRectMake(10, 40, 30, 20)
+        self.audioBitrate.frame = CGRectMake(10, 40, 30, 20)
         
     }
     
