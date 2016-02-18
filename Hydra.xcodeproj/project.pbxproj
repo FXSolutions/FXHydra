@@ -806,7 +806,6 @@
 				15CB835C1C324FF80053C0BD /* HockeyApp */,
 				09AF4ADFA1FCBF4B3C7443A1 /* Embed Pods Frameworks */,
 				42B4703F6D91A4A457E0060F /* Copy Pods Resources */,
-				BE14C1CA1C57CC6D00328F1E /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1034,20 +1033,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HydraTests/Pods-HydraTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		BE14C1CA1C57CC6D00328F1E /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 

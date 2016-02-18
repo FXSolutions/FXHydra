@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D9A83D45804A8BDD3F39B796'
+               BlueprintIdentifier = '2804A717F311FADBBD53DDDD'
                BlueprintName = 'TinySQLite'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'TinySQLite.framework'>

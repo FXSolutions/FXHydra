@@ -232,7 +232,7 @@ class MenuController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 3
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -246,15 +246,6 @@ class MenuController: UITableViewController {
             cell.iconImage.image = UIImage(named: "menuDownloads")
             cell.menuTextLabel.text = "Downloads"
         } else if indexPath.row == 2 {
-            cell.iconImage.image = UIImage(named: "albums")
-            cell.menuTextLabel.text = "Playlists"
-        } else if indexPath.row == 3 {
-            cell.iconImage.image = UIImage(named: "friendsIcon")
-            cell.menuTextLabel.text = "Friends"
-        } else if indexPath.row == 4 {
-            cell.iconImage.image = UIImage(named: "groupsIcon")
-            cell.menuTextLabel.text = "Groups"
-        } else if indexPath.row == 5 {
             cell.iconImage.image = UIImage(named: "menuSettings")
             cell.menuTextLabel.text = "Settings"
         }
@@ -273,17 +264,25 @@ class MenuController: UITableViewController {
         
         self.selectedIndex = indexPath.row+1
         
+//        if indexPath.row == 0 {
+//            HRInterfaceManager.sharedInstance.openMusicList()
+//        } else if indexPath.row == 1 {
+//            HRInterfaceManager.sharedInstance.openDownloads()
+//        } else if indexPath.row == 2 {
+//            HRInterfaceManager.sharedInstance.openAlbums()
+//        } else if indexPath.row == 3 {
+//            HRInterfaceManager.sharedInstance.openFriends()//openFriends
+//        } else if indexPath.row == 4 {
+//            HRInterfaceManager.sharedInstance.openGroups()
+//        } else if indexPath.row == 5 {
+//            HRInterfaceManager.sharedInstance.openSettings()
+//        }
+        
         if indexPath.row == 0 {
             HRInterfaceManager.sharedInstance.openMusicList()
         } else if indexPath.row == 1 {
             HRInterfaceManager.sharedInstance.openDownloads()
         } else if indexPath.row == 2 {
-            HRInterfaceManager.sharedInstance.openAlbums()
-        } else if indexPath.row == 3 {
-            HRInterfaceManager.sharedInstance.openFriends()//openFriends
-        } else if indexPath.row == 4 {
-            HRInterfaceManager.sharedInstance.openGroups()
-        } else if indexPath.row == 5 {
             HRInterfaceManager.sharedInstance.openSettings()
         }
         
@@ -344,7 +343,6 @@ class MenuController: UITableViewController {
     
     }
     
-    
     func getTimeString(totalSeconds:Int) -> String {
         
         let seconds = Int(totalSeconds % 60)
@@ -377,7 +375,5 @@ class MenuController: UITableViewController {
         }
         
     }
-
-    
 
 }

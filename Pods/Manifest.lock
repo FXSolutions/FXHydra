@@ -15,6 +15,7 @@ PODS:
   - sqlite3 (3.10.2):
     - sqlite3/common (= 3.10.2)
   - sqlite3/common (3.10.2)
+  - StreamingKit (0.1.29)
   - TinySQLite (0.3.1):
     - sqlite3
   - Toucan (0.5.0)
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - Quick
   - RxSwift
   - SnapKit
+  - StreamingKit
   - TinySQLite
   - Toucan
   - VK-ios-sdk
@@ -56,6 +58,7 @@ SPEC CHECKSUMS:
   RxSwift: 110fb07f81c17c2c3b3254d168363057b1880d18
   SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
   sqlite3: a31d98a32bba89e40938e11a05fe1b5bdb6c4622
+  StreamingKit: c329785aaef3ac142d4ae388345bfe1ed23cfd45
   TinySQLite: b27a26c4676a41f045f56e0d94ccc4bce9a1a87f
   Toucan: 0519c341148252ae114c5a657d2a85bb9ada9e40
   VK-ios-sdk: be18cc4a2b99aa6d5a6ad1a8249fb007942f7765

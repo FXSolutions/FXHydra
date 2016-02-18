@@ -8,7 +8,7 @@ target 'Hydra' do
 	pod 'VK-ios-sdk'
 	pod 'SnapKit'
 	pod 'Alamofire'
-    	pod 'HanekeSwift'
+    pod 'HanekeSwift'
 	pod 'XCGLogger'
 	pod 'Just'
 	pod 'Toucan'
@@ -18,6 +18,7 @@ target 'Hydra' do
 	pod 'Neon'
 	pod 'YYKit'
 	pod 'M13ProgressSuite'
+    pod 'StreamingKit'
  
 end
 

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A2BF1F5C059C3DAC73773EA6'
+               BlueprintIdentifier = '5A25A4F93E9AA115CBA63E23'
                BlueprintName = 'Neon'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Neon.framework'>
