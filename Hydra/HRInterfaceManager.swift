@@ -145,7 +145,8 @@ class HRInterfaceManager  {
     
     func openSettings() {
         
-        let settingsNav = HRNavigationController(rootViewController: HRSettingsController())
+        let settingsController = SettingsController(style : .Grouped)
+        let settingsNav = HRNavigationController(rootViewController: settingsController)
         
         self.drawerController.setCenterViewController(settingsNav, withCloseAnimation: false, completion: nil)
         self.drawerController.toggleDrawerSide(DrawerSide.Left, animated: true) { (finish) -> Void in
