@@ -69,7 +69,14 @@ class DownloadsController: UITableViewController {
         
         cell.audioAristLabel.text = audio.artist
         cell.audioTitleLabel.text = audio.title
-        //cell.audioDurationTime.text = self.durationFormater(Double(audio.duration))
+        
+        //cell.bitRateBackgroundImage.image = UIImage(named: "bitrate_background")?.imageWithColor2(UIColor ( red: 0.3735, green: 0.3735, blue: 0.3735, alpha: 1.0 ))
+        
+        cell.audioDurationTime.text = self.durationFormater(Double(audio.duration))
+        
+        cell.audioBitrate.text = "\(666)"
+        
+        cell.bitRateBackgroundImage.image = UIImage(named: "bitrate_background")?.imageWithColor2(UIColor ( red: 0.0657, green: 0.5188, blue: 0.7167, alpha: 1.0 ))
         
         return cell
         
@@ -101,6 +108,19 @@ class DownloadsController: UITableViewController {
             self.downloadsAudios = audiosArray
             self.tableView.reloadData()
             
+        }
+        
+    }
+    
+    func durationFormater(duration:Double) -> String {
+        
+        let min = Int(floor(duration / 60))
+        let sec = Int(floor(duration % 60))
+        
+        if (sec < 10) {
+            return "\(min):0\(sec)"
+        } else {
+            return "\(min):\(sec)"
         }
         
     }

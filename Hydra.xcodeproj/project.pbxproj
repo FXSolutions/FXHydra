@@ -35,6 +35,7 @@
 		9595A6FB777CD6D9EFF6F915 /* Pods_HydraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801AE97000EFDCEBF74F9C53 /* Pods_HydraTests.framework */; };
 		B46C9AD0EAA7EB705D207544 /* Pods_Hydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44C639014B05170C96EA550 /* Pods_Hydra.framework */; };
 		BE93926D1C7733C6007D1DC9 /* HRModernPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE93926C1C7733C6007D1DC9 /* HRModernPlayerManager.swift */; };
+		BE93926F1C7733C6007D1DC9 /* HRFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE93926E1C7733C6007D1DC9 /* HRFormatterManager.swift */; };
 		D76E93881B47E99E00F4834D /* HRDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E93871B47E99E00F4834D /* HRDatabaseManager.swift */; };
 		D76E938A1B47F0A400F4834D /* HRAudioItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E93891B47F0A400F4834D /* HRAudioItemModel.swift */; };
 		D76E93901B47FF1200F4834D /* dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E938F1B47FF1200F4834D /* dispatch.swift */; };
@@ -139,6 +140,7 @@
 		801AE97000EFDCEBF74F9C53 /* Pods_HydraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HydraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A410EE40CAE3BE49C53181E4 /* Pods-HydraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HydraTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HydraTests/Pods-HydraTests.release.xcconfig"; sourceTree = "<group>"; };
 		BE93926C1C7733C6007D1DC9 /* HRModernPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRModernPlayerManager.swift; sourceTree = "<group>"; };
+		BE93926E1C7733C6007D1DC9 /* HRFormatterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRFormatterManager.swift; sourceTree = "<group>"; };
 		D76E93871B47E99E00F4834D /* HRDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRDatabaseManager.swift; sourceTree = "<group>"; };
 		D76E93891B47F0A400F4834D /* HRAudioItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRAudioItemModel.swift; sourceTree = "<group>"; };
 		D76E938F1B47FF1200F4834D /* dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dispatch.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 		D77554791B437DAE008779C1 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D77554811B437DFD008779C1 /* Models */,
 				D7A64B0D1B6EA978000FE8A8 /* Data */,
 				D77554D91B43A974008779C1 /* Interface */,
 				D77554841B437E0A008779C1 /* Database */,
@@ -519,6 +522,7 @@
 				D76E93981B48081A00F4834D /* HRPlayerManager.swift */,
 				1577BD5E1BA68453005E14DC /* HRDownloadManager.swift */,
 				BE93926C1C7733C6007D1DC9 /* HRModernPlayerManager.swift */,
+				BE93926E1C7733C6007D1DC9 /* HRFormatterManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -528,7 +532,6 @@
 			children = (
 				BE2252371C6056250028B3E9 /* FTP */,
 				D77554D71B43A957008779C1 /* HRAPIManager.swift */,
-				D77554811B437DFD008779C1 /* Models */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -1093,6 +1096,7 @@
 				15A93BB51BB8AB5D00455D54 /* HRGroupAudioCell.swift in Sources */,
 				1523C6B11BAF56B600272C12 /* HRSettingsController.swift in Sources */,
 				D7F157E91B437D630023319E /* AppDelegate.swift in Sources */,
+				BE93926F1C7733C6007D1DC9 /* HRFormatterManager.swift in Sources */,
 				1514B6501BC410D20085272C /* NeonFrameable.swift in Sources */,
 				15AC8D021BB131180050827C /* HRFriendsController.swift in Sources */,
 				1577BD5F1BA68453005E14DC /* HRDownloadManager.swift in Sources */,

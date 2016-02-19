@@ -45,6 +45,7 @@ class HRDownloadedCell: UITableViewCell {
         
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
         
+        self.contentView.addSubview(self.bitRateBackgroundImage)
         self.contentView.addSubview(self.audioAristLabel)
         self.contentView.addSubview(self.audioTitleLabel)
         self.contentView.addSubview(self.audioBitrate)
