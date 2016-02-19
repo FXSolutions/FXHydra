@@ -22,7 +22,7 @@ class HRNavigationController: BufferedNavigationController {
         
         self.navigationBar.translucent = false
         
-        let titleDict = [NSFontAttributeName : UIFont(name: "HelveticaNeue-Thin", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
+        let titleDict = [NSFontAttributeName : UIFont(name: "Avenir-Book", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
         
         self.navigationBar.titleTextAttributes = titleDict
         

@@ -18,7 +18,7 @@ class HRMenuCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
         self.menuTextLabel = UILabel()
-        self.menuTextLabel.font = UIFont(name: "HelveticaNeue-Light", size: 14)
+        self.menuTextLabel.font = UIFont(name: "Avenir-Book", size: 15)
         self.menuTextLabel.textColor = UIColor.whiteColor()
         
         self.iconImage = UIImageView()

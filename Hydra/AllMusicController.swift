@@ -25,6 +25,7 @@ class AllMusicController: UITableViewController {
         self.tableView.registerClass(HRAllMusicCell.self, forCellReuseIdentifier: "HRAllMusicCell")
         self.tableView.allowsMultipleSelectionDuringEditing = false
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 50, 0, 0)
+        self.tableView.indicatorStyle = UIScrollViewIndicatorStyle.White
         
         self.addLeftBarButton()
         

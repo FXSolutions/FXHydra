@@ -169,7 +169,7 @@ class MenuController: UITableViewController {
         
         super.viewDidLoad()
         
-        self.menuHeader = MenuHeader(frame: CGRectMake(0, 0, screenSizeWidth, 75))
+        self.menuHeader = MenuHeader(frame: CGRectMake(0, 0, screenSizeWidth, 80))
         self.addSubscribes()
         
         
