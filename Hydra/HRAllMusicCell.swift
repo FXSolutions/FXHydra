@@ -43,7 +43,6 @@ class HRAllMusicCell: UITableViewCell {
         
         self.bitRateBackgroundImage = UIImageView()
         
-        
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
         
         //self.downloadButton.addTarget(self, action: "startDownload", forControlEvents: UIControlEvents.TouchUpInside)

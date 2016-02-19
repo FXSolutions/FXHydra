@@ -15,6 +15,14 @@ class DownloadsController: UITableViewController {
         self.tableView.registerClass(HRDownloadedCell.self, forCellReuseIdentifier: "HRDownloadedCell")
         self.tableView.rowHeight = 70
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        self.tableView.allowsMultipleSelectionDuringEditing = false
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 50, 0, 0)
+        self.tableView.indicatorStyle = UIScrollViewIndicatorStyle.White
+        self.tableView.backgroundColor = UIColor ( red: 0.2228, green: 0.2228, blue: 0.2228, alpha: 1.0 )
+        self.tableView.separatorColor = UIColor ( red: 0.2055, green: 0.2015, blue: 0.2096, alpha: 1.0 )
+        
+        self.view.backgroundColor = UIColor ( red: 0.1221, green: 0.1215, blue: 0.1227, alpha: 1.0 )
+        
     }
     
     override func viewWillAppear(animated: Bool) {
