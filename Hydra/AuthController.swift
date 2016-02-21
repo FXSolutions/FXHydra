@@ -39,6 +39,7 @@ class AuthController: UIViewController,VKSdkDelegate,VKSdkUIDelegate {
         
         self.motionView = UIImageView(frame: CGRectMake(0, 0, screenSizeWidth, screenSizeHeight))
         self.motionView.image = UIImage(named: "placeholderBackground")
+        self.motionView.contentMode = UIViewContentMode.ScaleAspectFill
         
         self.view.addSubview(self.motionView)
         
@@ -91,11 +92,12 @@ class AuthController: UIViewController,VKSdkDelegate,VKSdkUIDelegate {
     }
     
     func vkSdkAccessAuthorizationFinishedWithResult(result: VKAuthorizationResult!) {
-        //
-        //self.startWorking()
         
+        if (result.token != nil) {
+            self.startWorking()
+        }
         
-        log.debug("vkSdkAccessAuthorizationFinishedWithResult : \(result)")
+        log.debug("vkSdkAccessAuthorizationFinishedWithResult : \(result.token)")
     }
     
     func vkSdkAccessTokenUpdated(newToken: VKAccessToken!, oldToken: VKAccessToken!) {

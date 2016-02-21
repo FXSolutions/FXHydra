@@ -1325,6 +1325,7 @@ public class DrawerController: UIViewController, UIGestureRecognizerDelegate {
         
         let menuBackground = UIImageView(frame: CGRectMake(0, 0, screenSizeWidth, screenSizeHeight))
         menuBackground.image = UIImage(named: "placeholderBackground")
+        menuBackground.contentMode = UIViewContentMode.ScaleAspectFill
         
         self.view.addSubview(menuBackground)
         

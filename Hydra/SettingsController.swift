@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VK_ios_sdk
 
 class SettingsController: UITableViewController {
     
@@ -29,7 +30,6 @@ class SettingsController: UITableViewController {
         self.tableView.rowHeight = 60
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         self.tableView.allowsMultipleSelectionDuringEditing = false
-        //self.tableView.separatorInset = UIEdgeInsetsMake(0, 50, 0, 0)
         self.tableView.indicatorStyle = UIScrollViewIndicatorStyle.White
         self.tableView.backgroundColor = UIColor ( red: 0.2228, green: 0.2228, blue: 0.2228, alpha: 1.0 )
         self.tableView.separatorColor = UIColor ( red: 0.2055, green: 0.2015, blue: 0.2096, alpha: 1.0 )
@@ -69,7 +69,8 @@ class SettingsController: UITableViewController {
         let cell:HRTitleSettingsCell = tableView.dequeueReusableCellWithIdentifier("HRTitleSettingsCell") as! HRTitleSettingsCell
         cell.mainTitle.text = "LOG OUT"
         cell.mainTitle.textColor = UIColor.redColor()
-        cell.backgroundColor = UIColor ( red: 0.2136, green: 0.2126, blue: 0.2146, alpha: 1.0 )
+        cell.mainTitle.contentAlignment = .Center
+        cell.backgroundColor = UIColor ( red: 0.1555, green: 0.154, blue: 0.157, alpha: 1.0 )
         
         return cell
     }
@@ -77,6 +78,16 @@ class SettingsController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-    }
+        self.logOut()
         
+    }
+    
+    
+    func logOut() {
+        
+        VKSdk.forceLogout()
+        HRInterfaceManager.sharedInstance.logOut()
+        
+    }
+    
 }

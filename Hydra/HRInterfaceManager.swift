@@ -169,6 +169,8 @@ class HRInterfaceManager  {
         
         self.mainNav.dismissViewControllerAnimated(false) { () -> Void in
             //
+            
+            
         
         }
         

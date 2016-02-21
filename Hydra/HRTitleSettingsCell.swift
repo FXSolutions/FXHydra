@@ -18,7 +18,8 @@ class HRTitleSettingsCell: UITableViewCell {
         self.mainTitle.font = UIFont(name: "Avenir-Medium", size: 17)!
         self.mainTitle.textColor = UIColor.whiteColor()
         self.mainTitle.backgroundColor = UIColor.clearColor()
-        self.mainTitle.contentAlignment = .Center
+        
+        // init
         
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
         
@@ -28,7 +29,6 @@ class HRTitleSettingsCell: UITableViewCell {
         
         self.contentView.backgroundColor = UIColor.clearColor()
         self.backgroundColor = UIColor.clearColor()
-        
         
         let colorView = UIView()
         colorView.backgroundColor = UIColor ( red: 0.6037, green: 0.6037, blue: 0.6037, alpha: 0.195258620689655 )
@@ -44,7 +44,7 @@ class HRTitleSettingsCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.mainTitle.frame = CGRectMake(screenSizeWidth/2-70, 20, 140, 20)
+        self.mainTitle.frame = CGRectMake(20, 20, screenSizeWidth-40, 20)
         
     }
     

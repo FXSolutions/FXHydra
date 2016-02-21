@@ -4,6 +4,7 @@ import UIKit
 class DownloadsController: UITableViewController {
     
     var downloadsAudios = Array<HRAudioItemModel>()
+    var tableFooter = HRFooterProgress(frame: CGRectMake(0, 0, screenSizeWidth, 50))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,7 +15,8 @@ class DownloadsController: UITableViewController {
         
         self.tableView.registerClass(HRDownloadedCell.self, forCellReuseIdentifier: "HRDownloadedCell")
         self.tableView.rowHeight = 70
-        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        self.tableView.tableFooterView = tableFooter
         self.tableView.allowsMultipleSelectionDuringEditing = false
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 50, 0, 0)
         self.tableView.indicatorStyle = UIScrollViewIndicatorStyle.White
@@ -106,6 +108,12 @@ class DownloadsController: UITableViewController {
         HRDatabaseManager.sharedInstance.getAllDownloads { (audiosArray) -> () in
             
             self.downloadsAudios = audiosArray
+            if (self.downloadsAudios.count == 0) {
+                self.tableFooter.titleText("No downloaded audios")
+            } else {
+                self.tableFooter.titleText("Total: \(self.downloadsAudios.count)")
+            }
+            
             self.tableView.reloadData()
             
         }

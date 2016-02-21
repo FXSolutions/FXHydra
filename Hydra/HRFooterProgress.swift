@@ -23,7 +23,7 @@ class HRFooterProgress: UIView {
         self.infoTitle = UILabel()
         self.infoTitle.frame = CGRectMake(0, 5, screenSizeWidth, 50)
         self.infoTitle.textColor = UIColor.grayColor()
-        self.infoTitle.font = UIFont(name: "HelveticaNeue-Thin", size: 11)
+        self.infoTitle.font = UIFont(name: "Avenir-Book", size: 17)
         self.infoTitle.textAlignment = NSTextAlignment.Center
         self.infoTitle.numberOfLines = 0
         
