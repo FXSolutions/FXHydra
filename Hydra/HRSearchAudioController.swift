@@ -37,6 +37,14 @@ class HRSearchAudioController: UITableViewController,UISearchResultsUpdating, UI
         
         self.tableView.rowHeight = 70
         self.tableView.tableFooterView = self.footer
+        
+        self.tableView.backgroundColor = UIColor ( red: 0.2228, green: 0.2228, blue: 0.2228, alpha: 1.0 )
+        self.tableView.separatorColor = UIColor ( red: 0.2055, green: 0.2015, blue: 0.2096, alpha: 1.0 )
+        
+        self.view.backgroundColor = UIColor ( red: 0.1221, green: 0.1215, blue: 0.1227, alpha: 1.0 )
+        
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 50, 0, 0)
+        self.tableView.indicatorStyle = UIScrollViewIndicatorStyle.White
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -58,8 +66,52 @@ class HRSearchAudioController: UITableViewController,UISearchResultsUpdating, UI
         
         cell.audioAristLabel.text = audio.artist
         cell.audioTitleLabel.text = audio.title
+        //cell.allMusicController = self
         cell.audioModel = audio
-        cell.searchController = self
+        cell.audioTimeLabel.text = self.durationFormater(Double(audio.duration))
+        
+        cell.bitRateBackgroundImage.image = UIImage(named: "bitrate_background")?.imageWithColor2(UIColor ( red: 0.3735, green: 0.3735, blue: 0.3735, alpha: 1.0 ))
+//        
+//        if audio.downloadState == 3 {
+//            
+//            cell.downloadedImage.hidden = false
+//            cell.downloadedImage.image = UIImage(named: "donebutton")?.imageWithColor2(UIColor.whiteColor())
+//            
+//            // complete
+//            
+//        } else {
+//            
+//            cell.downloadedImage.hidden = true
+//            
+//        }
+        
+        if (audio.bitrate == 0) {
+            
+            dispatch.async.global { () -> Void in
+                
+                self.getBitrate(audio, completition: { (bitrate) -> () in
+                    dispatch.async.main({ () -> Void in
+                        cell.audioBitrate.text = "\(bitrate)"
+                        
+                        if (bitrate > 256) {
+                            cell.bitRateBackgroundImage.image = UIImage(named: "bitrate_background")?.imageWithColor2(UIColor ( red: 0.0657, green: 0.5188, blue: 0.7167, alpha: 1.0 ))
+                        }
+                        
+                    })
+                })
+                
+            }
+            
+        } else {
+            
+            cell.audioBitrate.text = "\(audio.bitrate)"
+            
+            if (audio.bitrate > 256) {
+                cell.bitRateBackgroundImage.image = UIImage(named: "bitrate_background")?.imageWithColor2(UIColor ( red: 0.0657, green: 0.5188, blue: 0.7167, alpha: 1.0 ))
+            }
+            
+            
+        }
         
         return cell
     }
@@ -117,6 +169,7 @@ class HRSearchAudioController: UITableViewController,UISearchResultsUpdating, UI
     
     func loadSearch(query: String!) {
         
+        self.footer.titleText("")
         self.footer.startProgress()
         self.audios = Array<HRAudioItemModel>()
         
@@ -150,6 +203,52 @@ class HRSearchAudioController: UITableViewController,UISearchResultsUpdating, UI
                 // error
                 print(error)
         })
+        
+    }
+    
+    func durationFormater(duration:Double) -> String {
+        
+        let min = Int(floor(duration / 60))
+        let sec = Int(floor(duration % 60))
+        
+        if (sec < 10) {
+            return "\(min):0\(sec)"
+        } else {
+            return "\(min):\(sec)"
+        }
+        
+    }
+    
+    private func getBitrate(audio:HRAudioItemModel,completition:(Int) -> ()) {
+        
+        let audioURL = NSURL(string: "\(audio.audioNetworkURL)")!
+        
+        let request1: NSMutableURLRequest = NSMutableURLRequest(URL: audioURL)
+        request1.HTTPMethod = "HEAD"
+        
+        var response : NSURLResponse?
+        
+        do {
+            
+            try NSURLConnection.sendSynchronousRequest(request1, returningResponse: &response)
+            
+            if let httpResponse = response as? NSHTTPURLResponse {
+                
+                let size = httpResponse.expectedContentLength
+                let kbit = size/128;//calculate bytes to kbit
+                let kbps = ceil(round(Double(kbit)/Double(audio.duration))/16)*16
+                
+                print("kbps === \(kbps)")
+                
+                audio.bitrate = Int(kbps)
+                
+                completition(Int(kbps))
+            }
+            
+        } catch (let e) {
+            print(e)
+        }
+        
         
     }
     
