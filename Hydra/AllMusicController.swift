@@ -37,6 +37,7 @@ class AllMusicController: UITableViewController {
         
         // add search
         
+        
         let searchAudioController = HRSearchAudioController()
         self.searchController = UISearchController(searchResultsController: searchAudioController)
         self.searchController?.searchResultsUpdater = searchAudioController

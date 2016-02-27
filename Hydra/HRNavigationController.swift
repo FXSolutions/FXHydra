@@ -34,3 +34,6 @@ class HRNavigationController: BufferedNavigationController {
     }
     
 }
+
+
+extension UISearchController { public override func preferredStatusBarStyle() -> UIStatusBarStyle { return .LightContent } }

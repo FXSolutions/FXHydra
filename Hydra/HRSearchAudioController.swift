@@ -33,6 +33,8 @@ class HRSearchAudioController: UITableViewController,UISearchResultsUpdating, UI
         self.tableView.registerClass(HRAudioSearchCell.self, forCellReuseIdentifier: "HRAudioSearchCell")
         
         self.edgesForExtendedLayout = UIRectEdge.None
+        
+        self.definesPresentationContext = true
         self.extendedLayoutIncludesOpaqueBars = true
         
         self.tableView.rowHeight = 70
