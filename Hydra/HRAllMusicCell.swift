@@ -1,5 +1,12 @@
 import UIKit
 
+
+protocol HRMusicCellProtocol {
+    
+    func downloadAudio(model:HRAudioItemModel,progressView:UIProgressView)
+    
+}
+
 class HRAllMusicCell: UITableViewCell {
     
     var audioAristLabel         : AttributedLabel
@@ -8,7 +15,7 @@ class HRAllMusicCell: UITableViewCell {
     var audioBitrate            : AttributedLabel!
     var audioTimeLabel          : AttributedLabel!
     var progressView            : UIProgressView!
-    var allMusicController      : AllMusicController!
+    var delegatedController     : HRMusicCellProtocol?
     var audioModel              : HRAudioItemModel!
     var downloadedImage         : UIImageView!
     var bitRateBackgroundImage  : UIImageView!
@@ -106,7 +113,7 @@ class HRAllMusicCell: UITableViewCell {
     func startDownload() {
         
         //self.downloadButton.hidden = true
-        self.allMusicController.downloadAudio(self.audioModel, progressView: self.progressView)
+        self.delegatedController?.downloadAudio(self.audioModel, progressView: self.progressView)
         
     }
     

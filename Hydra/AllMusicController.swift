@@ -1,6 +1,6 @@
 import UIKit
 
-class AllMusicController: UITableViewController {
+class AllMusicController: UITableViewController, HRMusicCellProtocol  {
     
     var searchController : UISearchController?
     var audiosArray = Array<HRAudioItemModel>()
@@ -155,7 +155,6 @@ class AllMusicController: UITableViewController {
         
         cell.audioAristLabel.text = audio.artist
         cell.audioTitleLabel.text = audio.title
-        cell.allMusicController = self
         cell.audioModel = audio
         cell.audioTimeLabel.text = self.durationFormater(Double(audio.duration))
         
