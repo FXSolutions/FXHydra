@@ -22,21 +22,21 @@ class HRDownloadManager {
         //bytesWritten, totalBytesWritten, totalBytesExpectedToWrite
         
         Alamofire.download(.GET, model.audioNetworkURL, destination: destination).progress { (one, two, three) -> Void in
+            
                             let loadedData:Float = Float(two)
                             let allData:Float = Float(three)
             
                             progress(loadedData/allData)
             
         }.response { (_, _, _, _) -> Void in
+            
             let currentFileName = NSURL(string:model.audioNetworkURL)?.lastPathComponent
 
             model.audioLocalURL = currentFileName
             model.downloadedTime = Int(NSDate().timeIntervalSince1970)
             HRDatabaseManager.sharedInstance.saveInDB(model)
+            
         }
-        
-        
-        
         
     }
 
