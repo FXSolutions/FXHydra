@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BED930B81C947D8900A6CD90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930B71C947D8900A6CD90 /* AppDelegate.swift */; };
+		BED930BA1C947D8900A6CD90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930B91C947D8900A6CD90 /* ViewController.swift */; };
+		BED930BD1C947D8900A6CD90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED930BB1C947D8900A6CD90 /* Main.storyboard */; };
+		BED930BF1C947D8900A6CD90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BED930BE1C947D8900A6CD90 /* Assets.xcassets */; };
+		BED930C21C947D8900A6CD90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED930C01C947D8900A6CD90 /* LaunchScreen.storyboard */; };
+		BED930CD1C947D8900A6CD90 /* FXHydraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930CC1C947D8900A6CD90 /* FXHydraTests.swift */; };
+		BED930D81C947D8900A6CD90 /* FXHydraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930D71C947D8900A6CD90 /* FXHydraUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BED930C91C947D8900A6CD90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BED930AC1C947D8900A6CD90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BED930B31C947D8900A6CD90;
+			remoteInfo = FXHydra;
+		};
+		BED930D41C947D8900A6CD90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BED930AC1C947D8900A6CD90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BED930B31C947D8900A6CD90;
+			remoteInfo = FXHydra;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BED930B41C947D8900A6CD90 /* FXHydra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXHydra.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BED930B71C947D8900A6CD90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BED930B91C947D8900A6CD90 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BED930BC1C947D8900A6CD90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BED930BE1C947D8900A6CD90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BED930C11C947D8900A6CD90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BED930C31C947D8900A6CD90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BED930C81C947D8900A6CD90 /* FXHydraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FXHydraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BED930CC1C947D8900A6CD90 /* FXHydraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXHydraTests.swift; sourceTree = "<group>"; };
+		BED930CE1C947D8900A6CD90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BED930D31C947D8900A6CD90 /* FXHydraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FXHydraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BED930D71C947D8900A6CD90 /* FXHydraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXHydraUITests.swift; sourceTree = "<group>"; };
+		BED930D91C947D8900A6CD90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BED930B11C947D8900A6CD90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BED930C51C947D8900A6CD90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BED930D01C947D8900A6CD90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BED930AB1C947D8900A6CD90 = {
+			isa = PBXGroup;
+			children = (
+				BED930B61C947D8900A6CD90 /* FXHydra */,
+				BED930CB1C947D8900A6CD90 /* FXHydraTests */,
+				BED930D61C947D8900A6CD90 /* FXHydraUITests */,
+				BED930B51C947D8900A6CD90 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BED930B51C947D8900A6CD90 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BED930B41C947D8900A6CD90 /* FXHydra.app */,
+				BED930C81C947D8900A6CD90 /* FXHydraTests.xctest */,
+				BED930D31C947D8900A6CD90 /* FXHydraUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BED930B61C947D8900A6CD90 /* FXHydra */ = {
+			isa = PBXGroup;
+			children = (
+				BED930B71C947D8900A6CD90 /* AppDelegate.swift */,
+				BED930B91C947D8900A6CD90 /* ViewController.swift */,
+				BED930BB1C947D8900A6CD90 /* Main.storyboard */,
+				BED930BE1C947D8900A6CD90 /* Assets.xcassets */,
+				BED930C01C947D8900A6CD90 /* LaunchScreen.storyboard */,
+				BED930C31C947D8900A6CD90 /* Info.plist */,
+			);
+			path = FXHydra;
+			sourceTree = "<group>";
+		};
+		BED930CB1C947D8900A6CD90 /* FXHydraTests */ = {
+			isa = PBXGroup;
+			children = (
+				BED930CC1C947D8900A6CD90 /* FXHydraTests.swift */,
+				BED930CE1C947D8900A6CD90 /* Info.plist */,
+			);
+			path = FXHydraTests;
+			sourceTree = "<group>";
+		};
+		BED930D61C947D8900A6CD90 /* FXHydraUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BED930D71C947D8900A6CD90 /* FXHydraUITests.swift */,
+				BED930D91C947D8900A6CD90 /* Info.plist */,
+			);
+			path = FXHydraUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BED930B31C947D8900A6CD90 /* FXHydra */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BED930DC1C947D8900A6CD90 /* Build configuration list for PBXNativeTarget "FXHydra" */;
+			buildPhases = (
+				BED930B01C947D8900A6CD90 /* Sources */,
+				BED930B11C947D8900A6CD90 /* Frameworks */,
+				BED930B21C947D8900A6CD90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FXHydra;
+			productName = FXHydra;
+			productReference = BED930B41C947D8900A6CD90 /* FXHydra.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BED930C71C947D8900A6CD90 /* FXHydraTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BED930DF1C947D8900A6CD90 /* Build configuration list for PBXNativeTarget "FXHydraTests" */;
+			buildPhases = (
+				BED930C41C947D8900A6CD90 /* Sources */,
+				BED930C51C947D8900A6CD90 /* Frameworks */,
+				BED930C61C947D8900A6CD90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BED930CA1C947D8900A6CD90 /* PBXTargetDependency */,
+			);
+			name = FXHydraTests;
+			productName = FXHydraTests;
+			productReference = BED930C81C947D8900A6CD90 /* FXHydraTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BED930D21C947D8900A6CD90 /* FXHydraUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BED930E21C947D8900A6CD90 /* Build configuration list for PBXNativeTarget "FXHydraUITests" */;
+			buildPhases = (
+				BED930CF1C947D8900A6CD90 /* Sources */,
+				BED930D01C947D8900A6CD90 /* Frameworks */,
+				BED930D11C947D8900A6CD90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BED930D51C947D8900A6CD90 /* PBXTargetDependency */,
+			);
+			name = FXHydraUITests;
+			productName = FXHydraUITests;
+			productReference = BED930D31C947D8900A6CD90 /* FXHydraUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BED930AC1C947D8900A6CD90 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = FXSolutions;
+				TargetAttributes = {
+					BED930B31C947D8900A6CD90 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					BED930C71C947D8900A6CD90 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = BED930B31C947D8900A6CD90;
+					};
+					BED930D21C947D8900A6CD90 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = BED930B31C947D8900A6CD90;
+					};
+				};
+			};
+			buildConfigurationList = BED930AF1C947D8900A6CD90 /* Build configuration list for PBXProject "FXHydra" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BED930AB1C947D8900A6CD90;
+			productRefGroup = BED930B51C947D8900A6CD90 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BED930B31C947D8900A6CD90 /* FXHydra */,
+				BED930C71C947D8900A6CD90 /* FXHydraTests */,
+				BED930D21C947D8900A6CD90 /* FXHydraUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BED930B21C947D8900A6CD90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BED930C21C947D8900A6CD90 /* LaunchScreen.storyboard in Resources */,
+				BED930BF1C947D8900A6CD90 /* Assets.xcassets in Resources */,
+				BED930BD1C947D8900A6CD90 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BED930C61C947D8900A6CD90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BED930D11C947D8900A6CD90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BED930B01C947D8900A6CD90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BED930BA1C947D8900A6CD90 /* ViewController.swift in Sources */,
+				BED930B81C947D8900A6CD90 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BED930C41C947D8900A6CD90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BED930CD1C947D8900A6CD90 /* FXHydraTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BED930CF1C947D8900A6CD90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BED930D81C947D8900A6CD90 /* FXHydraUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BED930CA1C947D8900A6CD90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BED930B31C947D8900A6CD90 /* FXHydra */;
+			targetProxy = BED930C91C947D8900A6CD90 /* PBXContainerItemProxy */;
+		};
+		BED930D51C947D8900A6CD90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BED930B31C947D8900A6CD90 /* FXHydra */;
+			targetProxy = BED930D41C947D8900A6CD90 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BED930BB1C947D8900A6CD90 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BED930BC1C947D8900A6CD90 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BED930C01C947D8900A6CD90 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BED930C11C947D8900A6CD90 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BED930DA1C947D8900A6CD90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BED930DB1C947D8900A6CD90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BED930DD1C947D8900A6CD90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FXHydra/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.FXSolutions.FXHydra;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BED930DE1C947D8900A6CD90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FXHydra/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.FXSolutions.FXHydra;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BED930E01C947D8900A6CD90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FXHydraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.FXSolutions.FXHydraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FXHydra.app/FXHydra";
+			};
+			name = Debug;
+		};
+		BED930E11C947D8900A6CD90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FXHydraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.FXSolutions.FXHydraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FXHydra.app/FXHydra";
+			};
+			name = Release;
+		};
+		BED930E31C947D8900A6CD90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FXHydraUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.FXSolutions.FXHydraUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FXHydra;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		BED930E41C947D8900A6CD90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FXHydraUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.FXSolutions.FXHydraUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FXHydra;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BED930AF1C947D8900A6CD90 /* Build configuration list for PBXProject "FXHydra" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BED930DA1C947D8900A6CD90 /* Debug */,
+				BED930DB1C947D8900A6CD90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BED930DC1C947D8900A6CD90 /* Build configuration list for PBXNativeTarget "FXHydra" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BED930DD1C947D8900A6CD90 /* Debug */,
+				BED930DE1C947D8900A6CD90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BED930DF1C947D8900A6CD90 /* Build configuration list for PBXNativeTarget "FXHydraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BED930E01C947D8900A6CD90 /* Debug */,
+				BED930E11C947D8900A6CD90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BED930E21C947D8900A6CD90 /* Build configuration list for PBXNativeTarget "FXHydraUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BED930E31C947D8900A6CD90 /* Debug */,
+				BED930E41C947D8900A6CD90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BED930AC1C947D8900A6CD90 /* Project object */;
+}
