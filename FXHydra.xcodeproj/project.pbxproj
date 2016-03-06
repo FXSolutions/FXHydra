@@ -162,6 +162,7 @@
 				BED930B21C947D8900A6CD90 /* Resources */,
 				11E9F9A759842EA289D744B3 /* Embed Pods Frameworks */,
 				11B49F8684B9F8BBB1D5EB08 /* Copy Pods Resources */,
+				BED930E51C94802600A6CD90 /* Auto-increment build */,
 			);
 			buildRules = (
 			);
@@ -214,6 +215,7 @@
 		BED930AC1C947D8900A6CD90 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = FX;
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = FXSolutions;
@@ -308,6 +310,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FXHydra/Pods-FXHydra-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BED930E51C94802600A6CD90 /* Auto-increment build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Auto-increment build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
 		};
 		C92DE2024BAD1F499E67DF42 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
