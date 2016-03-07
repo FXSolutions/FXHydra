@@ -18,7 +18,7 @@ public enum ScalingMode {
 
 public class VideoSplashViewController: UIViewController {
 
-  private let moviePlayer = AVPlayerViewController()
+  public let moviePlayer = AVPlayerViewController()
   private var moviePlayerSoundLevel: Float = 1.0
   public var contentURL: NSURL = NSURL() {
     didSet {
@@ -76,6 +76,7 @@ public class VideoSplashViewController: UIViewController {
     moviePlayer.showsPlaybackControls = false
     view.addSubview(moviePlayer.view)
     view.sendSubviewToBack(moviePlayer.view)
+    moviePlayer.view.layer.zPosition = 0
   }
   
   override public func viewWillDisappear(animated: Bool) {

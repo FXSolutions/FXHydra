@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		BED930B81C947D8900A6CD90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930B71C947D8900A6CD90 /* AppDelegate.swift */; };
-		BED930BA1C947D8900A6CD90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930B91C947D8900A6CD90 /* ViewController.swift */; };
-		BED930BD1C947D8900A6CD90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED930BB1C947D8900A6CD90 /* Main.storyboard */; };
 		BED930BF1C947D8900A6CD90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BED930BE1C947D8900A6CD90 /* Assets.xcassets */; };
 		BED930C21C947D8900A6CD90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED930C01C947D8900A6CD90 /* LaunchScreen.storyboard */; };
 		BED930CD1C947D8900A6CD90 /* FXHydraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930CC1C947D8900A6CD90 /* FXHydraTests.swift */; };
 		BED930D81C947D8900A6CD90 /* FXHydraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930D71C947D8900A6CD90 /* FXHydraUITests.swift */; };
+		BED930F81C94C1D000A6CD90 /* FXDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930F71C94C1D000A6CD90 /* FXDatabaseService.swift */; };
+		BED930FB1C94C2DA00A6CD90 /* XCGLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930FA1C94C2DA00A6CD90 /* XCGLogger.swift */; };
+		BED930FD1C94C38900A6CD90 /* FXInterfaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930FC1C94C38900A6CD90 /* FXInterfaceService.swift */; };
+		BED931001C94C43500A6CD90 /* FXAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930FF1C94C43400A6CD90 /* FXAuthController.swift */; };
+		BED931031C94C50600A6CD90 /* moments.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BED931011C94C4EA00A6CD90 /* moments.mp4 */; };
+		BED931071C94C65A00A6CD90 /* VideoCutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED931051C94C65A00A6CD90 /* VideoCutter.swift */; };
+		BED931081C94C65A00A6CD90 /* VideoSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED931061C94C65A00A6CD90 /* VideoSplashViewController.swift */; };
+		BED9310A1C94CDAC00A6CD90 /* FXSignal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED931091C94CDAC00A6CD90 /* FXSignal.swift */; };
+		BED9310D1C94CDD900A6CD90 /* FXSignalsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9310C1C94CDD900A6CD90 /* FXSignalsService.swift */; };
 		D8265D96858E918B3EFFFB26 /* Pods_FXHydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F318777276F6853B46AA3AF9 /* Pods_FXHydra.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +46,6 @@
 		2EEA67849E34ED48E7F4FE24 /* Pods-FXHydra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FXHydra.release.xcconfig"; path = "Pods/Target Support Files/Pods-FXHydra/Pods-FXHydra.release.xcconfig"; sourceTree = "<group>"; };
 		BED930B41C947D8900A6CD90 /* FXHydra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXHydra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED930B71C947D8900A6CD90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BED930B91C947D8900A6CD90 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BED930BC1C947D8900A6CD90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BED930BE1C947D8900A6CD90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BED930C11C947D8900A6CD90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BED930C31C947D8900A6CD90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +55,15 @@
 		BED930D31C947D8900A6CD90 /* FXHydraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FXHydraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED930D71C947D8900A6CD90 /* FXHydraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXHydraUITests.swift; sourceTree = "<group>"; };
 		BED930D91C947D8900A6CD90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BED930F71C94C1D000A6CD90 /* FXDatabaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXDatabaseService.swift; sourceTree = "<group>"; };
+		BED930FA1C94C2DA00A6CD90 /* XCGLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XCGLogger.swift; path = FXHydra/XCGLogger.swift; sourceTree = "<group>"; };
+		BED930FC1C94C38900A6CD90 /* FXInterfaceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXInterfaceService.swift; sourceTree = "<group>"; };
+		BED930FF1C94C43400A6CD90 /* FXAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXAuthController.swift; sourceTree = "<group>"; };
+		BED931011C94C4EA00A6CD90 /* moments.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = moments.mp4; sourceTree = "<group>"; };
+		BED931051C94C65A00A6CD90 /* VideoCutter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCutter.swift; sourceTree = "<group>"; };
+		BED931061C94C65A00A6CD90 /* VideoSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSplashViewController.swift; sourceTree = "<group>"; };
+		BED931091C94CDAC00A6CD90 /* FXSignal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXSignal.swift; sourceTree = "<group>"; };
+		BED9310C1C94CDD900A6CD90 /* FXSignalsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXSignalsService.swift; sourceTree = "<group>"; };
 		F318777276F6853B46AA3AF9 /* Pods_FXHydra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FXHydra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,6 +105,7 @@
 		BED930AB1C947D8900A6CD90 = {
 			isa = PBXGroup;
 			children = (
+				BED930EC1C9491B600A6CD90 /* External */,
 				BED930B61C947D8900A6CD90 /* FXHydra */,
 				BED930CB1C947D8900A6CD90 /* FXHydraTests */,
 				BED930D61C947D8900A6CD90 /* FXHydraUITests */,
@@ -113,12 +128,10 @@
 		BED930B61C947D8900A6CD90 /* FXHydra */ = {
 			isa = PBXGroup;
 			children = (
-				BED930B71C947D8900A6CD90 /* AppDelegate.swift */,
-				BED930B91C947D8900A6CD90 /* ViewController.swift */,
-				BED930BB1C947D8900A6CD90 /* Main.storyboard */,
-				BED930BE1C947D8900A6CD90 /* Assets.xcassets */,
-				BED930C01C947D8900A6CD90 /* LaunchScreen.storyboard */,
-				BED930C31C947D8900A6CD90 /* Info.plist */,
+				BED930EE1C9491F100A6CD90 /* Application */,
+				BED930F01C9491FE00A6CD90 /* User Interface */,
+				BED930F11C94920700A6CD90 /* Elements */,
+				BED930EF1C9491FA00A6CD90 /* Core */,
 			);
 			path = FXHydra;
 			sourceTree = "<group>";
@@ -139,6 +152,110 @@
 				BED930D91C947D8900A6CD90 /* Info.plist */,
 			);
 			path = FXHydraUITests;
+			sourceTree = "<group>";
+		};
+		BED930EC1C9491B600A6CD90 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				BED931091C94CDAC00A6CD90 /* FXSignal.swift */,
+				BED931041C94C65000A6CD90 /* VideoController */,
+				BED930FA1C94C2DA00A6CD90 /* XCGLogger.swift */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		BED930EE1C9491F100A6CD90 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BED931021C94C4EF00A6CD90 /* Resourses */,
+				BED930C31C947D8900A6CD90 /* Info.plist */,
+				BED930C01C947D8900A6CD90 /* LaunchScreen.storyboard */,
+				BED930BE1C947D8900A6CD90 /* Assets.xcassets */,
+				BED930B71C947D8900A6CD90 /* AppDelegate.swift */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		BED930EF1C9491FA00A6CD90 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BED930F61C94C1C100A6CD90 /* Database */,
+				BED930F41C94937300A6CD90 /* Services */,
+				BED930F31C94936F00A6CD90 /* Network */,
+				BED930F21C94936A00A6CD90 /* Models */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		BED930F01C9491FE00A6CD90 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				BED930FE1C94C42400A6CD90 /* Auth */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		BED930F11C94920700A6CD90 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Elements;
+			sourceTree = "<group>";
+		};
+		BED930F21C94936A00A6CD90 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		BED930F31C94936F00A6CD90 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		BED930F41C94937300A6CD90 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BED930FC1C94C38900A6CD90 /* FXInterfaceService.swift */,
+				BED9310C1C94CDD900A6CD90 /* FXSignalsService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		BED930F61C94C1C100A6CD90 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				BED930F71C94C1D000A6CD90 /* FXDatabaseService.swift */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		BED930FE1C94C42400A6CD90 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				BED930FF1C94C43400A6CD90 /* FXAuthController.swift */,
+			);
+			name = Auth;
+			sourceTree = "<group>";
+		};
+		BED931021C94C4EF00A6CD90 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				BED931011C94C4EA00A6CD90 /* moments.mp4 */,
+			);
+			name = Resourses;
+			sourceTree = "<group>";
+		};
+		BED931041C94C65000A6CD90 /* VideoController */ = {
+			isa = PBXGroup;
+			children = (
+				BED931051C94C65A00A6CD90 /* VideoCutter.swift */,
+				BED931061C94C65A00A6CD90 /* VideoSplashViewController.swift */,
+			);
+			name = VideoController;
 			sourceTree = "<group>";
 		};
 		CFAD6963EF1E4F840F554415 /* Frameworks */ = {
@@ -258,9 +375,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BED931031C94C50600A6CD90 /* moments.mp4 in Resources */,
 				BED930C21C947D8900A6CD90 /* LaunchScreen.storyboard in Resources */,
 				BED930BF1C947D8900A6CD90 /* Assets.xcassets in Resources */,
-				BED930BD1C947D8900A6CD90 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,8 +464,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BED930BA1C947D8900A6CD90 /* ViewController.swift in Sources */,
+				BED9310D1C94CDD900A6CD90 /* FXSignalsService.swift in Sources */,
+				BED931071C94C65A00A6CD90 /* VideoCutter.swift in Sources */,
+				BED930FB1C94C2DA00A6CD90 /* XCGLogger.swift in Sources */,
+				BED9310A1C94CDAC00A6CD90 /* FXSignal.swift in Sources */,
+				BED931081C94C65A00A6CD90 /* VideoSplashViewController.swift in Sources */,
+				BED931001C94C43500A6CD90 /* FXAuthController.swift in Sources */,
+				BED930F81C94C1D000A6CD90 /* FXDatabaseService.swift in Sources */,
 				BED930B81C947D8900A6CD90 /* AppDelegate.swift in Sources */,
+				BED930FD1C94C38900A6CD90 /* FXInterfaceService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,14 +508,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BED930BB1C947D8900A6CD90 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BED930BC1C947D8900A6CD90 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BED930C01C947D8900A6CD90 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -490,6 +606,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FXHydra/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FXSolutions.FXHydra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -502,6 +619,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FXHydra/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FXSolutions.FXHydra;
 				PRODUCT_NAME = "$(TARGET_NAME)";

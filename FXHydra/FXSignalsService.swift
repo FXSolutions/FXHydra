@@ -6,8 +6,21 @@
 //  Copyright © 2016 FXSolutions. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class FXSignalsService: NSObject {
-
+class FXSignalsService {
+    
+    //
+    // Shared instance
+    //
+    
+    private static let shared = FXSignalsService()
+    
+    static func sharedManager() -> FXSignalsService {
+        return shared
+    }
+    
+    let appChangeStateToBackground = Signal<(Bool!)>()
+    
+    
 }

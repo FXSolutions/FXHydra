@@ -6,8 +6,23 @@
 //  Copyright © 2016 FXSolutions. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class FXInterfaceService: NSObject {
+class FXInterfaceService {
+    
+    //
+    // Shared instance
+    //
+    
+    private static let shared = FXInterfaceService()
+    
+    static func sharedManager() -> FXInterfaceService {
+        return shared
+    }
+    
+    
+    //
+    
+    var authController = FXAuthController()
 
 }
