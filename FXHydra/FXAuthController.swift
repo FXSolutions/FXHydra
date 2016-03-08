@@ -16,14 +16,16 @@ class FXAuthController: VideoSplashViewController {
     override func loadView() {
         super.loadView()
         
+        self.view.userInteractionEnabled = true
+        
         self.loginButton = UIButton(type: .System)
         self.loginButton.setTitle("Authorization", forState: UIControlState.Normal)
-        self.loginButton.addTarget(self, action: "authButtonAction", forControlEvents: UIControlEvents.TouchUpInside)
         self.loginButton.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 17)
         self.loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         self.loginButton.backgroundColor = UIColor.blueColor().colorWithAlphaComponent(0.7)
         self.loginButton.layer.cornerRadius = 5.0
-        self.loginButton.layer.zPosition = 1000
+        self.loginButton.addTarget(super.self(), action: "authButtonAction", forControlEvents:.TouchUpInside)
+        self.loginButton.userInteractionEnabled = true
         
         
         ////
@@ -36,6 +38,8 @@ class FXAuthController: VideoSplashViewController {
         self.view.addSubview(self.logoView)
         self.view.addSubview(self.loginButton)
         
+        setupVideoBackground()
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -43,7 +47,7 @@ class FXAuthController: VideoSplashViewController {
         
         let viewSize = self.view.frame.size
         
-        self.loginButton.frame = CGRectMake(viewSize.width/2-100, viewSize.height-80, 200, 50)
+        self.loginButton.frame = CGRectMake(viewSize.width/2-100, viewSize.height-100, 200, 50)
         self.logoView.frame = CGRectMake(viewSize.width/2-75, 60,150, 150)
         
     }
@@ -51,7 +55,9 @@ class FXAuthController: VideoSplashViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupVideoBackground()
+        
+        ////
+        
         
         
         FXSignalsService.sharedManager().appChangeStateToBackground.listen(self) { (isBackground) -> Void in
@@ -69,6 +75,18 @@ class FXAuthController: VideoSplashViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.loginButton.transform = CGAffineTransformMakeScale(0.6, 0.6)
+        
+        UIView.animateWithDuration(1.5,
+            delay: 0,
+            usingSpringWithDamping: CGFloat(0.20),
+            initialSpringVelocity: CGFloat(6.0),
+            options: UIViewAnimationOptions.AllowUserInteraction,
+            animations: {
+                self.loginButton.transform = CGAffineTransformIdentity
+            },
+            completion: { Void in()  }
+        )
         
         
     }
@@ -95,7 +113,6 @@ class FXAuthController: VideoSplashViewController {
         alpha = 0.8
         
         contentURL = url
-        view.userInteractionEnabled = false
         
     }
     
@@ -105,15 +122,21 @@ class FXAuthController: VideoSplashViewController {
         
         log.debug("it works!")
         
+        self.loginButton.transform = CGAffineTransformMakeScale(0.6, 0.6)
+        
+        UIView.animateWithDuration(1.0,
+            delay: 0,
+            usingSpringWithDamping: CGFloat(0.20),
+            initialSpringVelocity: CGFloat(6.0),
+            options: UIViewAnimationOptions.AllowUserInteraction,
+            animations: {
+                self.loginButton.transform = CGAffineTransformIdentity
+            },
+            completion: { Void in()  }
+        )
+        
     }
     
-    func authButtonTuchIt() {
-        
-        log.debug("authButtonTuchIt")
-        
-    }
 
-    
-    
 
 }

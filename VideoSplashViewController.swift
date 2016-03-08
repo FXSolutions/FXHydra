@@ -70,13 +70,18 @@ public class VideoSplashViewController: UIViewController {
       }
     }
   }
+    
+    public override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        moviePlayer.view.frame = videoFrame
+        moviePlayer.showsPlaybackControls = false
+        view.addSubview(moviePlayer.view)
+        view.sendSubviewToBack(moviePlayer.view)
+    }
+    
 
   override public func viewDidAppear(animated: Bool) {
-    moviePlayer.view.frame = videoFrame
-    moviePlayer.showsPlaybackControls = false
-    view.addSubview(moviePlayer.view)
-    view.sendSubviewToBack(moviePlayer.view)
-    moviePlayer.view.layer.zPosition = 0
+
   }
   
   override public func viewWillDisappear(animated: Bool) {

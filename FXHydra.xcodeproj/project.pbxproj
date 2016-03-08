@@ -21,6 +21,7 @@
 		BED931081C94C65A00A6CD90 /* VideoSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED931061C94C65A00A6CD90 /* VideoSplashViewController.swift */; };
 		BED9310A1C94CDAC00A6CD90 /* FXSignal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED931091C94CDAC00A6CD90 /* FXSignal.swift */; };
 		BED9310D1C94CDD900A6CD90 /* FXSignalsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9310C1C94CDD900A6CD90 /* FXSignalsService.swift */; };
+		BED9310F1C95ADA600A6CD90 /* SSASideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9310E1C95ADA600A6CD90 /* SSASideMenu.swift */; };
 		D8265D96858E918B3EFFFB26 /* Pods_FXHydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F318777276F6853B46AA3AF9 /* Pods_FXHydra.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		BED931061C94C65A00A6CD90 /* VideoSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSplashViewController.swift; sourceTree = "<group>"; };
 		BED931091C94CDAC00A6CD90 /* FXSignal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXSignal.swift; sourceTree = "<group>"; };
 		BED9310C1C94CDD900A6CD90 /* FXSignalsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXSignalsService.swift; sourceTree = "<group>"; };
+		BED9310E1C95ADA600A6CD90 /* SSASideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSASideMenu.swift; sourceTree = "<group>"; };
 		F318777276F6853B46AA3AF9 /* Pods_FXHydra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FXHydra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -157,6 +159,7 @@
 		BED930EC1C9491B600A6CD90 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				BED9310E1C95ADA600A6CD90 /* SSASideMenu.swift */,
 				BED931091C94CDAC00A6CD90 /* FXSignal.swift */,
 				BED931041C94C65000A6CD90 /* VideoController */,
 				BED930FA1C94C2DA00A6CD90 /* XCGLogger.swift */,
@@ -467,6 +470,7 @@
 				BED9310D1C94CDD900A6CD90 /* FXSignalsService.swift in Sources */,
 				BED931071C94C65A00A6CD90 /* VideoCutter.swift in Sources */,
 				BED930FB1C94C2DA00A6CD90 /* XCGLogger.swift in Sources */,
+				BED9310F1C95ADA600A6CD90 /* SSASideMenu.swift in Sources */,
 				BED9310A1C94CDAC00A6CD90 /* FXSignal.swift in Sources */,
 				BED931081C94C65A00A6CD90 /* VideoSplashViewController.swift in Sources */,
 				BED931001C94C43500A6CD90 /* FXAuthController.swift in Sources */,
