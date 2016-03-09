@@ -135,6 +135,9 @@ class FXAuthController: VideoSplashViewController {
             completion: { Void in()  }
         )
         
+        
+        
+        
     }
     
 
