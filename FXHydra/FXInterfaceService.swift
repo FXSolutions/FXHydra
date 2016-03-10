@@ -43,11 +43,10 @@ class FXInterfaceService :NSObject , VKSdkDelegate , VKSdkUIDelegate {
                 log.debug("VKAuthorizationState === Authroized")
             } else {
                 log.debug("VKAuthorizationState === Not Authroized")
+                self.openAuthController()
             }
             
         }
-        
-        self.openAuthController()
         
     }
     
@@ -62,6 +61,29 @@ class FXInterfaceService :NSObject , VKSdkDelegate , VKSdkUIDelegate {
     }
     
     func openAppMainController() {
+        
+        log.debug("UI Action: === pushRootTabBarController ===")
+        
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            let tab = UITabBarController()
+            tab.viewControllers = self.getMainNavigations()
+            
+            self.rootNavController.pushViewController(tab, animated: false)
+        }
+        
+    }
+    
+    func getMainNavigations() -> [UINavigationController] {
+        
+        var mainNavigations = [FXNavigationController]()
+        
+        // main audios
+        
+        mainNavigations.append(FXNavigationController(rootViewController: TMCardsController()))
+        
+        // downloads
+        
+        // settings
         
         
     }
