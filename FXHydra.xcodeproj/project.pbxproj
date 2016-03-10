@@ -10,6 +10,7 @@
 		BE4521F61C995BDB00B8A391 /* FXAudioItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4521F51C995BDB00B8A391 /* FXAudioItemModel.swift */; };
 		BE4521F81C995C1800B8A391 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4521F71C995C1800B8A391 /* SwiftyJSON.swift */; };
 		BE4521FA1C995C6700B8A391 /* FXApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4521F91C995C6700B8A391 /* FXApiManager.swift */; };
+		BE4521FC1C995C6700B8A391 /* dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4521FB1C995C6700B8A391 /* dispatch.swift */; };
 		BED930B81C947D8900A6CD90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930B71C947D8900A6CD90 /* AppDelegate.swift */; };
 		BED930BF1C947D8900A6CD90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BED930BE1C947D8900A6CD90 /* Assets.xcassets */; };
 		BED930C21C947D8900A6CD90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED930C01C947D8900A6CD90 /* LaunchScreen.storyboard */; };
@@ -51,6 +52,7 @@
 		BE4521F51C995BDB00B8A391 /* FXAudioItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXAudioItemModel.swift; sourceTree = "<group>"; };
 		BE4521F71C995C1800B8A391 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		BE4521F91C995C6700B8A391 /* FXApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXApiManager.swift; sourceTree = "<group>"; };
+		BE4521FB1C995C6700B8A391 /* dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dispatch.swift; sourceTree = "<group>"; };
 		BED930B41C947D8900A6CD90 /* FXHydra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXHydra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED930B71C947D8900A6CD90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BED930BE1C947D8900A6CD90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		BED930EC1C9491B600A6CD90 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				BE4521FB1C995C6700B8A391 /* dispatch.swift */,
 				BED9310E1C95ADA600A6CD90 /* SSASideMenu.swift */,
 				BED931091C94CDAC00A6CD90 /* FXSignal.swift */,
 				BE4521F71C995C1800B8A391 /* SwiftyJSON.swift */,
@@ -483,6 +486,7 @@
 				BED9310F1C95ADA600A6CD90 /* SSASideMenu.swift in Sources */,
 				BED9310A1C94CDAC00A6CD90 /* FXSignal.swift in Sources */,
 				BED931081C94C65A00A6CD90 /* VideoSplashViewController.swift in Sources */,
+				BE4521FC1C995C6700B8A391 /* dispatch.swift in Sources */,
 				BED931001C94C43500A6CD90 /* FXAuthController.swift in Sources */,
 				BE4521F61C995BDB00B8A391 /* FXAudioItemModel.swift in Sources */,
 				BED930F81C94C1D000A6CD90 /* FXDatabaseService.swift in Sources */,

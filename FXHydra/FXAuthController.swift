@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VK_ios_sdk
 
 class FXAuthController: VideoSplashViewController {
     
@@ -135,7 +136,9 @@ class FXAuthController: VideoSplashViewController {
             completion: { Void in()  }
         )
         
+        log.debug("auth button action")
         
+        VKSdk.authorize(["audio","status","groups"])
         
         
     }

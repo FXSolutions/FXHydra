@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import VK_ios_sdk
+
+
 // ###### XCGLogger #####
 
 let documentsDirectory: NSURL = {
@@ -49,9 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window.backgroundColor = UIColor.clearColor()
-        window.rootViewController = FXInterfaceService.sharedManager().authController
+        window.rootViewController = FXInterfaceService.sharedManager().rootNavController
         window.makeKeyAndVisible()
         self.window = window
+        
+        ///
+        
         
         ///
         
@@ -84,6 +90,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        VKSdk.processOpenURL(url, fromApplication: sourceApplication)
+        return true
+    }
+    
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        if #available(iOS 9.0, *) {
+            VKSdk.processOpenURL(url, fromApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as! String)
+        } else {
+            // Fallback on earlier versions
+        }
+        return true
     }
 
 
