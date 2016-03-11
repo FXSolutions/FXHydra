@@ -10,14 +10,28 @@ import UIKit
 
 class FXSettingsController: UITableViewController {
 
+    weak var viewModel : FXSettingsViewModel?
+    
+    // MARK: - Init
+    
+    init(style: UITableViewStyle,bindedViewModel:FXSettingsViewModel) {
+        
+        self.viewModel = bindedViewModel
+        
+        super.init(style: style)
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: - View states
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
 
     override func didReceiveMemoryWarning() {

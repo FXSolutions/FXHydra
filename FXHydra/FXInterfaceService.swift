@@ -39,12 +39,15 @@ class FXInterfaceService :NSObject , VKSdkDelegate , VKSdkUIDelegate {
         
         VKSdk.wakeUpSession(["audio","status","groups"]) { (state, error) -> Void in
             
-            if state == VKAuthorizationState.Authorized {
-                log.debug("VKAuthorizationState === Authroized")
-            } else {
-                log.debug("VKAuthorizationState === Not Authroized")
-                self.openAuthController()
-            }
+            dispatch.async.main({ () -> Void in
+                if state == VKAuthorizationState.Authorized {
+                    log.debug("VKAuthorizationState === Authroized")
+                    self.openAppMainController()
+                } else {
+                    log.debug("VKAuthorizationState === Not Authroized")
+                    self.openAuthController()
+                }
+            })
             
         }
         
@@ -79,25 +82,39 @@ class FXInterfaceService :NSObject , VKSdkDelegate , VKSdkUIDelegate {
         
         // main audios
         
-        mainNavigations.append(FXNavigationController(rootViewController: TMCardsController()))
+        let mainAudiosViewModel = FXAllAudiosViewModel()
+        let mainAudiosNav = FXNavigationController(rootViewController: FXAllAudiosController(style: .Plain, bindedViewModel: mainAudiosViewModel))
+        
+        mainNavigations.append(mainAudiosNav)
         
         // downloads
         
+        let downloadsViewModel = FXDownloadsViewModel()
+        let downloadsNav = FXNavigationController(rootViewController: FXDownloadsController(style: .Plain, bindedViewModel: downloadsViewModel))
+        
+        mainNavigations.append(downloadsNav)
+        
         // settings
         
+        let settingsViewModel = FXSettingsViewModel()
+        let settingsNav = FXNavigationController(rootViewController: FXSettingsController(style: .Grouped, bindedViewModel: settingsViewModel))
         
+        mainNavigations.append(settingsNav)
+        
+        
+        
+        return mainNavigations
     }
     
     func startWorking() {
         
         log.debug("startWorking")
         
-//        dispatch.async.main { () -> Void in
-//            
-//            HRInterfaceManager.sharedInstance.openDrawer()
-//            self.presentViewController(HRInterfaceManager.sharedInstance.mainNav, animated: false, completion: nil)
-//            
-//        }
+        dispatch.async.main { () -> Void in
+            
+            self.openAppMainController()
+            
+        }
         
     }
     
