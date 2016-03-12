@@ -35,6 +35,9 @@
 		BEF90A7E1C9CA37F00ECFF3F /* FXDownloadsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF90A7D1C9CA37F00ECFF3F /* FXDownloadsViewModel.swift */; };
 		BEF90A801C9CA37F00ECFF3F /* FXSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF90A7F1C9CA37F00ECFF3F /* FXSettingsViewModel.swift */; };
 		BEF90A821C9CA37F00ECFF3F /* FXPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF90A811C9CA37F00ECFF3F /* FXPlayerViewModel.swift */; };
+		BEF90A851C9CA37F00ECFF3F /* FXLocalized.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF90A841C9CA37F00ECFF3F /* FXLocalized.swift */; };
+		BEF90A871C9CA37F00ECFF3F /* FXTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF90A861C9CA37F00ECFF3F /* FXTabBarController.swift */; };
+		BEF90A891C9CA37F00ECFF3F /* FXPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF90A881C9CA37F00ECFF3F /* FXPlayerService.swift */; };
 		D8265D96858E918B3EFFFB26 /* Pods_FXHydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F318777276F6853B46AA3AF9 /* Pods_FXHydra.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +95,9 @@
 		BEF90A7D1C9CA37F00ECFF3F /* FXDownloadsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXDownloadsViewModel.swift; sourceTree = "<group>"; };
 		BEF90A7F1C9CA37F00ECFF3F /* FXSettingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXSettingsViewModel.swift; sourceTree = "<group>"; };
 		BEF90A811C9CA37F00ECFF3F /* FXPlayerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXPlayerViewModel.swift; sourceTree = "<group>"; };
+		BEF90A841C9CA37F00ECFF3F /* FXLocalized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXLocalized.swift; sourceTree = "<group>"; };
+		BEF90A861C9CA37F00ECFF3F /* FXTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXTabBarController.swift; sourceTree = "<group>"; };
+		BEF90A881C9CA37F00ECFF3F /* FXPlayerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXPlayerService.swift; sourceTree = "<group>"; };
 		F318777276F6853B46AA3AF9 /* Pods_FXHydra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FXHydra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -210,6 +216,7 @@
 		BED930EF1C9491FA00A6CD90 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				BEF90A831C9CA37F00ECFF3F /* Utils */,
 				BED930F61C94C1C100A6CD90 /* Database */,
 				BED930F41C94937300A6CD90 /* Services */,
 				BED930F31C94936F00A6CD90 /* Network */,
@@ -234,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				BEF90A6A1C9CA2EB00ECFF3F /* FXNavigationController.swift */,
+				BEF90A861C9CA37F00ECFF3F /* FXTabBarController.swift */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -259,6 +267,7 @@
 			children = (
 				BED930FC1C94C38900A6CD90 /* FXInterfaceService.swift */,
 				BED9310C1C94CDD900A6CD90 /* FXSignalsService.swift */,
+				BEF90A881C9CA37F00ECFF3F /* FXPlayerService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -354,6 +363,14 @@
 			children = (
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		BEF90A831C9CA37F00ECFF3F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BEF90A841C9CA37F00ECFF3F /* FXLocalized.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		CFAD6963EF1E4F840F554415 /* Frameworks */ = {
@@ -568,17 +585,20 @@
 				BED930FB1C94C2DA00A6CD90 /* XCGLogger.swift in Sources */,
 				BE4521F81C995C1800B8A391 /* SwiftyJSON.swift in Sources */,
 				BED9310F1C95ADA600A6CD90 /* SSASideMenu.swift in Sources */,
+				BEF90A891C9CA37F00ECFF3F /* FXPlayerService.swift in Sources */,
 				BED9310A1C94CDAC00A6CD90 /* FXSignal.swift in Sources */,
 				BEF90A771C9CA36E00ECFF3F /* FXPlayerController.swift in Sources */,
 				BEF90A711C9CA34A00ECFF3F /* FXAllAudiosController.swift in Sources */,
 				BED931081C94C65A00A6CD90 /* VideoSplashViewController.swift in Sources */,
 				BEF90A7E1C9CA37F00ECFF3F /* FXDownloadsViewModel.swift in Sources */,
+				BEF90A871C9CA37F00ECFF3F /* FXTabBarController.swift in Sources */,
 				BEF90A7C1C9CA37F00ECFF3F /* FXAllAudiosViewModel.swift in Sources */,
 				BEF90A751C9CA36000ECFF3F /* FXSettingsController.swift in Sources */,
 				BE4521FC1C995C6700B8A391 /* dispatch.swift in Sources */,
 				BED931001C94C43500A6CD90 /* FXAuthController.swift in Sources */,
 				BE4521F61C995BDB00B8A391 /* FXAudioItemModel.swift in Sources */,
 				BEF90A801C9CA37F00ECFF3F /* FXSettingsViewModel.swift in Sources */,
+				BEF90A851C9CA37F00ECFF3F /* FXLocalized.swift in Sources */,
 				BED930F81C94C1D000A6CD90 /* FXDatabaseService.swift in Sources */,
 				BEF90A731C9CA35500ECFF3F /* FXDownloadsController.swift in Sources */,
 				BED930B81C947D8900A6CD90 /* AppDelegate.swift in Sources */,

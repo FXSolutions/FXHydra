@@ -20,6 +20,10 @@ class FXAllAudiosController: UITableViewController {
         
         super.init(style: style)
         
+        self.tabBarItem = UITabBarItem(title: "Audios", image: UIImage(named: "tabbar_allmusic"), tag: 0)
+        
+        self.navigationItem.title = "Audios"
+        
     }
 
     required init?(coder aDecoder: NSCoder) {

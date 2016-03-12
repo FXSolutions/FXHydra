@@ -20,6 +20,10 @@ class FXSettingsController: UITableViewController {
         
         super.init(style: style)
         
+        self.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(named: "tabbar_settings"), tag: 0)
+        
+        self.navigationItem.title = "Settings"
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

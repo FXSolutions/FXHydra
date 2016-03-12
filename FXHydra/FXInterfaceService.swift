@@ -68,7 +68,7 @@ class FXInterfaceService :NSObject , VKSdkDelegate , VKSdkUIDelegate {
         log.debug("UI Action: === pushRootTabBarController ===")
         
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            let tab = UITabBarController()
+            let tab = FXTabBarController()
             tab.viewControllers = self.getMainNavigations()
             
             self.rootNavController.pushViewController(tab, animated: false)

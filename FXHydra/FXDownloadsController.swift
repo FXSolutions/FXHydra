@@ -20,6 +20,10 @@ class FXDownloadsController: UITableViewController {
         
         super.init(style: style)
         
+        self.tabBarItem = UITabBarItem(title: "Downloads", image: UIImage(named: "tabbar_downloads"), tag: 0)
+        
+        self.navigationItem.title = "Downloads"
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
