@@ -9,5 +9,17 @@
 import Foundation
 
 class FXAllAudiosViewModel {
+    
+    var audiosArray = [FXAudioItemModel]()
+    
+    func getAudios(competition:(Bool) -> ()) {
+        
+        FXApiManager.sharedManager().vk_getAudiosWithOffset(0, count: 50) { (arrayAudios) -> () in
+            self.audiosArray = arrayAudios
+            competition(true)
+        }
+        
+    }
+    
 
 }

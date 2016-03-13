@@ -10,15 +10,15 @@ import UIKit
 
 class FXAllAudiosController: UITableViewController {
     
-    weak var viewModel : FXAllAudiosViewModel?
+    var viewModel : FXAllAudiosViewModel?
     
     // MARK: - Init
     
     init(style: UITableViewStyle,bindedViewModel:FXAllAudiosViewModel) {
         
-        self.viewModel = bindedViewModel
-        
         super.init(style: style)
+        
+        self.viewModel = bindedViewModel
         
         self.tabBarItem = UITabBarItem(title: "Audios", image: UIImage(named: "tabbar_allmusic"), tag: 0)
         
@@ -35,6 +35,20 @@ class FXAllAudiosController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableViewStyle()
+        
+        // register cell
+        
+        self.tableView.registerClass(FXDefaultMusicCell.self, forCellReuseIdentifier: "FXDefaultMusicCell")
+        
+        // load data
+        
+        self.viewModel?.getAudios({ (compite) -> () in
+            if compite == true {
+                self.tableView.reloadData()
+            }
+        })
 
     }
 
@@ -42,26 +56,46 @@ class FXAllAudiosController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - View customize 
+    
+    func tableViewStyle() {
+        
+        self.tableView.tableFooterView = UIView()
+        
+    }
+    
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.viewModel!.audiosArray.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
+        
+        let musicModel = self.viewModel?.audiosArray[indexPath.row]
+        
+        ///
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("FXDefaultMusicCell", forIndexPath: indexPath) as! FXDefaultMusicCell
+        cell.textLabel?.text = musicModel?.title
+        
 
         return cell
     }
-    */
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        
+        
+    }
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -98,14 +132,5 @@ class FXAllAudiosController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

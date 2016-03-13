@@ -11,6 +11,7 @@
 		BE4521F81C995C1800B8A391 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4521F71C995C1800B8A391 /* SwiftyJSON.swift */; };
 		BE4521FA1C995C6700B8A391 /* FXApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4521F91C995C6700B8A391 /* FXApiManager.swift */; };
 		BE4521FC1C995C6700B8A391 /* dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4521FB1C995C6700B8A391 /* dispatch.swift */; };
+		BE70F3691C96201A00300696 /* FXDefaultMusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE70F3681C96201A00300696 /* FXDefaultMusicCell.swift */; };
 		BED930B81C947D8900A6CD90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930B71C947D8900A6CD90 /* AppDelegate.swift */; };
 		BED930BF1C947D8900A6CD90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BED930BE1C947D8900A6CD90 /* Assets.xcassets */; };
 		BED930C21C947D8900A6CD90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED930C01C947D8900A6CD90 /* LaunchScreen.storyboard */; };
@@ -65,6 +66,7 @@
 		BE4521F71C995C1800B8A391 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		BE4521F91C995C6700B8A391 /* FXApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXApiManager.swift; sourceTree = "<group>"; };
 		BE4521FB1C995C6700B8A391 /* dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dispatch.swift; sourceTree = "<group>"; };
+		BE70F3681C96201A00300696 /* FXDefaultMusicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXDefaultMusicCell.swift; sourceTree = "<group>"; };
 		BED930B41C947D8900A6CD90 /* FXHydra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXHydra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED930B71C947D8900A6CD90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BED930BE1C947D8900A6CD90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 		BEF90A781C9CA37800ECFF3F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				BE70F3681C96201A00300696 /* FXDefaultMusicCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -454,6 +457,11 @@
 				TargetAttributes = {
 					BED930B31C947D8900A6CD90 = {
 						CreatedOnToolsVersion = 7.2.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					BED930C71C947D8900A6CD90 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -590,6 +598,7 @@
 				BEF90A771C9CA36E00ECFF3F /* FXPlayerController.swift in Sources */,
 				BEF90A711C9CA34A00ECFF3F /* FXAllAudiosController.swift in Sources */,
 				BED931081C94C65A00A6CD90 /* VideoSplashViewController.swift in Sources */,
+				BE70F3691C96201A00300696 /* FXDefaultMusicCell.swift in Sources */,
 				BEF90A7E1C9CA37F00ECFF3F /* FXDownloadsViewModel.swift in Sources */,
 				BEF90A871C9CA37F00ECFF3F /* FXTabBarController.swift in Sources */,
 				BEF90A7C1C9CA37F00ECFF3F /* FXAllAudiosViewModel.swift in Sources */,
