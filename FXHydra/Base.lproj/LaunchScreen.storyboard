@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,55 @@
                     <view key="view" contentMode="scaleToFill" id="DDE-94-Jpq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_screen" translatesAutoresizingMaskIntoConstraints="NO" id="lm1-BF-VOu">
+                                <rect key="frame" x="0.0" y="-33" width="600" height="633"/>
+                            </imageView>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9wm-uC-i51">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="auth_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Xkj-CH-OUT">
+                                <rect key="frame" x="236" y="236" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="TRL-12-y4B"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lm1-BF-VOu" firstAttribute="leading" secondItem="DDE-94-Jpq" secondAttribute="leading" id="1pc-kN-pQ7"/>
+                            <constraint firstAttribute="trailing" secondItem="lm1-BF-VOu" secondAttribute="trailing" id="23S-X2-aSb"/>
+                            <constraint firstItem="Xkj-CH-OUT" firstAttribute="centerY" secondItem="DDE-94-Jpq" secondAttribute="centerY" id="38N-TP-oFb"/>
+                            <constraint firstAttribute="trailing" secondItem="lm1-BF-VOu" secondAttribute="trailing" id="58J-B7-EOe"/>
+                            <constraint firstItem="lm1-BF-VOu" firstAttribute="leading" secondItem="DDE-94-Jpq" secondAttribute="leading" id="7ab-pf-sML"/>
+                            <constraint firstItem="lm1-BF-VOu" firstAttribute="bottom" secondItem="y7o-YD-SWg" secondAttribute="top" constant="-33" id="7kM-w4-One"/>
+                            <constraint firstItem="Xkj-CH-OUT" firstAttribute="centerY" secondItem="lm1-BF-VOu" secondAttribute="centerY" id="Aa2-dU-uZK"/>
+                            <constraint firstItem="Xkj-CH-OUT" firstAttribute="centerY" secondItem="lm1-BF-VOu" secondAttribute="centerY" constant="33" id="QSI-1p-HBE"/>
+                            <constraint firstItem="Xkj-CH-OUT" firstAttribute="top" secondItem="Fi7-41-Gv9" secondAttribute="bottom" constant="216" id="aJ5-ry-zbg"/>
+                            <constraint firstItem="lm1-BF-VOu" firstAttribute="top" secondItem="DDE-94-Jpq" secondAttribute="top" constant="-33" id="dcV-7D-4Um"/>
+                            <constraint firstItem="Xkj-CH-OUT" firstAttribute="centerX" secondItem="lm1-BF-VOu" secondAttribute="centerX" id="eOB-Gp-z5q"/>
+                            <constraint firstItem="lm1-BF-VOu" firstAttribute="bottom" secondItem="y7o-YD-SWg" secondAttribute="top" id="h4M-m9-8hd"/>
+                            <constraint firstItem="lm1-BF-VOu" firstAttribute="top" secondItem="DDE-94-Jpq" secondAttribute="topMargin" constant="-33" id="jev-jq-q0A"/>
+                            <constraint firstItem="lm1-BF-VOu" firstAttribute="top" secondItem="DDE-94-Jpq" secondAttribute="top" constant="-33" id="lGp-1K-JVI"/>
+                            <constraint firstItem="y7o-YD-SWg" firstAttribute="top" secondItem="lm1-BF-VOu" secondAttribute="bottom" id="mLo-za-VBE"/>
+                            <constraint firstItem="Xkj-CH-OUT" firstAttribute="centerY" secondItem="DDE-94-Jpq" secondAttribute="centerY" id="sRU-tD-Xp6"/>
+                            <constraint firstItem="Xkj-CH-OUT" firstAttribute="centerX" secondItem="lm1-BF-VOu" secondAttribute="centerX" id="wxL-js-GIG"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="23S-X2-aSb"/>
+                                <exclude reference="7ab-pf-sML"/>
+                                <exclude reference="7kM-w4-One"/>
+                                <exclude reference="dcV-7D-4Um"/>
+                                <exclude reference="lGp-1K-JVI"/>
+                                <exclude reference="38N-TP-oFb"/>
+                                <exclude reference="Aa2-dU-uZK"/>
+                                <exclude reference="QSI-1p-HBE"/>
+                                <exclude reference="wxL-js-GIG"/>
+                                <exclude reference="mLo-za-VBE"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r62-vH-e55" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +73,8 @@
             <point key="canvasLocation" x="166" y="267"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="auth_logo" width="512" height="512"/>
+        <image name="launch_screen" width="305" height="406"/>
+    </resources>
 </document>
