@@ -36,5 +36,67 @@ class FXAudioItemModel {
         self.audioNetworkURL    = json["url"].stringValue
         
     }
+    
+    
+    func getBitrate(completition:(Int) -> ()) {
+        
+        /////
+        
+        dispatch.async.global { () -> Void in
+            
+            let audioURL = NSURL(string: "\(self.audioNetworkURL)")!
+            
+            let request1: NSMutableURLRequest = NSMutableURLRequest(URL: audioURL)
+            request1.HTTPMethod = "HEAD"
+            
+            var response : NSURLResponse?
+            
+            do {
+                
+                try NSURLConnection.sendSynchronousRequest(request1, returningResponse: &response)
+                
+                if let httpResponse = response as? NSHTTPURLResponse {
+                    
+                    let size = httpResponse.expectedContentLength
+                    let kbit = size/128;//calculate bytes to kbit
+                    let kbps = ceil(round(Double(kbit)/Double(self.duration))/16)*16
+                    
+                    print("kbps === \(kbps)")
+                    
+                    self.bitrate = Int(kbps)
+                    
+                    ////
+                    
+                    dispatch.async.main({ () -> Void in
+                        completition(Int(kbps))
+                    })
+                    
+                    ////
+                    
+                }
+                
+            } catch (let e) {
+                print(e)
+            }
+            
+        }
+        
+        
+        
+    }
+    
+    
+    func getDurationString() -> String {
+        
+        let min = Int(floor(Double(self.duration) / 60))
+        let sec = Int(floor(Double(self.duration) % 60))
+        
+        if (sec < 10) {
+            return "\(min):0\(sec)"
+        } else {
+            return "\(min):\(sec)"
+        }
+        
+    }
 
 }

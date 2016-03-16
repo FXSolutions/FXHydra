@@ -8,6 +8,7 @@ target 'FXHydra' do
     pod 'YYKit'
     pod 'RxSwift'
     pod 'GRDB.swift'
+    pod 'AsyncDisplayKit'
 
 end
 

@@ -12,6 +12,8 @@
 		BE4521FA1C995C6700B8A391 /* FXApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4521F91C995C6700B8A391 /* FXApiManager.swift */; };
 		BE4521FC1C995C6700B8A391 /* dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4521FB1C995C6700B8A391 /* dispatch.swift */; };
 		BE70F3691C96201A00300696 /* FXDefaultMusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE70F3681C96201A00300696 /* FXDefaultMusicCell.swift */; };
+		BE70F36B1C99669100300696 /* AttributedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE70F36A1C99669100300696 /* AttributedLabel.swift */; };
+		BE70F36F1C99669A00300696 /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE70F36E1C99669A00300696 /* MarqueeLabel.m */; };
 		BED930B81C947D8900A6CD90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930B71C947D8900A6CD90 /* AppDelegate.swift */; };
 		BED930BF1C947D8900A6CD90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BED930BE1C947D8900A6CD90 /* Assets.xcassets */; };
 		BED930C21C947D8900A6CD90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED930C01C947D8900A6CD90 /* LaunchScreen.storyboard */; };
@@ -67,6 +69,10 @@
 		BE4521F91C995C6700B8A391 /* FXApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXApiManager.swift; sourceTree = "<group>"; };
 		BE4521FB1C995C6700B8A391 /* dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dispatch.swift; sourceTree = "<group>"; };
 		BE70F3681C96201A00300696 /* FXDefaultMusicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXDefaultMusicCell.swift; sourceTree = "<group>"; };
+		BE70F36A1C99669100300696 /* AttributedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedLabel.swift; sourceTree = "<group>"; };
+		BE70F36C1C99669900300696 /* FXHydra-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FXHydra-Bridging-Header.h"; sourceTree = "<group>"; };
+		BE70F36D1C99669A00300696 /* MarqueeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarqueeLabel.h; sourceTree = "<group>"; };
+		BE70F36E1C99669A00300696 /* MarqueeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeLabel.m; sourceTree = "<group>"; };
 		BED930B41C947D8900A6CD90 /* FXHydra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXHydra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED930B71C947D8900A6CD90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BED930BE1C947D8900A6CD90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -193,12 +199,16 @@
 		BED930EC1C9491B600A6CD90 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				BE70F36D1C99669A00300696 /* MarqueeLabel.h */,
+				BE70F36E1C99669A00300696 /* MarqueeLabel.m */,
 				BE4521FB1C995C6700B8A391 /* dispatch.swift */,
 				BED9310E1C95ADA600A6CD90 /* SSASideMenu.swift */,
 				BED931091C94CDAC00A6CD90 /* FXSignal.swift */,
+				BE70F36A1C99669100300696 /* AttributedLabel.swift */,
 				BE4521F71C995C1800B8A391 /* SwiftyJSON.swift */,
 				BED931041C94C65000A6CD90 /* VideoController */,
 				BED930FA1C94C2DA00A6CD90 /* XCGLogger.swift */,
+				BE70F36C1C99669900300696 /* FXHydra-Bridging-Header.h */,
 			);
 			name = External;
 			sourceTree = "<group>";
@@ -589,8 +599,10 @@
 			files = (
 				BED9310D1C94CDD900A6CD90 /* FXSignalsService.swift in Sources */,
 				BEF90A821C9CA37F00ECFF3F /* FXPlayerViewModel.swift in Sources */,
+				BE70F36F1C99669A00300696 /* MarqueeLabel.m in Sources */,
 				BED931071C94C65A00A6CD90 /* VideoCutter.swift in Sources */,
 				BED930FB1C94C2DA00A6CD90 /* XCGLogger.swift in Sources */,
+				BE70F36B1C99669100300696 /* AttributedLabel.swift in Sources */,
 				BE4521F81C995C1800B8A391 /* SwiftyJSON.swift in Sources */,
 				BED9310F1C95ADA600A6CD90 /* SSASideMenu.swift in Sources */,
 				BEF90A891C9CA37F00ECFF3F /* FXPlayerService.swift in Sources */,
@@ -746,11 +758,14 @@
 			baseConfigurationReference = 04912E3B69CF04D4A8762929 /* Pods-FXHydra.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FXHydra/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FXSolutions.FXHydra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FXHydra-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -759,11 +774,13 @@
 			baseConfigurationReference = 2EEA67849E34ED48E7F4FE24 /* Pods-FXHydra.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FXHydra/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FXSolutions.FXHydra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FXHydra-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -62,6 +62,16 @@ class FXAllAudiosController: UITableViewController {
     func tableViewStyle() {
         
         self.tableView.tableFooterView = UIView()
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 50, 0, 0)
+        self.tableView.indicatorStyle = UIScrollViewIndicatorStyle.White
+        
+        self.definesPresentationContext = true
+        self.extendedLayoutIncludesOpaqueBars = true
+        
+        self.tableView.backgroundColor = UIColor ( red: 0.2228, green: 0.2228, blue: 0.2228, alpha: 1.0 )
+        self.tableView.separatorColor = UIColor ( red: 0.2055, green: 0.2015, blue: 0.2096, alpha: 1.0 )
+        
+        self.view.backgroundColor = UIColor ( red: 0.1221, green: 0.1215, blue: 0.1227, alpha: 1.0 )
         
     }
     
@@ -78,15 +88,22 @@ class FXAllAudiosController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        let cell = tableView.dequeueReusableCellWithIdentifier("FXDefaultMusicCell", forIndexPath: indexPath) as! FXDefaultMusicCell
+        return cell
+        
+    }
+    
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    
         let musicModel = self.viewModel?.audiosArray[indexPath.row]
         
-        ///
+        self.drawMusicCell(cell as! FXDefaultMusicCell, audioModel: musicModel!)
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("FXDefaultMusicCell", forIndexPath: indexPath) as! FXDefaultMusicCell
-        cell.textLabel?.text = musicModel?.title
-        
-
-        return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 70
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -96,44 +113,17 @@ class FXAllAudiosController: UITableViewController {
         
         FXPlayerService.sharedManager().startPlayAudioModel(musicModel!)
         
+    }
+    
+    // MARK: - Drawing cells
+
+    func drawMusicCell(cell:FXDefaultMusicCell,audioModel:FXAudioItemModel) {
+        
+        cell.audioAristLabel.text = audioModel.artist
+        cell.audioTitleLabel.text = audioModel.title
+        cell.audioTimeLabel.text = audioModel.getDurationString()
         
     }
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
 
 }
