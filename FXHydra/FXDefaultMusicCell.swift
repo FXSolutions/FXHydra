@@ -16,6 +16,8 @@ class FXDefaultMusicCell: UITableViewCell {
     var audioBitrate            : AttributedLabel!
     var audioTimeLabel          : AttributedLabel!
     
+    var downloadButton          : UIButton!
+    
     var downloadedImage         : UIImageView!
     var bitRateBackgroundImage  : UIImageView!
     
@@ -45,9 +47,12 @@ class FXDefaultMusicCell: UITableViewCell {
         
         self.bitRateBackgroundImage = UIImageView()
         
+        self.downloadButton = UIButton(type: UIButtonType.System)
+        self.downloadedImage = UIImageView()
+        
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
         
-        self.downloadedImage = UIImageView()
+        self.contentView.addSubview(self.downloadButton)
         
         self.contentView.addSubview(self.downloadedImage)
         self.contentView.addSubview(self.audioAristLabel)
@@ -77,14 +82,15 @@ class FXDefaultMusicCell: UITableViewCell {
         super.layoutSubviews()
         
         
-        self.audioTitleLabel.frame = CGRectMake(self.separatorInset.left, 10, self.contentView.frame.width-70, 20)
-        self.audioAristLabel.frame = CGRectMake(self.separatorInset.left, 40, self.contentView.frame.width-70, 20)
+        self.audioTitleLabel.frame = CGRectMake(self.separatorInset.left, 10, self.contentView.frame.width-100, 20)
+        self.audioAristLabel.frame = CGRectMake(self.separatorInset.left, 35, self.contentView.frame.width-100, 20)
         
-        self.downloadedImage.frame = CGRectMake(self.contentView.frame.width-35, 25, 20, 20)
+        self.audioTimeLabel.frame           = CGRectMake(5, 10, 40, 20)
+        self.bitRateBackgroundImage.frame   = CGRectMake(10, 40, 30, 20)
+        self.audioBitrate.frame             = CGRectMake(10, 40, 30, 20)
         
-        self.audioTimeLabel.frame = CGRectMake(5, 10, 40, 20)
-        self.bitRateBackgroundImage.frame = CGRectMake(10, 40, 30, 20)
-        self.audioBitrate.frame = CGRectMake(10, 40, 30, 20)
+        self.downloadedImage.frame = CGRectMake(self.contentView.frame.width-40, 17, 25, 25)
+        self.downloadButton.frame  = CGRectMake(self.contentView.frame.width-40, 17, 25, 25)
         
     }
     

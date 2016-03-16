@@ -93,7 +93,6 @@ class FXAllAudiosController: UITableViewController {
         
     }
     
-    
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
     
         let musicModel = self.viewModel?.audiosArray[indexPath.row]
@@ -103,7 +102,7 @@ class FXAllAudiosController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 70
+        return 60
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -122,6 +121,9 @@ class FXAllAudiosController: UITableViewController {
         cell.audioAristLabel.text = audioModel.artist
         cell.audioTitleLabel.text = audioModel.title
         cell.audioTimeLabel.text = audioModel.getDurationString()
+        
+        cell.downloadButton.setImage(UIImage(named: "download_button"), forState: UIControlState.Normal)
+        cell.downloadButton.tintColor = UIColor ( red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
         
     }
 
