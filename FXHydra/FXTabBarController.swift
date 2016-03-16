@@ -13,26 +13,9 @@ class FXTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*
-        self.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationBar.barTintColor = UIColor(red: 20/255, green: 20/255, blue: 20/255, alpha: 1.0)
-        
-        self.navigationItem.titleView?.tintColor = UIColor.whiteColor()
-        
-        self.interactivePopGestureRecognizer!.enabled = true
-        
-        self.navigationBar.translucent = false
-        
-        let titleDict = [NSFontAttributeName : UIFont(name: "Avenir-Book", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
-        
-        self.navigationBar.titleTextAttributes = titleDict
-        */
-        
-        self.tabBar.tintColor = UIColor.whiteColor()
+        self.tabBar.tintColor = UIColor ( red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
         self.tabBar.barTintColor = UIColor(red: 20/255, green: 20/255, blue: 20/255, alpha: 1.0)
         self.tabBar.translucent = false
-        
-        
         
         // Do any additional setup after loading the view.
     }

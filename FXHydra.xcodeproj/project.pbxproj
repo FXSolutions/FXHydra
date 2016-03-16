@@ -144,6 +144,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BE70F3701C996FCA00300696 /* Playlists */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Playlists;
+			sourceTree = "<group>";
+		};
 		BED930AB1C947D8900A6CD90 = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +250,7 @@
 				BED930FE1C94C42400A6CD90 /* Auth */,
 				BEF90A6C1C9CA31100ECFF3F /* Audios */,
 				BEF90A6D1C9CA31600ECFF3F /* Downloads */,
+				BE70F3701C996FCA00300696 /* Playlists */,
 				BEF90A6E1C9CA31B00ECFF3F /* Settings */,
 				BEF90A6F1C9CA32000ECFF3F /* Player */,
 			);

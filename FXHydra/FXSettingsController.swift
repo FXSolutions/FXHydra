@@ -36,11 +36,31 @@ class FXSettingsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableViewStyle()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - View customize
+    
+    func tableViewStyle() {
+        
+        self.tableView.tableFooterView = UIView()
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        self.tableView.indicatorStyle = UIScrollViewIndicatorStyle.White
+        
+        self.definesPresentationContext = true
+        self.extendedLayoutIncludesOpaqueBars = true
+        
+        self.tableView.backgroundColor = UIColor ( red: 0.2228, green: 0.2228, blue: 0.2228, alpha: 1.0 )
+        self.tableView.separatorColor = UIColor ( red: 0.2055, green: 0.2015, blue: 0.2096, alpha: 1.0 )
+        
+        self.view.backgroundColor = UIColor ( red: 0.1221, green: 0.1215, blue: 0.1227, alpha: 1.0 )
+        
     }
 
     // MARK: - Table view data source
