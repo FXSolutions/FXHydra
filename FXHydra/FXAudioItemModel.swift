@@ -44,6 +44,17 @@ class FXAudioItemModel {
         
         dispatch.async.global { () -> Void in
             
+            if self.bitrate > 0 {
+                dispatch.async.main({ () -> Void in
+                    completition(self.bitrate)
+                })
+                
+                // stop
+                
+                return
+            }
+            
+            
             let audioURL = NSURL(string: "\(self.audioNetworkURL)")!
             
             let request1: NSMutableURLRequest = NSMutableURLRequest(URL: audioURL)

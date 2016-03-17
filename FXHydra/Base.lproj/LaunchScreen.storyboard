@@ -21,7 +21,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_screen" translatesAutoresizingMaskIntoConstraints="NO" id="lm1-BF-VOu">
                                 <rect key="frame" x="0.0" y="-33" width="600" height="633"/>
                             </imageView>
-                            <view alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9wm-uC-i51">
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9wm-uC-i51">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -43,14 +43,18 @@
                             <constraint firstItem="Xkj-CH-OUT" firstAttribute="centerY" secondItem="lm1-BF-VOu" secondAttribute="centerY" id="Aa2-dU-uZK"/>
                             <constraint firstItem="Xkj-CH-OUT" firstAttribute="centerY" secondItem="lm1-BF-VOu" secondAttribute="centerY" constant="33" id="QSI-1p-HBE"/>
                             <constraint firstItem="Xkj-CH-OUT" firstAttribute="top" secondItem="Fi7-41-Gv9" secondAttribute="bottom" constant="216" id="aJ5-ry-zbg"/>
+                            <constraint firstItem="y7o-YD-SWg" firstAttribute="top" secondItem="9wm-uC-i51" secondAttribute="bottom" id="ap0-iA-tpM"/>
                             <constraint firstItem="lm1-BF-VOu" firstAttribute="top" secondItem="DDE-94-Jpq" secondAttribute="top" constant="-33" id="dcV-7D-4Um"/>
                             <constraint firstItem="Xkj-CH-OUT" firstAttribute="centerX" secondItem="lm1-BF-VOu" secondAttribute="centerX" id="eOB-Gp-z5q"/>
+                            <constraint firstItem="9wm-uC-i51" firstAttribute="leading" secondItem="DDE-94-Jpq" secondAttribute="leading" id="fl0-Rr-iVh"/>
                             <constraint firstItem="lm1-BF-VOu" firstAttribute="bottom" secondItem="y7o-YD-SWg" secondAttribute="top" id="h4M-m9-8hd"/>
                             <constraint firstItem="lm1-BF-VOu" firstAttribute="top" secondItem="DDE-94-Jpq" secondAttribute="topMargin" constant="-33" id="jev-jq-q0A"/>
                             <constraint firstItem="lm1-BF-VOu" firstAttribute="top" secondItem="DDE-94-Jpq" secondAttribute="top" constant="-33" id="lGp-1K-JVI"/>
                             <constraint firstItem="y7o-YD-SWg" firstAttribute="top" secondItem="lm1-BF-VOu" secondAttribute="bottom" id="mLo-za-VBE"/>
                             <constraint firstItem="Xkj-CH-OUT" firstAttribute="centerY" secondItem="DDE-94-Jpq" secondAttribute="centerY" id="sRU-tD-Xp6"/>
+                            <constraint firstItem="9wm-uC-i51" firstAttribute="top" secondItem="DDE-94-Jpq" secondAttribute="top" id="vjB-le-I75"/>
                             <constraint firstItem="Xkj-CH-OUT" firstAttribute="centerX" secondItem="lm1-BF-VOu" secondAttribute="centerX" id="wxL-js-GIG"/>
+                            <constraint firstAttribute="trailing" secondItem="9wm-uC-i51" secondAttribute="trailing" id="x0N-yt-gwX"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

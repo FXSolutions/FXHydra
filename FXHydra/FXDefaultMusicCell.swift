@@ -62,7 +62,6 @@ class FXDefaultMusicCell: UITableViewCell {
         self.contentView.addSubview(self.audioBitrate)
         self.contentView.addSubview(self.audioTimeLabel)
         
-        
         self.contentView.backgroundColor = UIColor.clearColor()
         self.backgroundColor = UIColor.clearColor()
         
@@ -86,8 +85,8 @@ class FXDefaultMusicCell: UITableViewCell {
         self.audioAristLabel.frame = CGRectMake(self.separatorInset.left, 35, self.contentView.frame.width-100, 20)
         
         self.audioTimeLabel.frame           = CGRectMake(5, 10, 40, 20)
-        self.bitRateBackgroundImage.frame   = CGRectMake(10, 40, 30, 20)
-        self.audioBitrate.frame             = CGRectMake(10, 40, 30, 20)
+        self.bitRateBackgroundImage.frame   = CGRectMake(10, 35, 30, 20)
+        self.audioBitrate.frame             = CGRectMake(10, 35, 30, 20)
         
         self.downloadedImage.frame = CGRectMake(self.contentView.frame.width-40, 17, 25, 25)
         self.downloadButton.frame  = CGRectMake(self.contentView.frame.width-40, 17, 25, 25)

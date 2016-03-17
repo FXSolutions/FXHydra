@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YYKit
 
 class FXAllAudiosController: UITableViewController {
     
@@ -124,6 +125,13 @@ class FXAllAudiosController: UITableViewController {
         
         cell.downloadButton.setImage(UIImage(named: "download_button"), forState: UIControlState.Normal)
         cell.downloadButton.tintColor = UIColor ( red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
+        
+        cell.bitRateBackgroundImage.image = UIImage(named: "bitrate_background")?.imageByGrayscale()
+        
+        audioModel.getBitrate { (bitrate) -> () in
+            cell.audioBitrate.text = "\(bitrate)"
+            cell.bitRateBackgroundImage.image = UIImage(named: "bitrate_background")?.imageByTintColor(UIColor ( red: 0.0734, green: 0.6267, blue: 0.7817, alpha: 1.0))
+        }
         
     }
 
