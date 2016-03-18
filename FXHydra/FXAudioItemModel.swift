@@ -24,6 +24,10 @@ class FXAudioItemModel {
     var downloadedTime : Int!
     var bitrate : Int = 0
     
+    init() {
+        self.audioID = -1
+    }
+    
     init(json : JSON) {
         
         self.title              = json["title"].stringValue

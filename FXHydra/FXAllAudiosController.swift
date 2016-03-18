@@ -8,6 +8,7 @@
 
 import UIKit
 import YYKit
+import ESTMusicIndicator
 
 class FXAllAudiosController: UITableViewController {
     
@@ -52,10 +53,42 @@ class FXAllAudiosController: UITableViewController {
         
         self.viewModel?.getAudios({ (compite) -> () in
             if compite == true {
-                self.tableView.reloadData()
+                self.animateTable()
             }
         })
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        self.animateTable()
+        
+    }
+    
+    func animateTable() {
+        
+        self.tableView.reloadData()
+        
+        ////
+        
+        let cells = tableView.visibleCells
+        let tableHeight: CGFloat = tableView.bounds.size.height
+        
+        for i in cells {
+            let cell: UITableViewCell = i as UITableViewCell
+            cell.transform = CGAffineTransformMakeTranslation(0, tableHeight)
+        }
+        
+        var index = 0
+        
+        for a in cells {
+            let cell: UITableViewCell = a as UITableViewCell
+            UIView.animateWithDuration(0.5, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
+                cell.transform = CGAffineTransformMakeTranslation(0, 0);
+                }, completion: nil)
+            
+            index += 1
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,7 +127,10 @@ class FXAllAudiosController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        let auidoModel = self.viewModel?.audiosArray[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("FXDefaultMusicCell", forIndexPath: indexPath) as! FXDefaultMusicCell
+        cell.bindedAudioModel = auidoModel
+        
         return cell
         
     }
@@ -114,8 +150,25 @@ class FXAllAudiosController: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let musicModel = self.viewModel?.audiosArray[indexPath.row]
+        /// audio state
         
+        let currentAudioID = FXPlayerService.sharedManager().currentAudioPlayed.audioID
+        
+        for cell in tableView.visibleCells as! [FXDefaultMusicCell] {
+            cell.musicIndicator.state = .ESTMusicIndicatorViewStateStopped
+            
+            if (currentAudioID != musicModel?.audioID) {
+                cell.downloadButton.hidden = false
+            }
+            
+        }
+    
         FXPlayerService.sharedManager().startPlayAudioModel(musicModel!)
+        
+        self.tableView.updateWithBlock { (tableView) -> Void in
+            tableView.reloadRow(UInt(indexPath.row), inSection: UInt(indexPath.section), withRowAnimation: UITableViewRowAnimation.None)
+        }
+        
         
     }
     
@@ -130,13 +183,25 @@ class FXAllAudiosController: UITableViewController {
         cell.downloadButton.setImage(UIImage(named: "download_button"), forState: UIControlState.Normal)
         cell.downloadButton.tintColor = UIColor ( red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
         
-        cell.bitRateBackgroundImage.image = self.bitrateImageDark
-        cell.audioBitrate.text = "●●●"
         ///
         
-        audioModel.getBitrate { (bitrate) -> () in
-            cell.audioBitrate.text = "\(bitrate)"
-            cell.bitRateBackgroundImage.image = self.bitrateImageBlue
+        dispatch.async.global { () -> Void in
+            audioModel.getBitrate { (bitrate) -> () in
+                cell.audioBitrate.text = "\(bitrate)"
+                cell.bitRateBackgroundImage.image = self.bitrateImageBlue
+            }
+        }
+
+        cell.bitRateBackgroundImage.image = self.bitrateImageDark
+        cell.audioBitrate.text = "●●●"
+        
+        ///
+        
+        if (FXPlayerService.sharedManager().currentAudioPlayed.audioID == audioModel.audioID) {
+            cell.downloadButton.hidden = true
+            cell.musicIndicator.state = .ESTMusicIndicatorViewStatePlaying
+        } else {
+            cell.musicIndicator.state = .ESTMusicIndicatorViewStateStopped
         }
         
         

@@ -9,6 +9,7 @@ target 'FXHydra' do
     pod 'RxSwift'
     pod 'GRDB.swift'
     pod 'AsyncDisplayKit'
+    pod 'ESTMusicIndicator'
 
 end
 

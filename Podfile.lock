@@ -5,6 +5,7 @@ PODS:
   - AsyncDisplayKit/PINRemoteImage (1.9.7):
     - AsyncDisplayKit/ASDealloc2MainObject
     - PINRemoteImage/iOS (>= 2)
+  - ESTMusicIndicator (0.1.2)
   - GRDB.swift (0.51.2)
   - PINCache (2.2.2)
   - PINRemoteImage/Core (2.1):
@@ -20,6 +21,7 @@ PODS:
 
 DEPENDENCIES:
   - AsyncDisplayKit
+  - ESTMusicIndicator
   - GRDB.swift
   - RxSwift
   - StreamingKit
@@ -28,6 +30,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AsyncDisplayKit: eb762d3bfd3896b2901909ebc24b54c97f32d43c
+  ESTMusicIndicator: 03dd1364d2db1a0a8684fb907406bc329f3700a6
   GRDB.swift: e9dd5498e715016704dca6654700f4b908ff364d
   PINCache: 078426d356ab95ef875e9e62e5c35a2ea3333c28
   PINRemoteImage: e8367ac3f5c234712f1d8c274462ec834d649940

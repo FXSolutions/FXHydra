@@ -24,6 +24,10 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
         return shared
     }
     
+    // vars
+    
+    var currentAudioPlayed:FXAudioItemModel = FXAudioItemModel()
+    
     override init() {
         super.init()
         
@@ -47,6 +51,7 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
         
         self.audioPlayer.play(model.audioNetworkURL)
     
+        self.currentAudioPlayed = model
     }
     
     

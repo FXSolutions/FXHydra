@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ESTMusicIndicator
 
 class FXDefaultMusicCell: UITableViewCell {
 
@@ -20,6 +21,10 @@ class FXDefaultMusicCell: UITableViewCell {
     
     var downloadedImage         : UIImageView!
     var bitRateBackgroundImage  : UIImageView!
+    
+    weak var bindedAudioModel         : FXAudioItemModel!
+    
+    var musicIndicator          : ESTMusicIndicatorView!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
@@ -50,6 +55,10 @@ class FXDefaultMusicCell: UITableViewCell {
         self.downloadButton = UIButton(type: UIButtonType.System)
         self.downloadedImage = UIImageView()
         
+        self.musicIndicator = ESTMusicIndicatorView()
+        self.musicIndicator.tintColor = UIColor (red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
+        self.musicIndicator.hidesWhenStopped = true
+        
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
         
         self.contentView.addSubview(self.downloadButton)
@@ -61,6 +70,8 @@ class FXDefaultMusicCell: UITableViewCell {
         self.contentView.addSubview(self.bitRateBackgroundImage)
         self.contentView.addSubview(self.audioBitrate)
         self.contentView.addSubview(self.audioTimeLabel)
+        
+        self.contentView.addSubview(self.musicIndicator)
         
         self.contentView.backgroundColor = UIColor.clearColor()
         self.backgroundColor = UIColor.clearColor()
@@ -80,22 +91,25 @@ class FXDefaultMusicCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        self.audioTitleLabel.frame = CGRectMake(self.separatorInset.left, 5, self.contentView.frame.width-100, 20)
+        self.audioAristLabel.frame = CGRectMake(self.separatorInset.left, 32.5, self.contentView.frame.width-100, 20)
         
-        self.audioTitleLabel.frame = CGRectMake(self.separatorInset.left, 10, self.contentView.frame.width-100, 20)
-        self.audioAristLabel.frame = CGRectMake(self.separatorInset.left, 35, self.contentView.frame.width-100, 20)
-        
-        self.audioTimeLabel.frame           = CGRectMake(5, 10, 40, 20)
-        self.bitRateBackgroundImage.frame   = CGRectMake(10, 35, 30, 20)
-        self.audioBitrate.frame             = CGRectMake(10, 35, 30, 20)
+        self.audioTimeLabel.frame           = CGRectMake(5, 5, 40, 20)
+        self.bitRateBackgroundImage.frame   = CGRectMake(10, 32.5, 30, 20)
+        self.audioBitrate.frame             = CGRectMake(10, 32.5, 30, 20)
         
         self.downloadedImage.frame = CGRectMake(self.contentView.frame.width-40, 17, 25, 25)
         self.downloadButton.frame  = CGRectMake(self.contentView.frame.width-40, 17, 25, 25)
+        
+        self.musicIndicator.frame  = CGRectMake(self.contentView.frame.width-40, 17, 25, 25)
         
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        self.musicIndicator.state = ESTMusicIndicatorViewState.ESTMusicIndicatorViewStateStopped
+        self.downloadButton.hidden = false
         
     }
     
