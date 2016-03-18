@@ -185,15 +185,18 @@ class FXAllAudiosController: UITableViewController {
         
         ///
         
-        dispatch.async.global { () -> Void in
+        if audioModel.bitrate > 0 {
+            cell.audioBitrate.text = "\(audioModel.bitrate)"
+            cell.bitRateBackgroundImage.image = self.bitrateImageBlue
+        } else {
+            cell.bitRateBackgroundImage.image = self.bitrateImageDark
+            cell.audioBitrate.text = "●●●"
+            
             audioModel.getBitrate { (bitrate) -> () in
                 cell.audioBitrate.text = "\(bitrate)"
                 cell.bitRateBackgroundImage.image = self.bitrateImageBlue
             }
         }
-
-        cell.bitRateBackgroundImage.image = self.bitrateImageDark
-        cell.audioBitrate.text = "●●●"
         
         ///
         
