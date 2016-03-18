@@ -7,7 +7,15 @@
 //
 
 import Foundation
+import VK_ios_sdk
 
 class FXSettingsViewModel {
+    
+    func logOut() {
+        
+        VKSdk.forceLogout()
+        FXInterfaceService.sharedManager().logOut()
+        
+    }
 
 }

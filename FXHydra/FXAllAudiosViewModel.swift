@@ -21,5 +21,11 @@ class FXAllAudiosViewModel {
         
     }
     
+    deinit {
+        
+        log.info("deinit ::: FXAllAudiosViewModel")
+        
+    }
+    
 
 }

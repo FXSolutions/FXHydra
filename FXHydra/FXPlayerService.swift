@@ -10,7 +10,7 @@ import Foundation
 import StreamingKit
 import AVFoundation
 
-class FXPlayerService {
+class FXPlayerService : NSObject, STKAudioPlayerDelegate {
 
     //
     // Shared instance
@@ -24,7 +24,10 @@ class FXPlayerService {
         return shared
     }
     
-    init() {
+    override init() {
+        super.init()
+        
+        audioPlayer.delegate = self
         
         let audioSession = AVAudioSession.sharedInstance()
         
@@ -44,6 +47,45 @@ class FXPlayerService {
         
         self.audioPlayer.play(model.audioNetworkURL)
     
+    }
+    
+    
+    // stk delegate
+    
+    /// Raised when an item has started playing
+    func audioPlayer(audioPlayer: STKAudioPlayer, didStartPlayingQueueItemId queueItemId: NSObject) {
+        //
+    }
+    
+    /// Raised when an item has finished buffering (may or may not be the currently playing item)
+    /// This event may be raised multiple times for the same item if seek is invoked on the player
+    func audioPlayer(audioPlayer: STKAudioPlayer, didFinishBufferingSourceWithQueueItemId queueItemId: NSObject) {
+        //
+    }
+    
+    /// Raised when an item has finished playing
+    func audioPlayer(audioPlayer: STKAudioPlayer, didFinishPlayingQueueItemId queueItemId: NSObject, withReason stopReason: STKAudioPlayerStopReason, andProgress progress: Double, andDuration duration: Double) {
+        //
+    }
+    
+    /// Raised when the state of the player has changed
+    func audioPlayer(audioPlayer: STKAudioPlayer, stateChanged state: STKAudioPlayerState, previousState: STKAudioPlayerState) {
+        //
+    }
+    
+    /// Raised when an unexpected and possibly unrecoverable error has occured (usually best to recreate the STKAudioPlauyer)
+    func audioPlayer(audioPlayer: STKAudioPlayer, unexpectedError errorCode: STKAudioPlayerErrorCode) {
+        //
+    }
+    
+    /// Optionally implemented to get logging information from the STKAudioPlayer (used internally for debugging)
+    func audioPlayer(audioPlayer: STKAudioPlayer, logInfo line: String) {
+        //
+    }
+    
+    /// Raised when items queued items are cleared (usually because of a call to play, setDataSource or stop)
+    func audioPlayer(audioPlayer: STKAudioPlayer, didCancelQueuedItems queuedItems: [AnyObject]) {
+        //
     }
     
 }

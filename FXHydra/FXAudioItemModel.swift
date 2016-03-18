@@ -72,7 +72,7 @@ class FXAudioItemModel {
                     let kbit = size/128;//calculate bytes to kbit
                     let kbps = ceil(round(Double(kbit)/Double(self.duration))/16)*16
                     
-                    print("kbps === \(kbps)")
+                    //print("kbps === \(kbps)")
                     
                     self.bitrate = Int(kbps)
                     

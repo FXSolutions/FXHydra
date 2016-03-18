@@ -10,7 +10,7 @@ import UIKit
 
 class FXSettingsController: UITableViewController {
 
-    weak var viewModel : FXSettingsViewModel?
+    var viewModel : FXSettingsViewModel?
     
     // MARK: - Init
     
@@ -94,7 +94,10 @@ class FXSettingsController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         // log out
+        self.viewModel?.logOut()
         
     }
 

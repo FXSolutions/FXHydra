@@ -59,7 +59,9 @@ class FXInterfaceService :NSObject , VKSdkDelegate , VKSdkUIDelegate {
     
     func openAuthController() {
         
-        self.rootNavController.pushViewController(FXAuthController(), animated: false)
+        dispatch.async.main { () -> Void in
+            self.rootNavController.pushViewController(FXAuthController(), animated: false)
+        }
         
     }
     
@@ -113,6 +115,15 @@ class FXInterfaceService :NSObject , VKSdkDelegate , VKSdkUIDelegate {
         return mainNavigations
     }
     
+    func logOut() {
+        
+        dispatch.async.main { () -> Void in
+            self.rootNavController.viewControllers.removeAll()
+            self.openAuthController()
+        }
+        
+    }
+    
     func startWorking() {
         
         log.debug("startWorking")
@@ -124,6 +135,8 @@ class FXInterfaceService :NSObject , VKSdkDelegate , VKSdkUIDelegate {
         }
         
     }
+    
+    // MARK: - VKSdk delegate
     
     func vkSdkNeedCaptchaEnter(captchaError: VKError!) {
         //
