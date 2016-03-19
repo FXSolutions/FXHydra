@@ -163,7 +163,7 @@ class FXAllAudiosController: UITableViewController {
             
         }
     
-        FXPlayerService.sharedManager().startPlayAudioModel(musicModel!)
+        FXPlayerService.sharedManager().startPlayAudio(musicModel!)
         
         self.tableView.updateWithBlock { (tableView) -> Void in
             tableView.reloadRow(UInt(indexPath.row), inSection: UInt(indexPath.section), withRowAnimation: UITableViewRowAnimation.None)

@@ -9,6 +9,7 @@
 import Foundation
 import StreamingKit
 import AVFoundation
+import VK_ios_sdk
 
 class FXPlayerService : NSObject, STKAudioPlayerDelegate {
 
@@ -38,11 +39,37 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
         
     }
     
-    
-    func startPlayAudioModel(model:FXAudioItemModel) {
+    func startPlayAudio(model:FXAudioItemModel) {
         
-        self.audioPlayer.play(model.audioNetworkURL)
+        if model.audioLocalURL == nil {
+            self.startPlayNetworkURL(model)
+        } else {
+            self.startPlayLocalURL(model)
+        }
+        
+    }
     
+    
+    private func startPlayNetworkURL(model:FXAudioItemModel) {
+        
+        log.info("::: startPlayNetworkURL :::")
+        
+        self.checkURLForAudio(model) { (audioURL) -> () in
+            self.audioPlayer.play(audioURL)
+            
+            self.currentAudioPlayed = model
+            self.checkAudioSession()
+        }
+        
+        
+    }
+    
+    private func startPlayLocalURL(model:FXAudioItemModel) {
+        
+        log.info("::: startPlayNetworkURL :::")
+        
+        self.audioPlayer.play(model.audioLocalURL)
+        
         self.currentAudioPlayed = model
         self.checkAudioSession()
     }
@@ -60,6 +87,31 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
             
         } catch {
             log.error("audio session register error")
+        }
+        
+    }
+    
+    func checkURLForAudio(model:FXAudioItemModel,completition:(String) -> ()) {
+        
+        dispatch.async.global { () -> Void in
+            model.getBitrate { (bitrate) -> () in
+                if (bitrate > 0) {
+                    
+                    dispatch.async.main({ () -> Void in
+                        completition(model.audioNetworkURL)
+                    })
+                    
+                } else {
+                    
+                    FXApiManager.sharedManager().vk_getAudioIDInfo(model.audioID, competition: { (audioModel) -> () in
+                        
+                        dispatch.async.main({ () -> Void in
+                            completition(audioModel.audioNetworkURL)
+                        })
+                        
+                    })
+                }
+            }
         }
         
     }

@@ -7,12 +7,50 @@
 //
 
 import UIKit
+import YYKit
 
 class FXPlayerController: UIViewController {
     
     weak var viewModel : FXPlayerViewModel?
     
+    // main
+    
+    var backgroundImage : UIImageView!
+    var blurEffectView : UIVisualEffectView!
+    
+    //
+    
+    var converContainer      : UIView!
+    var controllersContaienr : UIView!
+    
+    // conver container 
+    
+    var converImage : UIImageView!
+    
+    // controllers container
+    
+    var songSlider          : UISlider!
+    var songTimeLeftLabel   : AttributedLabel!
+    var songTimeRightLabel  : AttributedLabel!
+    
+    var songTitleLabel      : MarqueeLabel!
+    var songArtistLabel     : AttributedLabel!
+    
+    var addToDownloadButton : UIButton!
+    var prevSongButton      : UIButton!
+    var playPauseButton     : UIButton!
+    var nextSongButton      : UIButton!
+    var playlistButton      : UIButton!
+    
+    var volumeSlider        : UISlider!
+    var volumeLeftImage     : UIImageView!
+    var volumeRightImage    : UIImageView!
+    
+    // tool bar
+    
     var toolBar : UIToolbar!
+    
+    // height 190
     
     // MARK: - Init
     
