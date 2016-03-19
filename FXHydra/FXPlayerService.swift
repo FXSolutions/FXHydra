@@ -28,6 +28,9 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
     
     var currentAudioPlayed:FXAudioItemModel = FXAudioItemModel()
     
+    var currentAudiosArray = [FXAudioItemModel]()
+    var currentAudioInArray = 0
+    
     override init() {
         super.init()
         

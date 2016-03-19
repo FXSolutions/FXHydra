@@ -136,6 +136,18 @@ class FXInterfaceService :NSObject , VKSdkDelegate , VKSdkUIDelegate {
         
     }
     
+    // MARK: - In App ui changes
+    
+    func openPlayer() {
+        
+        let playerViewModel = FXPlayerViewModel()
+        let playerVC = FXPlayerController(bindedViewModel: playerViewModel)
+        let playerNav = FXNavigationController(rootViewController:playerVC)
+        
+        self.rootNavController.presentViewController(playerNav, animated: true, completion: nil)
+        
+    }
+    
     // MARK: - VKSdk delegate
     
     func vkSdkNeedCaptchaEnter(captchaError: VKError!) {

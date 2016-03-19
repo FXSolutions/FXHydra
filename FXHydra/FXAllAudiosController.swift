@@ -169,6 +169,9 @@ class FXAllAudiosController: UITableViewController {
             tableView.reloadRow(UInt(indexPath.row), inSection: UInt(indexPath.section), withRowAnimation: UITableViewRowAnimation.None)
         }
         
+        ///
+        
+        FXInterfaceService.sharedManager().openPlayer()
         
     }
     

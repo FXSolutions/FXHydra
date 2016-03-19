@@ -13,15 +13,13 @@ class FXNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        self.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationBar.tintColor = UIColor ( red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
         self.navigationBar.barTintColor = UIColor(red: 20/255, green: 20/255, blue: 20/255, alpha: 1.0)
-        
         self.navigationItem.titleView?.tintColor = UIColor.whiteColor()
         
         self.interactivePopGestureRecognizer!.enabled = true
-        
         self.navigationBar.translucent = false
+        
         
         let titleDict = [NSFontAttributeName : UIFont(name: "Avenir-Book", size: 20)!, NSForegroundColorAttributeName : UIColor.whiteColor()]
         
