@@ -33,6 +33,19 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
         
         audioPlayer.delegate = self
         
+    }
+    
+    
+    func startPlayAudioModel(model:FXAudioItemModel) {
+        
+        self.audioPlayer.play(model.audioNetworkURL)
+    
+        self.currentAudioPlayed = model
+        self.checkAudioSession()
+    }
+    
+    func checkAudioSession() {
+        
         let audioSession = AVAudioSession.sharedInstance()
         
         do {
@@ -44,14 +57,6 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
             log.error("audio session register error")
         }
         
-    }
-    
-    
-    func startPlayAudioModel(model:FXAudioItemModel) {
-        
-        self.audioPlayer.play(model.audioNetworkURL)
-    
-        self.currentAudioPlayed = model
     }
     
     

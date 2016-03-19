@@ -98,10 +98,10 @@ class FXDefaultMusicCell: UITableViewCell {
         self.bitRateBackgroundImage.frame   = CGRectMake(10, 32.5, 30, 20)
         self.audioBitrate.frame             = CGRectMake(10, 32.5, 30, 20)
         
-        self.downloadedImage.frame = CGRectMake(self.contentView.frame.width-40, 17, 25, 25)
-        self.downloadButton.frame  = CGRectMake(self.contentView.frame.width-40, 17, 25, 25)
+        self.downloadedImage.frame = CGRectMake(self.contentView.frame.width-40, 15, 30, 30)
+        self.downloadButton.frame  = CGRectMake(self.contentView.frame.width-40, 15, 30, 30)
         
-        self.musicIndicator.frame  = CGRectMake(self.contentView.frame.width-40, 17, 25, 25)
+        self.musicIndicator.frame  = CGRectMake(self.contentView.frame.width-40, 15, 30, 30)
         
     }
     
