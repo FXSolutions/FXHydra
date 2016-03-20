@@ -14,8 +14,8 @@ class FXAllAudiosController: UITableViewController {
     
     var viewModel : FXAllAudiosViewModel?
     
+    // FIX IT : going to another public static class
     let bitrateImageDark = UIImage(named: "bitrate_background")?.imageByTintColor(UIColor ( red: 0.426, green: 0.4397, blue: 0.4529, alpha: 1.0))
-    
     let bitrateImageBlue = UIImage(named: "bitrate_background")?.imageByTintColor(UIColor ( red: 0.0734, green: 0.6267, blue: 0.7817, alpha: 1.0))
     
     
@@ -163,7 +163,7 @@ class FXAllAudiosController: UITableViewController {
             
         }
     
-        FXPlayerService.sharedManager().startPlayAudio(musicModel!)
+        //FXPlayerService.sharedManager().startPlayAudio(musicModel!)
         
         self.tableView.updateWithBlock { (tableView) -> Void in
             tableView.reloadRow(UInt(indexPath.row), inSection: UInt(indexPath.section), withRowAnimation: UITableViewRowAnimation.None)

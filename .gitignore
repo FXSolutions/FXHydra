@@ -60,3 +60,7 @@ Carthage/Build
 # https://github.com/fastlane/fastlane/blob/master/docs/Gitignore.md
 
 fastlane/
+
+# inject
+
+iOSInjectionProject/

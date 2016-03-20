@@ -16,6 +16,7 @@
 		BE70F36F1C99669A00300696 /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE70F36E1C99669A00300696 /* MarqueeLabel.m */; };
 		BE70F3731C9970EE00300696 /* FXPlaylistsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE70F3721C9970EE00300696 /* FXPlaylistsController.swift */; };
 		BE70F3751C99710A00300696 /* FXPlaylistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE70F3741C99710A00300696 /* FXPlaylistsViewModel.swift */; };
+		BE70F3771C9ECBF000300696 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE70F3761C9ECBF000300696 /* main.m */; };
 		BED930B81C947D8900A6CD90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930B71C947D8900A6CD90 /* AppDelegate.swift */; };
 		BED930BF1C947D8900A6CD90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BED930BE1C947D8900A6CD90 /* Assets.xcassets */; };
 		BED930C21C947D8900A6CD90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED930C01C947D8900A6CD90 /* LaunchScreen.storyboard */; };
@@ -77,6 +78,7 @@
 		BE70F36E1C99669A00300696 /* MarqueeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeLabel.m; sourceTree = "<group>"; };
 		BE70F3721C9970EE00300696 /* FXPlaylistsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXPlaylistsController.swift; sourceTree = "<group>"; };
 		BE70F3741C99710A00300696 /* FXPlaylistsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXPlaylistsViewModel.swift; sourceTree = "<group>"; };
+		BE70F3761C9ECBF000300696 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BED930B41C947D8900A6CD90 /* FXHydra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXHydra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED930B71C947D8900A6CD90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BED930BE1C947D8900A6CD90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		BED930EE1C9491F100A6CD90 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				BE70F3761C9ECBF000300696 /* main.m */,
 				BED931021C94C4EF00A6CD90 /* Resourses */,
 				BED930C31C947D8900A6CD90 /* Info.plist */,
 				BED930C01C947D8900A6CD90 /* LaunchScreen.storyboard */,
@@ -625,6 +628,7 @@
 				BE70F36F1C99669A00300696 /* MarqueeLabel.m in Sources */,
 				BED931071C94C65A00A6CD90 /* VideoCutter.swift in Sources */,
 				BED930FB1C94C2DA00A6CD90 /* XCGLogger.swift in Sources */,
+				BE70F3771C9ECBF000300696 /* main.m in Sources */,
 				BE70F36B1C99669100300696 /* AttributedLabel.swift in Sources */,
 				BE4521F81C995C1800B8A391 /* SwiftyJSON.swift in Sources */,
 				BED9310F1C95ADA600A6CD90 /* SSASideMenu.swift in Sources */,
