@@ -85,13 +85,16 @@ class FXPlayerController: UIViewController {
         self.songCoverContainer.backgroundColor = UIColor.clearColor()
         
         self.songCoverImage = UIImageView()
+        self.songCoverImage.contentMode = UIViewContentMode.ScaleAspectFill
+        self.songCoverImage.layer.masksToBounds = true
         
         ///////////////////////////////////////////////////////////////
         
         self.controllersContainer = UIView()
         self.controllersContainer.backgroundColor = UIColor.clearColor()
         
-        //
+        ///////////////////////////////////////////////////////////////
+        // song slider
         
         self.songSlider         = UISlider()
         
@@ -103,38 +106,68 @@ class FXPlayerController: UIViewController {
         
         let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
-        let trackLeftImage1 = UIImage(named: "min_slider_image")!.imageByTintColor(globalTintColor)
-        let trackLeftResizable1 = trackLeftImage1!.resizableImageWithCapInsets(insets)
+        let trackLeftImage1         = UIImage(named: "min_slider_image")!.imageByTintColor(globalTintColor)
+        let trackLeftResizable1     = trackLeftImage1!.resizableImageWithCapInsets(insets)
         self.songSlider.setMinimumTrackImage(trackLeftResizable1, forState: UIControlState.Normal)
         
-        let trackRightImage1 = UIImage(named: "max_slider_image")!
-        let trackRightResizable1 = trackRightImage1.resizableImageWithCapInsets(insets)
+        let trackRightImage1        = UIImage(named: "max_slider_image")!
+        let trackRightResizable1    = trackRightImage1.resizableImageWithCapInsets(insets)
         self.songSlider.setMaximumTrackImage(trackRightResizable1, forState: UIControlState.Normal)
         
         self.songSlider.setThumbImage(UIImage(named: "track_slider_tumb")!.imageByTintColor(globalTintColor), forState: UIControlState.Normal)
         
         ///
         
-        self.songTimeLeftLabel  = AttributedLabel()
-        self.songTimeRightLabel = AttributedLabel()
+        self.songTimeLeftLabel                  = AttributedLabel()
+        self.songTimeLeftLabel.backgroundColor  = UIColor.clearColor()
+        self.songTimeLeftLabel.font             = UIFont(name: "AvenirNext-Regular", size: 15)!
+        self.songTimeLeftLabel.textColor        = UIColor.lightGrayColor()
+        self.songTimeLeftLabel.contentAlignment = .Left
         
-        self.songTitleLabel     = MarqueeLabel()
-        self.songArtistLabel    = AttributedLabel()
+        self.songTimeRightLabel                     = AttributedLabel()
+        self.songTimeRightLabel.backgroundColor     = UIColor.clearColor()
+        self.songTimeRightLabel.font                = UIFont(name: "AvenirNext-Regular", size: 15)!
+        self.songTimeRightLabel.textColor           = UIColor.lightGrayColor()
+        self.songTimeRightLabel.contentAlignment    = .Right
         
-        self.addToDownloadButton    = UIButton(type: UIButtonType.System)
-        self.prevSongButton         = UIButton(type: UIButtonType.System)
-        self.nextSongButton         = UIButton(type: UIButtonType.System)
-        self.playPauseButton        = UIButton(type: UIButtonType.System)
-        self.playlistButton         = UIButton(type: UIButtonType.System)
+        ///////////////////////////////////////////////////////////////
+        /// titles and buttons
+        
+        self.songTitleLabel                 = MarqueeLabel()
+        self.songTitleLabel.backgroundColor = UIColor.clearColor()
+        self.songTitleLabel.textColor       = UIColor.whiteColor()
+        self.songTitleLabel.textAlignment   = .Center
+        self.songTitleLabel.font            = UIFont(name: "AvenirNext-Medium", size: 17)!
+        
+        self.songArtistLabel                    = AttributedLabel()
+        self.songArtistLabel.contentAlignment   = .Center
+        self.songArtistLabel.backgroundColor    = UIColor.clearColor()
+        self.songArtistLabel.textColor          = UIColor.lightGrayColor()
+        self.songArtistLabel.font               = UIFont(name: "AvenirNext-Regular", size: 15)!
+        
+        self.addToDownloadButton            = UIButton(type: UIButtonType.System)
+        self.addToDownloadButton.tintColor  = globalTintColor
+        self.prevSongButton                 = UIButton(type: UIButtonType.System)
+        self.prevSongButton.tintColor       = globalTintColor
+        self.nextSongButton                 = UIButton(type: UIButtonType.System)
+        self.nextSongButton.tintColor       = globalTintColor
+        self.playPauseButton                = UIButton(type: UIButtonType.System)
+        self.playPauseButton.tintColor      = globalTintColor
+        self.playlistButton                 = UIButton(type: UIButtonType.System)
+        self.playlistButton.tintColor       = globalTintColor
+        
+        
+        ///////////////////////////////////////////////////////////////
+        /// volume
         
         self.volumeSlider = UISlider()
         
-        let volumeLeftImage1 = UIImage(named: "min_slider_image")!.imageByTintColor(globalTintColor)
-        let volumeLeftResizable1 = volumeLeftImage1!.resizableImageWithCapInsets(insets)
+        let volumeLeftImage1        = UIImage(named: "min_slider_image")!.imageByTintColor(globalTintColor)
+        let volumeLeftResizable1    = volumeLeftImage1!.resizableImageWithCapInsets(insets)
         self.volumeSlider.setMinimumTrackImage(volumeLeftResizable1, forState: UIControlState.Normal)
         
-        let volumeRightImage1 = UIImage(named: "max_slider_image")!
-        let volumeRightResizable1 = volumeRightImage1.resizableImageWithCapInsets(insets)
+        let volumeRightImage1       = UIImage(named: "max_slider_image")!
+        let volumeRightResizable1   = volumeRightImage1.resizableImageWithCapInsets(insets)
         self.volumeSlider.setMaximumTrackImage(volumeRightResizable1, forState: UIControlState.Normal)
         
         self.volumeSlider.setThumbImage(UIImage(named: "volume_slider_tumb")!.imageByTintColor(globalTintColor), forState: UIControlState.Normal)
@@ -234,11 +267,13 @@ class FXPlayerController: UIViewController {
         
         let viewSize = self.view.frame.size
         
+        ///////////////////////////////////////////////////////////////
         // background
         
         self.backgroundImage.frame = self.view.frame
         self.blurEffectView.frame = self.view.frame
         
+        ///////////////////////////////////////////////////////////////
         // containers
         
         self.controllersContainer.frame = CGRectMake(0, viewSize.height-190-44, viewSize.width, 190)
@@ -248,6 +283,7 @@ class FXPlayerController: UIViewController {
         
         self.songCoverContainer.frame = CGRectMake(0, (self.navigationController?.navigationBar.bottom)!, viewSize.width, songCoverHeight)
         
+        ///////////////////////////////////////////////////////////////
         // cover
         
         let songContainterSize = self.songCoverContainer.frame.size
@@ -255,11 +291,37 @@ class FXPlayerController: UIViewController {
         
         self.songCoverImage.frame = CGRectMake(songContainterSize.width/2-coverSize/2, songContainterSize.height/2-coverSize/2, coverSize, coverSize)
         
+        ///////////////////////////////////////////////////////////////
         // controllers
         
         let contSize = self.controllersContainer.frame.size
         
         self.songSlider.frame = CGRectMake(10, 0, contSize.width-20, 20)
+        self.songTimeLeftLabel.frame = CGRectMake(10, self.songSlider.bottom+5, 40, 20)
+        self.songTimeRightLabel.frame = CGRectMake(self.songSlider.right-40, self.songSlider.bottom+5, 40, 20)
+        
+        ///////////////////////////////////////////////////////////////
+        // artist/title
+        
+        let songTitleSize = contSize.width-80
+        self.songTitleLabel.frame = CGRectMake(contSize.width/2-songTitleSize/2, self.songTimeLeftLabel.bottom + 10, songTitleSize, 20)
+        
+        let songArtistSize = contSize.width-80
+        self.songArtistLabel.frame = CGRectMake(contSize.width/2-songArtistSize/2, self.songTitleLabel.bottom + 5, songArtistSize, 20)
+        
+        ///////////////////////////////////////////////////////////////
+        // buttons
+        
+
+        self.playPauseButton.frame      = CGRectMake(contSize.width/2-10, self.songArtistLabel.bottom+25, 20, 20)
+        self.prevSongButton.frame       = CGRectMake(self.playPauseButton.left-60, self.playPauseButton.centerY-10, 20, 20)
+        self.nextSongButton.frame       = CGRectMake(self.playPauseButton.right+40, self.playPauseButton.centerY-10, 20, 20)
+        
+        self.addToDownloadButton.frame  = CGRectMake(self.prevSongButton.left-60, self.playPauseButton.centerY-10, 20, 20)
+        self.playlistButton.frame       = CGRectMake(self.nextSongButton.right+40, self.nextSongButton.centerY-10, 20, 20)
+        
+        
+        ///////////////////////////////////////////////////////////////
         
         
         self.volumeSlider.frame =  CGRectMake(40, contSize.height-30, contSize.width-80, 20)
@@ -280,7 +342,30 @@ class FXPlayerController: UIViewController {
         
         // placeholders
         
+        self.songTimeLeftLabel.text = "0:17"
+        self.songTimeRightLabel.text = "-3:41"
         
+        self.songArtistLabel.text = "Anup Sastry"
+        self.songTitleLabel.text = "Enigma"
+        
+        //////////////////////////////////////////////////////////////////////////////////////////
+        
+        let globalTintColor = UIColor ( red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
+        
+        let downloadButtonImage = UIImage(named: "tabbar_downloads")?.imageByTintColor(globalTintColor)
+        self.addToDownloadButton.setImage(downloadButtonImage, forState: UIControlState.Normal)
+        
+        let prevSongButtonIamge = UIImage(named: "rewind_arrows")?.imageByTintColor(globalTintColor)
+        self.prevSongButton.setImage(prevSongButtonIamge, forState: UIControlState.Normal)
+        
+        let pauseButtonImage = UIImage(named: "pause_button")?.imageByTintColor(globalTintColor)
+        self.playPauseButton.setImage(pauseButtonImage, forState: UIControlState.Normal)
+        
+        let nextSongButtonImage = UIImage(named: "forward_arrows")?.imageByTintColor(globalTintColor)
+        self.nextSongButton.setImage(nextSongButtonImage, forState: UIControlState.Normal)
+        
+        let playlistButtonImage = UIImage(named: "tabbar_playlists")?.imageByTintColor(globalTintColor)
+        self.playlistButton.setImage(playlistButtonImage, forState: UIControlState.Normal)
         
     }
     
@@ -355,6 +440,10 @@ class FXPlayerController: UIViewController {
         log.debug("::: openEqualizer :::")
         
     }
+    
+    
+    
+    
     
 
 }
