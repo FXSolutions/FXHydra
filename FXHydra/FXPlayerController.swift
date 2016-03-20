@@ -49,6 +49,7 @@ class FXPlayerController: UIViewController {
     // tool bar
     
     var toolBar : UIToolbar!
+    var toolBarSeparator : UIView!
     
     // height 190
     
@@ -183,6 +184,9 @@ class FXPlayerController: UIViewController {
         
         self.toolBar = UIToolbar()
         
+        self.toolBarSeparator = UIView()
+        self.toolBarSeparator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.4)
+        
         
         ///////////////////////////////////////////////////////////////
         /// add subview's
@@ -225,6 +229,7 @@ class FXPlayerController: UIViewController {
         
         /// toolbar
         
+        self.toolBar.addSubview(self.toolBarSeparator)
         self.view.addSubview(self.toolBar)
         
     }
@@ -323,11 +328,16 @@ class FXPlayerController: UIViewController {
         
         ///////////////////////////////////////////////////////////////
         
-        
-        self.volumeSlider.frame =  CGRectMake(40, contSize.height-30, contSize.width-80, 20)
+        self.volumeSlider.frame         =  CGRectMake(40, contSize.height-30, contSize.width-80, 20)
         self.volumeLeftImage.frame = CGRectMake(15, self.volumeSlider.centerY-5, 10, 10)
         self.volumeRightImage.frame = CGRectMake(contSize.width-25, self.volumeSlider.centerY-5, 10, 10)
         
+        ///////////////////////////////////////////////////////////////
+        
+        let sortaPixel = 1.0/UIScreen.mainScreen().scale
+        self.toolBarSeparator.frame = CGRectMake(0, 0, viewSize.width, sortaPixel)
+        
+        ///////////////////////////////////////////////////////////////
         
         self.toolBar.frame = CGRectMake(0, viewSize.height-44, viewSize.width, 44)
         
@@ -347,6 +357,11 @@ class FXPlayerController: UIViewController {
         
         self.songArtistLabel.text = "Anup Sastry"
         self.songTitleLabel.text = "Enigma"
+        
+        
+        ///
+        
+        self.volumeSlider.value = FXPlayerService.sharedManager().audioPlayer.volume
         
         //////////////////////////////////////////////////////////////////////////////////////////
         
@@ -384,6 +399,13 @@ class FXPlayerController: UIViewController {
         self.toolBar.translucent = true
         self.toolBar.backgroundColor = UIColor.clearColor()
         self.toolBar.tintColor = UIColor ( red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
+        self.toolBar.clipsToBounds = true
+        
+        
+        /*
+        whiteToolBar.layer.borderWidth = 1;
+        whiteToolBar.layer.borderColor = [[UIColor whiteColor] CGColor];
+        */
         
         // items
         
