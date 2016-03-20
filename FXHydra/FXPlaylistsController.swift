@@ -74,6 +74,7 @@ class FXPlaylistsController: UITableViewController {
             
             index += 1
         }
+        
     }
     
     func tableViewStyle() {

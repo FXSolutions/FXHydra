@@ -343,7 +343,7 @@ class FXPlayerController: UIViewController {
         
     }
     
-    // MARK - Load audio state 
+    // MARK: - Load audio state
     
     func loadContent() {
         
@@ -429,7 +429,7 @@ class FXPlayerController: UIViewController {
         
     }
     
-    // MARK - UI Customized
+    // MARK: - UI Customized
     
     func loadNavButtons() {
         
@@ -443,7 +443,7 @@ class FXPlayerController: UIViewController {
         
     }
     
-    // MARK - Actions
+    // MARK: - Actions
     
     func closeControllerAction() {
         

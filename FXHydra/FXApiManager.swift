@@ -74,6 +74,7 @@ class FXApiManager {
                 let items = json["items"] as! Array<Dictionary<String,AnyObject>>
                 
                 if let audioInfo = items.first {
+                    
                     let jsonAudioItem = JSON(audioInfo)
                     let audioItemModel:FXAudioItemModel = FXAudioItemModel(json: jsonAudioItem)
                     
@@ -82,6 +83,7 @@ class FXApiManager {
                     dispatch.async.main({ () -> Void in
                         competition(audioItemModel)
                     })
+                    
                 }
                 
                 }, errorBlock: { (error) -> Void in
