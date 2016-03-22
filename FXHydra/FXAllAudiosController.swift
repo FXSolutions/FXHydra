@@ -161,16 +161,16 @@ class FXAllAudiosController: UITableViewController {
         let musicModel = self.viewModel?.audiosArray[indexPath.row]
         /// audio state
         
-        let currentAudioID = FXPlayerService.sharedManager().currentAudioPlayed.audioID
+        //let currentAudioID = FXPlayerService.sharedManager().currentAudioPlayed.audioID
         
-        for cell in tableView.visibleCells as! [FXDefaultMusicCell] {
-            cell.musicIndicator.state = .ESTMusicIndicatorViewStateStopped
-            
-            if (currentAudioID != musicModel?.audioID) {
-                cell.downloadButton.hidden = false
-            }
-            
-        }
+//        for cell in tableView.visibleCells as! [FXDefaultMusicCell] {
+//            //cell.musicIndicator.state = .ESTMusicIndicatorViewStateStopped
+//            
+//            if (currentAudioID != musicModel?.audioID) {
+//                cell.downloadButton.hidden = false
+//            }
+//            
+//        }
     
         FXPlayerService.sharedManager().startPlayAudio(musicModel!)
         
@@ -212,12 +212,12 @@ class FXAllAudiosController: UITableViewController {
         
         ///
         
-        if (FXPlayerService.sharedManager().currentAudioPlayed.audioID == audioModel.audioID) {
-            cell.downloadButton.hidden = true
-            cell.musicIndicator.state = .ESTMusicIndicatorViewStatePlaying
-        } else {
-            cell.musicIndicator.state = .ESTMusicIndicatorViewStateStopped
-        }
+//        if (FXPlayerService.sharedManager().currentAudioPlayed.audioID == audioModel.audioID) {
+//            cell.downloadButton.hidden = true
+//            cell.musicIndicator.state = .ESTMusicIndicatorViewStatePlaying
+//        } else {
+//            cell.musicIndicator.state = .ESTMusicIndicatorViewStateStopped
+//        }
         
         
     }

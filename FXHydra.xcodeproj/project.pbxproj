@@ -27,6 +27,7 @@
 		BE70F3731C9970EE00300696 /* FXPlaylistsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE70F3721C9970EE00300696 /* FXPlaylistsController.swift */; };
 		BE70F3751C99710A00300696 /* FXPlaylistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE70F3741C99710A00300696 /* FXPlaylistsViewModel.swift */; };
 		BE70F3771C9ECBF000300696 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE70F3761C9ECBF000300696 /* main.m */; };
+		BE882E4C1CD7C71B00F7DF38 /* ZAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE882E4B1CD7C71B00F7DF38 /* ZAlert.swift */; };
 		BEAFC8DC1CBA9A8E0009DC39 /* FXDownloadsPoolService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFC8DB1CBA9A8E0009DC39 /* FXDownloadsPoolService.swift */; };
 		BEAFC8DE1CBA9FC70009DC39 /* FXDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFC8DD1CBA9FC70009DC39 /* FXDataService.swift */; };
 		BEAFC8E01CBAA0DE0009DC39 /* FXFMDBString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFC8DF1CBAA0DE0009DC39 /* FXFMDBString.swift */; };
@@ -112,6 +113,7 @@
 		BE70F3721C9970EE00300696 /* FXPlaylistsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXPlaylistsController.swift; sourceTree = "<group>"; };
 		BE70F3741C99710A00300696 /* FXPlaylistsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXPlaylistsViewModel.swift; sourceTree = "<group>"; };
 		BE70F3761C9ECBF000300696 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BE882E4B1CD7C71B00F7DF38 /* ZAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZAlert.swift; sourceTree = "<group>"; };
 		BEAFC8DB1CBA9A8E0009DC39 /* FXDownloadsPoolService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXDownloadsPoolService.swift; sourceTree = "<group>"; };
 		BEAFC8DD1CBA9FC70009DC39 /* FXDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXDataService.swift; sourceTree = "<group>"; };
 		BEAFC8DF1CBAA0DE0009DC39 /* FXFMDBString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXFMDBString.swift; sourceTree = "<group>"; };
@@ -263,6 +265,22 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		BE882E491CD7C71B00F7DF38 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				BE882E4A1CD7C71B00F7DF38 /* Stuff */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		BE882E4A1CD7C71B00F7DF38 /* Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				BE882E4B1CD7C71B00F7DF38 /* ZAlert.swift */,
+			);
+			name = Stuff;
+			sourceTree = "<group>";
+		};
 		BED930AB1C947D8900A6CD90 = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +367,7 @@
 		BED930EF1C9491FA00A6CD90 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				BE882E491CD7C71B00F7DF38 /* Libs */,
 				BEF90A831C9CA37F00ECFF3F /* Utils */,
 				BED930F61C94C1C100A6CD90 /* Database */,
 				BED930F41C94937300A6CD90 /* Services */,
@@ -766,6 +785,7 @@
 				BEAFC8DC1CBA9A8E0009DC39 /* FXDownloadsPoolService.swift in Sources */,
 				BEF90A6B1C9CA2EB00ECFF3F /* FXNavigationController.swift in Sources */,
 				BED930FD1C94C38900A6CD90 /* FXInterfaceService.swift in Sources */,
+				BE882E4C1CD7C71B00F7DF38 /* ZAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

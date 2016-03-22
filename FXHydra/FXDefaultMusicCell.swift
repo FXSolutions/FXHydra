@@ -24,7 +24,7 @@ class FXDefaultMusicCell: UITableViewCell {
     
     weak var bindedAudioModel         : FXAudioItemModel!
     
-    var musicIndicator          : ESTMusicIndicatorView!
+    //var musicIndicator          : ESTMusicIndicatorView!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
@@ -55,9 +55,9 @@ class FXDefaultMusicCell: UITableViewCell {
         self.downloadButton = UIButton(type: UIButtonType.System)
         self.downloadedImage = UIImageView()
         
-        self.musicIndicator = ESTMusicIndicatorView()
-        self.musicIndicator.tintColor = UIColor (red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
-        self.musicIndicator.hidesWhenStopped = true
+//        self.musicIndicator = ESTMusicIndicatorView()
+//        self.musicIndicator.tintColor = UIColor (red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
+//        self.musicIndicator.hidesWhenStopped = true
         
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
         
@@ -71,7 +71,7 @@ class FXDefaultMusicCell: UITableViewCell {
         self.contentView.addSubview(self.audioBitrate)
         self.contentView.addSubview(self.audioTimeLabel)
         
-        self.contentView.addSubview(self.musicIndicator)
+        //self.contentView.addSubview(self.musicIndicator)
         
         self.contentView.backgroundColor = UIColor.clearColor()
         self.backgroundColor = UIColor.clearColor()
@@ -101,14 +101,14 @@ class FXDefaultMusicCell: UITableViewCell {
         self.downloadedImage.frame = CGRectMake(self.contentView.frame.width-40, 15, 30, 30)
         self.downloadButton.frame  = CGRectMake(self.contentView.frame.width-40, 15, 30, 30)
         
-        self.musicIndicator.frame  = CGRectMake(self.contentView.frame.width-40, 15, 30, 30)
+        //self.musicIndicator.frame  = CGRectMake(self.contentView.frame.width-40, 15, 30, 30)
         
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        self.musicIndicator.state = ESTMusicIndicatorViewState.ESTMusicIndicatorViewStateStopped
+        //self.musicIndicator.state = ESTMusicIndicatorViewState.ESTMusicIndicatorViewStateStopped
         self.downloadButton.hidden = false
         
     }
