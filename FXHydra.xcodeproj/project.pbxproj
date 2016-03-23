@@ -114,6 +114,7 @@
 		BE70F3741C99710A00300696 /* FXPlaylistsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXPlaylistsViewModel.swift; sourceTree = "<group>"; };
 		BE70F3761C9ECBF000300696 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE882E4B1CD7C71B00F7DF38 /* ZAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZAlert.swift; sourceTree = "<group>"; };
+		BE882E4F1CD7C71B00F7DF38 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		BEAFC8DB1CBA9A8E0009DC39 /* FXDownloadsPoolService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXDownloadsPoolService.swift; sourceTree = "<group>"; };
 		BEAFC8DD1CBA9FC70009DC39 /* FXDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXDataService.swift; sourceTree = "<group>"; };
 		BEAFC8DF1CBAA0DE0009DC39 /* FXFMDBString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXFMDBString.swift; sourceTree = "<group>"; };
@@ -281,6 +282,13 @@
 			name = Stuff;
 			sourceTree = "<group>";
 		};
+		BE882E501CD7C71B00F7DF38 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Localization;
+			sourceTree = "<group>";
+		};
 		BED930AB1C947D8900A6CD90 = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +375,7 @@
 		BED930EF1C9491FA00A6CD90 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				BE882E501CD7C71B00F7DF38 /* Localization */,
 				BE882E491CD7C71B00F7DF38 /* Libs */,
 				BEF90A831C9CA37F00ECFF3F /* Utils */,
 				BED930F61C94C1C100A6CD90 /* Database */,
@@ -825,6 +834,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BED930C11C947D8900A6CD90 /* Base */,
+				BE882E4F1CD7C71B00F7DF38 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

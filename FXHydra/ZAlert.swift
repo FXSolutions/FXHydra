@@ -23,7 +23,7 @@ class ZAlert: NSObject {
         return self;
     }
     func present(inViewConftoller:UIViewController!,animated:Bool,completion: (() -> Void)?) -> Void {
-        let alert = UIAlertController(title: self.title, message: self.message, preferredStyle: self.style)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: self.style)
         for action in self.actions {
             alert.addAction(action)
         }

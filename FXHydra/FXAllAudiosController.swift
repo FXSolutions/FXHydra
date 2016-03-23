@@ -212,13 +212,6 @@ class FXAllAudiosController: UITableViewController {
         
         ///
         
-//        if (FXPlayerService.sharedManager().currentAudioPlayed.audioID == audioModel.audioID) {
-//            cell.downloadButton.hidden = true
-//            cell.musicIndicator.state = .ESTMusicIndicatorViewStatePlaying
-//        } else {
-//            cell.musicIndicator.state = .ESTMusicIndicatorViewStateStopped
-//        }
-        
         
     }
     

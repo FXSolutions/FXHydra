@@ -455,6 +455,14 @@ class FXPlayerController: UIViewController {
         
         log.debug("::: navButtonActionsAction :::")
         
+        ZAlert.actionSheet("", message: "").action("Add to Playlist", style: UIAlertActionStyle.Default) { (action) in
+            //
+        }.action("Add in VK", style: UIAlertActionStyle.Default, handler: { (action) in
+            //
+        }).action("Close", style: UIAlertActionStyle.Cancel) { (action) in
+            //
+        }.present(self, animated: true, completion: nil)
+        
     }
     
     func openEqualizer() {
