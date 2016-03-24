@@ -28,7 +28,8 @@ let log: XCGLogger = {
     log.xcodeColorsEnabled = true // Or set the XcodeColors environment variable in your scheme to YES
     log.xcodeColors = [
         .Verbose: .lightGrey,
-        .Debug: XCGLogger.XcodeColor(fg: (65, 131, 215)),
+        //244, 179, 80 // 253, 227, 167
+        .Debug: XCGLogger.XcodeColor(fg: (253, 227, 167)),
         .Info: XCGLogger.XcodeColor(fg: (135, 211, 124)),
         .Warning: .orange,
         .Error: XCGLogger.XcodeColor(fg: UIColor.redColor(), bg: UIColor.whiteColor()), // Optionally use a UIColor

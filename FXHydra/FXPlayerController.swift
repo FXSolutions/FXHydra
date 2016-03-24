@@ -8,6 +8,7 @@
 
 import UIKit
 import YYKit
+import StreamingKit
 
 class FXPlayerController: UIViewController {
     
@@ -260,6 +261,10 @@ class FXPlayerController: UIViewController {
         self.loadAudioStateInfo()
         self.loadToolBar()
         
+        ///
+        
+        self.bindedSignals()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -382,6 +387,20 @@ class FXPlayerController: UIViewController {
         let playlistButtonImage = UIImage(named: "tabbar_playlists")?.imageByTintColor(globalTintColor)
         self.playlistButton.setImage(playlistButtonImage, forState: UIControlState.Normal)
         
+        // add actions on buttons
+        
+        self.playPauseButton.addTarget(self, action: #selector(FXPlayerController.playPauseButtonAction), forControlEvents: UIControlEvents.TouchUpInside)
+        self.nextSongButton.addTarget(self, action: #selector(FXPlayerController.goToNextTrackInPlaylistAction), forControlEvents: UIControlEvents.TouchUpInside)
+        self.prevSongButton.addTarget(self, action: #selector(FXPlayerController.goToPrevTrackInPlaylistAction), forControlEvents: UIControlEvents.TouchUpInside)
+        self.playlistButton.addTarget(self, action: #selector(FXPlayerController.openPlaylist), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        // volume
+        
+        self.volumeSlider.addTarget(self, action: #selector(FXPlayerController.changeVolumeSliderValue), forControlEvents: UIControlEvents.ValueChanged)
+        
+        
+        self.volumeSlider.value = FXPlayerService.sharedManager().audioPlayer.volume
+        
     }
     
     func loadAudioStateInfo() {
@@ -429,6 +448,33 @@ class FXPlayerController: UIViewController {
         
     }
     
+    func bindedSignals() {
+        
+        FXSignalsService.sharedManager().playedStateChangedOnPlaying.listen(self) { (played) in
+            
+            
+            let globalTintColor = UIColor ( red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
+            
+            if played == true {
+                
+                dispatch.async.main({
+                    let pauseButtonImage = UIImage(named: "pause_button")?.imageByTintColor(globalTintColor)
+                    self.playPauseButton.setImage(pauseButtonImage, forState: UIControlState.Normal)
+                })
+                
+            } else {
+                
+                dispatch.async.main({
+                    let playButtonImage = UIImage(named: "play_button")?.imageByTintColor(globalTintColor)
+                    self.playPauseButton.setImage(playButtonImage, forState: UIControlState.Normal)
+                })
+                
+            }
+            
+        }
+        
+    }
+    
     // MARK: - UI Customized
     
     func loadNavButtons() {
@@ -455,6 +501,8 @@ class FXPlayerController: UIViewController {
         
         log.debug("::: navButtonActionsAction :::")
         
+        /////////////////////////////////////////////
+        
         ZAlert.actionSheet("", message: "").action("Add to Playlist", style: UIAlertActionStyle.Default) { (action) in
             //
         }.action("Add in VK", style: UIAlertActionStyle.Default, handler: { (action) in
@@ -471,9 +519,41 @@ class FXPlayerController: UIViewController {
         
     }
     
+    func openPlaylist() {
+        
+        
+        log.debug("::: open playlist :::")
+        
+    }
     
     
+    // MARK: - Play/Pause/Next Prev
     
+    func playPauseButtonAction() {
+        
+        let state = FXPlayerService.sharedManager().audioPlayer.state
+        
+        if state == STKAudioPlayerState.Playing {
+            FXPlayerService.sharedManager().audioPlayer.pause()
+        } else {
+            FXPlayerService.sharedManager().audioPlayer.resume()
+        }
+        
+    }
+    
+    func goToNextTrackInPlaylistAction() {
+        
+    }
+    
+    func goToPrevTrackInPlaylistAction() {
+        
+    }
+    
+    func changeVolumeSliderValue() {
+        
+        FXPlayerService.sharedManager().audioPlayer.volume = self.volumeSlider.value
+        
+    }
     
 
 }

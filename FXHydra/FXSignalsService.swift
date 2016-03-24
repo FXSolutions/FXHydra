@@ -23,4 +23,10 @@ class FXSignalsService {
     let appChangeStateToBackground = Signal<(Bool!)>()
     
     
+    // player signals
+    
+    
+    let playedStateChangedOnPlaying = Signal<(Bool!)>()
+    
+    
 }

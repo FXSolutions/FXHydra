@@ -17,7 +17,8 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
     // Shared instance
     //
     
-    let audioPlayer = STKAudioPlayer()
+    
+    var audioPlayer:STKAudioPlayer!
     
     private static let shared = FXPlayerService()
     
@@ -34,6 +35,11 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
     
     override init() {
         super.init()
+        
+        var playerOptions = STKAudioPlayerOptions()
+        playerOptions.enableVolumeMixer = true
+        
+        self.audioPlayer = STKAudioPlayer(options: playerOptions)
         
         audioPlayer.delegate = self
         
@@ -141,6 +147,18 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
     /// Raised when the state of the player has changed
     func audioPlayer(audioPlayer: STKAudioPlayer, stateChanged state: STKAudioPlayerState, previousState: STKAudioPlayerState) {
         log.debug("audioPlayer stateChanged ::: state : \(state.rawValue) , prevState : \(previousState.rawValue)")
+        
+        if state == STKAudioPlayerState.Paused {
+            log.debug("::: paused :::")
+            FXSignalsService.sharedManager().playedStateChangedOnPlaying.fire(false)
+        } else if (state == STKAudioPlayerState.Stopped) {
+            log.debug("::: stopped :::")
+            FXSignalsService.sharedManager().playedStateChangedOnPlaying.fire(false)
+        } else if (state == STKAudioPlayerState.Playing) {
+            log.debug("::: playing :::")
+            FXSignalsService.sharedManager().playedStateChangedOnPlaying.fire(true)
+        }
+        
     }
     
     /// Raised when an unexpected and possibly unrecoverable error has occured (usually best to recreate the STKAudioPlauyer)
