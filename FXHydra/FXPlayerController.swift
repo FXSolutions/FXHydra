@@ -543,9 +543,13 @@ class FXPlayerController: UIViewController {
     
     func goToNextTrackInPlaylistAction() {
         
+        FXPlayerService.sharedManager().playNextAudio()
+        
     }
     
     func goToPrevTrackInPlaylistAction() {
+        
+        FXPlayerService.sharedManager().playPrevAudio()
         
     }
     

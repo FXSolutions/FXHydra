@@ -158,7 +158,7 @@ class FXAllAudiosController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let musicModel = self.viewModel?.audiosArray[indexPath.row]
+        //let musicModel = self.viewModel?.audiosArray[indexPath.row]
         /// audio state
         
         //let currentAudioID = FXPlayerService.sharedManager().currentAudioPlayed.audioID
@@ -171,8 +171,11 @@ class FXAllAudiosController: UITableViewController {
 //            }
 //            
 //        }
-    
-        FXPlayerService.sharedManager().startPlayAudio(musicModel!)
+        
+        FXPlayerService.sharedManager().currentAudiosArray = (self.viewModel?.audiosArray)!
+        FXPlayerService.sharedManager().currentAudioIndexInArray = indexPath.row
+        
+        FXPlayerService.sharedManager().startPlayAtIndex()
         
         self.tableView.updateWithBlock { (tableView) -> Void in
             tableView.reloadRow(UInt(indexPath.row), inSection: UInt(indexPath.section), withRowAnimation: UITableViewRowAnimation.None)
