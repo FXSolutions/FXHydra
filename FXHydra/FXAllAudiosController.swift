@@ -158,20 +158,6 @@ class FXAllAudiosController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        //let musicModel = self.viewModel?.audiosArray[indexPath.row]
-        /// audio state
-        
-        //let currentAudioID = FXPlayerService.sharedManager().currentAudioPlayed.audioID
-        
-//        for cell in tableView.visibleCells as! [FXDefaultMusicCell] {
-//            //cell.musicIndicator.state = .ESTMusicIndicatorViewStateStopped
-//            
-//            if (currentAudioID != musicModel?.audioID) {
-//                cell.downloadButton.hidden = false
-//            }
-//            
-//        }
-        
         FXPlayerService.sharedManager().currentAudiosArray = (self.viewModel?.audiosArray)!
         FXPlayerService.sharedManager().currentAudioIndexInArray = indexPath.row
         

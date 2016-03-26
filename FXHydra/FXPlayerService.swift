@@ -28,7 +28,7 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
     
     // vars
     
-    var currentAudioPlayed:FXAudioItemModel = FXAudioItemModel()
+    var currentAudioPlayed:FXAudioItemModel?
     
     var currentAudiosArray = [FXAudioItemModel]()
     var currentAudioIndexInArray = 0
@@ -73,6 +73,10 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
     func startPlayAtIndex() {
         
         let audioModel = self.currentAudiosArray[currentAudioIndexInArray]
+        
+        self.currentAudioPlayed = audioModel
+        
+        FXSignalsService.sharedManager().changeCurrentItem.fire(audioModel)
         
         if audioModel.audioLocalURL == nil {
             self.startPlayNetworkURL(audioModel)
@@ -191,6 +195,11 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
         } else if (state == STKAudioPlayerState.Stopped) {
             log.debug("::: stopped :::")
             FXSignalsService.sharedManager().playedStateChangedOnPlaying.fire(false)
+            
+            if(previousState == STKAudioPlayerState.Playing) {
+                self.playNextAudio()
+            }
+            
         } else if (state == STKAudioPlayerState.Playing) {
             log.debug("::: playing :::")
             FXSignalsService.sharedManager().playedStateChangedOnPlaying.fire(true)

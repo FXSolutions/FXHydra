@@ -258,7 +258,7 @@ class FXPlayerController: UIViewController {
         self.loadContent()
         
         self.loadNavButtons()
-        self.loadAudioStateInfo()
+        self.loadCurrentAudioStateInfo()
         self.loadToolBar()
         
         ///
@@ -403,9 +403,22 @@ class FXPlayerController: UIViewController {
         
     }
     
-    func loadAudioStateInfo() {
+    func loadCurrentAudioStateInfo() {
         
-        self.title = "1 of 54"
+        if FXPlayerService.sharedManager().currentAudioPlayed != nil {
+            
+            let audioModel = FXPlayerService.sharedManager().currentAudioPlayed
+            
+            self.songArtistLabel.text = audioModel!.artist
+            self.songTitleLabel.text = audioModel!.title
+            
+            let index = FXPlayerService.sharedManager().currentAudioIndexInArray + 1
+            let totalCount = FXPlayerService.sharedManager().currentAudiosArray.count
+            
+            self.title = "\(index) of \(totalCount)"
+            
+        }
+        
         
     }
     
@@ -450,6 +463,8 @@ class FXPlayerController: UIViewController {
     
     func bindedSignals() {
         
+        // change state 
+        
         FXSignalsService.sharedManager().playedStateChangedOnPlaying.listen(self) { (played) in
             
             
@@ -470,6 +485,16 @@ class FXPlayerController: UIViewController {
                 })
                 
             }
+            
+        }
+    
+        /// update current audio item
+        
+        FXSignalsService.sharedManager().changeCurrentItem.listen(self) { (audioModel) in
+            
+            dispatch.async.main({
+                self.loadCurrentAudioStateInfo()
+            })
             
         }
         
