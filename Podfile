@@ -9,6 +9,7 @@ target 'FXHydra' do
     pod 'RxSwift'
     pod 'ESTMusicIndicator'
     pod 'sqlite3'
+    pod 'Just'
 
 end
 

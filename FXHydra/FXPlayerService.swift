@@ -102,9 +102,9 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
         log.info("::: startPlayNetworkURL :::")
         
         self.checkURLForAudio(model) { (audioURL) -> () in
+            self.currentAudioPlayed = model
             self.audioPlayer.play(audioURL)
             
-            self.currentAudioPlayed = model
             self.checkAudioSession()
         }
         
@@ -187,22 +187,35 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
     
     /// Raised when the state of the player has changed
     func audioPlayer(audioPlayer: STKAudioPlayer, stateChanged state: STKAudioPlayerState, previousState: STKAudioPlayerState) {
-        log.debug("audioPlayer stateChanged ::: state : \(state.rawValue) , prevState : \(previousState.rawValue)")
+        log.debug("audioPlayer stateChanged ::: state : \(state) , prevState : \(previousState)")
         
         if state == STKAudioPlayerState.Paused {
+            
             log.debug("::: paused :::")
             FXSignalsService.sharedManager().playedStateChangedOnPlaying.fire(false)
+            
         } else if (state == STKAudioPlayerState.Stopped) {
+            
             log.debug("::: stopped :::")
             FXSignalsService.sharedManager().playedStateChangedOnPlaying.fire(false)
             
-            if(previousState == STKAudioPlayerState.Playing) {
+            if(previousState == STKAudioPlayerState.Buffering) {
                 self.playNextAudio()
             }
             
         } else if (state == STKAudioPlayerState.Playing) {
+            
             log.debug("::: playing :::")
             FXSignalsService.sharedManager().playedStateChangedOnPlaying.fire(true)
+            
+        } else if (state == STKAudioPlayerState.Buffering) {
+            
+            log.debug("::: Buffering :::")
+            
+        } else if (state == STKAudioPlayerState.Disposed) {
+            
+            log.debug("::: Disposed :::")
+            
         }
         
     }

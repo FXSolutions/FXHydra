@@ -54,6 +54,8 @@ class FXPlayerController: UIViewController {
     
     // height 190
     
+    var timerForUpdateDuration:NSTimer?
+    
     // MARK: - Init
     
     init(bindedViewModel:FXPlayerViewModel) {
@@ -357,8 +359,8 @@ class FXPlayerController: UIViewController {
         
         // placeholders
         
-        self.songTimeLeftLabel.text = "0:17"
-        self.songTimeRightLabel.text = "-3:41"
+        self.songTimeLeftLabel.text = "0:00"
+        self.songTimeRightLabel.text = "0:00"
         
         self.songArtistLabel.text = "Anup Sastry"
         self.songTitleLabel.text = "Enigma"
@@ -416,6 +418,7 @@ class FXPlayerController: UIViewController {
             let totalCount = FXPlayerService.sharedManager().currentAudiosArray.count
             
             self.title = "\(index) of \(totalCount)"
+            
             
         }
         
@@ -475,6 +478,12 @@ class FXPlayerController: UIViewController {
                 dispatch.async.main({
                     let pauseButtonImage = UIImage(named: "pause_button")?.imageByTintColor(globalTintColor)
                     self.playPauseButton.setImage(pauseButtonImage, forState: UIControlState.Normal)
+                    
+                    
+                    //
+                    
+                    self.startUpdateTime()
+                    
                 })
                 
             } else {
@@ -482,6 +491,13 @@ class FXPlayerController: UIViewController {
                 dispatch.async.main({
                     let playButtonImage = UIImage(named: "play_button")?.imageByTintColor(globalTintColor)
                     self.playPauseButton.setImage(playButtonImage, forState: UIControlState.Normal)
+                    
+                    if self.timerForUpdateDuration != nil {
+                        
+                        self.timerForUpdateDuration?.invalidate()
+                        
+                    }
+                    
                 })
                 
             }
@@ -497,6 +513,36 @@ class FXPlayerController: UIViewController {
             })
             
         }
+        
+    }
+    
+    func startUpdateTime() {
+        
+        if self.timerForUpdateDuration != nil {
+            
+            self.timerForUpdateDuration?.invalidate()
+            
+        }
+        
+        self.timerForUpdateDuration = NSTimer(timeInterval: 0.5,
+                                              target: self,
+                                              selector: #selector(FXPlayerController.updateTimeFromTimer),
+                                              userInfo: nil,
+                                              repeats: true)
+        
+        self.timerForUpdateDuration?.fire()
+    }
+    
+    func updateTimeFromTimer() {
+        
+        let progress = self.getDurationString(FXPlayerService.sharedManager().audioPlayer.progress)
+        let duration = self.getDurationString(FXPlayerService.sharedManager().audioPlayer.duration)
+        
+        log.debug("progress time :: \(progress)")
+        log.debug("duration time :: \(duration)")
+        
+        self.songTimeLeftLabel.text = "\(progress)"
+        self.songTimeRightLabel.text = "\(duration)"
         
     }
     
@@ -581,6 +627,19 @@ class FXPlayerController: UIViewController {
     func changeVolumeSliderValue() {
         
         FXPlayerService.sharedManager().audioPlayer.volume = self.volumeSlider.value
+        
+    }
+    
+    func getDurationString(duration:Double) -> String {
+        
+        let min = Int(floor(Double(duration) / 60))
+        let sec = Int(floor(Double(duration) % 60))
+        
+        if (sec < 10) {
+            return "\(min):0\(sec)"
+        } else {
+            return "\(min):\(sec)"
+        }
         
     }
     

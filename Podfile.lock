@@ -1,5 +1,6 @@
 PODS:
   - ESTMusicIndicator (0.1.2)
+  - Just (0.4.7)
   - RxSwift (2.4)
   - sqlite3 (3.12.2):
     - sqlite3/common (= 3.12.2)
@@ -12,6 +13,7 @@ PODS:
 
 DEPENDENCIES:
   - ESTMusicIndicator
+  - Just
   - RxSwift
   - sqlite3
   - StreamingKit
@@ -20,6 +22,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   ESTMusicIndicator: 03dd1364d2db1a0a8684fb907406bc329f3700a6
+  Just: 946bae197f898da6b49e27e10dbe9dfbf1216f29
   RxSwift: 67b9ef4e8b34fb394e200e754c6a09cc16559f94
   sqlite3: 5724400abcbfbc8d13c60d6a4123361faf0c62e3
   StreamingKit: c329785aaef3ac142d4ae388345bfe1ed23cfd45
