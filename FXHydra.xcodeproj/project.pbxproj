@@ -28,6 +28,7 @@
 		BE70F3751C99710A00300696 /* FXPlaylistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE70F3741C99710A00300696 /* FXPlaylistsViewModel.swift */; };
 		BE70F3771C9ECBF000300696 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE70F3761C9ECBF000300696 /* main.m */; };
 		BE882E4C1CD7C71B00F7DF38 /* ZAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE882E4B1CD7C71B00F7DF38 /* ZAlert.swift */; };
+		BEA54DAB1CD7F54200EA3D13 /* FXPlayerPlaylistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA54DAA1CD7F54200EA3D13 /* FXPlayerPlaylistController.swift */; };
 		BEAFC8DC1CBA9A8E0009DC39 /* FXDownloadsPoolService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFC8DB1CBA9A8E0009DC39 /* FXDownloadsPoolService.swift */; };
 		BEAFC8DE1CBA9FC70009DC39 /* FXDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFC8DD1CBA9FC70009DC39 /* FXDataService.swift */; };
 		BEAFC8E01CBAA0DE0009DC39 /* FXFMDBString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFC8DF1CBAA0DE0009DC39 /* FXFMDBString.swift */; };
@@ -115,6 +116,7 @@
 		BE70F3761C9ECBF000300696 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE882E4B1CD7C71B00F7DF38 /* ZAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZAlert.swift; sourceTree = "<group>"; };
 		BE882E4F1CD7C71B00F7DF38 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		BEA54DAA1CD7F54200EA3D13 /* FXPlayerPlaylistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXPlayerPlaylistController.swift; sourceTree = "<group>"; };
 		BEAFC8DB1CBA9A8E0009DC39 /* FXDownloadsPoolService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXDownloadsPoolService.swift; sourceTree = "<group>"; };
 		BEAFC8DD1CBA9FC70009DC39 /* FXDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXDataService.swift; sourceTree = "<group>"; };
 		BEAFC8DF1CBAA0DE0009DC39 /* FXFMDBString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXFMDBString.swift; sourceTree = "<group>"; };
@@ -287,6 +289,14 @@
 			children = (
 			);
 			name = Localization;
+			sourceTree = "<group>";
+		};
+		BEA54DA91CD7F51D00EA3D13 /* PlaylistController */ = {
+			isa = PBXGroup;
+			children = (
+				BEA54DAA1CD7F54200EA3D13 /* FXPlayerPlaylistController.swift */,
+			);
+			name = PlaylistController;
 			sourceTree = "<group>";
 		};
 		BED930AB1C947D8900A6CD90 = {
@@ -502,6 +512,7 @@
 		BEF90A6F1C9CA32000ECFF3F /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				BEA54DA91CD7F51D00EA3D13 /* PlaylistController */,
 				BEF90A761C9CA36E00ECFF3F /* FXPlayerController.swift */,
 				BEF90A811C9CA37F00ECFF3F /* FXPlayerViewModel.swift */,
 			);
@@ -770,6 +781,7 @@
 				BEF90A711C9CA34A00ECFF3F /* FXAllAudiosController.swift in Sources */,
 				BED931081C94C65A00A6CD90 /* VideoSplashViewController.swift in Sources */,
 				BE38FBED1CBA783000B143DC /* FMResultSet.m in Sources */,
+				BEA54DAB1CD7F54200EA3D13 /* FXPlayerPlaylistController.swift in Sources */,
 				BE38FBEC1CBA783000B143DC /* FMDatabaseQueue.m in Sources */,
 				BE70F3691C96201A00300696 /* FXDefaultMusicCell.swift in Sources */,
 				BEAFC8DE1CBA9FC70009DC39 /* FXDataService.swift in Sources */,

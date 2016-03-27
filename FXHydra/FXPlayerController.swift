@@ -400,6 +400,7 @@ class FXPlayerController: UIViewController {
         
         self.volumeSlider.addTarget(self, action: #selector(FXPlayerController.changeVolumeSliderValue), forControlEvents: UIControlEvents.ValueChanged)
         
+        self.songSlider.addTarget(self, action: #selector(FXPlayerController.seekSongToNewValue), forControlEvents: UIControlEvents.TouchUpInside)
         
         self.volumeSlider.value = FXPlayerService.sharedManager().audioPlayer.volume
         
@@ -524,13 +525,21 @@ class FXPlayerController: UIViewController {
             
         }
         
-        self.timerForUpdateDuration = NSTimer(timeInterval: 0.5,
-                                              target: self,
-                                              selector: #selector(FXPlayerController.updateTimeFromTimer),
-                                              userInfo: nil,
-                                              repeats: true)
+        self.timerForUpdateDuration = NSTimer.scheduledTimerWithTimeInterval(1,
+                                                                             target: self,
+                                                                             selector: #selector(FXPlayerController.updateTimeFromTimer),
+                                                                             userInfo: nil,
+                                                                             repeats: true)
         
         self.timerForUpdateDuration?.fire()
+    }
+    
+    func seekSongToNewValue() {
+        
+        let seekTime = FXPlayerService.sharedManager().audioPlayer.duration * Double(self.songSlider.value)
+        
+        FXPlayerService.sharedManager().audioPlayer.seekToTime(seekTime)
+        
     }
     
     func updateTimeFromTimer() {
@@ -538,8 +547,8 @@ class FXPlayerController: UIViewController {
         let progress = self.getDurationString(FXPlayerService.sharedManager().audioPlayer.progress)
         let duration = self.getDurationString(FXPlayerService.sharedManager().audioPlayer.duration)
         
-        log.debug("progress time :: \(progress)")
-        log.debug("duration time :: \(duration)")
+        let valueForProgress = FXPlayerService.sharedManager().audioPlayer.progress/FXPlayerService.sharedManager().audioPlayer.duration
+        self.songSlider.value = Float(valueForProgress)
         
         self.songTimeLeftLabel.text = "\(progress)"
         self.songTimeRightLabel.text = "\(duration)"
@@ -594,6 +603,10 @@ class FXPlayerController: UIViewController {
         
         
         log.debug("::: open playlist :::")
+        
+        let playlistVC = FXNavigationController(rootViewController: FXPlayerPlaylistController())
+        
+        self.presentViewController(playlistVC, animated: true, completion: nil)
         
     }
     
