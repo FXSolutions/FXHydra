@@ -35,12 +35,12 @@ class FXDownloadsPoolService {
                 if result.ok == true {
                     log.debug("zaebok")
                     
-                    if Path.homeDir["FXHydra"].exists == false {
+                    if Path.documentsDir["FXHydra"].exists == false {
                         
-                        let hydarDir = Path.homeDir["FXHydra"]
+                        let hydarDir = Path.documentsDir["FXHydra"]
                         hydarDir.mkdir()
                         
-                        let mp3File = Path.homeDir["FXHydra"]["audioid_\(audio_model.audioID).mp3"]
+                        let mp3File = Path.documentsDir["FXHydra"]["audioid_\(audio_model.audioID).mp3"]
                         let path = "audioid_\(audio_model.audioID).mp3"
                         
                         mp3File.writeData(result.content!)
@@ -62,7 +62,7 @@ class FXDownloadsPoolService {
                     
                     } else {
                         
-                        let mp3File = Path.homeDir["FXHydra"]["audioid_\(audio_model.audioID).mp3"]
+                        let mp3File = Path.documentsDir["FXHydra"]["audioid_\(audio_model.audioID).mp3"]
                         mp3File.writeData(result.content!)
                         
                         let path = "audioid_\(audio_model.audioID).mp3"

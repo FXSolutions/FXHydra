@@ -120,7 +120,7 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
         
         log.info("::: startPlayNetworkURL :::")
     
-        let url = NSURL(fileURLWithPath: Path.homeDir["FXHydra"][model.audioLocalURL].toString())
+        let url = NSURL(fileURLWithPath: Path.documentsDir["FXHydra"][model.audioLocalURL].toString())
     
         let dataSourceFromURL = STKAudioPlayer.dataSourceFromURL(url)
         
