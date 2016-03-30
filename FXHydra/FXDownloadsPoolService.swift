@@ -40,56 +40,43 @@ class FXDownloadsPoolService {
                         let hydarDir = Path.documentsDir["FXHydra"]
                         hydarDir.mkdir()
                         
-                        let mp3File = Path.documentsDir["FXHydra"]["audioid_\(audio_model.audioID).mp3"]
-                        let path = "audioid_\(audio_model.audioID).mp3"
-                        
-                        mp3File.writeData(result.content!)
-                        
-                        
-                        log.debug("::: save in path: \(path) :::")
-                        
-                        audio_model.audioLocalURL = path
-                        
-                        FXDatabaseService.sharedManager().saveDownloadModel(audio_model, cb: { (done) in
-                            log.debug("::: audio model saved :::")
-                            
-                            dispatch.async.main({
-                                FXSignalsService.sharedManager().updateAfterDownload.fire(true)
-                            })
-                            
-                        })
-                        
+                        self.saveInLocalDir(audio_model, content: result.content!)
                     
                     } else {
                         
-                        let mp3File = Path.documentsDir["FXHydra"]["audioid_\(audio_model.audioID).mp3"]
-                        mp3File.writeData(result.content!)
-                        
-                        let path = "audioid_\(audio_model.audioID).mp3"
-                        
-                        log.debug("::: save in path: \(path) :::")
-                        
-                        audio_model.audioLocalURL = path
-                        
-                        FXDatabaseService.sharedManager().saveDownloadModel(audio_model, cb: { (done) in
-                            log.debug("::: audio model saved :::")
-                            
-                            dispatch.async.main({
-                                FXSignalsService.sharedManager().updateAfterDownload.fire(true)
-                            })
-                            
-                        })
+                        self.saveInLocalDir(audio_model, content: result.content!)
                         
                     }
-                    
-
-                    
-                    
+    
                 } else {
                     log.debug("pizda :(")
                 }
                 
         }
+        
+        
+    }
+    
+    
+    func saveInLocalDir(audio_model:FXAudioItemModel,content:NSData) {
+        
+        let mp3File = Path.documentsDir["FXHydra"]["audioid_\(audio_model.audioID).mp3"]
+        mp3File.writeData(content)
+        
+        let path = "audioid_\(audio_model.audioID).mp3"
+        
+        log.debug("::: save in path: \(path) :::")
+        
+        audio_model.audioLocalURL = path
+        
+        FXDatabaseService.sharedManager().saveDownloadModel(audio_model, cb: { (done) in
+            log.debug("::: audio model saved :::")
+            
+            dispatch.async.main({
+                FXSignalsService.sharedManager().updateAfterDownload.fire(true)
+            })
+            
+        })
         
         
     }
