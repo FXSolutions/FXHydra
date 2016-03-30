@@ -251,6 +251,10 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
     
     func getCoverImageFromURL(audio_url:NSURL) {
         
+        let defaultImageCover = UIImage(named: "player_background_default")
+        FXSignalsService.sharedManager().updateCoverImage.fire(defaultImageCover)
+        
+        ////
         
         let asset:AVAsset? = AVAsset(URL: audio_url)
         

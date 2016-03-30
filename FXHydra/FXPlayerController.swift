@@ -523,6 +523,7 @@ class FXPlayerController: UIViewController {
             
             dispatch.async.main({
                 self.songCoverImage.image = coverImage
+                self.backgroundImage.image = coverImage
             })
             
         }
