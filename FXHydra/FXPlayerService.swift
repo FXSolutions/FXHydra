@@ -112,6 +112,11 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
             
             self.checkAudioSession()
             
+            ////
+            
+            
+            self.getCoverImageFromURL(NSURL(string: audioURL)!)
+            
         }
         
     }
@@ -242,6 +247,49 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
     /// Raised when items queued items are cleared (usually because of a call to play, setDataSource or stop)
     func audioPlayer(audioPlayer: STKAudioPlayer, didCancelQueuedItems queuedItems: [AnyObject]) {
         log.debug("didCancelQueuedItems info ::: \(queuedItems)")
+    }
+    
+    func getCoverImageFromURL(audio_url:NSURL) {
+        
+        
+        let asset:AVAsset? = AVAsset(URL: audio_url)
+        
+        if (asset != nil) {
+            
+            asset!.loadValuesAsynchronouslyForKeys(["commonMetadata"], completionHandler: {
+
+                let artworks = AVMetadataItem.metadataItemsFromArray((asset?.commonMetadata)!, withKey: AVMetadataCommonKeyArtwork, keySpace: AVMetadataKeySpaceCommon)
+                
+                for item in artworks {
+                    
+                    if item.keySpace == AVMetadataKeySpaceID3 {
+                        
+                        log.debug("::: AVMetadataKeySpaceID3 cover image founded!!:::")
+                        
+                        let imageData = item.value as! NSData
+                        let image = UIImage(data: imageData)
+                        
+                        FXSignalsService.sharedManager().updateCoverImage.fire(image)
+                        
+                    } else if (item.keySpace == AVMetadataKeySpaceiTunes) {
+                        
+                        log.debug("::: AVMetadataKeySpaceiTunes cover image founded!! \(item.value) :::")
+                        
+//                        let image = UIImage(data: (item.value?.copyWithZone(nil))! as! NSData)
+//                        
+//                        FXSignalsService.sharedManager().updateCoverImage.fire(image)
+                        
+                    }
+                    
+                }
+                
+                
+                
+            })
+            
+        }
+    
+        
     }
     
 }

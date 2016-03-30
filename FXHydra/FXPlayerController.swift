@@ -517,6 +517,16 @@ class FXPlayerController: UIViewController {
             
         }
         
+        /// update cover
+        
+        FXSignalsService.sharedManager().updateCoverImage.listen(self) { (coverImage) in
+            
+            dispatch.async.main({
+                self.songCoverImage.image = coverImage
+            })
+            
+        }
+        
     }
     
     func startUpdateTime() {

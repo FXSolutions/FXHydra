@@ -29,6 +29,7 @@ class FXSignalsService {
     let playedStateChangedOnPlaying = Signal<(Bool!)>()
     let changeCurrentItem = Signal<(FXAudioItemModel!)>()
     let updateAfterDownload = Signal<(Bool!)>()
+    let updateCoverImage = Signal<(UIImage!)>()
     
     
 }
