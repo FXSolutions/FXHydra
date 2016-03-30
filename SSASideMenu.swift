@@ -639,7 +639,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         
         if panGestureEnabled {
             view.multipleTouchEnabled = false
-            let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: Selector("panGestureRecognized:"))
+            let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(SSASideMenu.panGestureRecognized(_:)))
             panGestureRecognizer.delegate = self
             view.addGestureRecognizer(panGestureRecognizer)
         }
@@ -690,7 +690,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
         if let _ = contentButton.superview {
             return
         } else {
-            contentButton.addTarget(self, action: Selector("hideMenuViewController"), forControlEvents:.TouchUpInside)
+            contentButton.addTarget(self, action: #selector(SSASideMenu.hideMenuViewController as (SSASideMenu) -> () -> ()), forControlEvents:.TouchUpInside)
             contentButton.autoresizingMask = .None
             contentButton.frame = contentViewContainer.bounds
             contentButton.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
@@ -702,7 +702,7 @@ class SSASideMenu: UIViewController, UIGestureRecognizerDelegate {
     
     private func statusBarNeedsAppearanceUpdate() {
         
-        if self.respondsToSelector(Selector("setNeedsStatusBarAppearanceUpdate")) {
+        if self.respondsToSelector(#selector(UIViewController.setNeedsStatusBarAppearanceUpdate)) {
             
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 self.setNeedsStatusBarAppearanceUpdate()

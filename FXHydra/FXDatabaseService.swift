@@ -37,9 +37,6 @@ class FXDatabaseService {
     func getAllSqliteInfo() {
         
         log.info("Init ::: TMDatabaseManager")
-        log.info("SQLITE_VERSION === \(SQLITE_VERSION)")
-        log.info("SQLITE_VERSION_NUMBER === \(SQLITE_VERSION_NUMBER)")
-        log.info("SQLITE_SOURCE_ID === \(SQLITE_SOURCE_ID)")
         
     }
 

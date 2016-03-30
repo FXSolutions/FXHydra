@@ -52,7 +52,7 @@ public class VideoSplashViewController: UIViewController {
     didSet {
       if alwaysRepeat {
         NSNotificationCenter.defaultCenter().addObserver(self,
-          selector: "playerItemDidReachEnd",
+          selector: #selector(VideoSplashViewController.playerItemDidReachEnd),
           name: AVPlayerItemDidPlayToEndTimeNotification,
           object: moviePlayer.player?.currentItem)
       }

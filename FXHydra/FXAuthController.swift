@@ -25,7 +25,7 @@ class FXAuthController: VideoSplashViewController {
         self.loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         self.loginButton.backgroundColor = UIColor.blueColor().colorWithAlphaComponent(0.7)
         self.loginButton.layer.cornerRadius = 5.0
-        self.loginButton.addTarget(super.self(), action: "authButtonAction", forControlEvents:.TouchUpInside)
+        self.loginButton.addTarget(super.self(), action: #selector(FXAuthController.authButtonAction), forControlEvents:.TouchUpInside)
         self.loginButton.userInteractionEnabled = true
         
         

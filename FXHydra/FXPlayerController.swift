@@ -415,7 +415,7 @@ class FXPlayerController: UIViewController {
         
         let flexSpaceLeft = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         
-        let equalizer = UIBarButtonItem(image: UIImage(named: "toolbar_equalizer"), style: UIBarButtonItemStyle.Plain, target: self, action: "openEqualizer")
+        let equalizer = UIBarButtonItem(image: UIImage(named: "toolbar_equalizer"), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(FXPlayerController.openEqualizer))
         
         let flexSpaceRight = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         
@@ -433,12 +433,12 @@ class FXPlayerController: UIViewController {
     
     func loadNavButtons() {
         
-        let closeButton = UIBarButtonItem(title: "Close", style: UIBarButtonItemStyle.Plain, target: self, action: "closeControllerAction")
+        let closeButton = UIBarButtonItem(title: "Close", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(FXPlayerController.closeControllerAction))
         self.navigationItem.leftBarButtonItem = closeButton
         
         ///
         
-        let actionsButton = UIBarButtonItem(title: "Actions", style: UIBarButtonItemStyle.Plain, target: self, action: "navButtonActionsAction")
+        let actionsButton = UIBarButtonItem(title: "Actions", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(FXPlayerController.navButtonActionsAction))
         self.navigationItem.rightBarButtonItem = actionsButton
         
     }

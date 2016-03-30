@@ -10,6 +10,7 @@ target 'FXHydra' do
     pod 'GRDB.swift'
     pod 'AsyncDisplayKit'
     pod 'ESTMusicIndicator'
+    pod 'LaunchKit'
 
 end
 

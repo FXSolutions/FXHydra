@@ -92,7 +92,7 @@ public class Signal<T> {
     ///
     /// :param: data The data to fire the signal with.
     public func fire(data: T) {
-        fireCount++
+        fireCount += 1
         lastDataFired = data
         dumpCancelledListeners()
         
