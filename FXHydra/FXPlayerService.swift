@@ -11,6 +11,7 @@ import StreamingKit
 import AVFoundation
 import VK_ios_sdk
 import SwiftFilePath
+import MediaPlayer
 
 class FXPlayerService : NSObject, STKAudioPlayerDelegate {
 
@@ -79,6 +80,8 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
         
         FXSignalsService.sharedManager().changeCurrentItem.fire(audioModel)
         
+        self.updateSongInfo(nil)
+        
         if audioModel.audioLocalURL == nil {
             self.startPlayNetworkURL(audioModel)
         } else {
@@ -94,6 +97,34 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
         } else {
             self.startPlayLocalURL(model)
         }
+        
+    }
+    
+    
+    func updateSongInfo(coverImage:UIImage?) {
+        
+        var songInfo = Dictionary<String,AnyObject>()
+        if (coverImage == nil) {
+            let defaultImageCover = UIImage(named: "player_background_default")
+            let albumArt = MPMediaItemArtwork(image: defaultImageCover!)
+            
+            songInfo[MPMediaItemPropertyArtwork] = albumArt
+            songInfo[MPMediaItemPropertyArtist] = self.currentAudioPlayed?.artist
+            songInfo[MPMediaItemPropertyTitle] = self.currentAudioPlayed?.title
+            
+            
+            
+        } else {
+            
+            let albumArt = MPMediaItemArtwork(image: coverImage!)
+            
+            songInfo[MPMediaItemPropertyArtwork] = albumArt
+            songInfo[MPMediaItemPropertyArtist] = self.currentAudioPlayed?.artist
+            songInfo[MPMediaItemPropertyTitle] = self.currentAudioPlayed?.title
+            
+        }
+        
+        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo
         
     }
     
@@ -274,6 +305,8 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
                         let image = UIImage(data: imageData)
                         
                         FXSignalsService.sharedManager().updateCoverImage.fire(image)
+                        
+                        self.updateSongInfo(image)
                         
                     } else if (item.keySpace == AVMetadataKeySpaceiTunes) {
                         

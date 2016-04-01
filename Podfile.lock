@@ -1,4 +1,5 @@
 PODS:
+  - BCColor (0.1.2)
   - ESTMusicIndicator (0.1.2)
   - Just (0.4.7)
   - RxSwift (2.4)
@@ -13,6 +14,7 @@ PODS:
   - YYKit/no-arc (1.0.5)
 
 DEPENDENCIES:
+  - BCColor
   - ESTMusicIndicator
   - Just
   - RxSwift
@@ -23,6 +25,7 @@ DEPENDENCIES:
   - YYKit
 
 SPEC CHECKSUMS:
+  BCColor: 9ed6ef054af829873dc9ab8c8be2e4a79c67a624
   ESTMusicIndicator: 03dd1364d2db1a0a8684fb907406bc329f3700a6
   Just: 946bae197f898da6b49e27e10dbe9dfbf1216f29
   RxSwift: 67b9ef4e8b34fb394e200e754c6a09cc16559f94

@@ -11,6 +11,7 @@ target 'FXHydra' do
     pod 'sqlite3'
     pod 'Just'
     pod 'SwiftFilePath'
+    pod 'BCColor'
 
 end
 
