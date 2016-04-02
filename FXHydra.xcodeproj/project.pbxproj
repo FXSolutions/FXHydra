@@ -33,6 +33,7 @@
 		BEAFC8DE1CBA9FC70009DC39 /* FXDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFC8DD1CBA9FC70009DC39 /* FXDataService.swift */; };
 		BEAFC8E01CBAA0DE0009DC39 /* FXFMDBString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFC8DF1CBAA0DE0009DC39 /* FXFMDBString.swift */; };
 		BECF4AFE1CD94D85001D1198 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF4AFD1CD94D85001D1198 /* Reachability.swift */; };
+		BECF4B001CD94D85001D1198 /* FXSearchAudiosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF4AFF1CD94D85001D1198 /* FXSearchAudiosController.swift */; };
 		BED930B81C947D8900A6CD90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930B71C947D8900A6CD90 /* AppDelegate.swift */; };
 		BED930BF1C947D8900A6CD90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BED930BE1C947D8900A6CD90 /* Assets.xcassets */; };
 		BED930C21C947D8900A6CD90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED930C01C947D8900A6CD90 /* LaunchScreen.storyboard */; };
@@ -122,6 +123,7 @@
 		BEAFC8DD1CBA9FC70009DC39 /* FXDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXDataService.swift; sourceTree = "<group>"; };
 		BEAFC8DF1CBAA0DE0009DC39 /* FXFMDBString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXFMDBString.swift; sourceTree = "<group>"; };
 		BECF4AFD1CD94D85001D1198 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		BECF4AFF1CD94D85001D1198 /* FXSearchAudiosController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXSearchAudiosController.swift; sourceTree = "<group>"; };
 		BED930B41C947D8900A6CD90 /* FXHydra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXHydra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED930B71C947D8900A6CD90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BED930BE1C947D8900A6CD90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 		BECF4AFC1CD91E9F001D1198 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				BECF4AFF1CD94D85001D1198 /* FXSearchAudiosController.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -814,6 +817,7 @@
 				BED930B81C947D8900A6CD90 /* AppDelegate.swift in Sources */,
 				BE38FBF81CBA785800B143DC /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				BE4521FA1C995C6700B8A391 /* FXApiManager.swift in Sources */,
+				BECF4B001CD94D85001D1198 /* FXSearchAudiosController.swift in Sources */,
 				BE38FBEB1CBA783000B143DC /* FMDatabasePool.m in Sources */,
 				BEAFC8DC1CBA9A8E0009DC39 /* FXDownloadsPoolService.swift in Sources */,
 				BEF90A6B1C9CA2EB00ECFF3F /* FXNavigationController.swift in Sources */,
