@@ -109,8 +109,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    
-    
     override func remoteControlReceivedWithEvent(receivedEvent: UIEvent?) {
         
         if (receivedEvent?.type == UIEventType.RemoteControl) {

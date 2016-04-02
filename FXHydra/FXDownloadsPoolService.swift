@@ -72,8 +72,10 @@ class FXDownloadsPoolService {
         FXDatabaseService.sharedManager().saveDownloadModel(audio_model, cb: { (done) in
             log.debug("::: audio model saved :::")
             
-            dispatch.async.main({
-                FXSignalsService.sharedManager().updateAfterDownload.fire(true)
+            FXDataService.sharedManager().loadAllDownloads({ (done) in
+                dispatch.async.main({
+                    FXSignalsService.sharedManager().updateAfterDownload.fire(true)
+                })
             })
             
         })

@@ -181,9 +181,17 @@ class FXAllAudiosController: UITableViewController {
         cell.audioTitleLabel.text = audioModel.title
         cell.audioTimeLabel.text = audioModel.getDurationString()
         
-        cell.downloadButton.setImage(UIImage(named: "download_button"), forState: UIControlState.Normal)
-        cell.downloadButton.tintColor = UIColor ( red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
-        cell.downloadButton.addTarget(self, action: #selector(FXAllAudiosController.startDownload(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        if FXDataService.sharedManager().checkAudioIdInDownloads(audioModel.audioID) == false {
+            
+            cell.downloadButton.setImage(UIImage(named: "download_button"), forState: UIControlState.Normal)
+            cell.downloadButton.tintColor = UIColor ( red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
+            cell.downloadButton.addTarget(self, action: #selector(FXAllAudiosController.startDownload(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            
+        } else {
+        
+            cell.downloadButton.hidden = true
+        
+        }
         
         ///
         

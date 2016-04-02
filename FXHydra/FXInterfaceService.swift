@@ -73,7 +73,10 @@ class FXInterfaceService :NSObject , VKSdkDelegate , VKSdkUIDelegate {
             let tab = FXTabBarController()
             tab.viewControllers = self.getMainNavigations()
             
-            self.rootNavController.pushViewController(tab, animated: false)
+            FXDataService.sharedManager().loadAllDownloads({ (done) in
+                self.rootNavController.pushViewController(tab, animated: false)
+            })
+            
         }
         
     }
@@ -167,6 +170,10 @@ class FXInterfaceService :NSObject , VKSdkDelegate , VKSdkUIDelegate {
         //
         //self.startWorking()
         log.debug("vkSdkAccessTokenUpdated: \(newToken))")
+        
+        if newToken != nil {
+            self.startWorking()
+        }
     }
     
     func vkSdkUserAuthorizationFailed() {
