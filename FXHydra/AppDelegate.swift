@@ -109,6 +109,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    
+    
+    override func remoteControlReceivedWithEvent(receivedEvent: UIEvent?) {
+        
+        if (receivedEvent?.type == UIEventType.RemoteControl) {
+            
+            switch (receivedEvent!.subtype) {
+                
+            case UIEventSubtype.RemoteControlPreviousTrack:
+                FXPlayerService.sharedManager().playPrevAudio()
+                break;
+                
+            case UIEventSubtype.RemoteControlNextTrack:
+                FXPlayerService.sharedManager().playNextAudio()
+                break;
+                
+            case UIEventSubtype.RemoteControlPlay:
+                FXPlayerService.sharedManager().audioPlayer.resume()
+                break;
+                
+            case UIEventSubtype.RemoteControlPause:
+                FXPlayerService.sharedManager().audioPlayer.pause()
+                break;
+                
+            default:
+                break;
+            }
+        }
+        
+        
+    }
 
 }
 

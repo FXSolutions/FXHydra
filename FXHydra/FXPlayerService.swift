@@ -109,20 +109,17 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
             let albumArt = MPMediaItemArtwork(image: defaultImageCover!)
             
             songInfo[MPMediaItemPropertyArtwork] = albumArt
-            songInfo[MPMediaItemPropertyArtist] = self.currentAudioPlayed?.artist
-            songInfo[MPMediaItemPropertyTitle] = self.currentAudioPlayed?.title
-            
-            
-            
+        
         } else {
-            
             let albumArt = MPMediaItemArtwork(image: coverImage!)
             
             songInfo[MPMediaItemPropertyArtwork] = albumArt
-            songInfo[MPMediaItemPropertyArtist] = self.currentAudioPlayed?.artist
-            songInfo[MPMediaItemPropertyTitle] = self.currentAudioPlayed?.title
-            
         }
+        
+        songInfo[MPMediaItemPropertyArtist] = self.currentAudioPlayed?.artist
+        songInfo[MPMediaItemPropertyTitle] = self.currentAudioPlayed?.title
+        songInfo[MPNowPlayingInfoPropertyPlaybackQueueIndex] = self.currentAudioIndexInArray+1
+        songInfo[MPNowPlayingInfoPropertyPlaybackQueueCount] = self.currentAudiosArray.count
         
         MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo
         
