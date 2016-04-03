@@ -42,6 +42,7 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
         playerOptions.enableVolumeMixer = true
         
         self.audioPlayer = STKAudioPlayer(options: playerOptions)
+        self.audioPlayer.equalizerEnabled = true
         
         audioPlayer.delegate = self
         
@@ -87,6 +88,11 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
         } else {
             self.startPlayLocalURL(audioModel)
         }
+        
+        // check settings player
+        
+        log.debug("::: equalizerBandFrequencies -> \(self.audioPlayer.options.equalizerBandFrequencies) :::")
+        
         
     }
     
@@ -325,5 +331,15 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
     
         
     }
+    
+    /*
+        0.0, 0.0, 0.0, 0.0,
+        0.0, 0.0, 0.0, 0.0, 
+        0.0, 0.0, 0.0, 0.0, 
+        0.0, 0.0, 0.0, 0.0, 
+        0.0, 0.0, 0.0, 0.0, 
+        0.0, 0.0, 0.0, 0.0
+    */
+    
     
 }

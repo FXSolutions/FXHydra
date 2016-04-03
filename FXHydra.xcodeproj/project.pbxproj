@@ -34,6 +34,7 @@
 		BEAFC8E01CBAA0DE0009DC39 /* FXFMDBString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFC8DF1CBAA0DE0009DC39 /* FXFMDBString.swift */; };
 		BECF4AFE1CD94D85001D1198 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF4AFD1CD94D85001D1198 /* Reachability.swift */; };
 		BECF4B001CD94D85001D1198 /* FXSearchAudiosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF4AFF1CD94D85001D1198 /* FXSearchAudiosController.swift */; };
+		BECF4B031CD94D85001D1198 /* FXEqualiserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECF4B021CD94D85001D1198 /* FXEqualiserController.swift */; };
 		BED930B81C947D8900A6CD90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930B71C947D8900A6CD90 /* AppDelegate.swift */; };
 		BED930BF1C947D8900A6CD90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BED930BE1C947D8900A6CD90 /* Assets.xcassets */; };
 		BED930C21C947D8900A6CD90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED930C01C947D8900A6CD90 /* LaunchScreen.storyboard */; };
@@ -124,6 +125,7 @@
 		BEAFC8DF1CBAA0DE0009DC39 /* FXFMDBString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXFMDBString.swift; sourceTree = "<group>"; };
 		BECF4AFD1CD94D85001D1198 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		BECF4AFF1CD94D85001D1198 /* FXSearchAudiosController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXSearchAudiosController.swift; sourceTree = "<group>"; };
+		BECF4B021CD94D85001D1198 /* FXEqualiserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXEqualiserController.swift; sourceTree = "<group>"; };
 		BED930B41C947D8900A6CD90 /* FXHydra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXHydra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED930B71C947D8900A6CD90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BED930BE1C947D8900A6CD90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -310,6 +312,14 @@
 				BECF4AFF1CD94D85001D1198 /* FXSearchAudiosController.swift */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		BECF4B011CD94D85001D1198 /* Eqliser */ = {
+			isa = PBXGroup;
+			children = (
+				BECF4B021CD94D85001D1198 /* FXEqualiserController.swift */,
+			);
+			name = Eqliser;
 			sourceTree = "<group>";
 		};
 		BED930AB1C947D8900A6CD90 = {
@@ -526,6 +536,7 @@
 		BEF90A6F1C9CA32000ECFF3F /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				BECF4B011CD94D85001D1198 /* Eqliser */,
 				BEA54DA91CD7F51D00EA3D13 /* PlaylistController */,
 				BEF90A761C9CA36E00ECFF3F /* FXPlayerController.swift */,
 				BEF90A811C9CA37F00ECFF3F /* FXPlayerViewModel.swift */,
@@ -783,6 +794,7 @@
 				BE70F3771C9ECBF000300696 /* main.m in Sources */,
 				BE70F36B1C99669100300696 /* AttributedLabel.swift in Sources */,
 				BE4521F81C995C1800B8A391 /* SwiftyJSON.swift in Sources */,
+				BECF4B031CD94D85001D1198 /* FXEqualiserController.swift in Sources */,
 				BE38FBE91CBA783000B143DC /* FMDatabase.m in Sources */,
 				BED9310F1C95ADA600A6CD90 /* SSASideMenu.swift in Sources */,
 				BEF90A891C9CA37F00ECFF3F /* FXPlayerService.swift in Sources */,
