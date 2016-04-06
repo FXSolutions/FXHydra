@@ -14,6 +14,10 @@ class FXAllAudiosController: UITableViewController {
     
     var viewModel : FXAllAudiosViewModel?
     
+    //
+    
+    var searchController : UISearchController?
+    
     // FIX IT : going to another public static class
     let bitrateImageDark = UIImage(named: "bitrate_background")?.imageByTintColor(UIColor ( red: 0.426, green: 0.4397, blue: 0.4529, alpha: 1.0))
     let bitrateImageBlue = UIImage(named: "bitrate_background")?.imageByTintColor(UIColor ( red: 0.0734, green: 0.6267, blue: 0.7817, alpha: 1.0))
@@ -57,7 +61,30 @@ class FXAllAudiosController: UITableViewController {
             }
         })
         
-        ////
+        /// add search
+        
+        let searchAudioController = FXSearchAudiosController()
+        self.searchController = UISearchController(searchResultsController: searchAudioController)
+        self.searchController?.searchResultsUpdater = searchAudioController
+        self.searchController?.searchBar.sizeToFit()
+        self.searchController?.searchBar.tintColor = UIColor ( red: 0.882, green: 0.8778, blue: 0.8863, alpha: 1.0 )
+        self.searchController?.searchBar.backgroundColor = UIColor ( red: 0.2228, green: 0.2228, blue: 0.2228, alpha: 1.0 )
+        self.searchController?.searchBar.barTintColor = UIColor ( red: 0.1221, green: 0.1215, blue: 0.1227, alpha: 1.0 )
+        self.searchController?.searchBar.backgroundImage = UIImage()
+        self.searchController?.searchBar.placeholder = ""
+        self.searchController?.searchBar.inputAccessoryView?.backgroundColor = UIColor ( red: 0.3025, green: 0.301, blue: 0.3039, alpha: 1.0 )
+        self.searchController?.searchBar.keyboardAppearance = .Dark
+        self.searchController?.searchBar.translucent = false
+        
+        let txfSearchField = self.searchController?.searchBar.valueForKey("_searchField") as! UITextField
+        txfSearchField.backgroundColor = UIColor ( red: 0.0732, green: 0.0728, blue: 0.0735, alpha: 1.0 )
+        txfSearchField.textColor = UIColor.whiteColor()
+        
+        self.tableView.tableHeaderView = self.searchController?.searchBar
+        
+        self.tableView.tableHeaderView?.backgroundColor = UIColor ( red: 0.1221, green: 0.1215, blue: 0.1227, alpha: 1.0 )
+        
+        self.tableView.backgroundView = UIView()
         
 
     }
