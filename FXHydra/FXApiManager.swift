@@ -92,9 +92,43 @@ class FXApiManager {
                     
             })
         })
-
         
     }
     
+    func vk_audiosearch(query:String,offset:Int,count:Int,competition:([FXAudioItemModel]) -> ()) {
+        
+        let audioSearch = VKRequest(method: "audio.search", parameters: ["q":query,"auto_complete":1,"sort":2,"offset":offset,"count":count])
+        log.debug("\(audioSearch.methodParameters)")
+        
+        dispatch.async.global {
+            
+            audioSearch.executeWithResultBlock({ (vk_response) in
+                
+                    let json = vk_response.json as! Dictionary<String,AnyObject>
+                    let items = json["items"] as! Array<Dictionary<String,AnyObject>>
+                    
+                    var audiosArray = [FXAudioItemModel]()
+                    
+                    for audioDict in items {
+                        
+                        let jsonAudioItem = JSON(audioDict)
+                        let audioItemModel = FXAudioItemModel(json: jsonAudioItem)
+                        
+                        audiosArray.append(audioItemModel)
+                        
+                    }
+                    
+                    competition(audiosArray)
+                
+                }, errorBlock: { (error) in
+                    
+                    log.error("\(error.description)")
+                    
+            })
+            
+        }
+        
+        
+    }
     
 }

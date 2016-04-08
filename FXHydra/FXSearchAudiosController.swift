@@ -182,7 +182,8 @@ class FXSearchAudiosController: UITableViewController , UISearchResultsUpdating,
         FXDownloadsPoolService.sharedManager().downloadAudioOnLocalStorage(audioModel)
         
     }
-
+    
+    //MARK: - Search logic
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         
@@ -190,12 +191,30 @@ class FXSearchAudiosController: UITableViewController , UISearchResultsUpdating,
             canSearch = false
             if searchController.searchBar.text != "" {
                 log.debug("\(searchController.searchBar.text)")
-                //self.loadSearch(searchController.searchBar.text)
+                self.loadSearch(searchController.searchBar.text)
             } else {
-                //self.audios = Array<HRAudioItemModel>()
+                self.searchedAudios = Array<FXAudioItemModel>()
                 self.tableView.reloadData()
                 canSearch = true
             }
+        }
+        
+    }
+    
+    func loadSearch(query: String!) {
+        
+        self.searchedAudios = Array<FXAudioItemModel>()
+        
+        FXApiManager.sharedManager().vk_audiosearch(query!, offset: 0, count: 100) { (audiosArray) in
+            
+            dispatch.async.main({
+                
+                self.searchedAudios = audiosArray
+                self.tableView.reloadData()
+                self.canSearch = true
+                
+            })
+            
         }
         
     }
