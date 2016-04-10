@@ -27,6 +27,9 @@
 		BE70F3731C9970EE00300696 /* FXPlaylistsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE70F3721C9970EE00300696 /* FXPlaylistsController.swift */; };
 		BE70F3751C99710A00300696 /* FXPlaylistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE70F3741C99710A00300696 /* FXPlaylistsViewModel.swift */; };
 		BE70F3771C9ECBF000300696 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE70F3761C9ECBF000300696 /* main.m */; };
+		BEAFC8DC1CBA9A8E0009DC39 /* FXDownloadsPoolService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFC8DB1CBA9A8E0009DC39 /* FXDownloadsPoolService.swift */; };
+		BEAFC8DE1CBA9FC70009DC39 /* FXDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFC8DD1CBA9FC70009DC39 /* FXDataService.swift */; };
+		BEAFC8E01CBAA0DE0009DC39 /* FXFMDBString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAFC8DF1CBAA0DE0009DC39 /* FXFMDBString.swift */; };
 		BED930B81C947D8900A6CD90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED930B71C947D8900A6CD90 /* AppDelegate.swift */; };
 		BED930BF1C947D8900A6CD90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BED930BE1C947D8900A6CD90 /* Assets.xcassets */; };
 		BED930C21C947D8900A6CD90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BED930C01C947D8900A6CD90 /* LaunchScreen.storyboard */; };
@@ -109,6 +112,9 @@
 		BE70F3721C9970EE00300696 /* FXPlaylistsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXPlaylistsController.swift; sourceTree = "<group>"; };
 		BE70F3741C99710A00300696 /* FXPlaylistsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXPlaylistsViewModel.swift; sourceTree = "<group>"; };
 		BE70F3761C9ECBF000300696 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BEAFC8DB1CBA9A8E0009DC39 /* FXDownloadsPoolService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXDownloadsPoolService.swift; sourceTree = "<group>"; };
+		BEAFC8DD1CBA9FC70009DC39 /* FXDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXDataService.swift; sourceTree = "<group>"; };
+		BEAFC8DF1CBAA0DE0009DC39 /* FXFMDBString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXFMDBString.swift; sourceTree = "<group>"; };
 		BED930B41C947D8900A6CD90 /* FXHydra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXHydra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED930B71C947D8900A6CD90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BED930BE1C947D8900A6CD90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -235,6 +241,7 @@
 			children = (
 				BE38FBF21CBA785100B143DC /* FMDatabaseAdditionsVariadic.swift */,
 				BE38FBF31CBA785100B143DC /* FMDatabaseVariadic.swift */,
+				BEAFC8DF1CBAA0DE0009DC39 /* FXFMDBString.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -395,6 +402,8 @@
 				BED930FC1C94C38900A6CD90 /* FXInterfaceService.swift */,
 				BED9310C1C94CDD900A6CD90 /* FXSignalsService.swift */,
 				BEF90A881C9CA37F00ECFF3F /* FXPlayerService.swift */,
+				BEAFC8DB1CBA9A8E0009DC39 /* FXDownloadsPoolService.swift */,
+				BEAFC8DD1CBA9FC70009DC39 /* FXDataService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -735,8 +744,10 @@
 				BE38FBED1CBA783000B143DC /* FMResultSet.m in Sources */,
 				BE38FBEC1CBA783000B143DC /* FMDatabaseQueue.m in Sources */,
 				BE70F3691C96201A00300696 /* FXDefaultMusicCell.swift in Sources */,
+				BEAFC8DE1CBA9FC70009DC39 /* FXDataService.swift in Sources */,
 				BE38FBF41CBA785100B143DC /* FMDatabaseAdditionsVariadic.swift in Sources */,
 				BEF90A7E1C9CA37F00ECFF3F /* FXDownloadsViewModel.swift in Sources */,
+				BEAFC8E01CBAA0DE0009DC39 /* FXFMDBString.swift in Sources */,
 				BEF90A871C9CA37F00ECFF3F /* FXTabBarController.swift in Sources */,
 				BEF90A7C1C9CA37F00ECFF3F /* FXAllAudiosViewModel.swift in Sources */,
 				BE38FBEA1CBA783000B143DC /* FMDatabaseAdditions.m in Sources */,
@@ -752,6 +763,7 @@
 				BE38FBF81CBA785800B143DC /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				BE4521FA1C995C6700B8A391 /* FXApiManager.swift in Sources */,
 				BE38FBEB1CBA783000B143DC /* FMDatabasePool.m in Sources */,
+				BEAFC8DC1CBA9A8E0009DC39 /* FXDownloadsPoolService.swift in Sources */,
 				BEF90A6B1C9CA2EB00ECFF3F /* FXNavigationController.swift in Sources */,
 				BED930FD1C94C38900A6CD90 /* FXInterfaceService.swift in Sources */,
 			);

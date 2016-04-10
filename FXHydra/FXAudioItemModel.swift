@@ -10,17 +10,18 @@ import UIKit
 
 class FXAudioItemModel {
     
+    var audioID : Int!
     var artist : String!
     var title  : String!
     var audioNetworkURL : String!
     var audioLocalURL   : String!
     var duration : Int!
-    var audioID : Int!
     var ownerID : Int!
-    var downloadState : Int!
-    var globalState : Int!
     var lyrics_id : Int!
     var genre_id : Int!
+    
+    var downloadState : Int!
+    var globalState : Int!
     var downloadedTime : Int!
     var bitrate : Int = 0
     
@@ -30,14 +31,14 @@ class FXAudioItemModel {
     
     init(json : JSON) {
         
-        self.title              = json["title"].stringValue
         self.audioID            = json["id"].intValue
-        self.lyrics_id          = json["lyrics_id"].intValue
-        self.ownerID            = json["owner_id"].intValue
         self.artist             = json["artist"].stringValue
+        self.title              = json["title"].stringValue
+        self.lyrics_id          = json["lyrics_id"].intValue
+        self.audioNetworkURL    = json["url"].stringValue
+        self.ownerID            = json["owner_id"].intValue
         self.duration           = json["duration"].intValue
         self.genre_id           = json["genre_id"].intValue
-        self.audioNetworkURL    = json["url"].stringValue
         
     }
     
@@ -94,6 +95,7 @@ class FXAudioItemModel {
         
     }
     
+    //////////////////////////////////////////////////////////
     
     func getDurationString() -> String {
         
@@ -107,5 +109,48 @@ class FXAudioItemModel {
         }
         
     }
+    
+    
+    /////
+    
+    
+    func fmdbdict() -> Dictionary<String,String> {
+        
+        /*
+         
+         "audio_id INTEGER PRIMARY KEY, " +
+         "artist TEXT, " +
+         "title TEXT, " +
+         "lyrics_id INTEGER, " +
+         "url TEXT, " +
+         "owner_id INTEGER, " +
+         "duration INTEGER, " +
+         "genre_id INTEGER, " +
+         
+         "local_url TEXT, " +
+         "bitrate INTEGER " +
+         
+         */
+        
+        var audioDict = Dictionary<String,String>()
+        
+        audioDict["audio_id"] = String(self.audioID).sqlString()
+        audioDict["artist"] = self.artist.sqlString()
+        audioDict["lyrics_id"] = String(self.lyrics_id).sqlString()
+        audioDict["url"] = self.audioNetworkURL.sqlString()
+        audioDict["owner_id"] = String(self.ownerID).sqlString()
+        audioDict["duration"] = String(self.duration).sqlString()
+        audioDict["genre_id"] = String(self.genre_id).sqlString()
+        
+        audioDict["local_url"] = self.audioLocalURL.sqlString()
+        audioDict["bitrate"] = String(self.bitrate).sqlString()
+        
+        return audioDict
+        
+    }
+    
+    
+    
+    
 
 }
