@@ -56,12 +56,21 @@ class FXAllAudiosController: UITableViewController {
                 self.animateTable()
             }
         })
+        
+        ////
+        
 
     }
     
     override func viewWillAppear(animated: Bool) {
         
         self.animateTable()
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         
     }
     

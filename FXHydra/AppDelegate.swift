@@ -9,7 +9,6 @@
 import UIKit
 import VK_ios_sdk
 import AVFoundation
-import LaunchKit
 
 // ###### XCGLogger #####
 
@@ -47,21 +46,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        LaunchKit.launchWithToken("mmjcxrbaGLHGecDr4Qs44gimWdWbXggsQrihRL_gNfzy")
         
         let window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window.backgroundColor = UIColor.clearColor()
         window.rootViewController = FXInterfaceService.sharedManager().rootNavController
         window.makeKeyAndVisible()
         self.window = window
-        
-        ///
-        
-        
+    
         // init database
         
         FXDatabaseService.sharedManager()

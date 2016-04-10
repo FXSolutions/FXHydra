@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE38FBE91CBA783000B143DC /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BE38FBDF1CBA783000B143DC /* FMDatabase.m */; };
+		BE38FBEA1CBA783000B143DC /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE38FBE11CBA783000B143DC /* FMDatabaseAdditions.m */; };
+		BE38FBEB1CBA783000B143DC /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = BE38FBE31CBA783000B143DC /* FMDatabasePool.m */; };
+		BE38FBEC1CBA783000B143DC /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = BE38FBE51CBA783000B143DC /* FMDatabaseQueue.m */; };
+		BE38FBED1CBA783000B143DC /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BE38FBE81CBA783000B143DC /* FMResultSet.m */; };
+		BE38FBF41CBA785100B143DC /* FMDatabaseAdditionsVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE38FBF21CBA785100B143DC /* FMDatabaseAdditionsVariadic.swift */; };
+		BE38FBF51CBA785100B143DC /* FMDatabaseVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE38FBF31CBA785100B143DC /* FMDatabaseVariadic.swift */; };
+		BE38FBF81CBA785800B143DC /* FMDatabase+InMemoryOnDiskIO.m in Sources */ = {isa = PBXBuildFile; fileRef = BE38FBF71CBA785800B143DC /* FMDatabase+InMemoryOnDiskIO.m */; };
+		BE38FBFE1CBA786000B143DC /* FMDatabase+FTS3.m in Sources */ = {isa = PBXBuildFile; fileRef = BE38FBFA1CBA786000B143DC /* FMDatabase+FTS3.m */; };
+		BE38FBFF1CBA786000B143DC /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = BE38FBFC1CBA786000B143DC /* FMTokenizers.m */; };
 		BE4521F61C995BDB00B8A391 /* FXAudioItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4521F51C995BDB00B8A391 /* FXAudioItemModel.swift */; };
 		BE4521F81C995C1800B8A391 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4521F71C995C1800B8A391 /* SwiftyJSON.swift */; };
 		BE4521FA1C995C6700B8A391 /* FXApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4521F91C995C6700B8A391 /* FXApiManager.swift */; };
@@ -67,6 +77,26 @@
 /* Begin PBXFileReference section */
 		04912E3B69CF04D4A8762929 /* Pods-FXHydra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FXHydra.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FXHydra/Pods-FXHydra.debug.xcconfig"; sourceTree = "<group>"; };
 		2EEA67849E34ED48E7F4FE24 /* Pods-FXHydra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FXHydra.release.xcconfig"; path = "Pods/Target Support Files/Pods-FXHydra/Pods-FXHydra.release.xcconfig"; sourceTree = "<group>"; };
+		BE38FBDE1CBA783000B143DC /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		BE38FBDF1CBA783000B143DC /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		BE38FBE01CBA783000B143DC /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		BE38FBE11CBA783000B143DC /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		BE38FBE21CBA783000B143DC /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		BE38FBE31CBA783000B143DC /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		BE38FBE41CBA783000B143DC /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		BE38FBE51CBA783000B143DC /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		BE38FBE61CBA783000B143DC /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		BE38FBE71CBA783000B143DC /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		BE38FBE81CBA783000B143DC /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		BE38FBF21CBA785100B143DC /* FMDatabaseAdditionsVariadic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDatabaseAdditionsVariadic.swift; sourceTree = "<group>"; };
+		BE38FBF31CBA785100B143DC /* FMDatabaseVariadic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDatabaseVariadic.swift; sourceTree = "<group>"; };
+		BE38FBF61CBA785800B143DC /* FMDatabase+InMemoryOnDiskIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+InMemoryOnDiskIO.h"; sourceTree = "<group>"; };
+		BE38FBF71CBA785800B143DC /* FMDatabase+InMemoryOnDiskIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+InMemoryOnDiskIO.m"; sourceTree = "<group>"; };
+		BE38FBF91CBA786000B143DC /* FMDatabase+FTS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+FTS3.h"; sourceTree = "<group>"; };
+		BE38FBFA1CBA786000B143DC /* FMDatabase+FTS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+FTS3.m"; sourceTree = "<group>"; };
+		BE38FBFB1CBA786000B143DC /* FMTokenizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMTokenizers.h; sourceTree = "<group>"; };
+		BE38FBFC1CBA786000B143DC /* FMTokenizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMTokenizers.m; sourceTree = "<group>"; };
+		BE38FBFD1CBA786000B143DC /* fts3_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fts3_tokenizer.h; sourceTree = "<group>"; };
 		BE4521F51C995BDB00B8A391 /* FXAudioItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXAudioItemModel.swift; sourceTree = "<group>"; };
 		BE4521F71C995C1800B8A391 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		BE4521F91C995C6700B8A391 /* FXApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXApiManager.swift; sourceTree = "<group>"; };
@@ -150,6 +180,65 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BE38FBDD1CBA782000B143DC /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				BE38FBEE1CBA783500B143DC /* extra */,
+				BE38FBDE1CBA783000B143DC /* FMDatabase.h */,
+				BE38FBDF1CBA783000B143DC /* FMDatabase.m */,
+				BE38FBE01CBA783000B143DC /* FMDatabaseAdditions.h */,
+				BE38FBE11CBA783000B143DC /* FMDatabaseAdditions.m */,
+				BE38FBE21CBA783000B143DC /* FMDatabasePool.h */,
+				BE38FBE31CBA783000B143DC /* FMDatabasePool.m */,
+				BE38FBE41CBA783000B143DC /* FMDatabaseQueue.h */,
+				BE38FBE51CBA783000B143DC /* FMDatabaseQueue.m */,
+				BE38FBE61CBA783000B143DC /* FMDB.h */,
+				BE38FBE71CBA783000B143DC /* FMResultSet.h */,
+				BE38FBE81CBA783000B143DC /* FMResultSet.m */,
+			);
+			name = FMDB;
+			sourceTree = "<group>";
+		};
+		BE38FBEE1CBA783500B143DC /* extra */ = {
+			isa = PBXGroup;
+			children = (
+				BE38FBF11CBA784900B143DC /* Swift */,
+				BE38FBF01CBA783F00B143DC /* InMemoryOnDiskIO */,
+				BE38FBEF1CBA783B00B143DC /* fts3 */,
+			);
+			name = extra;
+			sourceTree = "<group>";
+		};
+		BE38FBEF1CBA783B00B143DC /* fts3 */ = {
+			isa = PBXGroup;
+			children = (
+				BE38FBF91CBA786000B143DC /* FMDatabase+FTS3.h */,
+				BE38FBFA1CBA786000B143DC /* FMDatabase+FTS3.m */,
+				BE38FBFB1CBA786000B143DC /* FMTokenizers.h */,
+				BE38FBFC1CBA786000B143DC /* FMTokenizers.m */,
+				BE38FBFD1CBA786000B143DC /* fts3_tokenizer.h */,
+			);
+			name = fts3;
+			sourceTree = "<group>";
+		};
+		BE38FBF01CBA783F00B143DC /* InMemoryOnDiskIO */ = {
+			isa = PBXGroup;
+			children = (
+				BE38FBF61CBA785800B143DC /* FMDatabase+InMemoryOnDiskIO.h */,
+				BE38FBF71CBA785800B143DC /* FMDatabase+InMemoryOnDiskIO.m */,
+			);
+			name = InMemoryOnDiskIO;
+			sourceTree = "<group>";
+		};
+		BE38FBF11CBA784900B143DC /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				BE38FBF21CBA785100B143DC /* FMDatabaseAdditionsVariadic.swift */,
+				BE38FBF31CBA785100B143DC /* FMDatabaseVariadic.swift */,
+			);
+			name = Swift;
+			sourceTree = "<group>";
+		};
 		BE70F3701C996FCA00300696 /* Playlists */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +311,7 @@
 		BED930EC1C9491B600A6CD90 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				BE38FBDD1CBA782000B143DC /* FMDB */,
 				BE70F36D1C99669A00300696 /* MarqueeLabel.h */,
 				BE70F36E1C99669A00300696 /* MarqueeLabel.m */,
 				BE4521FB1C995C6700B8A391 /* dispatch.swift */,
@@ -631,17 +721,25 @@
 				BE70F3771C9ECBF000300696 /* main.m in Sources */,
 				BE70F36B1C99669100300696 /* AttributedLabel.swift in Sources */,
 				BE4521F81C995C1800B8A391 /* SwiftyJSON.swift in Sources */,
+				BE38FBE91CBA783000B143DC /* FMDatabase.m in Sources */,
 				BED9310F1C95ADA600A6CD90 /* SSASideMenu.swift in Sources */,
 				BEF90A891C9CA37F00ECFF3F /* FXPlayerService.swift in Sources */,
 				BED9310A1C94CDAC00A6CD90 /* FXSignal.swift in Sources */,
 				BEF90A771C9CA36E00ECFF3F /* FXPlayerController.swift in Sources */,
+				BE38FBF51CBA785100B143DC /* FMDatabaseVariadic.swift in Sources */,
 				BE70F3751C99710A00300696 /* FXPlaylistsViewModel.swift in Sources */,
+				BE38FBFF1CBA786000B143DC /* FMTokenizers.m in Sources */,
+				BE38FBFE1CBA786000B143DC /* FMDatabase+FTS3.m in Sources */,
 				BEF90A711C9CA34A00ECFF3F /* FXAllAudiosController.swift in Sources */,
 				BED931081C94C65A00A6CD90 /* VideoSplashViewController.swift in Sources */,
+				BE38FBED1CBA783000B143DC /* FMResultSet.m in Sources */,
+				BE38FBEC1CBA783000B143DC /* FMDatabaseQueue.m in Sources */,
 				BE70F3691C96201A00300696 /* FXDefaultMusicCell.swift in Sources */,
+				BE38FBF41CBA785100B143DC /* FMDatabaseAdditionsVariadic.swift in Sources */,
 				BEF90A7E1C9CA37F00ECFF3F /* FXDownloadsViewModel.swift in Sources */,
 				BEF90A871C9CA37F00ECFF3F /* FXTabBarController.swift in Sources */,
 				BEF90A7C1C9CA37F00ECFF3F /* FXAllAudiosViewModel.swift in Sources */,
+				BE38FBEA1CBA783000B143DC /* FMDatabaseAdditions.m in Sources */,
 				BEF90A751C9CA36000ECFF3F /* FXSettingsController.swift in Sources */,
 				BE4521FC1C995C6700B8A391 /* dispatch.swift in Sources */,
 				BED931001C94C43500A6CD90 /* FXAuthController.swift in Sources */,
@@ -651,7 +749,9 @@
 				BED930F81C94C1D000A6CD90 /* FXDatabaseService.swift in Sources */,
 				BEF90A731C9CA35500ECFF3F /* FXDownloadsController.swift in Sources */,
 				BED930B81C947D8900A6CD90 /* AppDelegate.swift in Sources */,
+				BE38FBF81CBA785800B143DC /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				BE4521FA1C995C6700B8A391 /* FXApiManager.swift in Sources */,
+				BE38FBEB1CBA783000B143DC /* FMDatabasePool.m in Sources */,
 				BEF90A6B1C9CA2EB00ECFF3F /* FXNavigationController.swift in Sources */,
 				BED930FD1C94C38900A6CD90 /* FXInterfaceService.swift in Sources */,
 			);
@@ -730,6 +830,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -787,6 +888,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = FXHydra/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -816,6 +918,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = FXHydraTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FXSolutions.FXHydraTests;
@@ -839,6 +942,7 @@
 		BED930E31C947D8900A6CD90 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = FXHydraUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FXSolutions.FXHydraUITests;

@@ -6,28 +6,26 @@ PODS:
     - AsyncDisplayKit/ASDealloc2MainObject
     - PINRemoteImage/iOS (>= 2.1.2)
   - ESTMusicIndicator (0.1.2)
-  - GRDB.swift (0.53.0)
-  - LaunchKit (2.1.2):
-    - LaunchKit/LaunchKit (= 2.1.2)
-  - LaunchKit/LaunchKit (2.1.2)
   - PINCache (2.2.2)
   - PINRemoteImage/Core (2.1.2):
     - PINCache (>= 2.1)
   - PINRemoteImage/iOS (2.1.2):
     - PINRemoteImage/Core
   - RxSwift (2.3.1)
+  - sqlite3 (3.12.1):
+    - sqlite3/common (= 3.12.1)
+  - sqlite3/common (3.12.1)
   - StreamingKit (0.1.29)
   - VK-ios-sdk (1.3.16)
-  - YYKit (1.0.3):
-    - YYKit/no-arc (= 1.0.3)
-  - YYKit/no-arc (1.0.3)
+  - YYKit (1.0.4):
+    - YYKit/no-arc (= 1.0.4)
+  - YYKit/no-arc (1.0.4)
 
 DEPENDENCIES:
   - AsyncDisplayKit
   - ESTMusicIndicator
-  - GRDB.swift
-  - LaunchKit
   - RxSwift
+  - sqlite3
   - StreamingKit
   - VK-ios-sdk
   - YYKit
@@ -35,13 +33,12 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AsyncDisplayKit: 2b52f841e384e7326d4f59323b1bf35d00696e17
   ESTMusicIndicator: 03dd1364d2db1a0a8684fb907406bc329f3700a6
-  GRDB.swift: f99a289dbcb56a41cb29fabf4f3796e99e69ac9d
-  LaunchKit: e9ee6448b18c9e4f240e403ef404848331e9626e
   PINCache: 078426d356ab95ef875e9e62e5c35a2ea3333c28
   PINRemoteImage: 2ce3f1fcc52f0360a3821f91f1a1bc653c5d2338
   RxSwift: 829b2843e9eddc77a02cb3f5117f0d55f8f646f1
+  sqlite3: a955159cd989b1bd67984d49578aefca7b04f719
   StreamingKit: c329785aaef3ac142d4ae388345bfe1ed23cfd45
   VK-ios-sdk: 7804776d9947cf9b6f54a259fac589b9212156f1
-  YYKit: fa66d61240458f14562c33c85c91d11131e43261
+  YYKit: 71f7e48cc5de6c69b5c35fee4d3978dac3267041
 
 COCOAPODS: 0.39.0

@@ -7,10 +7,9 @@ target 'FXHydra' do
     pod 'VK-ios-sdk'
     pod 'YYKit'
     pod 'RxSwift'
-    pod 'GRDB.swift'
     pod 'AsyncDisplayKit'
     pod 'ESTMusicIndicator'
-    pod 'LaunchKit'
+    pod 'sqlite3'
 
 end
 
