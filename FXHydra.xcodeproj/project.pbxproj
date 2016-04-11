@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE2FF9861CDC8D990058F728 /* CircularProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2FF9851CDC8D990058F728 /* CircularProgressButton.swift */; };
 		BE38FBE91CBA783000B143DC /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BE38FBDF1CBA783000B143DC /* FMDatabase.m */; };
 		BE38FBEA1CBA783000B143DC /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE38FBE11CBA783000B143DC /* FMDatabaseAdditions.m */; };
 		BE38FBEB1CBA783000B143DC /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = BE38FBE31CBA783000B143DC /* FMDatabasePool.m */; };
@@ -85,6 +86,7 @@
 /* Begin PBXFileReference section */
 		04912E3B69CF04D4A8762929 /* Pods-FXHydra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FXHydra.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FXHydra/Pods-FXHydra.debug.xcconfig"; sourceTree = "<group>"; };
 		2EEA67849E34ED48E7F4FE24 /* Pods-FXHydra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FXHydra.release.xcconfig"; path = "Pods/Target Support Files/Pods-FXHydra/Pods-FXHydra.release.xcconfig"; sourceTree = "<group>"; };
+		BE2FF9851CDC8D990058F728 /* CircularProgressButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressButton.swift; sourceTree = "<group>"; };
 		BE38FBDE1CBA783000B143DC /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		BE38FBDF1CBA783000B143DC /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		BE38FBE01CBA783000B143DC /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			children = (
 				BE38FBDD1CBA782000B143DC /* FMDB */,
 				BE70F36D1C99669A00300696 /* MarqueeLabel.h */,
+				BE2FF9851CDC8D990058F728 /* CircularProgressButton.swift */,
 				BE70F36E1C99669A00300696 /* MarqueeLabel.m */,
 				BE4521FB1C995C6700B8A391 /* dispatch.swift */,
 				BED9310E1C95ADA600A6CD90 /* SSASideMenu.swift */,
@@ -823,6 +826,7 @@
 				BED931001C94C43500A6CD90 /* FXAuthController.swift in Sources */,
 				BE4521F61C995BDB00B8A391 /* FXAudioItemModel.swift in Sources */,
 				BEF90A801C9CA37F00ECFF3F /* FXSettingsViewModel.swift in Sources */,
+				BE2FF9861CDC8D990058F728 /* CircularProgressButton.swift in Sources */,
 				BEF90A851C9CA37F00ECFF3F /* FXLocalized.swift in Sources */,
 				BED930F81C94C1D000A6CD90 /* FXDatabaseService.swift in Sources */,
 				BEF90A731C9CA35500ECFF3F /* FXDownloadsController.swift in Sources */,
