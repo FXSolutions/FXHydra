@@ -11,8 +11,8 @@ import ESTMusicIndicator
 
 class FXDefaultMusicCell: UITableViewCell {
 
-    var audioAristLabel         : AttributedLabel
-    var audioTitleLabel         : AttributedLabel
+    var audioAristLabel         : AttributedLabel!
+    var audioTitleLabel         : AttributedLabel!
     var audioDurationTime       : AttributedLabel!
     var audioBitrate            : AttributedLabel!
     var audioTimeLabel          : AttributedLabel!
@@ -27,6 +27,12 @@ class FXDefaultMusicCell: UITableViewCell {
     //var musicIndicator          : ESTMusicIndicatorView!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        
+//        self.musicIndicator = ESTMusicIndicatorView()
+//        self.musicIndicator.tintColor = UIColor (red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
+//        self.musicIndicator.hidesWhenStopped = true
+        
+        super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
         
         self.audioTitleLabel = AttributedLabel()
         self.audioTitleLabel.font = UIFont(name: "Avenir-Heavy", size: 15)!
@@ -54,12 +60,6 @@ class FXDefaultMusicCell: UITableViewCell {
         
         self.downloadButton = UIButton(type: UIButtonType.System)
         self.downloadedImage = UIImageView()
-        
-//        self.musicIndicator = ESTMusicIndicatorView()
-//        self.musicIndicator.tintColor = UIColor (red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
-//        self.musicIndicator.hidesWhenStopped = true
-        
-        super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
         
         self.contentView.addSubview(self.downloadButton)
         
