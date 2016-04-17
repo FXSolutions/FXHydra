@@ -10,9 +10,19 @@ import UIKit
 
 class FXRecommendationsController: UITableViewController {
     
-    var recommendAudios:[FXAudioItemModel]!
-    var target:String!
+    var recommendAudios = [FXAudioItemModel]()
+    var target_string:String!
 
+    init(style: UITableViewStyle,target:String) {
+        super.init(style: style)
+        
+        self.target_string = target
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +32,13 @@ class FXRecommendationsController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        self.title = "Recommendations"
         
+        self.tableViewStyle()
+        
+        self.tableView.registerClass(FXDefaultMusicCell.self, forCellReuseIdentifier: "FXDefaultMusicCell")
+        
+        self.loadContent()
        
         
     }
@@ -30,6 +46,22 @@ class FXRecommendationsController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableViewStyle() {
+        
+        self.tableView.tableFooterView = UIView()
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 50, 0, 0)
+        self.tableView.indicatorStyle = UIScrollViewIndicatorStyle.White
+        
+        self.definesPresentationContext = true
+        self.extendedLayoutIncludesOpaqueBars = true
+        
+        self.tableView.backgroundColor = UIColor ( red: 0.2228, green: 0.2228, blue: 0.2228, alpha: 1.0 )
+        self.tableView.separatorColor = UIColor ( red: 0.2055, green: 0.2015, blue: 0.2096, alpha: 1.0 )
+        
+        self.view.backgroundColor = UIColor ( red: 0.1221, green: 0.1215, blue: 0.1227, alpha: 1.0 )
+        
     }
     
     func animateTable() {
@@ -160,5 +192,27 @@ class FXRecommendationsController: UITableViewController {
         FXDownloadsPoolService.sharedManager().downloadAudioOnLocalStorage(audioModel)
         
     }
+    
+    func loadContent() {
+        
+        FXApiManager.sharedManager().vk_audioGetRecommendations(self.target_string, offset: 0, count: 50) { (audios) in
+            
+            self.recommendAudios = audios
+            self.tableView.reloadData()
+            self.animateTable()
+            
+        }
+        
+    }
 
 }
+
+
+
+
+
+
+
+
+
+

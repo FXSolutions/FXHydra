@@ -37,11 +37,11 @@ class FXPlayerController: UIViewController {
     var songTitleLabel      : MarqueeLabel!
     var songArtistLabel     : AttributedLabel!
     
-    var addToDownloadButton : UIButton!
-    var prevSongButton      : UIButton!
-    var playPauseButton     : UIButton!
-    var nextSongButton      : UIButton!
-    var playlistButton      : UIButton!
+    var addToDownloadButton     : UIButton!
+    var prevSongButton          : UIButton!
+    var playPauseButton         : UIButton!
+    var nextSongButton          : UIButton!
+    var recommendationButton    : UIButton!
     
     var volumeSlider        : UISlider!
     var volumeLeftImage     : UIImageView!
@@ -157,8 +157,8 @@ class FXPlayerController: UIViewController {
         self.nextSongButton.tintColor       = globalTintColor
         self.playPauseButton                = UIButton(type: UIButtonType.System)
         self.playPauseButton.tintColor      = globalTintColor
-        self.playlistButton                 = UIButton(type: UIButtonType.System)
-        self.playlistButton.tintColor       = globalTintColor
+        self.recommendationButton                 = UIButton(type: UIButtonType.System)
+        self.recommendationButton.tintColor       = globalTintColor
         
         
         ///////////////////////////////////////////////////////////////
@@ -223,7 +223,7 @@ class FXPlayerController: UIViewController {
         self.controllersContainer.addSubview(self.prevSongButton)
         self.controllersContainer.addSubview(self.playPauseButton)
         self.controllersContainer.addSubview(self.nextSongButton)
-        self.controllersContainer.addSubview(self.playlistButton)
+        self.controllersContainer.addSubview(self.recommendationButton)
         
         // volume changes :)
         self.controllersContainer.addSubview(self.volumeSlider)
@@ -330,7 +330,7 @@ class FXPlayerController: UIViewController {
         self.nextSongButton.frame       = CGRectMake(self.playPauseButton.right+40, self.playPauseButton.centerY-10, 20, 20)
         
         self.addToDownloadButton.frame  = CGRectMake(self.prevSongButton.left-60, self.playPauseButton.centerY-10, 20, 20)
-        self.playlistButton.frame       = CGRectMake(self.nextSongButton.right+40, self.nextSongButton.centerY-10, 20, 20)
+        self.recommendationButton.frame       = CGRectMake(self.nextSongButton.right+40, self.nextSongButton.centerY-10, 20, 20)
         
         
         ///////////////////////////////////////////////////////////////
@@ -386,15 +386,15 @@ class FXPlayerController: UIViewController {
         let nextSongButtonImage = UIImage(named: "forward_arrows")?.imageByTintColor(globalTintColor)
         self.nextSongButton.setImage(nextSongButtonImage, forState: UIControlState.Normal)
         
-        let playlistButtonImage = UIImage(named: "tabbar_playlists")?.imageByTintColor(globalTintColor)
-        self.playlistButton.setImage(playlistButtonImage, forState: UIControlState.Normal)
+        let recommendationImage = UIImage(named: "tabbar_playlists")?.imageByTintColor(globalTintColor)
+        self.recommendationButton.setImage(recommendationImage, forState: UIControlState.Normal)
         
         // add actions on buttons
         
         self.playPauseButton.addTarget(self, action: #selector(FXPlayerController.playPauseButtonAction), forControlEvents: UIControlEvents.TouchUpInside)
         self.nextSongButton.addTarget(self, action: #selector(FXPlayerController.goToNextTrackInPlaylistAction), forControlEvents: UIControlEvents.TouchUpInside)
         self.prevSongButton.addTarget(self, action: #selector(FXPlayerController.goToPrevTrackInPlaylistAction), forControlEvents: UIControlEvents.TouchUpInside)
-        self.playlistButton.addTarget(self, action: #selector(FXPlayerController.openPlaylist), forControlEvents: UIControlEvents.TouchUpInside)
+        self.recommendationButton.addTarget(self, action: #selector(FXPlayerController.openRecommendationsForCurrentAudio), forControlEvents: UIControlEvents.TouchUpInside)
         
         // volume
         
@@ -685,6 +685,22 @@ class FXPlayerController: UIViewController {
             return "\(min):0\(sec)"
         } else {
             return "\(min):\(sec)"
+        }
+        
+    }
+    
+    func openRecommendationsForCurrentAudio() {
+        
+        if FXPlayerService.sharedManager().currentAudioPlayed != nil {
+            
+            let currentAudio = FXPlayerService.sharedManager().currentAudioPlayed
+            let target_string = "\(currentAudio?.ownerID!)_\(currentAudio?.audioID!)"
+            
+            let recommVC = FXRecommendationsController(style: UITableViewStyle.Plain, target: target_string)
+            
+            self.navigationController?.pushViewController(recommVC, animated: true)
+            
+            
         }
         
     }

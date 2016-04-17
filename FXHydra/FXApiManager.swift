@@ -131,7 +131,7 @@ class FXApiManager {
         
     }
     
-    func vb_audiogetrecommendations(target_audio:String,offset:Int,count:Int,competition:([FXAudioItemModel]) -> ()) {
+    func vk_audioGetRecommendations(target_audio:String,offset:Int,count:Int,competition:([FXAudioItemModel]) -> ()) {
         
         var audioRecommendations:VKRequest!
         
@@ -171,5 +171,7 @@ class FXApiManager {
         
         
     }
+    
+    
     
 }
