@@ -141,12 +141,16 @@ class FXApiManager {
             audioRecommendations = VKRequest(method: "audio.getRecommendations", parameters: ["offset":offset,"count":count])
         }
         
+        log.debug("::: vk_audioGetRecommendations -> params: \(audioRecommendations.methodParameters) :::")
+        
         dispatch.async.global {
             
             audioRecommendations.executeWithResultBlock({ (vk_response) in
                 
                 let json = vk_response.json as! Dictionary<String,AnyObject>
                 let items = json["items"] as! Array<Dictionary<String,AnyObject>>
+                
+                log.debug("::: vk_audioGetRecommendations -> json :\(json) :::")
                 
                 var audiosArray = [FXAudioItemModel]()
                 
@@ -158,6 +162,8 @@ class FXApiManager {
                     audiosArray.append(audioItemModel)
                     
                 }
+                
+                
                 
                 competition(audiosArray)
                 

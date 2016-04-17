@@ -267,6 +267,9 @@ class FXPlayerController: UIViewController {
         
         self.bindedSignals()
         
+        let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backItem
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -329,8 +332,8 @@ class FXPlayerController: UIViewController {
         self.prevSongButton.frame       = CGRectMake(self.playPauseButton.left-60, self.playPauseButton.centerY-10, 20, 20)
         self.nextSongButton.frame       = CGRectMake(self.playPauseButton.right+40, self.playPauseButton.centerY-10, 20, 20)
         
-        self.addToDownloadButton.frame  = CGRectMake(self.prevSongButton.left-60, self.playPauseButton.centerY-10, 20, 20)
-        self.recommendationButton.frame       = CGRectMake(self.nextSongButton.right+40, self.nextSongButton.centerY-10, 20, 20)
+        self.addToDownloadButton.frame        = CGRectMake(self.prevSongButton.left-60, self.playPauseButton.centerY-10, 20, 20)
+        self.recommendationButton.frame       = CGRectMake(self.nextSongButton.right+40, self.nextSongButton.centerY-12, 20, 20)
         
         
         ///////////////////////////////////////////////////////////////
@@ -386,7 +389,7 @@ class FXPlayerController: UIViewController {
         let nextSongButtonImage = UIImage(named: "forward_arrows")?.imageByTintColor(globalTintColor)
         self.nextSongButton.setImage(nextSongButtonImage, forState: UIControlState.Normal)
         
-        let recommendationImage = UIImage(named: "tabbar_playlists")?.imageByTintColor(globalTintColor)
+        let recommendationImage = UIImage(named: "button_recomend")?.imageByTintColor(globalTintColor)
         self.recommendationButton.setImage(recommendationImage, forState: UIControlState.Normal)
         
         // add actions on buttons

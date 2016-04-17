@@ -197,6 +197,8 @@ class FXRecommendationsController: UITableViewController {
         
         FXApiManager.sharedManager().vk_audioGetRecommendations(self.target_string, offset: 0, count: 50) { (audios) in
             
+            
+            
             self.recommendAudios = audios
             self.tableView.reloadData()
             self.animateTable()
