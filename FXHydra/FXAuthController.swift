@@ -41,6 +41,8 @@ class FXAuthController: VideoSplashViewController {
         
         setupVideoBackground()
         
+        VKSdk.instance()
+        
     }
     
     override func viewDidLayoutSubviews() {

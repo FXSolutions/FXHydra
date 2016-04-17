@@ -131,4 +131,45 @@ class FXApiManager {
         
     }
     
+    func vb_audiogetrecommendations(target_audio:String,offset:Int,count:Int,competition:([FXAudioItemModel]) -> ()) {
+        
+        var audioRecommendations:VKRequest!
+        
+        if target_audio.characters.count > 0 {
+            audioRecommendations = VKRequest(method: "audio.getRecommendations", parameters: ["target_audio":target_audio,"offset":offset,"count":count])
+        } else {
+            audioRecommendations = VKRequest(method: "audio.getRecommendations", parameters: ["offset":offset,"count":count])
+        }
+        
+        dispatch.async.global {
+            
+            audioRecommendations.executeWithResultBlock({ (vk_response) in
+                
+                let json = vk_response.json as! Dictionary<String,AnyObject>
+                let items = json["items"] as! Array<Dictionary<String,AnyObject>>
+                
+                var audiosArray = [FXAudioItemModel]()
+                
+                for audioDict in items {
+                    
+                    let jsonAudioItem = JSON(audioDict)
+                    let audioItemModel = FXAudioItemModel(json: jsonAudioItem)
+                    
+                    audiosArray.append(audioItemModel)
+                    
+                }
+                
+                competition(audiosArray)
+                
+                }, errorBlock: { (error) in
+                    
+                    log.error("\(error.description)")
+                    
+            })
+            
+        }
+        
+        
+    }
+    
 }

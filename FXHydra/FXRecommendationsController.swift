@@ -11,6 +11,7 @@ import UIKit
 class FXRecommendationsController: UITableViewController {
     
     var recommendAudios:[FXAudioItemModel]!
+    var target:String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,10 @@ class FXRecommendationsController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
+       
+        
     }
 
     override func didReceiveMemoryWarning() {
