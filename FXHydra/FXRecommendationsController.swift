@@ -42,6 +42,18 @@ class FXRecommendationsController: UITableViewController {
        
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.translucent = false
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.navigationBar.translucent = true
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -197,10 +209,7 @@ class FXRecommendationsController: UITableViewController {
         
         FXApiManager.sharedManager().vk_audioGetRecommendations(self.target_string, offset: 0, count: 50) { (audios) in
             
-            
-            
             self.recommendAudios = audios
-            self.tableView.reloadData()
             self.animateTable()
             
         }

@@ -697,7 +697,7 @@ class FXPlayerController: UIViewController {
         if FXPlayerService.sharedManager().currentAudioPlayed != nil {
             
             let currentAudio = FXPlayerService.sharedManager().currentAudioPlayed
-            let target_string = "\(currentAudio?.ownerID!)_\(currentAudio?.audioID!)"
+            let target_string = "\(currentAudio!.ownerID!)_\(currentAudio!.audioID!)"
             
             let recommVC = FXRecommendationsController(style: UITableViewStyle.Plain, target: target_string)
             
