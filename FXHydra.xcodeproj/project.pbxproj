@@ -24,6 +24,7 @@
 		BE4521FC1C995C6700B8A391 /* dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4521FB1C995C6700B8A391 /* dispatch.swift */; };
 		BE5244231CE092C4004B6ADD /* FXRecommendationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5244221CE092C4004B6ADD /* FXRecommendationsController.swift */; };
 		BE5244251CE093C6004B6ADD /* FXGlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5244241CE093C6004B6ADD /* FXGlobalVars.swift */; };
+		BE5244281CE0D9B2004B6ADD /* FXPopularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5244271CE0D9B2004B6ADD /* FXPopularController.swift */; };
 		BE70F3691C96201A00300696 /* FXDefaultMusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE70F3681C96201A00300696 /* FXDefaultMusicCell.swift */; };
 		BE70F36B1C99669100300696 /* AttributedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE70F36A1C99669100300696 /* AttributedLabel.swift */; };
 		BE70F36F1C99669A00300696 /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BE70F36E1C99669A00300696 /* MarqueeLabel.m */; };
@@ -115,6 +116,7 @@
 		BE4521FB1C995C6700B8A391 /* dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dispatch.swift; sourceTree = "<group>"; };
 		BE5244221CE092C4004B6ADD /* FXRecommendationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXRecommendationsController.swift; sourceTree = "<group>"; };
 		BE5244241CE093C6004B6ADD /* FXGlobalVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXGlobalVars.swift; sourceTree = "<group>"; };
+		BE5244271CE0D9B2004B6ADD /* FXPopularController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXPopularController.swift; sourceTree = "<group>"; };
 		BE70F3681C96201A00300696 /* FXDefaultMusicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXDefaultMusicCell.swift; sourceTree = "<group>"; };
 		BE70F36A1C99669100300696 /* AttributedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedLabel.swift; sourceTree = "<group>"; };
 		BE70F36C1C99669900300696 /* FXHydra-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FXHydra-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		BE5244211CE09266004B6ADD /* Popular */ = {
 			isa = PBXGroup;
 			children = (
+				BE5244271CE0D9B2004B6ADD /* FXPopularController.swift */,
 			);
 			name = Popular;
 			sourceTree = "<group>";
@@ -855,6 +858,7 @@
 				BEF90A731C9CA35500ECFF3F /* FXDownloadsController.swift in Sources */,
 				BE5244231CE092C4004B6ADD /* FXRecommendationsController.swift in Sources */,
 				BED930B81C947D8900A6CD90 /* AppDelegate.swift in Sources */,
+				BE5244281CE0D9B2004B6ADD /* FXPopularController.swift in Sources */,
 				BE38FBF81CBA785800B143DC /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				BE4521FA1C995C6700B8A391 /* FXApiManager.swift in Sources */,
 				BECF4B001CD94D85001D1198 /* FXSearchAudiosController.swift in Sources */,

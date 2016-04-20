@@ -151,8 +151,6 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
             
             self.getCoverImageFromURL(NSURL(string: audioURL)!)
             
-            self.audioPlayer.volume = 0.1
-            
         }
         
     }
@@ -173,7 +171,6 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
         
         self.getCoverImageFromURL(url)
         
-        self.audioPlayer.volume = 0.1
     }
     
     func checkAudioSession() {

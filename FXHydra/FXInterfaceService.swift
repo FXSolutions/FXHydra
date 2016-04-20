@@ -102,7 +102,7 @@ class FXInterfaceService :NSObject , VKSdkDelegate , VKSdkUIDelegate {
         // playlists
         
         let playlistsViewModel = FXPlaylistsViewModel()
-        let playlistsNav = FXNavigationController(rootViewController: FXPlaylistsController(style: .Plain, bindedViewModel: playlistsViewModel))
+        let playlistsNav = FXNavigationController(rootViewController: FXPopularController(style: .Plain, bindedViewModel: playlistsViewModel))
         
         mainNavigations.append(playlistsNav)
         
