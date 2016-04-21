@@ -149,7 +149,7 @@ class FXRecommendationsController: UITableViewController {
         
         ///
         
-        FXInterfaceService.sharedManager().openPlayer()
+        self.navigationController?.popViewControllerAnimated(true)
         
     }
     
