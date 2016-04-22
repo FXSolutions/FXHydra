@@ -32,7 +32,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>540</string>
+	<string>542</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>vkauthorize</string>

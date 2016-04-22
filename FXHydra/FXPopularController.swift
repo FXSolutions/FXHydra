@@ -12,6 +12,8 @@ class FXPopularController: UITableViewController {
 
     var viewModel : FXPlaylistsViewModel?
     
+    var popularAudios = [FXAudioItemModel]()
+    
     // MARK: - Init
     
     init(style: UITableViewStyle,bindedViewModel:FXPlaylistsViewModel) {
@@ -96,11 +98,106 @@ class FXPopularController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.popularAudios.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let auidoModel = self.popularAudios[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("FXDefaultMusicCell", forIndexPath: indexPath) as! FXDefaultMusicCell
+        cell.bindedAudioModel = auidoModel
+        
+        return cell
+        
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let musicModel = self.popularAudios[indexPath.row]
+        self.drawMusicCell(cell as! FXDefaultMusicCell, audioModel: musicModel!)
+        
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        FXPlayerService.sharedManager().currentAudiosArray = self.popularAudios
+        FXPlayerService.sharedManager().currentAudioIndexInArray = indexPath.row
+        
+        FXPlayerService.sharedManager().startPlayAtIndex()
+        
+        self.tableView.updateWithBlock { (tableView) -> Void in
+            tableView.reloadRow(UInt(indexPath.row), inSection: UInt(indexPath.section), withRowAnimation: UITableViewRowAnimation.None)
+        }
+        
+        ///
+        
+        FXInterfaceService.sharedManager().openPlayer()
+        
+    }
+    
+    // MARK: - Drawing cells
+    
+    func drawMusicCell(cell:FXDefaultMusicCell,audioModel:FXAudioItemModel) {
+        
+        cell.audioAristLabel.text = audioModel.artist
+        cell.audioTitleLabel.text = audioModel.title
+        cell.audioTimeLabel.text = audioModel.getDurationString()
+        
+        if FXDataService.sharedManager().checkAudioIdInDownloads(audioModel.audioID) == false {
+            
+            cell.downloadButton.setImage(UIImage(named: "download_button"), forState: UIControlState.Normal)
+            cell.downloadButton.tintColor = UIColor ( red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
+            cell.downloadButton.addTarget(self, action: #selector(FXAllAudiosController.startDownload(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            
+        } else {
+            
+            cell.downloadButton.hidden = true
+            
+        }
+        
+        ///
+        
+        if audioModel.bitrate > 0 {
+            cell.audioBitrate.text = "\(audioModel.bitrate)"
+            cell.bitRateBackgroundImage.image = bitrateImageBlue
+        } else {
+            cell.bitRateBackgroundImage.image = bitrateImageDark
+            cell.audioBitrate.text = "●●●"
+            
+            audioModel.getBitrate { (bitrate) -> () in
+                cell.audioBitrate.text = "\(bitrate)"
+                cell.bitRateBackgroundImage.image = bitrateImageBlue
+            }
+        }
+        
+        ///
+        
+        
+    }
+    
+    func startDownload(sender:AnyObject?) {
+        
+        log.debug("::: sender \(sender) :::")
+        let superView = sender?.superview!!.superview as! FXDefaultMusicCell
+        let audioModel = superView.bindedAudioModel
+        
+        FXDownloadsPoolService.sharedManager().downloadAudioOnLocalStorage(audioModel)
+        
+    }
+    
+    func loadPopuplars() {
+        
+        
+        
     }
     
 }
