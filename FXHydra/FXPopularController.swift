@@ -118,7 +118,7 @@ class FXPopularController: UITableViewController {
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
         let musicModel = self.popularAudios[indexPath.row]
-        self.drawMusicCell(cell as! FXDefaultMusicCell, audioModel: musicModel!)
+        self.drawMusicCell(cell as! FXDefaultMusicCell, audioModel: musicModel)
         
     }
     

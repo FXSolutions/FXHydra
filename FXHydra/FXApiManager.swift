@@ -141,16 +141,12 @@ class FXApiManager {
             audioRecommendations = VKRequest(method: "audio.getRecommendations", parameters: ["offset":offset,"count":count])
         }
         
-        log.debug("::: vk_audioGetRecommendations -> params: \(audioRecommendations.methodParameters) :::")
-        
         dispatch.async.global {
             
             audioRecommendations.executeWithResultBlock({ (vk_response) in
                 
                 let json = vk_response.json as! Dictionary<String,AnyObject>
                 let items = json["items"] as! Array<Dictionary<String,AnyObject>>
-                
-                log.debug("::: vk_audioGetRecommendations -> json :\(json) :::")
                 
                 var audiosArray = [FXAudioItemModel]()
                 
@@ -164,6 +160,41 @@ class FXApiManager {
                 }
                 
                 
+                
+                competition(audiosArray)
+                
+                }, errorBlock: { (error) in
+                    
+                    log.error("\(error.description)")
+                    
+            })
+            
+        }
+        
+        
+    }
+    
+    func vk_audioGetPopular(offset:Int,count:Int,competition:([FXAudioItemModel]) -> ()) {
+        
+        let audioPopular = VKRequest(method: "audio.getPopular", parameters: ["offset":offset,"count":count])
+        
+        dispatch.async.global {
+            
+            audioPopular.executeWithResultBlock({ (vk_response) in
+                
+                let json = vk_response.json as! Dictionary<String,AnyObject>
+                let items = json["items"] as! Array<Dictionary<String,AnyObject>>
+                
+                var audiosArray = [FXAudioItemModel]()
+                
+                for audioDict in items {
+                    
+                    let jsonAudioItem = JSON(audioDict)
+                    let audioItemModel = FXAudioItemModel(json: jsonAudioItem)
+                    
+                    audiosArray.append(audioItemModel)
+                    
+                }
                 
                 competition(audiosArray)
                 
