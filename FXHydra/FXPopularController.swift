@@ -35,7 +35,10 @@ class FXPopularController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.registerClass(FXDefaultMusicCell.self, forCellReuseIdentifier: "FXDefaultMusicCell")
+        
         self.tableViewStyle()
+        self.loadPopuplars()
         
     }
     
@@ -82,7 +85,7 @@ class FXPopularController: UITableViewController {
     func tableViewStyle() {
         
         self.tableView.tableFooterView = UIView()
-        self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 50, 0, 0)
         self.tableView.indicatorStyle = UIScrollViewIndicatorStyle.White
         
         self.definesPresentationContext = true
@@ -196,7 +199,10 @@ class FXPopularController: UITableViewController {
     
     func loadPopuplars() {
         
-        
+        FXApiManager.sharedManager().vk_audioGetPopular(0, count: 100) { (popAudios) in
+            self.popularAudios = popAudios
+            self.animateTable()
+        }
         
     }
     

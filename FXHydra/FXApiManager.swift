@@ -182,8 +182,10 @@ class FXApiManager {
             
             audioPopular.executeWithResultBlock({ (vk_response) in
                 
-                let json = vk_response.json as! Dictionary<String,AnyObject>
-                let items = json["items"] as! Array<Dictionary<String,AnyObject>>
+                //log.debug("::: json -> \(vk_response.json) :::")
+                
+                let items = vk_response.json as! Array<Dictionary<String,AnyObject>>
+                //let items = json["items"] as! Array<Dictionary<String,AnyObject>>
                 
                 var audiosArray = [FXAudioItemModel]()
                 
