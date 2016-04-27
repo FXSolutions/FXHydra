@@ -242,8 +242,6 @@ class FXAllAudiosController: UITableViewController {
         
         log.debug("::: sender \(sender) :::")
         let superView = sender?.superview!!.superview as! FXDefaultMusicCell
-        let progressButton = sender as! CircularProgressButton
-        progressButton.animate()
         let audioModel = superView.bindedAudioModel
         
         FXDownloadsPoolService.sharedManager().downloadAudioOnLocalStorage(audioModel)
