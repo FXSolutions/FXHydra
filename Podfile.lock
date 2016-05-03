@@ -6,6 +6,7 @@ PODS:
     - sqlite3/common (= 3.12.2)
   - sqlite3/common (3.12.2)
   - StreamingKit (0.1.29)
+  - SwiftFilePath (0.0.6)
   - VK-ios-sdk (1.3.16)
   - YYKit (1.0.5):
     - YYKit/no-arc (= 1.0.5)
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - RxSwift
   - sqlite3
   - StreamingKit
+  - SwiftFilePath
   - VK-ios-sdk
   - YYKit
 
@@ -26,6 +28,7 @@ SPEC CHECKSUMS:
   RxSwift: 67b9ef4e8b34fb394e200e754c6a09cc16559f94
   sqlite3: 5724400abcbfbc8d13c60d6a4123361faf0c62e3
   StreamingKit: c329785aaef3ac142d4ae388345bfe1ed23cfd45
+  SwiftFilePath: 52c1db61018e0a3941191eb71002cb5cbdaa39e7
   VK-ios-sdk: 7804776d9947cf9b6f54a259fac589b9212156f1
   YYKit: f2654fe525de2283648db957bddb37ddd8e06549
 

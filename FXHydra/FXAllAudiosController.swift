@@ -183,6 +183,7 @@ class FXAllAudiosController: UITableViewController {
         
         cell.downloadButton.setImage(UIImage(named: "download_button"), forState: UIControlState.Normal)
         cell.downloadButton.tintColor = UIColor ( red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
+        cell.downloadButton.addTarget(self, action: #selector(FXAllAudiosController.startDownload(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         ///
         
@@ -201,6 +202,16 @@ class FXAllAudiosController: UITableViewController {
         
         ///
         
+        
+    }
+    
+    func startDownload(sender:AnyObject?) {
+        
+        log.debug("::: sender \(sender) :::")
+        let superView = sender?.superview!!.superview as! FXDefaultMusicCell
+        let audioModel = superView.bindedAudioModel
+        
+        FXDownloadsPoolService.sharedManager().downloadAudioOnLocalStorage(audioModel)
         
     }
     

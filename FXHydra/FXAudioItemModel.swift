@@ -42,6 +42,23 @@ class FXAudioItemModel {
         
     }
     
+    init(set:FMResultSet) {
+        
+        //audio_id, artist, title, lyrics_id, url, owner_id, duration, genre_id, local_url, bitrate
+        
+        self.audioID            = set.longForColumn("audio_id")
+        self.artist             = set.stringForColumn("artist")
+        self.title              = set.stringForColumn("title")
+        self.lyrics_id          = set.longForColumn("lyrics_id")
+        self.audioNetworkURL    = set.stringForColumn("url")
+        self.ownerID            = set.longForColumn("owner_id")
+        self.duration           = set.longForColumn("duration")
+        self.genre_id           = set.longForColumn("genre_id")
+        self.audioLocalURL      = set.stringForColumn("local_url")
+        self.bitrate            = set.longForColumn("bitrate")
+        
+    }
+    
     
     func getBitrate(completition:(Int) -> ()) {
         
@@ -134,23 +151,21 @@ class FXAudioItemModel {
         
         var audioDict = Dictionary<String,String>()
         
-        audioDict["audio_id"] = String(self.audioID).sqlString()
-        audioDict["artist"] = self.artist.sqlString()
-        audioDict["lyrics_id"] = String(self.lyrics_id).sqlString()
-        audioDict["url"] = self.audioNetworkURL.sqlString()
-        audioDict["owner_id"] = String(self.ownerID).sqlString()
-        audioDict["duration"] = String(self.duration).sqlString()
-        audioDict["genre_id"] = String(self.genre_id).sqlString()
+        audioDict["audio_id"]   = String(self.audioID).sqlString()
+        audioDict["artist"]     = self.artist.sqlString()
+        audioDict["title"]      = self.title.sqlString()
+        audioDict["lyrics_id"]  = String(self.lyrics_id).sqlString()
+        audioDict["url"]        = self.audioNetworkURL.sqlString()
+        audioDict["owner_id"]   = String(self.ownerID).sqlString()
+        audioDict["duration"]   = String(self.duration).sqlString()
+        audioDict["genre_id"]   = String(self.genre_id).sqlString()
         
-        audioDict["local_url"] = self.audioLocalURL.sqlString()
-        audioDict["bitrate"] = String(self.bitrate).sqlString()
+        audioDict["local_url"]  = self.audioLocalURL.sqlString()
+        audioDict["bitrate"]    = String(self.bitrate).sqlString()
         
         return audioDict
         
     }
-    
-    
-    
     
 
 }

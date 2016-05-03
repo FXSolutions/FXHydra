@@ -10,6 +10,7 @@ import Foundation
 import StreamingKit
 import AVFoundation
 import VK_ios_sdk
+import SwiftFilePath
 
 class FXPlayerService : NSObject, STKAudioPlayerDelegate {
 
@@ -102,20 +103,28 @@ class FXPlayerService : NSObject, STKAudioPlayerDelegate {
         log.info("::: startPlayNetworkURL :::")
         
         self.checkURLForAudio(model) { (audioURL) -> () in
+            
             self.currentAudioPlayed = model
-            self.audioPlayer.play(audioURL)
+            
+            let dataSourceFromURL = STKAudioPlayer.dataSourceFromURL(NSURL(string: audioURL)!)
+            
+            self.audioPlayer.playDataSource(dataSourceFromURL)
             
             self.checkAudioSession()
+            
         }
-        
         
     }
     
     private func startPlayLocalURL(model:FXAudioItemModel) {
         
         log.info("::: startPlayNetworkURL :::")
+    
+        let url = NSURL(fileURLWithPath: Path.homeDir["FXHydra"][model.audioLocalURL].toString())
+    
+        let dataSourceFromURL = STKAudioPlayer.dataSourceFromURL(url)
         
-        self.audioPlayer.play(model.audioLocalURL)
+        self.audioPlayer.playDataSource(dataSourceFromURL)
         
         self.currentAudioPlayed = model
         self.checkAudioSession()

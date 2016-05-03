@@ -10,6 +10,7 @@ target 'FXHydra' do
     pod 'ESTMusicIndicator'
     pod 'sqlite3'
     pod 'Just'
+    pod 'SwiftFilePath'
 
 end
 

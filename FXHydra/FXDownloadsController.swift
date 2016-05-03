@@ -12,6 +12,11 @@ class FXDownloadsController: UITableViewController {
     
     weak var viewModel : FXDownloadsViewModel?
     
+    let bitrateImageDark = UIImage(named: "bitrate_background")?.imageByTintColor(UIColor ( red: 0.426, green: 0.4397, blue: 0.4529, alpha: 1.0))
+    let bitrateImageBlue = UIImage(named: "bitrate_background")?.imageByTintColor(UIColor ( red: 0.0734, green: 0.6267, blue: 0.7817, alpha: 1.0))
+    
+    var allSongs = [FXAudioItemModel]()
+    
     // MARK: - Init
     
     init(style: UITableViewStyle,bindedViewModel:FXDownloadsViewModel) {
@@ -23,6 +28,8 @@ class FXDownloadsController: UITableViewController {
         self.tabBarItem = UITabBarItem(title: "Downloads", image: UIImage(named: "tabbar_downloads"), tag: 0)
         
         self.navigationItem.title = "Downloads"
+        
+        self.tableView.registerClass(FXDefaultMusicCell.self, forCellReuseIdentifier: "FXDefaultMusicCell")
         
     }
     
@@ -37,6 +44,26 @@ class FXDownloadsController: UITableViewController {
         super.viewDidLoad()
         
         self.tableViewStyle()
+        
+        self.updateFromDB()
+        
+        FXSignalsService.sharedManager().updateAfterDownload.listen(self) { (update) in
+            self.updateFromDB()
+        }
+        
+    }
+    
+    func updateFromDB() {
+        
+        FXDatabaseService.sharedManager().getAllDownloadsFromDB { (arrayOfSongs) in
+            
+            self.allSongs = arrayOfSongs
+            
+            dispatch.async.main({
+                self.tableView.reloadData()
+            })
+            
+        }
         
     }
 
@@ -100,67 +127,84 @@ class FXDownloadsController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.allSongs.count
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        
+        let audioModel = self.allSongs[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("FXDefaultMusicCell", forIndexPath: indexPath) as! FXDefaultMusicCell
+        cell.bindedAudioModel = audioModel
+        
         return cell
+        
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let musicModel = self.allSongs[indexPath.row]
+        self.drawMusicCell(cell as! FXDefaultMusicCell, audioModel: musicModel)
+        
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
+    func drawMusicCell(cell:FXDefaultMusicCell,audioModel:FXAudioItemModel) {
+        
+        cell.audioAristLabel.text = audioModel.artist
+        cell.audioTitleLabel.text = audioModel.title
+        cell.audioTimeLabel.text = audioModel.getDurationString()
+        
+        cell.downloadButton.hidden = true
+        
+//        cell.downloadButton.setImage(UIImage(named: "download_button"), forState: UIControlState.Normal)
+//        cell.downloadButton.tintColor = UIColor ( red: 0.0, green: 0.8408, blue: 1.0, alpha: 1.0)
+        
+        ///
+        
+        if audioModel.bitrate > 0 {
+            cell.audioBitrate.text = "\(audioModel.bitrate)"
+            cell.bitRateBackgroundImage.image = self.bitrateImageBlue
+        } else {
+            cell.bitRateBackgroundImage.image = self.bitrateImageDark
+            cell.audioBitrate.text = "●●●"
+            
+            audioModel.getBitrate { (bitrate) -> () in
+                cell.audioBitrate.text = "\(bitrate)"
+                cell.bitRateBackgroundImage.image = self.bitrateImageBlue
+            }
+        }
+        
+        
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    ////
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        FXPlayerService.sharedManager().currentAudiosArray = self.allSongs
+        FXPlayerService.sharedManager().currentAudioIndexInArray = indexPath.row
+        
+        FXPlayerService.sharedManager().startPlayAtIndex()
+        
+        self.tableView.updateWithBlock { (tableView) -> Void in
+            tableView.reloadRow(UInt(indexPath.row), inSection: UInt(indexPath.section), withRowAnimation: UITableViewRowAnimation.None)
+        }
+        
+        ///
+        
+        FXInterfaceService.sharedManager().openPlayer()
+        
     }
-    */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

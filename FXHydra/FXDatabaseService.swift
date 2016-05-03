@@ -116,5 +116,64 @@ class FXDatabaseService {
         
     }
     
+    func saveDownloadModel(audio_model:FXAudioItemModel,cb:(Bool) -> ()) {
+        
+        dispatch_async(self.queueDb!) {
+        
+            let audioDict = audio_model.fmdbdict()
+            
+            
+            let audio_id    = NSString(string:audioDict["audio_id"]!)
+            let artist      = NSString(string:audioDict["artist"]!)
+            let title       = NSString(string:audioDict["title"]!)
+            let lyrics_id   = NSString(string:audioDict["lyrics_id"]!)
+            let url         = NSString(string:audioDict["url"]!)
+            let owner_id    = NSString(string:audioDict["owner_id"]!)
+            let duration    = NSString(string:audioDict["duration"]!)
+            let genre_id    = NSString(string:audioDict["genre_id"]!)
+            let local_url   = NSString(string:audioDict["local_url"]!)
+            let bitrate     = NSString(string:audioDict["bitrate"]!)
+            
+            
+            var sql = "INSERT OR REPLACE INTO DOWNLOADS (audio_id, artist, title, lyrics_id, url, owner_id, duration, genre_id, local_url, bitrate) values"
+            
+            sql += "('\(audio_id)' , '\(artist)' , '\(title)' , '\(lyrics_id)' , '\(url)' , '\(owner_id)' , '\(duration)' , '\(genre_id)' , '\(local_url)' , '\(bitrate)')"
+            
+            let res = self.database.executeUpdate(sql, withArgumentsInArray: nil)
+            
+            cb(res)
+            
+        }
+        
+    }
+    
+    func getAllDownloadsFromDB(cb:([FXAudioItemModel]) ->()) {
+        
+        dispatch_async(self.queueDb!) {
+            
+            let sql = "SELECT * FROM DOWNLOADS"
+            
+            var downloadsArray = [FXAudioItemModel]()
+            
+            if let set:FMResultSet = self.database.executeQuery(sql, withArgumentsInArray: nil) {
+                while set.next() {
+                    
+                    let downloadModel = FXAudioItemModel(set: set)
+                    downloadsArray.append(downloadModel)
+                    
+                }
+            }
+            
+            dispatch.async.main({
+                cb(downloadsArray)
+            })
+            
+        }
+        
+    }
+    
+    
+    
+    
 
 }

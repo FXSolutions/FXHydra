@@ -399,10 +399,12 @@ class FXPlayerController: UIViewController {
         // volume
         
         self.volumeSlider.addTarget(self, action: #selector(FXPlayerController.changeVolumeSliderValue), forControlEvents: UIControlEvents.ValueChanged)
-        
-        self.songSlider.addTarget(self, action: #selector(FXPlayerController.seekSongToNewValue), forControlEvents: UIControlEvents.TouchUpInside)
-        
         self.volumeSlider.value = FXPlayerService.sharedManager().audioPlayer.volume
+        
+        // song slider
+        self.songSlider.addTarget(self, action: #selector(FXPlayerController.stopUpdateTime), forControlEvents: UIControlEvents.TouchDown)
+        self.songSlider.addTarget(self, action: #selector(FXPlayerController.seekSongToNewValue), forControlEvents: UIControlEvents.TouchUpInside)
+        self.songSlider.addTarget(self, action: #selector(FXPlayerController.updateTimeOnSlide), forControlEvents: UIControlEvents.TouchDragInside)
         
     }
     
@@ -534,11 +536,31 @@ class FXPlayerController: UIViewController {
         self.timerForUpdateDuration?.fire()
     }
     
+    func stopUpdateTime() {
+        
+        if self.timerForUpdateDuration != nil {
+            
+            self.timerForUpdateDuration?.invalidate()
+            
+        }
+        
+    }
+    
+    func updateTimeOnSlide() {
+        
+        let seekTime = FXPlayerService.sharedManager().audioPlayer.duration * Double(self.songSlider.value)
+        
+        self.songTimeLeftLabel.text = self.getDurationString(seekTime)
+        
+    }
+    
     func seekSongToNewValue() {
         
         let seekTime = FXPlayerService.sharedManager().audioPlayer.duration * Double(self.songSlider.value)
         
         FXPlayerService.sharedManager().audioPlayer.seekToTime(seekTime)
+        
+        self.startUpdateTime()
         
     }
     
