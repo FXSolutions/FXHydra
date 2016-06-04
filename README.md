@@ -11,7 +11,6 @@
 ### Features
 - Download audios from VK and listen in offline
 - Global search
-- Support Friends/Group/Public/Playlist audios (VK)
 
 ### Installation & Requirements
 
