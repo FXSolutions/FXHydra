@@ -15,7 +15,6 @@ class FXAllAudiosController: UITableViewController {
     var viewModel : FXAllAudiosViewModel?
     
     //
-    
     var searchController : UISearchController?
     
     // FIX IT : going to another public static class
@@ -47,17 +46,20 @@ class FXAllAudiosController: UITableViewController {
         
         self.tableViewStyle()
         
+        let refreshControl = UIRefreshControl.init()
+        refreshControl.addTarget(self, action: #selector(loadMusic), forControlEvents: .ValueChanged)
+        self.refreshControl = refreshControl
+        /*[self.topRefreshControl addTarget:self action:@selector(didRequestOlderMessages) forControlEvents:UIControlEventValueChanged];
+        self.topRefreshControl.layer.masksToBounds = YES;
+        [self.tableView insertSubview:self.topRefreshControl atIndex:0];*/
+        
         // register cell
         
         self.tableView.registerClass(FXDefaultMusicCell.self, forCellReuseIdentifier: "FXDefaultMusicCell")
         
         // load data
         
-        self.viewModel?.getAudios({ (compite) -> () in
-            if compite == true {
-                self.animateTable()
-            }
-        })
+        loadMusic()
         
         /// add search
         
@@ -99,6 +101,20 @@ class FXAllAudiosController: UITableViewController {
         super.viewDidAppear(animated)
         
         
+    }
+    
+    func loadMusic() {
+        self.viewModel?.getAudios({ (compite) -> () in
+            if compite == true {
+                self.animateTable()
+                if let refreshControl = self.refreshControl {
+                    if refreshControl.refreshing {
+                        refreshControl.endRefreshing()
+                    }
+                }
+                
+            }
+        })
     }
     
     func animateTable() {
