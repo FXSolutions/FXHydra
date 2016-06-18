@@ -22,8 +22,11 @@ class FXAllAudiosController: UITableViewController {
     
     // MARK: - Init
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
     init(style: UITableViewStyle,bindedViewModel:FXAllAudiosViewModel) {
-        
         super.init(style: style)
         
         self.viewModel = bindedViewModel
