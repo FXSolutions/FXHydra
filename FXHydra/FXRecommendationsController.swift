@@ -13,6 +13,10 @@ class FXRecommendationsController: UITableViewController {
     var recommendAudios = [FXAudioItemModel]()
     var target_string:String!
 
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
     init(style: UITableViewStyle,target:String) {
         super.init(style: style)
         
