@@ -203,6 +203,35 @@ class FXDownloadsController: UITableViewController {
         FXInterfaceService.sharedManager().openPlayer()
         
     }
-
-
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let deleteButton = UITableViewRowAction.init(style: .Default, title: "Delete") { (action, indexPath) in
+            let index = indexPath.row
+            let song = self.allSongs[index]
+            if FXPlayerService.sharedManager().currentAudioIndexInArray == index {
+                let state = FXPlayerService.sharedManager().audioPlayer.state
+                if state == .Playing {
+                    FXPlayerService.sharedManager().audioPlayer.pause()
+                }
+            }
+            
+            FXDatabaseService.sharedManager().deleteDownloadModel(song, cb: { (completed) in
+                if completed {
+                    FXDataService.sharedManager().loadAllDownloads({ (done) in
+                        dispatch.async.main({
+                            FXSignalsService.sharedManager().updateAfterDownload.fire(true)
+                        })
+                    })
+                    //self.updateFromDB()
+                }
+            })
+            
+        }
+        deleteButton.backgroundColor = UIColor.init(RGB: 0xd72d2d)
+        return [deleteButton]
+    }
 }

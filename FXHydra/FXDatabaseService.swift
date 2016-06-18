@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftFilePath
 
 class FXDatabaseService {
     
@@ -172,8 +173,45 @@ class FXDatabaseService {
         
     }
     
+    func getDownloadModelWithID(id: Int, cb:(FXAudioItemModel?) -> ()) {
+        
+        dispatch_async(self.queueDb!) {
+            
+            let sql = "SELECT * FROM DOWNLOADS WHERE audio_id = \(id)"
+            
+            var downloadsArray = [FXAudioItemModel]()
+            
+            if let set:FMResultSet = self.database.executeQuery(sql, withArgumentsInArray: nil) {
+                while set.next() {
+                    let downloadModel = FXAudioItemModel(set: set)
+                    downloadsArray.append(downloadModel)
+                    
+                }
+            }
+            
+            dispatch.async.main({
+                cb(downloadsArray.first)
+            })
+            
+        }
+        
+    }
     
-    
-    
-
+    func deleteDownloadModel(model: FXAudioItemModel, cb:(Bool) -> ()) {
+        dispatch_async(self.queueDb!) {
+            
+            let sql = "DELETE FROM DOWNLOADS WHERE audio_id = \(model.audioID)"
+            let path = Path.documentsDir["FXHydra"][model.audioLocalURL]
+ 
+            let res = self.database.executeUpdate(sql, withArgumentsInArray: nil)
+            if res {
+                path.remove()
+            }
+            
+            dispatch.async.main({
+                cb(res)
+            })
+            
+        }
+    }
 }

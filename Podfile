@@ -3,15 +3,15 @@ use_frameworks!
 
 target 'FXHydra' do
 	
-	pod 'StreamingKit'
-    	pod 'VK-ios-sdk'
-    	pod 'YYKit'
-    	pod 'RxSwift'
-    	pod 'ESTMusicIndicator'
-    	pod 'sqlite3'
-    	pod 'Just'
-    	pod 'SwiftFilePath'
-    	pod 'BCColor'
+    pod 'StreamingKit'
+    pod 'VK-ios-sdk'
+    pod 'YYKit'
+    pod 'RxSwift'
+    pod 'ESTMusicIndicator'
+    pod 'sqlite3'
+    pod 'Just'
+    pod 'SwiftFilePath'
+    pod 'BCColor'
 	
 end
 

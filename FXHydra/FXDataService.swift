@@ -24,8 +24,9 @@ class FXDataService {
     
     func loadAllDownloads(cb:(Bool) -> ()) {
         
-        
         FXDatabaseService.sharedManager().getAllDownloadsFromDB { (downloadsArray) in
+            
+            self.allDownloads.removeAll()
             
             for audioModel in downloadsArray {
                 

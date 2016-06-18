@@ -62,6 +62,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // start audio session
         
+        // apply appearence
+        
+        if #available(iOS 9.0, *) {
+            let appearanceButton = UIButton.appearanceWhenContainedInInstancesOfClasses([NSClassFromString("UITableViewCellDeleteConfirmationView")!])
+            let title = NSAttributedString.init(string: "Delete", attributes: [NSFontAttributeName:UIFont.init(name: "Avenir-Heavy", size: 16)!])
+            appearanceButton.setAttributedTitle(title, forState: .Normal)
+        }
+        
         return true
     }
 

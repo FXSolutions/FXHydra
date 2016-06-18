@@ -84,7 +84,9 @@ class FXAllAudiosController: UITableViewController {
         
         self.tableView.backgroundView = UIView()
         
-
+        FXSignalsService.sharedManager().updateAfterDownload.listen(self) { (update) in
+            self.tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -246,6 +248,45 @@ class FXAllAudiosController: UITableViewController {
         
         FXDownloadsPoolService.sharedManager().downloadAudioOnLocalStorage(audioModel)
         
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        let musicModel = self.viewModel?.audiosArray[indexPath.row]
+        return FXDataService.sharedManager().checkAudioIdInDownloads(musicModel!.audioID)
+    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let deleteButton = UITableViewRowAction.init(style: .Default, title: "Delete") { (action, indexPath) in
+            let index = indexPath.row
+            let model = self.viewModel?.audiosArray[index]
+            
+            FXDatabaseService.sharedManager().getDownloadModelWithID(model!.audioID, cb: { (song) in
+                if song != nil {
+                    
+                    if FXPlayerService.sharedManager().currentAudioIndexInArray == index {
+                        let state = FXPlayerService.sharedManager().audioPlayer.state
+                        if state == .Playing {
+                            FXPlayerService.sharedManager().audioPlayer.pause()
+                        }
+                    }
+                    
+                    FXDatabaseService.sharedManager().deleteDownloadModel(song!, cb: { (completed) in
+                        if completed {
+                            FXDataService.sharedManager().loadAllDownloads({ (done) in
+                                dispatch.async.main({
+                                    FXSignalsService.sharedManager().updateAfterDownload.fire(true)
+                                })
+                            })
+                        }
+                    })
+                }
+            })
+            
+            
+            
+        }
+        deleteButton.backgroundColor = UIColor.init(RGB: 0xd72d2d)
+        return [deleteButton]
     }
     
     deinit {
