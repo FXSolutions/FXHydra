@@ -60,10 +60,10 @@ class FXDownloadsPoolService {
     
     func saveInLocalDir(audio_model:FXAudioItemModel,content:NSData) {
         
-        let mp3File = Path.documentsDir["FXHydra"]["audioid_\(audio_model.audioID).mp3"]
-        mp3File.writeData(content)
-        
         let path = "audioid_\(audio_model.audioID).mp3"
+        
+        let mp3File = Path.documentsDir["FXHydra"][path]
+        mp3File.writeData(content)
         
         log.debug("::: save in path: \(path) :::")
         

@@ -14,6 +14,10 @@ class FXPlaylistsController: UITableViewController {
     
     // MARK: - Init
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
     init(style: UITableViewStyle,bindedViewModel:FXPlaylistsViewModel) {
         
         self.viewModel = bindedViewModel
